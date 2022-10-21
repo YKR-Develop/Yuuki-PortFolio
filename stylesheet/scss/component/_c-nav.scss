@@ -2,17 +2,17 @@
  c-nav.scss
  各種ナビゲーションの指定
 ================================================== */
-/* //////////// 変数読み込み //////////// */
-@use "../mixin" as *;
-@use "../config/function" as *;
+/* ⬇︎ //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
 @use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* ⬆︎ //////////// 変数読み込み //////////// */
 
 /* --------------------------------------------------
  header-fixed__nav ビジュアル固定ナビ
 -------------------------------------------------- */ 
 .header-fixed {
-  @include maxWidth;
-
   &__nav {
     display: flex;
     justify-content: space-between;

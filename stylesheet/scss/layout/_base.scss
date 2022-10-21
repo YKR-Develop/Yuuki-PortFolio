@@ -6,6 +6,11 @@
 @use "../config/variables" as *;
 @use "../config/function" as *;
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -32,3 +37,4 @@ a {
 li {
   list-style: none;
 }
+

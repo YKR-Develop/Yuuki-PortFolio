@@ -35,12 +35,17 @@
   <!-- スマホ用アイコン画像 -->
   <link rel="apple-touch-icon-precomposed" href="/images/ico/ico_apple-touch-icon.png">
 
-  <!-- stylesheet読み込み -->
+  <!-- stylesheet 読み込み -->
   <link rel="stylesheet" href="stylesheet/css/style.css">
 
-  <!-- Googleフォント読み込み -->
+  <!-- Googleフォント 読み込み -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;500;600&family=Teko:wght@500&display=swap"
     rel="stylesheet">
+
+  <!-- JQuery 読み込み -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+    </script>
 
 </head>
 
@@ -50,52 +55,52 @@
 
   <!-- ⬇︎ ############ Hero-image Start ############ ⬇︎ -->
   <div class="main-visual">
+    <div class="main-visual__inner">
 
-    <!-- ⬇︎ /////////////////// Header / Global-Navigation Start /////////////////// ⬇︎ -->
-    <!-- ビジュアルナビゲーション ここから ***************** -->
-    <header class="header-fixed">
-      <nav class="header-fixed__nav">
-        <!-- ロゴリンク -->
-        <a class="header-fixed__top-link" href="index.html">
-          <h1 class="header-fixed__logo">
-            <img class="header-fixed__logo-img" src="images/ico/ico_logo.png" alt="Yukuro CreateFolio">
-          </h1>
-        </a>
+      <!-- ⬇︎ /////////////////// Header / Global-Navigation Start /////////////////// ⬇︎ -->
+      <!-- ビジュアルナビゲーション ここから ***************** -->
+      <header class="header-fixed">
+        <nav class="header-fixed__nav">
+          <!-- ロゴリンク -->
+          <a class="header-fixed__top-link" href="index.html">
+            <h1 class="header-fixed__logo">
+              <img class="header-fixed__logo-img" src="images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+            </h1>
+          </a>
 
-        <!-- ナビゲーションメニュー -->
-        <ul class="header-fixed__list">
-          <li class="header-fixed__item">
-            <a href="works.html" class="header-fixed__link">Works</a>
-          </li>
-          <li class="header-fixed__item">
-            <a href="works.html" class="header-fixed__link">About</a>
-          </li>
-          <li class="header-fixed__item">
-            <a href="works.html" class="header-fixed__link">Blog</a>
-          </li>
-          <li class="header-fixed__item">
-            <a href="works.html" class="header-fixed__link">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <!-- ビジュアルナビゲーション ここまで ***************** -->
+          <!-- ナビゲーションメニュー -->
+          <ul class="header-fixed__list">
+            <li class="header-fixed__item">
+              <a href="works.html" class="header-fixed__link">Works</a>
+            </li>
+            <li class="header-fixed__item">
+              <a href="works.html" class="header-fixed__link">About</a>
+            </li>
+            <li class="header-fixed__item">
+              <a href="works.html" class="header-fixed__link">Blog</a>
+            </li>
+            <li class="header-fixed__item">
+              <a href="works.html" class="header-fixed__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!-- ビジュアルナビゲーション ここまで ***************** -->
 
-    <!-- スクロールナビゲーション ここから ***************** -->
+      <!-- スクロールナビゲーション ここから ***************** -->
 
-    <!-- スクロールナビゲーション ここまで ***************** -->
+      <!-- スクロールナビゲーション ここまで ***************** -->
 
-    <!-- ビジュアルテキスト ここから ***************** -->
-    <div class="main-visual__catchcopy">
-      <p class="main-visual__catchcopy-text js-text-animation">
-        <span class="main-visual__text-line">創作活動が生み出す</span>
-        <span class="main-visual__text-line main-visual__text-line--bottom">まだ知らない自分</span>
-      </p>
+      <!-- ビジュアルテキスト ここから ***************** -->
+        <p class="main-visual__catchcopy">
+          <span class="main-visual__text-line js-text-animation">創作活動が生み出す</span>
+          <span class="main-visual__text-line main-visual__text-line--bottom js-text-animation">まだ知らない自分</span>
+        </p>
+      <!-- ビジュアルテキスト ここまで ***************** -->
+
+      <!-- ⬆︎ /////////////////// Header / Global-Navigation End /////////////////// ⬆︎ -->
+
     </div>
-    <!-- ビジュアルテキスト ここまで ***************** -->
-
-    <!-- ⬆︎ /////////////////// Header / Global-Navigation End /////////////////// ⬆︎ -->
-
   </div>
   <!-- ⬆︎ ############ Hero-image End ############ ⬆︎ -->
 
@@ -109,6 +114,8 @@
 
 
 
+  <!-- ⬇︎ ################# JSファイル 読み込み ################# ⬇︎ -->
+  <script src="javascript/main.js"></script>
 </body>
 
 </html>

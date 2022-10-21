@@ -1,0 +1,70 @@
+/* ===================================================
+  animation.scss
+  アニメーションパーツ定義
+================================================== */
+/* ⬇︎ //////////// 変数読み込み //////////// */
+@use "./mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* ⬆︎ //////////// 変数読み込み //////////// */
+
+/* --------------------------------------------------
+  Animationのmixinベース定義
+-------------------------------------------------- */
+/* //////////// @Keyframes //////////// */
+@mixin keyframe($animation-name) {
+  @keyframe #{$animation-name} {
+    @content;
+  }
+}
+
+/* //////////// ベースアニメーション //////////// */
+@mixin animation(
+  $name,
+  $duration: 1s,
+  $timing-function: ease,
+  $delay: 0s,
+  $iteration-count: 1,
+  $direction: normal,
+  $fill-mode: forwards
+) {
+  animation: {
+    name: $name;
+    duration: $duration;
+    timing-function: $timing-function;
+    delay: $delay;
+    iteration-count: $iteration-count;
+    direction: $direction;
+    fill-mode: $fill-mode;
+  }
+}
+
+/* ⬇︎ 以下、各アニメーション内容定義 ---------------------------------------------------*/
+
+/* --------------------------------------------------
+  Animationのmixinベース定義 アニメーション
+-------------------------------------------------- */
+.js-text-animation {
+  span {
+    opacity: 0;
+  }
+
+  &.appeartext span {
+    @include animation(
+        $name: is_text_on,
+        $duration: 0.5s,
+        $timing-function: ease-in,
+        $fill-mode: both
+      );
+  }
+
+  @keyframes is_text_on {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
