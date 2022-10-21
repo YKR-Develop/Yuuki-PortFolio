@@ -1,0 +1,39 @@
+/*===================================================
+ c-nav.scss
+ 各種ナビゲーションの指定
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin" as *;
+@use "../config/function" as *;
+@use "../config/variables" as *;
+
+/* --------------------------------------------------
+ header-fixed__nav ビジュアル固定ナビ
+-------------------------------------------------- */ 
+.header-fixed {
+  @include maxWidth;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 200px;
+    height: 55px;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 56px;
+    font-size: fluid-size(14, 14);
+  }
+
+  &__link {
+    color: $font-white;
+  }
+}

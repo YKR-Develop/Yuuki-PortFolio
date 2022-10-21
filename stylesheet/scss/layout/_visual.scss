@@ -1,0 +1,30 @@
+/*===================================================
+ visual.scss
+ 各ページビジュアルの定義
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin" as *;
+@use "../config/function" as *;
+@use "../config/variables" as *;
+
+.main-visual {
+  width: 100%;
+  height: 100vh;
+  background: url("../../images/img/img_hero-visual.jpg") no-repeat center / cover;
+  position: relative;
+
+  &__catchcopy {
+    font-family: $font-catch-copy;
+    position: absolute;
+    font-size: fluid-size(26, 56);
+    color: $font-white;
+  }
+
+  &__text-line {
+    line-height: 1.7;
+    display: block;
+    &--bottom {
+      margin-left: 110px;
+    }
+  }
+}

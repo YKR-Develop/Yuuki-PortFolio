@@ -1,0 +1,45 @@
+/*===================================================
+ function.scss
+ 関数定義
+================================================== */
+/* //////////// 変数読み込み(割り算使用のための読み込み) //////////// */
+@use 'sass:map';
+@use 'sass:math';
+
+/* --------------------------------------------------
+  clamp() 文字サイズ調整の関数定義
+-------------------------------------------------- */ 
+$base-font-size: 10;
+
+// ビューポートはここで指定する
+$breakpoints: (
+  'sm': 320,
+  'lg': 1280
+);
+
+@function strip-unit($num) {
+  @return math.div($num, ($num * 0 + 1));
+}
+
+@function divide-root($px) {
+  @return math.div(strip-unit($px), $base-font-size);
+}
+
+@function rem($px) {
+  @return divide-root($px) * 1rem;
+}
+
+// 参考：https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+@function fluid-size($min-size, $max-size) {
+  $min-unit: rem($min-size);
+  $max-unit: rem($max-size);
+  $min-num: divide-root($min-size);
+  $max-num: divide-root($max-size);
+  $min-breakpoint: divide-root(map.get($breakpoints, 'sm'));
+  $max-breakpoint: divide-root(map.get($breakpoints, 'lg'));
+  $slope: math.div(($max-num - $min-num), ($max-breakpoint - $min-breakpoint));
+  $calc-rem: ($min-breakpoint * -1 * $slope + $min-num) * 1rem;
+  $calc-vw: ($slope * 100) * 1vw;
+  @return clamp($min-unit, $calc-rem + $calc-vw, $max-unit);
+}
+
