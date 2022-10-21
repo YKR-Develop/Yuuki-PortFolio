@@ -359,6 +359,9 @@ template {
 /* --------------------------------------------------
   Center-Width 文字列最大幅の指定
 -------------------------------------------------- */
+/* --------------------------------------------------
+  Animation アニメーション
+-------------------------------------------------- */
 /*===================================================
  c-nav.scss
  各種ナビゲーションの指定
@@ -386,6 +389,9 @@ template {
 .header-fixed__item {
   margin-right: 56px;
   font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+}
+.header-fixed__item:last-child {
+  margin-right: 0;
 }
 .header-fixed__link {
   color: #fafafa;
@@ -437,6 +443,8 @@ li {
 .main-visual__catchcopy {
   font-family: "klee", "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", sans-serif;
   position: absolute;
+  top: 25%;
+  right: 16%;
   font-size: clamp(2.6rem, 1.6rem + 3.125vw, 5.6rem);
   color: #fafafa;
 }

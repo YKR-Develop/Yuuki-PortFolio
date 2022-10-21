@@ -31,6 +31,9 @@
   &__item {
     margin-right: 56px;
     font-size: fluid-size(14, 14);
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   &__link {
