@@ -31,6 +31,19 @@
  mq.scss
  メディアクエリ定義
 ================================================== */
+/* ⬇︎ PC / SP指定の非表示 ====================== */
+@media screen and (max-width: 767px) {
+  .is-pc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .is-sp {
+    display: none;
+  }
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -398,6 +411,38 @@ template {
 ================================================== */
 /* //////////// 変数読み込み //////////// */
 /* //////////// 変数読み込み //////////// */
+/*===================================================
+ c-nav.scss
+ 各種ナビゲーションの指定
+================================================== */
+/* ⬇︎ //////////// 変数読み込み //////////// */
+/* ⬆︎ //////////// 変数読み込み //////////// */
+/* --------------------------------------------------
+ header-fixed__nav ビジュアル固定ナビ
+-------------------------------------------------- */
+.header-fixed__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-fixed__logo {
+  width: 200px;
+  height: 55px;
+}
+.header-fixed__list {
+  display: flex;
+}
+.header-fixed__item {
+  margin-right: 56px;
+  font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+}
+.header-fixed__item:last-child {
+  margin-right: 0;
+}
+.header-fixed__link {
+  color: #fafafa;
+}
+
 /*===================================================
  base.scss
  ページ内ベース設定

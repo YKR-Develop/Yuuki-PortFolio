@@ -16,3 +16,20 @@ $breakpoints: (
     @content;
   }
 }
+
+
+/* ⬇︎ PC / SP指定の非表示 ====================== */
+// 767px以下の場合に非表示
+.is-pc {
+  @include mq(sp) {
+    display: none;
+  }
+}
+
+// 768px以上の場合に非表示
+.is-sp {
+  @include mq(tab) {
+    display: none;
+  }
+}
+

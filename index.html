@@ -58,8 +58,8 @@
     <div class="main-visual__inner">
 
       <!-- ⬇︎ /////////////////// Header / Global-Navigation Start /////////////////// ⬇︎ -->
-      <!-- ビジュアルナビゲーション ここから ***************** -->
-      <header class="header-fixed">
+      <!-- ビジュアルナビゲーション__PC ここから ***************** -->
+      <header class="header-fixed is-pc">
         <nav class="header-fixed__nav">
           <!-- ロゴリンク -->
           <a class="header-fixed__top-link" href="index.html">
@@ -84,6 +84,27 @@
             </li>
           </ul>
         </nav>
+      </header>
+
+      <!-- ビジュアルナビゲーション__SP ここから ***************** -->
+      <header class="header-mobile is-sp">
+        <div class="header-mobile__nav">
+          <!-- ロゴリンク -->
+          <a class="header-mobile__top-link" href="index.html">
+            <h1 class="header-mobile__logo">
+              <img class="header-mobile__logo-img" src="images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+            </h1>
+          </a>
+          
+          <!-- 検索フォーム ※ WordPress検索のためid指定 -->
+          <div class="search-wrap">
+            <form method="get" id="searchform" action="<?php echo esc_url(home_url('/'));?>">
+              <input type="text" name="search" id="search" class="search-wrap__text" placeholder="キーワードを入力">
+              <button type="submit" class="search_button">アイコン</button>
+            </form>
+          </div>
+
+        </div>
       </header>
       <!-- ビジュアルナビゲーション ここまで ***************** -->
 
