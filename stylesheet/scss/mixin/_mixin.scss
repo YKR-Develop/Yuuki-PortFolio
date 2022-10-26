@@ -12,9 +12,7 @@
   Max-Width コンテンツ最大幅の指定
 -------------------------------------------------- */ 
 @mixin maxWidth {
-  max-width: $max-width;
-  margin: 0 auto;
-
+  padding: 0 48px;
   @include mq(sp) {
     width: 100%;
     padding: 0 18px;
@@ -28,3 +26,48 @@
   max-width: $center-width;
   margin: 0 auto;
 }
+
+/* --------------------------------------------------
+  ホバー時左からの下線表示の指定
+-------------------------------------------------- */
+@mixin hoverBorder {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: $border-base;
+  left: 0;
+  bottom: 8px;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+}
+
+/* --------------------------------------------------
+  「 ＞ 」矢印の指定
+-------------------------------------------------- */
+@mixin rightArrow {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: -16px;
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid $font-white;
+    border-right: 2px solid $font-white;
+    transform: rotate(45deg);
+  }
+
+  &:hover::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid $font-white;
+    border-right: 2px solid $font-white;
+    transition: all 0.3s;
+    transform: rotate(135deg);
+  }
+}
+

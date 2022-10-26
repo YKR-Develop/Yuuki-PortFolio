@@ -1,1 +1,85 @@
+/*===================================================
+ c-sidenav.scss
+ サイドナビゲーションの指定
+================================================== */
+/* ⬇︎ //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* ⬆︎ //////////// 変数読み込み //////////// */
 
+/* --------------------------------------------------
+ side-left サイドナビ 左側 指定
+-------------------------------------------------- */
+.side-left {
+  position: fixed;
+  top: 50%;
+  left: 24px;
+  transform: translate(-50%, -50%);
+
+  &__sns-list {
+    writing-mode: vertical-rl;
+    display: flex;
+    flex-wrap: wrap;
+    width: 16px;
+  }
+
+  &__sns-item {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  &__text-link {
+    font-size: fluid-size(12, 12);
+    color: $font-black;
+    margin-bottom: 8px;
+    transform: rotate(-180deg);
+  }
+
+  &__icon {
+    display: inline-block;
+  }
+
+  &.is-fixed {
+    position: fixed;
+    top: 50%;
+    left: 1.5%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* --------------------------------------------------
+ side-right サイドナビ 右側 指定
+-------------------------------------------------- */
+#page-top {
+  position: fixed;
+  right: 14px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  text-decoration: none;
+  transform: rotate(90deg);
+  font-size: fluid-size(12, 14);
+  line-height: 1.5rem;
+  color: $font-black;
+  padding: 0 0 0 35px;
+  border-top: solid 1px;
+
+  @include mq(sp) {
+    right: 8px;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    width: 15px;
+    border-top: solid 1px;
+    transform: rotate(35deg);
+    transform-origin: left top;
+  }
+}

@@ -10,6 +10,9 @@
  Background ページ背景色
 -------------------------------------------------- */
 /* --------------------------------------------------
+ Nav-Background ナビゲーション背景色
+-------------------------------------------------- */
+/* --------------------------------------------------
  Color フォント色
 -------------------------------------------------- */
 /* --------------------------------------------------
@@ -373,6 +376,12 @@ template {
 /* --------------------------------------------------
   Center-Width 文字列最大幅の指定
 -------------------------------------------------- */
+/* --------------------------------------------------
+  ホバー時左からの下線表示の指定
+-------------------------------------------------- */
+/* --------------------------------------------------
+  「 ＞ 」矢印の指定
+-------------------------------------------------- */
 /*===================================================
  c-nav.scss
  各種ナビゲーションの指定
@@ -380,29 +389,343 @@ template {
 /* ⬇︎ //////////// 変数読み込み //////////// */
 /* ⬆︎ //////////// 変数読み込み //////////// */
 /* --------------------------------------------------
- header-fixed__nav ビジュアル固定ナビ
+ header-top__nav ページ上部ナビ
 -------------------------------------------------- */
-.header-fixed__nav {
+.header-top__nav {
+  padding-top: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header-fixed__logo {
+.header-top__logo {
   width: 200px;
   height: 55px;
 }
-.header-fixed__list {
+.header-top__list {
   display: flex;
 }
-.header-fixed__item {
+.header-top__item {
   margin-right: 56px;
   font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
 }
-.header-fixed__item:last-child {
+.header-top__item:last-child {
+  margin-right: 0;
+}
+.header-top__link {
+  color: #fafafa;
+  position: relative;
+}
+.header-top__link::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #cecece;
+  left: 0;
+  bottom: 8px;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+  bottom: -4px;
+}
+.header-top__link:hover::before {
+  transform: scale(1, 1);
+}
+
+/* --------------------------------------------------
+ header-fixed__nav 固定ナビ
+-------------------------------------------------- */
+.header-fixed {
+  position: fixed;
+  /* ===== サブメニューの設定 ===== */
+}
+.header-fixed__nav {
+  position: absolute;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header-fixed__list {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .header-fixed__list {
+    padding: 0 88px;
+    justify-content: center;
+  }
+}
+.header-fixed__toggle-item, .header-fixed__item {
+  margin-right: 5%;
+}
+.header-fixed__toggle-item:last-child, .header-fixed__item:last-child {
   margin-right: 0;
 }
 .header-fixed__link {
+  display: block;
+  font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+  transition: all 0.3s;
   color: #fafafa;
+  position: relative;
+}
+.header-fixed__link--arrow::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: -16px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #fafafa;
+  border-right: 2px solid #fafafa;
+  transform: rotate(45deg);
+}
+.header-fixed__link--arrow:hover::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #fafafa;
+  border-right: 2px solid #fafafa;
+  transition: all 0.3s;
+  transform: rotate(135deg);
+}
+.header-fixed__link::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #cecece;
+  left: 0;
+  bottom: 8px;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+  bottom: -4px;
+}
+.header-fixed__link:hover::before {
+  transform: scale(1, 1);
+}
+.header-fixed.is-show {
+  top: 0;
+}
+.header-fixed__sublist {
+  position: absolute;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 37px;
+  line-height: 40px;
+  z-index: 4;
+  background-color: #101010;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.header-fixed__sublink {
+  position: relative;
+  color: #fafafa;
+  font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+  margin-right: 56px;
+}
+.header-fixed__sublink::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #cecece;
+  left: 0;
+  bottom: 8px;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+}
+.header-fixed__sublink:hover::after {
+  transform: scale(1, 1);
+}
+.header-fixed__toggle-item:hover > .header-fixed__sublist, .header-fixed__toggle-item:hover > .header-fixed__subitem:hover > .header-fixed__sublist, .header-fixed__toggle-item:active > .header-fixed__sublist, .header-fixed__toggle-item:active .header-fixed__item:active > .header-fixed__sublist {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ================================== 以下 スマホ画面指定 ================================== */
+/* --------------------------------------------------
+ header-mobile__nav スマホ用ナビゲーション
+-------------------------------------------------- */
+.header-mobile__nav {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------
+ bottom_nav スマホ用ボトムナビゲーション
+-------------------------------------------------- */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  margin: 0;
+  padding: 5px 0;
+  background-color: rgba(85, 85, 85, 0.9);
+  z-index: 999;
+}
+.bottom-nav__list {
+  display: flex;
+  justify-content: space-between;
+}
+.bottom-nav__item {
+  width: 20%;
+  text-align: center;
+}
+.bottom-nav__link {
+  display: block;
+  color: #fafafa;
+  padding-top: 4px;
+}
+.bottom-nav__icon {
+  margin-bottom: 4px;
+}
+.bottom-nav__text {
+  font-size: clamp(1.2rem, 1.2rem + 0vw, 1.2rem);
+}
+
+/* --------------------------------------------------
+ scroll-nav スマホ用スクロールナビ
+-------------------------------------------------- */
+.scroll-nav {
+  position: relative;
+}
+.scroll-nav__nav {
+  width: 100%;
+  background-color: rgba(85, 85, 85, 0.9);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touth;
+}
+.scroll-nav__list {
+  max-width: 1060px;
+  min-width: 770px;
+  height: 24px;
+  line-height: 24px;
+  margin: 0 auto;
+  padding-right: 25px;
+}
+.scroll-nav__list:last-child {
+  padding-right: 12px;
+}
+.scroll-nav__item {
+  float: left;
+  width: 16.5%;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+  border-right: 0.5px solid #cecece;
+  box-sizing: border-box;
+}
+.scroll-nav__item:last-child {
+  border: none;
+  padding-right: 0;
+}
+.scroll-nav__link {
+  display: inline-block;
+  color: #fafafa;
+  font-size: clamp(1.2rem, 1.2rem + 0vw, 1.2rem);
+  letter-spacing: 0.1em;
+}
+.scroll-nav__next-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  background-color: rgba(85, 85, 85, 0.9);
+  color: #fafafa;
+  font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+}
+
+/*===================================================
+ c-sidenav.scss
+ サイドナビゲーションの指定
+================================================== */
+/* ⬇︎ //////////// 変数読み込み //////////// */
+/* ⬆︎ //////////// 変数読み込み //////////// */
+/* --------------------------------------------------
+ side-left サイドナビ 左側 指定
+-------------------------------------------------- */
+.side-left {
+  position: fixed;
+  top: 50%;
+  left: 24px;
+  transform: translate(-50%, -50%);
+}
+.side-left__sns-list {
+  writing-mode: vertical-rl;
+  display: flex;
+  flex-wrap: wrap;
+  width: 16px;
+}
+.side-left__sns-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.side-left__text-link {
+  font-size: clamp(1.2rem, 1.2rem + 0vw, 1.2rem);
+  color: #555;
+  margin-bottom: 8px;
+  transform: rotate(-180deg);
+}
+.side-left__icon {
+  display: inline-block;
+}
+.side-left.is-fixed {
+  position: fixed;
+  top: 50%;
+  left: 1.5%;
+  transform: translate(-50%, -50%);
+}
+
+/* --------------------------------------------------
+ side-right サイドナビ 右側 指定
+-------------------------------------------------- */
+#page-top {
+  position: fixed;
+  right: 14px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  text-decoration: none;
+  transform: rotate(90deg);
+  font-size: clamp(1.2rem, 1.1333333333rem + 0.2083333333vw, 1.4rem);
+  line-height: 1.5rem;
+  color: #555;
+  padding: 0 0 0 35px;
+  border-top: solid 1px;
+}
+@media screen and (max-width: 767px) {
+  #page-top {
+    right: 8px;
+  }
+}
+#page-top::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: 0px;
+  width: 15px;
+  border-top: solid 1px;
+  transform: rotate(35deg);
+  transform-origin: left top;
 }
 
 /*===================================================
@@ -411,36 +734,224 @@ template {
 ================================================== */
 /* //////////// 変数読み込み //////////// */
 /* //////////// 変数読み込み //////////// */
+/* --------------------------------------------------
+ search 検索フォーム
+-------------------------------------------------- */
+.searchform {
+  position: relative;
+  padding: 0;
+  margin: 0 10px 0 0;
+  width: 13%;
+}
+.searchform__input {
+  line-height: 23px;
+  padding: 5px 30px 5px 5px;
+  font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  font-weight: bold;
+  outline: none;
+  background-color: #fafafa;
+}
+.searchform__submit {
+  position: absolute;
+  top: 1px;
+  right: 8px;
+  vertical-align: top;
+  line-height: 23px;
+  border: none;
+  background: url("/images/ico/ico_search_pc.svg") no-repeat center right;
+  cursor: pointer;
+  width: 30px;
+  padding: 4px 0px;
+}
+
+/* --------------------------------------------------
+ search-wrap スマホ用検索フォーム
+-------------------------------------------------- */
+/*========= 検索窓を開くための虫眼鏡ボタン設定 ===========*/
+.search-open-btn {
+  position: absolute;
+  top: 50;
+  right: 18px;
+  background: url("/images/ico/ico_search_sp.svg") no-repeat center; /*虫眼鏡アイコンを背景に表示*/
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* ========= 検索窓の設定 =============== */
+/*==検索窓背景のエリア*/
+.search-wrap {
+  position: fixed; /*固定配置にして*/
+  top: 0;
+  left: 0;
+  z-index: -1; /*最背面に設定*/
+  opacity: 0; /*透過を0に*/
+  transition: all 0.4s; /*transitionを使ってスムースに現れる*/
+  width: 100%;
+  height: 100vh;
+  /*ボタンクリック後、JSで.search-wrapに panelactive クラスが付与された後の見た目*/
+  /*==検索フォームの設定*/
+}
+.search-wrap.panelactive {
+  opacity: 1; /*不透明に変更*/
+  z-index: 3; /*全面に出現*/
+  line-height: 0;
+  background: rgba(85, 85, 85, 0.85);
+  /*中の要素を天地中央揃えにする設定*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-wrap__form {
+  position: relative;
+}
+.search-wrap__input {
+  -webkit-appearance: none; /*SafariやChromeのデフォルトの設定を無効*/
+  outline: none;
+  cursor: pointer; /*カーソルを指マークに*/
+}
+.search-wrap__input[type=text] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 12px 12px;
+  border: none;
+  transition: all 0.5s;
+  letter-spacing: 100;
+  font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+}
+.search-wrap__input[type=text]:focus {
+  background: #fff;
+}
+.search-wrap__submit {
+  position: absolute;
+  top: -20px;
+  right: -13px;
+  background: url("/images/ico/ico_search_sp.svg") no-repeat 7px center; /*虫眼鏡アイコンを背景に表示*/
+  background-color: #555;
+  background-size: 24px 24px;
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+/*==検索窓のエリア*/
+.search-wrap .search-area {
+  display: none; /*検索窓のエリアは、はじめ非表示*/
+}
+
+/* ボタンクリック後、JSで#search-wrapに panelactive クラスが付与された後 */
+.search-wrap.panelactive .search-area {
+  display: block; /*検索窓エリアを表示*/
+  width: 80%;
+  position: relative;
+}
+
+/*======= 閉じるための×ボタン ========*/
+.search-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  cursor: pointer;
+  width: 56px;
+  height: 56px;
+}
+.search-close-btn__border {
+  display: inline-block;
+  position: absolute;
+  top: 50;
+  right: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #fff;
+}
+.search-close-btn__border:nth-last-of-type(1) {
+  top: 15%;
+  right: 8px;
+  transform: translateY(6px) rotate(-135deg);
+  width: 50%;
+}
+.search-close-btn__border:nth-last-of-type(2) {
+  top: 35%;
+  right: 8px;
+  transform: translateY(-6px) rotate(135deg);
+  width: 50%;
+}
+
 /*===================================================
- c-nav.scss
- 各種ナビゲーションの指定
+ header.scss
+ 各種ヘッダー横幅・縦幅等の指定
 ================================================== */
 /* ⬇︎ //////////// 変数読み込み //////////// */
 /* ⬆︎ //////////// 変数読み込み //////////// */
 /* --------------------------------------------------
- header-fixed__nav ビジュアル固定ナビ
+ header-top ページ上部ナビ
 -------------------------------------------------- */
-.header-fixed__nav {
+.header-top {
+  padding-top: 50px;
+}
+
+/* --------------------------------------------------
+ header-fixed__nav 固定ナビ
+-------------------------------------------------- */
+.header-fixed {
+  width: 100%;
+  position: fixed;
+  top: -63px;
+  transition: 0.5s;
+  left: 0;
+  background-color: rgba(85, 85, 85, 0.9);
+  padding: 6px 0;
+}
+.header-fixed__inner {
+  padding: 0 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 767px) {
+  .header-fixed__inner {
+    width: 100%;
+    padding: 0 18px;
+  }
+}
 .header-fixed__logo {
-  width: 200px;
-  height: 55px;
+  width: 152px;
+  height: 48px;
 }
-.header-fixed__list {
-  display: flex;
+
+/* --------------------------------------------------
+ header-mobile__nav スマホ用ヘッダー
+-------------------------------------------------- */
+.header-top {
+  padding: 0 48px;
 }
-.header-fixed__item {
-  margin-right: 56px;
-  font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+@media screen and (max-width: 767px) {
+  .header-top {
+    width: 100%;
+    padding: 0 18px;
+  }
 }
-.header-fixed__item:last-child {
-  margin-right: 0;
+
+.header-mobile {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 56px;
+  background-color: rgba(85, 85, 85, 0.9);
 }
-.header-fixed__link {
-  color: #fafafa;
+.header-mobile__logo {
+  width: 136px;
+  height: 36px;
+  margin: 0;
 }
 
 /*===================================================
@@ -461,6 +972,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   font-family: "Noto Sans", YuGothic, "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", "Arial", sans-serif;
+  letter-spacing: 0.1em;
 }
 
 img {
@@ -480,6 +992,20 @@ li {
   list-style: none;
 }
 
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  z-index: 0;
+  position: relative;
+}
+
+.contents {
+  z-index: -100;
+}
+
 /*===================================================
  visual.scss
  各ページビジュアルの定義
@@ -489,19 +1015,13 @@ li {
 .main-visual {
   width: 100%;
   height: 100vh;
+  position: relative;
   background: url("../../images/img/img_hero-visual.jpg") no-repeat center/cover;
+  z-index: 1;
 }
 .main-visual__inner {
-  max-width: 1280px;
-  margin: 0 auto;
   height: 100vh;
   position: relative;
-}
-@media screen and (max-width: 767px) {
-  .main-visual__inner {
-    width: 100%;
-    padding: 0 18px;
-  }
 }
 .main-visual__catchcopy {
   font-family: "klee", "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", sans-serif;
@@ -510,11 +1030,11 @@ li {
   right: 0;
   font-size: clamp(2.6rem, 1.6rem + 3.125vw, 5.6rem);
   color: #fafafa;
+  padding-right: 48px;
 }
 @media screen and (max-width: 767px) {
   .main-visual__catchcopy {
-    top: 50%;
-    transform: translate(-40%, -40%);
+    top: 40%;
   }
 }
 .main-visual__text-line {

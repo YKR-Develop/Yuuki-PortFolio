@@ -53,88 +53,288 @@
 
 <body>
 
-  <!-- ⬇︎ ############ Hero-image Start ############ ⬇︎ -->
-  <div class="main-visual">
-    <div class="main-visual__inner">
+  <div class="container">
+    <!-- ⬇︎ /////////////////// メインビジュアル Start /////////////////// ⬇︎ -->
+    <!-- ⬇︎ ############ Hero-image Start ############ ⬇︎ -->
+    <div class="main-visual is-hero-img">
+      <div class="main-visual__inner">
 
-      <!-- ⬇︎ /////////////////// Header / Global-Navigation Start /////////////////// ⬇︎ -->
-      <!-- ビジュアルナビゲーション__PC ここから ***************** -->
-      <header class="header-fixed is-pc">
-        <nav class="header-fixed__nav">
-          <!-- ロゴリンク -->
-          <a class="header-fixed__top-link" href="index.html">
-            <h1 class="header-fixed__logo">
-              <img class="header-fixed__logo-img" src="images/ico/ico_logo.png" alt="Yukuro CreateFolio">
-            </h1>
-          </a>
+        <!-- ⬇︎ /////////////////// ヘッダー / グローバルナビゲーション Start /////////////////// ⬇︎ -->
+        <!-- ビジュアルナビゲーション__PC ここから ***************** -->
+        <header class="header-top is-pc is-top-header">
+          <nav class="header-top__nav">
+            <!-- ロゴリンク -->
+            <a class="header-top__top-link" href="index.html">
+              <h1 class="header-top__logo">
+                <img class="header-top__logo-img" src="images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+              </h1>
+            </a>
 
-          <!-- ナビゲーションメニュー -->
-          <ul class="header-fixed__list">
-            <li class="header-fixed__item">
-              <a href="works.html" class="header-fixed__link">Works</a>
+            <!-- ナビゲーションメニュー -->
+            <ul class="header-top__list">
+              <li class="header-top__item">
+                <a href="works.html" class="header-top__link">Works</a>
+              </li>
+              <li class="header-top__item">
+                <a href="about.html" class="header-top__link">About</a>
+              </li>
+              <li class="header-top__item">
+                <a href="yukuro-createlog.html" class="header-top__link">Blog</a>
+              </li>
+              <li class="header-top__item">
+                <a href="#contact" class="header-top__link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <!-- ビジュアルナビゲーション__PC ここまで ***************** -->
+
+        <!-- ================================ 以下 スマホ画面指定 ================================ -->
+
+        <!-- ヘッダーナビゲーション__SP ここから ***************** -->
+        <header class="header-mobile is-sp">
+          <div class="header-mobile__nav">
+
+            <!-- ロゴリンク -->
+            <a class="header-mobile__top-link" href="index.html">
+              <h1 class="header-mobile__logo">
+                <img class="header-mobile__logo-img" src="images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+              </h1>
+            </a>
+            <!-- ロゴリンク -->
+
+            <!-- 検索フォーム ※WordPress検索のためid指定 -->
+            <div class="search-open-btn"></div>
+            <div class="search-wrap">
+              <div class="search-close-btn">
+                <span class="search-close-btn__border"></span>
+                <span class="search-close-btn__border"></span>
+              </div>
+              <div class="search-area">
+                <form class="search-wrap__form" role="search" method="get" action="">
+                  <input class="search-wrap__input" type="text" value="" name="" id="search-text" placeholder="search">
+                  <input class="search-wrap__submit" type="submit" id="searchsubmit" value="">
+                </form>
+              </div>
+            </div>
+            <!-- 検索フォーム -->
+
+          </div>
+        </header>
+        <!-- ヘッダーナビゲーション__SP ここまで ***************** -->
+
+        <!-- ボトムナビゲーション_SP ここから ***************** -->
+        <nav class="bottom-nav is-sp">
+          <ul class="bottom-nav__list">
+
+            <!-- ==== Homeリンク ==== -->
+            <li class="bottom-nav__item">
+              <a href="index.html" class="bottom-nav__link">
+                <img class="bottom-nav__icon" src="/images/ico/ico_home_border-nav_sp.svg" alt="Homeリンク"><br>
+                <span class="bottom-nav__text">
+                  Home
+                </span>
+              </a>
             </li>
-            <li class="header-fixed__item">
-              <a href="works.html" class="header-fixed__link">About</a>
+
+            <!-- ==== Worksリンク ==== -->
+            <li class="bottom-nav__item menu-width-max">
+              <a href="works.html" class="bottom-nav__link">
+                <img class="bottom-nav__icon" src="/images/ico/ico_works_border-nav_sp.svg" alt="Worksリンク"><br>
+                <span class="bottom-nav__text">
+                  Works
+                </span>
+              </a>
             </li>
-            <li class="header-fixed__item">
-              <a href="works.html" class="header-fixed__link">Blog</a>
+
+            <!-- ==== Aboutリンク ==== -->
+            <li class="bottom-nav__item">
+              <a href="about.html" class="bottom-nav__link">
+                <img class="bottom-nav__icon" src="/images/ico/ico_about_border-nav_sp.svg" alt="Aboutリンク"><br>
+                <span class="bottom-nav__text">
+                  About
+                </span>
+              </a>
             </li>
-            <li class="header-fixed__item">
-              <a href="works.html" class="header-fixed__link">Contact</a>
+
+            <!-- ==== Blogリンク ==== -->
+            <li class="bottom-nav__item bottom-nav__item--width-max">
+              <a href="yukuro-createlog.html" class="bottom-nav__link">
+                <img class="bottom-nav__icon" src="/images/ico/ico_blog_border-nav_sp.svg" alt="Blogリンク"><br>
+                <span class="bottom-nav__text">
+                  Blog
+                </span>
+              </a>
             </li>
+
+            <!-- ==== Contactリンク ==== -->
+            <li class="bottom-nav__item">
+              <a href="#contact" class="bottom-nav__link">
+                <img class="bottom-nav__icon" src="/images/ico/ico_contact_border-nav_sp.svg" alt="Contactリンク"><br>
+                <span class="bottom-nav__text">
+                  Contact
+                </span>
+              </a>
+            </li>
+
           </ul>
         </nav>
-      </header>
+        <!-- ボトムナビゲーション_SP ここまで ***************** -->
 
-      <!-- ビジュアルナビゲーション__SP ここから ***************** -->
-      <header class="header-mobile is-sp">
-        <div class="header-mobile__nav">
-          <!-- ロゴリンク -->
-          <a class="header-mobile__top-link" href="index.html">
-            <h1 class="header-mobile__logo">
-              <img class="header-mobile__logo-img" src="images/ico/ico_logo.png" alt="Yukuro CreateFolio">
-            </h1>
-          </a>
-          
-          <!-- 検索フォーム ※ WordPress検索のためid指定 -->
-          <div class="search-wrap">
-            <form method="get" id="searchform" action="<?php echo esc_url(home_url('/'));?>">
-              <input type="text" name="search" id="search" class="search-wrap__text" placeholder="キーワードを入力">
-              <button type="submit" class="search_button">アイコン</button>
-            </form>
-          </div>
-
-        </div>
-      </header>
-      <!-- ビジュアルナビゲーション ここまで ***************** -->
-
-      <!-- スクロールナビゲーション ここから ***************** -->
-
-      <!-- スクロールナビゲーション ここまで ***************** -->
-
-      <!-- ビジュアルテキスト ここから ***************** -->
+        <!-- ビジュアル キャッチコピー ここから ***************** -->
         <p class="main-visual__catchcopy">
           <span class="main-visual__text-line js-text-animation">創作活動が生み出す</span>
           <span class="main-visual__text-line main-visual__text-line--bottom js-text-animation">まだ知らない自分</span>
         </p>
-      <!-- ビジュアルテキスト ここまで ***************** -->
+        <!-- ビジュアル キャッチコピー ここまで ***************** -->
 
-      <!-- ⬆︎ /////////////////// Header / Global-Navigation End /////////////////// ⬆︎ -->
-
+        <!-- ⬆︎ /////////////////// ヘッダー / グローバルナビゲーション End /////////////////// ⬆︎ -->
+      </div>
     </div>
+    <!-- ⬆︎ ############ メインビジュアル End ############ ⬆︎ -->
+
+
+    <!-- ================================================================================ -->
+
+
+    <!-- ⬇︎ /////////////////// SideNav SNS / Top Start /////////////////// ⬇︎ -->
+    <!-- ===== SNSアイコン ===== -->
+    <div class="side-left is-pc">
+      <div class="side-left__sns-list">
+        <a class="side-left__sns-item" href="Twitter URL">
+          <p class="side-left__text-link">Instagram</p>
+          <div class="side-left__icon">
+            <img class="side-left__icon-image" src="/images/ico/ico_instagram-sidenav.svg" alt="インスタグラムリンク">
+          </div>
+        </a>
+
+        <a class="side-left__sns-item" href="Twitter URL">
+          <p class="side-left__text-link">Twitter</p>
+          <img class="side-left__icon" src="/images/ico/ico_twitter-sidenav.svg" alt="インスタグラムリンク">
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== TOPに戻るボタン ===== -->
+    <!-- ⬆︎ /////////////////// SideNav SNS / Top End /////////////////// ⬆︎ -->
+    <div class="side-right">
+      <a href="#" id="page-top">TOP</a>
+    </div>
+
+    <!-- ================================================================================ -->
+
+
+    <!-- ⬇︎ /////////////////// 入れ替え用ヘッダー Start /////////////////// ⬇︎ -->
+    <header class="header-fixed is-pc is-fixed-header">
+      <div class="header-fixed__inner">
+
+        <a class="header-fixed__top-link" href="index.html">
+          <h1 class="header-fixed__logo">
+            <img class="header-fixed__icon" src="images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+          </h1>
+        </a>
+
+
+        <!-- ===== ナビゲーション ====== -->
+        <nav class="header-fixed__nav">
+          <ul class="header-fixed__list">
+            <!-- ===== worksリンク ===== -->
+            <li class="header-fixed__toggle-item">
+              <a class="header-fixed__link header-fixed__link--arrow" href="#">Works</a>
+              <ul class="header-fixed__sublist">
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#website-works">Top</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#website-works">Webサイト制作</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#website-works">プログラミング</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#website-works">UI UXデザイン</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#website-works">PhotoShop</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#website-works">Illustrator</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#website-works">造形・衣装作品</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- ===== Aboutリンク ===== -->
+            <li class="header-fixed__toggle-item">
+              <a class="header-fixed__link header-fixed__link--arrow" href="#">About</a>
+              <ul class="header-fixed__sublist">
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#">Top</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#">制作・開発概要</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#">私について</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#">スキル</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- ===== Blogリンク ===== -->
+            <li class="header-fixed__toggle-item">
+              <a class="header-fixed__link header-fixed__link--arrow" href="#">Blog</a>
+              <ul class="header-fixed__sublist">
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#">Top</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#">プログラミング・デザイン</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#">造形・衣装制作</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#">ハンドメイド</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="#">趣味・生活</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- ===== Newsリンク ===== -->
+            <li class="header-fixed__item">
+              <a class="header-fixed__link" href="news.html">News</a>
+            </li>
+
+            <!-- ===== Contactリンク ===== -->
+            <li class="header-fixed__item">
+              <a class="header-fixed__link" href="news.html">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- ===== ナビゲーション ====== -->
+
+        <!-- ===== 検索フォーム ====== -->
+        <form role="search" method="get" class="searchform" action="#">
+          <div>
+            <input class="searchform__input" type="text" name="search" placeholder="Search">
+            <input class="searchform__submit" type="submit" id="searchsubmit" value=""
+              src="/images/ico/ico_search_pc.svg">
+          </div>
+        </form>
+        <!-- ===== 検索フォーム ====== -->
+      </div>
+    </header>
+    <!-- ⬆︎ /////////////////// 入れ替え用ヘッダー End /////////////////// ⬆︎ -->
+
+
   </div>
-  <!-- ⬆︎ ############ Hero-image End ############ ⬆︎ -->
-
-  <!-- ================================================================================ -->
-
-  <!-- ⬇︎ /////////////////// SideNav SNS / Top Start /////////////////// ⬇︎ -->
-
-  <!-- ⬆︎ /////////////////// SideNav SNS / Top End /////////////////// ⬆︎ -->
-
-  <!-- ================================================================================ -->
-
-
-
   <!-- ⬇︎ ################# JSファイル 読み込み ################# ⬇︎ -->
   <script src="javascript/main.js"></script>
 </body>

@@ -19,6 +19,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   font-family: $font-family-sans-serif;
+  letter-spacing: 0.1em;
 }
 
 img {
@@ -36,6 +37,20 @@ a {
 
 li {
   list-style: none;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  z-index: 0;
+  position: relative;
+}
+
+.contents {
+  z-index: -100;
 }
 
 

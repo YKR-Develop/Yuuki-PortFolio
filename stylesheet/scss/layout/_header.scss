@@ -1,1 +1,67 @@
+/*===================================================
+ header.scss
+ 各種ヘッダー横幅・縦幅等の指定
+================================================== */
+/* ⬇︎ //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* ⬆︎ //////////// 変数読み込み //////////// */
+/* --------------------------------------------------
+ header-top ページ上部ナビ
+-------------------------------------------------- */
+.header-top {
+  padding-top: 50px;
+}
+
+/* --------------------------------------------------
+ header-fixed__nav 固定ナビ
+-------------------------------------------------- */
+.header-fixed {
+  width: 100%;
+  position: fixed;
+  top: -63px;
+  transition: 0.5s;
+  left: 0;
+  background-color: $background-nav;
+  padding: 6px 0;
+
+  &__inner {
+    @include maxWidth;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 152px;
+    height: 48px;
+  }
+}
+
+
+/* --------------------------------------------------
+ header-mobile__nav スマホ用ヘッダー
+-------------------------------------------------- */ 
+.header-top {
+  @include maxWidth;
+}
+
+.header-mobile {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 56px;
+  background-color: $background-nav;
+
+  &__logo {
+    width: 136px;
+    height: 36px;
+    margin: 0;
+    
+  }
+}
 

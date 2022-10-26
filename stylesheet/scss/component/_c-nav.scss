@@ -10,10 +10,11 @@
 /* ⬆︎ //////////// 変数読み込み //////////// */
 
 /* --------------------------------------------------
- header-fixed__nav ビジュアル固定ナビ
--------------------------------------------------- */ 
-.header-fixed {
+ header-top__nav ページ上部ナビ
+-------------------------------------------------- */
+.header-top {
   &__nav {
+    padding-top: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,5 +39,232 @@
 
   &__link {
     color: $font-white;
+    position: relative;
+    
+    &::before {
+      @include hoverBorder;
+      bottom: -4px;
+    }
+
+    &:hover::before {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+/* --------------------------------------------------
+ header-fixed__nav 固定ナビ
+-------------------------------------------------- */
+.header-fixed {
+  position: fixed;
+  &__nav {
+    position: absolute;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    @include mq(tab) {
+      padding: 0 88px;
+      justify-content: center;
+    }
+  }
+
+  &__toggle-item,
+  &__item {
+    margin-right: 5%;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: fluid-size(14, 14);
+    transition: all 0.3s;
+    color: $font-white;
+    position: relative;
+
+    &--arrow {
+      @include rightArrow;
+    }
+    
+    &::before {
+      @include hoverBorder;
+      bottom: -4px;
+    }
+
+    &:hover::before {
+      transform: scale(1, 1);
+    }
+  }
+
+  // JSで動作
+  &.is-show {
+    top: 0;
+  }
+
+  /* ===== サブメニューの設定 ===== */
+  &__sublist {
+    position: absolute;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 37px;
+    line-height: 40px;
+    z-index: 4;
+    background-color: $background-black;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__sublink {
+    position: relative;
+    color: $font-white;
+    font-size: fluid-size(14, 14);
+    margin-right: 56px;
+    &::after {
+      @include hoverBorder;
+    }
+
+    &:hover::after {
+      transform: scale(1, 1);
+    }
+  }
+  
+
+  &__toggle-item:hover > &__sublist,
+  &__toggle-item:hover > &__subitem:hover > &__sublist,
+  &__toggle-item:active > &__sublist,
+  &__toggle-item:active &__item:active > &__sublist {
+    visibility: visible;
+    opacity: 1;
+    
+  }
+}
+
+/* ================================== 以下 スマホ画面指定 ================================== */
+
+/* --------------------------------------------------
+ header-mobile__nav スマホ用ナビゲーション
+-------------------------------------------------- */
+.header-mobile {
+  &__nav {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------
+ bottom_nav スマホ用ボトムナビゲーション
+-------------------------------------------------- */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  margin: 0;
+  padding: 5px 0;
+  background-color: $background-nav;
+  z-index: 999;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    width: 20%;
+    text-align: center;
+  }
+
+  &__link {
+    display: block;
+    color: $font-white;
+    padding-top: 4px;
+  }
+
+  &__icon {
+    margin-bottom: 4px;
+  }
+
+  &__text {
+    font-size: fluid-size(12, 12);
+  }
+}
+
+/* --------------------------------------------------
+ scroll-nav スマホ用スクロールナビ
+-------------------------------------------------- */
+.scroll-nav {
+  position: relative;
+
+  &__nav {
+    width: 100%;
+    background-color: $background-nav;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touth;
+  }
+
+  &__list {
+    max-width: 1060px;
+    min-width: 770px;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 auto;
+    padding-right: 25px;
+    &:last-child {
+      padding-right: 12px;
+    }
+  }
+
+  // メニュー個別幅
+  &__item {
+    float: left;
+    width: 16.5%;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    border-right: 0.5px solid $border-base;
+    box-sizing: border-box;
+
+    &:last-child {
+      border: none;
+      padding-right: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    color: $font-white;
+    font-size: fluid-size(12, 12);
+    letter-spacing: 0.1em;
+  }
+
+  // ネクストボタン
+  &__next-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    background-color: $background-nav;
+    color: $font-white;
+    font-size: fluid-size(14, 14);
   }
 }
