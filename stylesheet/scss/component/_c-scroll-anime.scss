@@ -1,0 +1,74 @@
+/*===================================================
+ scroll.scss
+ 各ページビジュアルの定義
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../mixin/animation" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
+
+/* --------------------------------------------------
+ Top-Scroll Works背景スライド文字 指定 
+-------------------------------------------------- */
+.scroll-anime {
+  overflow: hidden;
+  height: 130px;
+  position: absolute;
+  width: 99vw;
+  left: 50%;
+  transform: translateX(-50%);  
+
+  &__box {
+    position: relative;
+    width: 100%;
+    height: inherit;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 75%;
+    height: inherit;
+    @include animation($name: scroll-anime, $duration: 20s, $timing-function: linear, $iteration-count: infinite);
+
+    &:first-child {
+      animation-name: first-scroll;
+    }
+
+    &:nth-child(2) {
+      animation-name: second-scroll;
+    }
+  }
+
+  @keyframes first-scroll {
+    from {
+      transform: translateX(4px);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes second-scroll {
+    from {
+      transform: translateX(100%);    
+    }
+    to {
+      transform: translateX(4px);
+    }
+  }  
+
+  &__text {
+    font-size: 5vw;
+    letter-spacing: 0.2rem;
+    color: $font-background;
+    font-weight: 600;
+  }
+}

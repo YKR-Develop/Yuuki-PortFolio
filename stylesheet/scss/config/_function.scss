@@ -43,3 +43,9 @@ $breakpoints: (
   @return clamp($min-unit, $calc-rem + $calc-vw, $max-unit);
 }
 
+/* --------------------------------------------------
+  vw() vwの自動計算
+-------------------------------------------------- */ 
+@function vw($width, $px) {
+  @return $px / $width * 100vw;
+}

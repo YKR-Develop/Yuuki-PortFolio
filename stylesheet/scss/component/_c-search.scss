@@ -64,6 +64,7 @@
 
 /*==検索窓背景のエリア*/
 .search-wrap {
+  display: none;
   position: fixed; /*固定配置にして*/
   top: 0;
   left: 0;
@@ -76,7 +77,7 @@
   /*ボタンクリック後、JSで.search-wrapに panelactive クラスが付与された後の見た目*/
   &.panelactive {
     opacity: 1; /*不透明に変更*/
-    z-index: 3; /*全面に出現*/
+    z-index: 0; /*全面に出現*/
     line-height: 0;
     background: rgba(85, 85, 85, 0.85);
     /*中の要素を天地中央揃えにする設定*/

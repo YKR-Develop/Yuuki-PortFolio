@@ -3,8 +3,11 @@
  ページ内ベース設定
 ================================================== */
 /* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
 @use "../config/variables" as *;
 @use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
 
 * {
   margin: 0;
@@ -20,6 +23,7 @@ body {
   box-sizing: border-box;
   font-family: $font-family-sans-serif;
   letter-spacing: 0.1em;
+  color: $font-black;
 }
 
 img {
@@ -30,7 +34,7 @@ img {
 }
 
 a {
-  display: inline-block;
+  display: block;
   text-decoration: none;
   font-weight: 300;
 }
@@ -44,13 +48,41 @@ h1 {
   padding: 0;
 }
 
+p {
+  line-height: 2.0;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+  
+  @include mq(sp) {
+    line-height: 1.7;
+  }
+}
+
+/* --------------------------------------------------
+ ページ内 z-index指定
+-------------------------------------------------- */
 .container {
   z-index: 0;
   position: relative;
 }
 
+/* --------------------------------------------------
+ ページ内 各コンテンツベース余白指定
+-------------------------------------------------- */
 .contents {
-  z-index: -100;
+  
+  &__article {
+    padding: 64px 48px;
+    @include mq(sp) {
+      padding: 64px 18px;
+    }
+    &--bg {
+      background-color: $background-gray;
+    }
+  }
 }
 
+.page-contents {
+  padding: 64px 0;
+}
 

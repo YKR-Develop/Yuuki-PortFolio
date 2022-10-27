@@ -1,0 +1,125 @@
+/*===================================================
+ heading.scss
+ 各ページビジュアルの定義
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
+
+/* --------------------------------------------------
+ Contents-Heading ページ内コンテンツ見出し 
+-------------------------------------------------- */
+.cotents-heading {
+  font-size: fluid-size(28, 48);
+  text-align: center;
+  margin-bottom: fluid-size(32, 48);
+
+  &__main {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-bottom: 1px solid;
+      width: 40px;
+      bottom: -10px;
+      left: 50%;
+      background-color: $border-black;
+      transform: translate(-50%, -50%);
+      @include mq(sp) {
+        bottom: -5px;
+      }
+    }
+  }
+
+  &__sub {
+    display: block;
+    font-size: fluid-size(16, 18);
+    padding-top: 32px;
+
+    @include mq(sp) {
+      padding-top: 16px;
+    }
+  }
+}
+
+/* --------------------------------------------------
+ Contents-Title コンテンツ内容見出し 
+-------------------------------------------------- */
+.contents-title {
+  text-align: center;
+  position: relative;
+  &__title {
+    width: fluid-size(300, 426);
+    margin: 0 auto;
+    text-align: center;
+    font-size: fluid-size(18, 24);
+    position: relative;
+    font-weight: 300;
+    @include mq(sp) {
+      width: 300px;
+    }
+
+    &::after {
+      content: "";
+      width: fluid-size(56, 96);
+      height: 1px;
+      background-color: $border-base;
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+
+    &::before {
+      content: "";
+      width: fluid-size(56, 96);
+      height: 1px;
+      background-color: $border-base;
+      position: absolute;
+      top: 50%;
+      right: 0;
+    }
+  }
+
+  /* ===== 以下 リンク付きタイトルの指定 ===== */
+  &__page-link {
+    margin-left: auto;
+    position: absolute;
+    font-size: fluid-size(14, 14);
+    bottom: 0;
+    right: 0;
+
+    @include mq(sp) {
+      width: 261px;
+      margin: 0 auto;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, -50%)
+    }
+
+    @include mq(tab) {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: $font-black;
+    font-weight: 600;
+    position: relative;
+    padding-right: 24px;
+    font-weight: 300;
+    &::before {
+      @include stickArrow;
+    }
+    &::after {
+      @include hoverBorder;
+      bottom: -4px;
+    }
+    &:hover::after {
+      transform: scale(1, 1);
+    }
+  }
+}

@@ -71,3 +71,17 @@
   }
 }
 
+/* --------------------------------------------------
+  棒付き矢印の指定
+-------------------------------------------------- */
+@mixin stickArrow {
+  content: "";
+  position: absolute;
+  top: 25%;
+  right: 0;
+  width: 16px;
+  height: 4px;
+  border-bottom: 2px solid $border-black;
+  border-right: 2px solid $border-black;
+  transform: skew(45deg);
+}

@@ -1,1 +1,143 @@
+/*===================================================
+ visual.scss
+ 各ページビジュアルの定義
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../mixin/animation" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
 
+/* --------------------------------------------------
+ Top-Works トップページ Works 制作実績 指定 
+-------------------------------------------------- */
+.top-works {
+  &__contents {
+    display: flex;
+    align-items: flex-end;
+    margin: 80px auto 80px auto;
+    @include mq(sp) {
+      flex-wrap: wrap;
+      margin: 32px auto 64px auto;
+    }
+  }
+
+  &__thumb {
+    margin-right: 64px;
+    @include mq(sp) {
+      margin: 0 0 24px 0;
+    }
+  }
+
+  &__image {
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.16);
+    width: vw(427, 768);
+
+    @include mq(sp) {
+      box-shadow: none;
+      width: vw(357, 767);
+    }
+  }
+
+  &__text {
+    display: block;
+    font-size: fluid-size(14, 16);
+    margin: 4% 0;
+
+    @include mq(sp) {
+      margin: 0 0 24px;
+    }
+  }
+
+  /* ===== モックアップの指定 ===== */
+  &__mockup-box {
+    display: flex;
+
+    @include mq(sp) {
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    @include mq(tab) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__mockup-title {
+    text-align: center;
+    font-size: fluid-size(16, 18);
+    margin-bottom: 16px;
+    @include mq(sp) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__mockup-item {
+    border-left: 1px dotted $border-black;
+    border-right: 1px dotted $border-black;
+    padding: 0 32px;
+    &:nth-child(2) {
+      border-left: none;
+      margin-right: 0;
+    }
+
+    @include mq(sp) {
+      max-width: 70%;
+      margin: 0 auto;
+      border-top: 1px dotted $border-black;
+      border-bottom: 1px dotted $border-black;
+      border-left: none;
+      border-right: none;
+      padding: 16px 0;
+      &:nth-child(2) {
+        border-top: none;
+        margin-left: 0;
+      }
+    }
+
+    @include mq(tab) {
+      max-width: 50%;
+      border-left: 1px dotted $border-black;
+      border-right: 1px dotted $border-black;
+      border-top: none;
+      border-bottom: none;
+      padding: 0 16px;
+      &:nth-child(2) {
+        border-left: none;
+      }
+    }
+  }
+
+  &__mock-image {
+    width: vw(392, 768);
+  }
+}
+
+/* ******* トップページ SP画面限定 ******* */
+.page-link-sp {
+  margin: 0 auto;
+  font-size: fluid-size(14, 14);
+  
+  @include mq(tab) {
+    display: block;
+  }
+
+  &__link {
+    color: $font-black;
+    font-weight: 600;
+    position: relative;
+    padding-right: 24px;
+    font-weight: 300;
+    &::before {
+      @include stickArrow;
+    }
+    &::after {
+      @include hoverBorder;
+      bottom: -4px;
+    }
+  } 
+  
+}
+/* ******* トップページ SP画面限定 ******* */
