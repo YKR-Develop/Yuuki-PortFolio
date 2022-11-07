@@ -1,0 +1,114 @@
+/*===================================================
+ button.scss
+ ボタンのベース指定
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../mixin/animation" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
+
+/* --------------------------------------------------
+ ページ共通ボタン 指定 
+-------------------------------------------------- */
+.primary-button {
+  width: 280px;
+  margin: 0 auto;
+
+  @include mq(sp) {
+   width: 100%;
+    text-align: center;
+  }
+
+  &__link {
+    padding: 16px 42px;
+    margin: 0 auto;
+    color: $font-white;
+    font-size: 16px;
+    background: $button-background;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: $background-gray;
+      border: 1px solid $border-black;
+      transform-origin: 100% 50%;
+      transform: scaleX(0);
+      transition: transform ease 0.5s;
+    }
+
+    &:hover {
+      color: $font-black;
+      border-color: $border-black;
+    }
+
+    &:hover::before {
+      transform-origin: 0% 50%;
+      transform: scaleX(1);
+    }
+
+    &:after {
+      @include stickArrow;
+      top: 45%;
+      right: 12%;
+      border-color: $font-white;
+
+      @include mq(sp) {
+        right: 20%;
+      }
+    }
+
+    &:hover::after {
+      border-color: $border-black;
+    }
+  }
+}
+
+.secondary-button {
+  height: 32px;
+  line-height: 32px;
+  font-size: fluid-size(14, 16);
+  text-align: center;
+  background-color: $button-background;
+  color: $font-white;
+  z-index: 1;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color: $font-black;
+    background-color: $background-gray;
+    border: 1px solid $border-black;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform ease 0.5s;
+  }
+
+  &:hover {
+    color: $font-black;
+    border-color: $border-black;
+  }
+
+  &:hover::before {
+    color: $font-black;
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+  }
+
+}

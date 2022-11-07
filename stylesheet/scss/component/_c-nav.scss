@@ -4,6 +4,7 @@
 ================================================== */
 /* ⬇︎ //////////// 変数読み込み //////////// */
 @use "../mixin/mixin" as *;
+@use "../mixin/animation" as *;
 @use "../config/variables" as *;
 @use "../config/function" as *;
 @use "../config/mq" as *;
@@ -40,7 +41,7 @@
   &__link {
     color: $font-white;
     position: relative;
-    
+
     &::before {
       @include hoverBorder;
       bottom: -4px;
@@ -93,7 +94,7 @@
     &--arrow {
       @include rightArrow;
     }
-    
+
     &::before {
       @include hoverBorder;
       bottom: -4px;
@@ -141,7 +142,6 @@
       transform: scale(1, 1);
     }
   }
-  
 
   &__toggle-item:hover > &__sublist,
   &__toggle-item:hover > &__subitem:hover > &__sublist,
@@ -149,7 +149,100 @@
   &__toggle-item:active &__item:active > &__sublist {
     visibility: visible;
     opacity: 1;
-    
+  }
+}
+
+/* --------------------------------------------------
+ Tab__nav タブナビゲーション
+-------------------------------------------------- */
+.tab {
+  &__list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+
+    @include mq(sp) {
+      flex-wrap: wrap;
+      gap: 16px 0;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 4);
+    text-align: center;
+    border-bottom: 1px solid $border-base;
+
+    @include mq(sp) {
+      width: 50%;
+    }
+  }
+  
+  &__icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    @include mq(sp) {
+      display: block;
+      margin: 0 auto 8px auto;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: fluid-size(13, 16);
+    padding-bottom: 4px;
+    color: $font-black;
+    position: relative;
+    &::before {
+      @include hoverBorder;
+      border-color: $border-black;
+      bottom: -2px;
+    }
+    &:hover::before {
+      transform: scale(1, 1);
+    }
+  }
+
+  // アクティブ状態の指定
+  &__item.active &__link {
+    font-weight: 600;
+    padding-top: 2px;
+    border-bottom: 2px solid $border-black;
+    pointer-events: none;
+  }
+
+
+  /* //////////// タブ内エリア //////////// */
+  &__area {
+    display: none;/*はじめは非表示*/
+    opacity: 0;/*透過0*/ 
+  }
+
+  &__area.is-active {
+    display: block;/*表示*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px 64px;
+    @include animation(
+        $name: tabAnime,
+        $duration: 2s,
+        $fill-mode: forwards
+    );
+
+    @include mq(sp) {
+      gap: 16px 16px;
+    }
+  }
+  @keyframes tabAnime{
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }
 
@@ -268,3 +361,5 @@
     font-size: fluid-size(14, 14);
   }
 }
+
+

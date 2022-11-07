@@ -14,8 +14,15 @@
 @mixin maxWidth {
   padding: 0 48px;
   @include mq(sp) {
-    width: 100%;
     padding: 0 18px;
+  }
+}
+
+@mixin centerWidth {
+  max-width: $center-width;
+  margin: 0 auto 64px auto;
+  @include mq(sp) {
+    margin: 0 auto 32px auto;
   }
 }
 
@@ -42,6 +49,28 @@
   transform-origin: left top;
   transition: transform 0.3s;
 }
+
+/* --------------------------------------------------
+  テキストホバーの指定
+-------------------------------------------------- */
+@mixin hoverText {
+  transition: 0.3s;
+  &:hover {
+    color: #818181;
+  }
+}
+
+/* --------------------------------------------------
+  画像ホバーの指定
+-------------------------------------------------- */
+@mixin hoverImage {
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.2, 1.2);
+  }
+}
+
 
 /* --------------------------------------------------
   「 ＞ 」矢印の指定
@@ -84,4 +113,19 @@
   border-bottom: 2px solid $border-black;
   border-right: 2px solid $border-black;
   transform: skew(45deg);
+}
+
+/* --------------------------------------------------
+  VW指定
+-------------------------------------------------- */
+//pxをvwに変換するfunction
+@function _get_vw($size, $viewport: 375) {
+  $rate: calc(100 / $viewport);
+  @return $rate * $size * 1vw;
+}
+
+//画像用のmixin
+@mixin img-vw($img_size, $viewsize: 375) {
+  width: $img_size * 1px;
+  width: _get_vw($img_size, $viewsize);
 }

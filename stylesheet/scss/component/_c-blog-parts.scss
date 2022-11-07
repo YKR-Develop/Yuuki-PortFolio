@@ -1,0 +1,209 @@
+/*===================================================
+ c-blog.scss
+ ブログ内要素の指定
+================================================== */
+/* ⬇︎ //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../mixin/animation" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* ⬆︎ //////////// 変数読み込み //////////// */
+
+/* --------------------------------------------------
+ Blog-card 共通ブログカードの指定
+-------------------------------------------------- */
+.blog-card {
+  display: flex;
+  align-items: center;
+  width: calc(100% / 2 - 32px / 2 * 2);
+  padding-bottom: 32px;
+  border-bottom: 1px dotted $border-black;
+
+  @include mq(sp) {
+    width: calc(100% / 2 - 8px / 2 * 2);
+    flex-wrap: wrap;
+    height: auto;
+    padding-bottom: 24px;
+  }
+
+  &__label {
+    padding-left: 24px;
+    @include mq(sp) {
+      padding-left: 0;
+    }
+  }
+
+  &__thumb {
+    width: calc(100% / 2);
+    display: inline-block;
+    overflow: hidden;
+    @include mq(sp) {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__image {
+    @include hoverImage;
+  }
+
+  &__title {
+    font-size: fluid-size(14, 16);
+    margin-bottom: 24px;
+    line-height: 1.5;
+    @include mq(sp) {
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+  }
+
+  &__title-link {
+    color: $font-black;
+    @include hoverText;
+    font-size: fluid-size(13, 16);
+  }
+
+  &__category-link {
+    display: inline-block;
+    font-size: fluid-size(12, 14);
+    position: relative;
+    padding-left: 24px;
+    color: $font-black;
+    margin: 0 8px 16px 0;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: url("/images/ico/ico_folder.svg");
+      vertical-align: bottom;
+    }
+
+    &::before {
+      @include hoverBorder;
+      bottom: -4px;
+    }
+
+    &:hover::before {
+      transform: scale(1, 1);
+    }
+
+    @include mq(sp) {
+      margin: 0 0 8px 0;
+    }
+  }
+
+  &__date {
+    font-size: fluid-size(10, 12);
+    position: relative;
+    display: block;
+    text-align: right;
+    padding-left: 20px;
+    &::before {
+      position: absolute;
+      top: 0px;
+      right: 80px;
+      content: url("/images/ico/ico_clock.svg");
+
+      @include mq(sp) {
+        right: 70px;
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------
+ Blog-Category ブログカテゴリーカード
+-------------------------------------------------- */
+.blog-category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 64px;
+  margin-bottom: 48px;
+  @include mq(sp) {
+    gap: 40px 0;
+   flex-wrap: wrap;
+  }
+  &__item {
+    width: calc(100% / 2 - 32px / 2 * 2);
+    margin-bottom: 72px;
+
+    &:nth-child(n+2) {
+      margin-bottom: 0;
+    }
+
+    @include mq(sp) {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+
+  &__thumb-link {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 24px;
+    position: relative;
+
+    &::after {
+      content: 'Read More';
+      font-size: fluid-size(14, 16);
+      letter-spacing: 0.1em;
+      text-align: center;
+      color: $font-white;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: rgba(0,0,0, 0.4);
+      transition: 0.8s;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-top: 20%;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    font-size: fluid-size(16, 24);
+    color: $font-white;
+    font-family: $font-catch-copy;
+  }
+
+  &__image {
+    width: 100%;
+    @include hoverImage;
+  }
+
+  &__category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 0;
+    
+  }
+
+  &__category-item {
+    width: calc(100% / 2 - 12px / 2 * 2);
+  }
+}

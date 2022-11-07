@@ -14,18 +14,39 @@
  Top-Works トップページ Works 制作実績 指定 
 -------------------------------------------------- */
 .top-works {
+  margin-bottom: 64px;
+  &:last-of-type {
+    margin-bottom: 48px;
+  }
+
+  @include mq(sp) {
+    margin-bottom: 48px;
+    &:last-of-type {
+      margin-bottom: 32px;
+    }
+  }
+  
   &__contents {
     display: flex;
     align-items: flex-end;
-    margin: 80px auto 80px auto;
+    margin: 80px auto;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &--odd {
+      flex-direction: row-reverse;
+    }
     @include mq(sp) {
       flex-wrap: wrap;
-      margin: 32px auto 64px auto;
+      margin: 32px auto 0 auto;
     }
   }
 
   &__thumb {
     margin-right: 64px;
+    &--odd {
+      margin: 0 0 0 64px;
+    }
     @include mq(sp) {
       margin: 0 0 24px 0;
     }
@@ -44,7 +65,7 @@
   &__text {
     display: block;
     font-size: fluid-size(14, 16);
-    margin: 4% 0;
+    margin: 4% 32px;
 
     @include mq(sp) {
       margin: 0 0 24px;
@@ -117,11 +138,11 @@
 
 /* ******* トップページ SP画面限定 ******* */
 .page-link-sp {
+  width: auto;
   margin: 0 auto;
   font-size: fluid-size(14, 14);
-  
-  @include mq(tab) {
-    display: block;
+  &--news {
+    width: 231px;
   }
 
   &__link {
@@ -138,6 +159,136 @@
       bottom: -4px;
     }
   } 
-  
 }
 /* ******* トップページ SP画面限定 ******* */
+
+/* --------------------------------------------------
+ Top-About トップページ About Yukuro CreateFolioについて 指定 
+-------------------------------------------------- */
+.top-about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 48px;
+
+  @include mq(sp) {
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  &__desc {
+    width: 60%;
+    font-size: fluid-size(14, 16);
+    margin-right: 64px;
+
+    @include mq(sp) {
+      width: 100%;
+      margin: 0 0 32px 0;
+    }
+  }
+
+  &__text {
+    line-height: 1.5;
+    margin-bottom: 32px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq(sp) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__profile-img {
+    width: 651px;
+  }
+}
+
+/* --------------------------------------------------
+ Top-Blog Blog ブログ 指定 
+-------------------------------------------------- */
+.top-blog {
+  margin-bottom: 80px;
+}
+
+/* --------------------------------------------------
+ Top-News News お知らせ 指定 
+-------------------------------------------------- */
+.news-list {
+  @include centerWidth;
+  @include mq(sp) {
+    margin-bottom: 24px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid $border-base;
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq(sp) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__date {
+    font-size: fluid-size(14,16);
+    font-weight: 300;
+    padding-right: 32px;
+    border-right: 1px solid $border-base;
+    &--lg {
+      font-size: fluid-size(20,32);
+      border: none;
+      padding-right: 0;
+    }
+  }
+
+  &__category {
+    width: 96px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border: 1px solid $border-black;
+    margin-left: 32px;
+    border-radius: 4px;
+    font-size: fluid-size(14,14);
+  }
+
+  &__text-link {
+    max-width: 644px;
+    margin-left: 32px;
+    font-size: fluid-size(14, 16);
+    color: $font-black;
+    position: relative;
+    padding-right: 32px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    &::before {
+      @include stickArrow;
+    }
+    &::after {
+      @include hoverBorder;
+      bottom: -4px;
+    }
+    &:hover::after {
+      transform: scale(1, 1);
+    }
+
+    @include mq(sp) {
+      padding-top: 24px;
+      margin-left: 0;
+      width: 100%;
+      
+    }
+  }
+}

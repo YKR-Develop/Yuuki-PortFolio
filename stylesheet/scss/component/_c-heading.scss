@@ -16,6 +16,7 @@
   font-size: fluid-size(28, 48);
   text-align: center;
   margin-bottom: fluid-size(32, 48);
+  position: relative;
 
   &__main {
     position: relative;
@@ -44,6 +45,28 @@
       padding-top: 16px;
     }
   }
+
+  &__side-link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__link {
+    font-size: fluid-size(14, 14);
+    color: $font-black;
+    padding-right: 24px;
+    &::before {
+      @include stickArrow;
+    }
+    &::after {
+      @include hoverBorder;
+      bottom: -4px;
+    }
+    &:hover::after {
+      transform: scale(1, 1);
+    }
+  }
 }
 
 /* --------------------------------------------------
@@ -52,15 +75,21 @@
 .contents-title {
   text-align: center;
   position: relative;
+
   &__title {
     width: fluid-size(300, 426);
-    margin: 0 auto;
+    margin: 0 auto 48px auto;
     text-align: center;
     font-size: fluid-size(18, 24);
     position: relative;
     font-weight: 300;
+    &--works {
+      margin: 0 auto;
+    }
+    
     @include mq(sp) {
       width: 300px;
+      margin-bottom: 24px;
     }
 
     &::after {
@@ -107,7 +136,6 @@
 
   &__link {
     color: $font-black;
-    font-weight: 600;
     position: relative;
     padding-right: 24px;
     font-weight: 300;

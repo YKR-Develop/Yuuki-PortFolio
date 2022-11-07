@@ -70,9 +70,8 @@ p {
  ページ内 各コンテンツベース余白指定
 -------------------------------------------------- */
 .contents {
-  
   &__article {
-    padding: 64px 48px;
+    padding: 80px 48px;
     @include mq(sp) {
       padding: 64px 18px;
     }
@@ -80,9 +79,15 @@ p {
       background-color: $background-gray;
     }
   }
+
+  &__desc {
+    @include centerWidth;
+    font-size: fluid-size(14, 16);;
+    margin: 0 auto 64px auto;
+    @include mq(sp) {
+      margin: 0 auto 32px auto;
+    }
+  }
 }
 
-.page-contents {
-  padding: 64px 0;
-}
 
