@@ -13,42 +13,190 @@
 /* --------------------------------------------------
  テキスト入力フォームの指定
 -------------------------------------------------- */
-.form-list {
+.form-box {
   max-width: 441px;
   margin: 0 auto;
   color: $font-black;
 
   &__item {
     margin-bottom: 64px;
-    &:last-child {
+    &:nth-child(5) {
       margin-bottom: 48px;
+    }
+    &--check {
+      margin-bottom: 32px;
+    }
+
+    &--button {
+      text-align: center;
     }
   }
 
+  /* --------------------------------------------------
+ Label / Required ラベル / 必須の指定
+-------------------------------------------------- */
   &__label {
     display: block;
-    font-size: fluid-size(14,16);
-    margin-bottom: 24px;
+    font-size: fluid-size(14, 16);
+    margin-bottom: 16px;
   }
 
+  &__required {
+    margin-left: 16px;
+    font-size: fluid-size(12, 14);
+    padding: 2px;
+    border: 1px solid #ff3131;
+    color: #ff3131;
+    border-radius: 4px;
+  }
+
+  /* --------------------------------------------------
+ Input フォームラベルの指定
+-------------------------------------------------- */
   &__form {
-    width: 100%;
+    width: 424px;
     height: 32px;
+    letter-spacing: 0.1em;
     border: transparent;
     border-bottom: 1px solid $border-contact;
     background-color: transparent;
-    font-size: fluid-size(14,16);
-    padding-bottom: 16px;
+    font-size: fluid-size(14, 16);
+    padding: 0 8px 8px;
 
     &--select {
-      padding-bottom: 16px;
+      width: 440px;
+      color: $font-black;
+      padding-bottom: 8px;
     }
 
     &--textarea {
       border: 1px solid $border-contact;
+      width: 416px;
       height: 176px;
       padding: 12px;
-      font-size: fluid-size(14,16);
+      font-size: fluid-size(14, 16);
+      resize: none;
     }
+  }
+
+  /* --------------------------------------------------
+ Radio ラジオボタンの指定
+-------------------------------------------------- */
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  &__radio-box {
+    display: inline-block;
+    margin-right: 48px;
+  }
+
+  &__radio {
+    font-size: fluid-size(14, 16);
+    padding-left: 24px;
+    position: relative;
+    display: block;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid $border-black;
+    }
+
+    &:checked + &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 4px;
+      left: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $border-black;
+    }
+  }
+
+  /* --------------------------------------------------
+ Check チェックボックスの指定
+-------------------------------------------------- */
+  /* チェックボックス全体 */
+  &__pribacypolicy {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+  }
+
+  /* デフォルトチェックボックス非表示 */
+  &__pribacypolicy input {
+    display: none;
+  }
+
+  /* チェックボックスのスタイル */
+  &__pribacypolicy &__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 2px solid $border-black;
+    box-sizing: border-box;
+  }
+
+  /* チェックマーク作成 */
+  &__pribacypolicy &__checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 4px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: 2px solid $border-black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  /* チェック時のスタイル */
+  &__pribacypolicy input:checked + &__checkmark {
+    border: 2px solid $border-black;
+  }
+
+  /* チェック時 チェックマーク表示 */
+  &__pribacypolicy input:checked + &__checkmark:after {
+    display: block;
+  }
+
+  &__pribacy-link {
+    display: inline-block;
+    font-size: fluid-size(14, 16);
+    color: $font-black;
+    border-bottom: 1px solid $border-black;
+    padding-bottom: 2px;
+
+    &:hover {
+      border: none;
+    }
+  }
+
+  /* --------------------------------------------------
+ エラー エラーメッセージの指定
+-------------------------------------------------- */
+  .error {
+    width: 100%;
+    padding: 0;
+    display: inline-block;
+    font-size: fluid-size(14, 16);
+    color: $font-black;
+    box-sizing: border-box;
   }
 }

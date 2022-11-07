@@ -1143,48 +1143,79 @@
             案件等に関しては、「企業」をご選択頂き、お問い合わせ項目の「案件のご依頼・相談」を選択の上、内容のご入力をお願い致します。
           </p>
 
-          <!-- ===== お問い合わせフォーム Form-list ===== -->
-          <form action="URLが入ります" method="post" class="form-list">
+          <!-- ===== お問い合わせフォーム form-box ===== -->
+          <form action="URLが入ります" method="post" class="form-box">
 
             <!-- #### お名前 #### -->
-            <div class="form-list__item">
-              <label class="form-list__label" for="name">お名前</label>
-              <input class="form-list__form" type="text" id="name" name="name" placeholder="山田太郎">
+            <div class="form-box__item">
+              <label class="form-box__label" for="name">お名前
+                <span class="form-box__required">必須</span>
+              </label>
+              <input class="form-box__form required" type="text" id="name" name="name" placeholder="例) 山田太郎" required
+                autocomplete="name">
             </div>
 
             <!-- #### Email #### -->
-            <div class="form-list__item">
-              <label class="form-list__label" for="email">メールアドレス</label>
-              <input class="form-list__form" type="text" id="email" name="email" placeholder="test@example.co.jp">
+            <div class="form-box__item">
+              <label class="form-box__label" for="email">メールアドレス
+                <span class="form-box__required">必須</span>
+              </label>
+              <input class="form-box__form is-email required" type="text" id="email" name="email"
+                placeholder="例) test@example.co.jp" required autocomplete="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
             </div>
 
             <!-- #### 個人 / 企業 #### -->
-            <div class="form-list__item">
-              <label class="form-list__label" for="request">個人 / 企業</label>
-              <input class="form-list__radio" type="radio" id="request" name="radio" value="個人">
-              <span class="form-list__radio form-list__radio--text">個人</span>
-              <input class="form-list__radio" type="radio" id="request" name="radio" value="企業">
-              <span class="form-list__radio form-list__radio--text">企業</span>
+            <div class="form-box__item">
+
+              <p class="form-box__label" for="request">個人 / 企業
+                <span class="form-box__required">必須</span>
+              </p>
+              <label class="form-box__radio-box">
+                <input class="form-box__radio is-request required" type="radio" id="request" name="radio" value="個人">
+                <span class="form-box__radio form-box__radio--text">個人</span>
+              </label>
+              <label class="form-box__radio-box">
+                <input class="form-box__radio is-request required" type="radio" id="request" name="radio" value="企業">
+                <span class="form-box__radio form-box__radio--text">企業</span>
+              </label>
             </div>
 
             <!-- #### お問い合わせ項目 #### -->
-            <div class="form-list__item">
-              <label class="form-list__label" for="contents">お問い合わせ項目</label>
-              <select class="form-list__form" name="contents" id="contents">
-                <option class="form-list__form form-list__form--select" value="">選択して下さい</option>
-                <option class="form-list__form form-list__form--select" value="">・案件のご依頼・ご相談</option>
-                <option class="form-list__form form-list__form--select" value="">・その他お問い合わせ</option>
+            <div class="form-box__item">
+              <label class="form-box__label" for="contents">お問い合わせ項目
+                <span class="form-box__required">必須</span>
+              </label>
+              <select class="form-box__form form-box__form--select is-contents required" name="contents" id="contents">
+                <option class="form-box__form form-box__form--select" value="">選択して下さい</option>
+                <option class="form-box__form form-box__form--select" value="">・案件のご依頼・ご相談</option>
+                <option class="form-box__form form-box__form--select" value="">・その他お問い合わせ</option>
               </select>
             </div>
 
             <!-- #### お問い合わせ内容 #### -->
-            <div class="form-list__item">
-              <label class="form-list__label" for="textarea">お問い合わせ内容</label>
-              <textarea class="form-list__form form-list__form--textarea" name="textarea" id="textarea" placeholder="お問い合わせ内容を入力して下さい。"></textarea>
+            <div class="form-box__item">
+              <label class="form-box__label" for="textarea">お問い合わせ内容
+                <span class="form-box__required">必須</span>
+              </label>
+              <textarea class="form-box__form form-box__form--textarea required" name="textarea" id="textarea"
+                placeholder="例) お問い合わせ内容を入力して下さい。"></textarea>
             </div>
 
+            <!-- #### プライバシーポリシー #### -->
+            <div class="form-box__item form-box__item--check">
+              <label class="form-box__pribacypolicy">
+                <input class="form-box__check required" type="checkbox" id="agree">
+                <span class="form-box__checkmark"></span>
+                <a class="form-box__pribacy-link" href="privacypolicy.html">プライバシーポリシーに同意する</a>
+              </label>
+            </div>
+
+            <div class="form-box__item form-box__item--button">
+              <input class="form-box__button" id="submit-button" type="submit" name="form-button" value="入力内容を確認する" disabled>
+            </div>
           </form>
-          <!-- ===== お問い合わせフォーム Form-list ===== -->
+          <!-- ===== お問い合わせフォーム form-box ===== -->
         </article>
         <!-- ⬆︎ /////////////////// Top_Contact お問い合わせ End /////////////////// ⬆︎ -->
 
@@ -1369,6 +1400,7 @@
 
   <!-- ⬇︎ ################# JSファイル 読み込み ################# ⬇︎ -->
   <script src="javascript/main.js"></script>
+  <script src="javascript/form.js"></script>
 </body>
 
 </html>
