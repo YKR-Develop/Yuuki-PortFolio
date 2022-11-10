@@ -9,9 +9,9 @@
 // eachTextAnimeにappeartextというクラス名を付ける定義
 function EachTextAnimeControl() {
   $('.js-text-animation').each(function () {
-    var elemPos = $(this).offset().top - 50;
-    var scroll = $(window).scrollTop();
-    var windowHeight = $(window).height();
+    let elemPos = $(this).offset().top - 50;
+    let scroll = $(window).scrollTop();
+    let windowHeight = $(window).height();
     if (scroll >= elemPos - windowHeight) {
       $(this).addClass("appeartext");
 
@@ -29,16 +29,16 @@ $(window).scroll(function () {
 // 画面が読み込まれたらすぐに動かしたい場合の記述
 $(window).on('load', function () {
   //spanタグを追加する
-  var element = $(".js-text-animation");
+  let element = $(".js-text-animation");
   element.each(function () {
-    var text = $(this).text();
-    var textbox = "";
+    let text = $(this).text();
+    let textbox = "";
     text.split('').forEach(function (t, i) {
       if (t !== " ") {
         if (i < 10) {
           textbox += '<span style="animation-delay:.' + i + 's;">' + t + '</span>';
         } else {
-          var n = i / 10;
+          let n = i / 10;
           textbox += '<span style="animation-delay:' + n + 's;">' + t + '</span>';
         }
 
@@ -127,9 +127,9 @@ function GethashID (hashIDName){
 	if(hashIDName){
 		//タブ設定
 		$('.tab__item').find('a').each(function() { //タブ内のaタグ全てを取得
-			var idName = $(this).attr('href'); //タブ内のaタグのリンク名（例）#lunchの値を取得	
+			let idName = $(this).attr('href'); //タブ内のaタグのリンク名（例）#lunchの値を取得	
 			if(idName == hashIDName){ //リンク元の指定されたURLのハッシュタグ（例）http://example.com/#lunch←この#の値とタブ内のリンク名（例）#lunchが同じかをチェック
-				var parentElm = $(this).parent(); //タブ内のaタグの親要素（li）を取得
+				let parentElm = $(this).parent(); //タブ内のaタグの親要素（li）を取得
 				$('.tab__item').removeClass("active"); //タブ内のliについているactiveクラスを取り除き
 				$(parentElm).addClass("active"); //リンク元の指定されたURLのハッシュタグとタブ内のリンク名が同じであれば、liにactiveクラスを追加
 				//表示させるエリア設定
@@ -142,7 +142,7 @@ function GethashID (hashIDName){
 
 //タブをクリックしたら
 $('.tab__link').on('click', function() {
-	var idName = $(this).attr('href'); //タブ内のリンク名を取得	
+	let idName = $(this).attr('href'); //タブ内のリンク名を取得	
 	GethashID (idName);//設定したタブの読み込みと
 	return false;//aタグを無効にする
 });
@@ -152,6 +152,26 @@ $('.tab__link').on('click', function() {
 $(window).on('load', function () {
     $('.tab__item:first-of-type').addClass("active"); //最初のliにactiveクラスを追加
     $('.tab__area:first-of-type').addClass("is-active"); //最初の.areaにis-activeクラスを追加
-	var hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
+	let hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
 	GethashID (hashName);//設定したタブの読み込み
 });
+
+/* --------------------------------------------------
+  アコーディオンメニュー
+-------------------------------------------------- */ 
+jQuery(function($) {
+  // タイトルがクリックされたら
+  $(".js-accordion-title").on('click', function () {
+    // クリックしたjs-accordion-title以外の全てのopenをとる
+    $(".js-accordion-title").not(this).removeClass("open");
+    // クリックされたjs-accordion-title以外のcontentを閉じる
+    $(".js-accordion-title").not(this).next().slideUp(300);
+    // thisにopenクラスを付与
+    $(this).toggleClass("open");
+    // thisのcontentを展開、開いていれば閉じる
+    $(this).next().slideToggle(300);
+  });
+})
+
+
+

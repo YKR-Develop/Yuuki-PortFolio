@@ -1,0 +1,352 @@
+/*===================================================
+ about.scss
+ aboutページの指定
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
+
+/* --------------------------------------------------
+  ご挨拶本文
+-------------------------------------------------- */
+.about-greeting {
+  &__box {
+    @include centerWidth;
+    font-size: fluid-size(14, 16);
+  }
+
+  &__text {
+    margin-bottom: 16px;
+    @include mq(sp) {
+      margin-bottom: 24px;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* --------------------------------------------------
+  About-genre 制作ジャンル
+-------------------------------------------------- */
+.about-genre {
+  @include centerWidth;
+  margin-bottom: 48px;
+  @include mq(sp) {
+    margin-bottom: 32px;
+  }
+
+  &__box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__list {
+    @include mq(sp) {
+      margin-bottom: 24px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &:first-child {
+      padding-right: 24px;
+      @include mq(sp) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &__item {
+    font-size: fluid-size(14,16);
+    margin-bottom: 32px;
+
+    @include mq(sp) {
+      margin-bottom: 24px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    color: $font-black;
+    position: relative;
+    border-bottom: 1px solid $border-base;
+    padding-bottom: 4px;
+
+    &::before {
+      @include stickArrow;
+      right: -20px;
+
+      @include mq(sp) {
+        right: 0;
+      }
+    }
+    @include hoverText;
+  }
+}
+
+/* --------------------------------------------------
+  About-row 制作の流れ
+-------------------------------------------------- */
+.about-flow {
+  &__desc {
+    @include centerWidth;
+    margin-bottom: 48px;
+    @include mq(sp) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__label {
+    font-size: fluid-size(14, 20);
+    margin-bottom: 32px;
+  }
+
+  &__text {
+    font-size: fluid-size(14, 16);
+    margin-bottom: 16px;
+    @include mq(sp) {
+      margin-bottom: 24px;
+    }
+    &--bold {
+      font-size: fluid-size(14, 18);
+      font-weight: 600;
+    }
+  }
+
+  &__desc-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px 64px;
+    @include mq(sp) {
+      gap: 32px 0 ;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 2 - 32px / 2 * 2);
+    @include mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__number {
+    font-size: fluid-size(18, 20);
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 12px;
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 90%;
+      height: 1px;
+      background-color: $border-base;
+      @include mq(sp) {
+        width: 90%;
+      }
+    }
+  }
+
+  &__img-desc {
+    font-size: fluid-size(14, 16);
+    font-weight: 600;
+    height: 56px;
+    margin-bottom: 12px;
+    @include mq(sp) {
+      height: auto;
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------
+  About-me 私について
+-------------------------------------------------- */
+.about-me {
+  &__item {
+    display: flex;
+    gap: 0 64px;
+    margin-bottom: 64px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+
+    @include mq(sp) {
+      display: block;
+      margin-bottom: 48px;
+    }
+  }
+
+  &__thumb {
+    flex: 1;
+    width: 100%;
+    @include mq(sp) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+
+  &__desc {
+    flex: 1;
+    width: 100%;
+  }
+
+
+  &__label {
+    font-size: fluid-size(16, 22);
+    margin-bottom: 32px;
+    text-align: center;
+
+    @include mq(sp) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__text {
+    font-size: fluid-size(14, 16);
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq(sp) {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+/* --------------------------------------------------
+  About-skill 所有資格
+-------------------------------------------------- */
+.about-license {
+  max-width: 640px;
+  margin: 0 auto;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq(sp) {
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__licence-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 32px;
+  }
+
+  &__date {
+    font-size: fluid-size(14, 16);
+    width: 160px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 4px;
+    border: 1px solid $border-base;
+    margin-right: 32px;
+
+    @include mq(sp) {
+      margin: 0 0 16px 0;
+    }
+  }
+
+  &__name {
+    font-size: fluid-size(14, 16);
+    @include mq(sp) {
+      display: block;
+    }
+  }
+}
+
+/* --------------------------------------------------
+  About-skill 言語・ツール
+-------------------------------------------------- */
+.about-skill {
+  &__box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 64px;
+    @include mq(sp) {
+      width: 100%;
+      gap: 24px 0;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 2 - 32px / 2 * 2);
+    display: flex;
+    border-bottom: 1px dotted $border-base;
+    padding-bottom: 32px;
+
+    @include mq(sp) {
+      width: 100%;
+      padding-bottom: 24px;
+    }
+  }
+
+  &__skill-icon {
+    min-width: 56px;
+    margin-right: 32px;
+    @include mq(sp) {
+      min-width: 46px;
+      margin-right: 16px;
+    }
+  }
+
+  &__icon {
+    width: 56px;
+    height: 56px;
+    @include mq(sp) {
+      width: 46px;
+      height: 46px;
+    }
+  }
+
+  &__label {
+    font-size: fluid-size(16, 18);
+    margin-bottom: 8px;
+  }
+
+  &__detail {
+    font-size: fluid-size(14, 16);
+    margin-bottom: 12px;
+    &--bold {
+      font-weight: 600;
+    }
+  }
+
+  &__text {
+    font-size: fluid-size(14, 16);
+  }
+
+  &__git-link {
+    display: inline-block;
+    color: $font-black;
+    border-bottom: 1px solid $border-base;
+  }
+}

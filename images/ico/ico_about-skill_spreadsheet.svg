@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <g id="Icon" transform="translate(-43 -6520)">
+    <rect id="Frame" width="56" height="56" transform="translate(43 6520)" fill="none"/>
+    <g id="icons8-googleスプレッドシート" transform="translate(41.667 6517)">
+      <path id="パス_274" data-name="パス 274" d="M46.667,59H12a4,4,0,0,1-4-4V7a4,4,0,0,1,4-4H37.333L50.667,16.333V55A4,4,0,0,1,46.667,59Z" fill="#555"/>
+      <path id="パス_275" data-name="パス 275" d="M43.333,16.333H30V3Z" transform="translate(7.333)" fill="#eaeaea"/>
+      <path id="パス_276" data-name="パス 276" d="M30,13,43.333,26.333V13Z" transform="translate(7.333 3.333)"/>
+      <path id="パス_277" data-name="パス 277" d="M36.333,23H15V41.667H39V23ZM17.667,25.667H23v2.667H17.667Zm0,5.333H23v2.667H17.667Zm0,5.333H23V39H17.667ZM36.333,39H25.667V36.333H36.333Zm0-5.333H25.667V31H36.333Zm0-5.333H25.667V25.667H36.333Z" transform="translate(2.333 6.667)" fill="#eaeaea"/>
+    </g>
+  </g>
+</svg>

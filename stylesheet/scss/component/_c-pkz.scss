@@ -1,0 +1,65 @@
+/*===================================================
+ visual.scss
+ 各ページビジュアルの定義
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
+
+.pkz {
+  @include maxWidth;
+  padding-top: 24px;
+  background-color: $background-gray;
+
+  @include mq(sp) {
+    padding-top: 24px;
+  }
+
+  &__list {
+    display: flex;
+
+    @include mq(sp) {
+      display: flex;
+      overflow-x: scroll;
+      word-break: keep-all;
+      white-space: nowrap;
+    }
+  }
+
+  &__item {
+    display: inline;
+    position: relative;
+    padding-bottom: 4px;
+
+    &::after {
+      content: "\003e";
+      padding: 0 16px;
+    }
+
+    &:last-child::after {
+      content: "";
+      padding: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: fluid-size(12, 14);
+    color: $font-black;
+    position: relative;
+    padding-bottom: 4px;
+    &::before {
+      @include hoverBorder;
+      bottom: 0px;
+    }
+
+    &:hover::before {
+      transform: scale(1, 1);
+    }
+  }
+  
+}
+

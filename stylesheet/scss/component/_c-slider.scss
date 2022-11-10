@@ -1,0 +1,42 @@
+/*===================================================
+ slider.scss
+ カルーセル・スライドショーの指定
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
+
+/* --------------------------------------------------
+  自動画像カルーセル about.html
+-------------------------------------------------- */
+/* スライダーのwrapper */
+.loop-swiper {
+  z-index: -1000;
+  margin-bottom: 80px;
+  
+  &__wrapper {
+    transition-timing-function: linear;
+    width: 100%;
+    display: flex;
+  }
+
+  &__item {
+    max-width: 360px;
+    height: auto;
+    margin-right: 32px;
+    @include mq(sp) {
+      width: 240px;
+      height: 240px;
+      margin-right: 16px;
+    }
+    &:nth-child(even) {
+      margin-top: 64px;
+      @include mq(sp) {
+        margin-top: 24px;
+      }
+    }
+  }
+}

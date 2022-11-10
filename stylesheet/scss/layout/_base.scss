@@ -78,15 +78,32 @@ p {
     &--bg {
       background-color: $background-gray;
     }
+
+    &--about {
+      padding-top: 48px
+    }
   }
 
   &__desc {
     @include centerWidth;
-    font-size: fluid-size(14, 16);;
+    font-size: fluid-size(14, 16);
     margin: 0 auto 64px auto;
     @include mq(sp) {
       margin: 0 auto 32px auto;
     }
+  }
+
+  &__wrapper {
+    margin-bottom: 80px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq(sp) {
+      margin-bottom: 64px;
+    }
+    
   }
 }
 

@@ -54,7 +54,7 @@
 /* --------------------------------------------------
  side-right サイドナビ 右側 指定
 -------------------------------------------------- */
-#page-top {
+.side-right {
   position: fixed;
   right: 14px;
   top: 50%;
@@ -81,5 +81,9 @@
     border-top: solid 1px;
     transform: rotate(35deg);
     transform-origin: left top;
+  }
+
+  &__link {
+    color: $font-black;
   }
 }

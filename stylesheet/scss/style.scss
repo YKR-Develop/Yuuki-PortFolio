@@ -7,6 +7,7 @@
  Pages 各ページ Scss読み込み
 -------------------------------------------------- */ 
 @use "pages/top";
+@use "pages/about";
 
 
 /* --------------------------------------------------
@@ -29,6 +30,8 @@
 @use "component/c-blog-parts";
 @use "component/c-button";
 @use "component/c-form";
+@use "component/c-pkz";
+@use "component/c-slider";
 
 /* --------------------------------------------------
  Layout ページ構成 Scss読み込み
@@ -43,3 +46,4 @@
 -------------------------------------------------- */
 @use "mixin/mixin";
 @use "mixin/animation";
+
