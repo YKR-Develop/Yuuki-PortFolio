@@ -693,6 +693,7 @@
   width: 32px;
   height: 32px;
   margin-right: 32px;
+  vertical-align: top;
 }
 .about-license__date {
   font-size: clamp(1.4rem, 1.3333333333rem + 0.2083333333vw, 1.6rem);
@@ -782,6 +783,25 @@
   display: inline-block;
   color: #555;
   border-bottom: 1px solid #cecece;
+}
+
+/* --------------------------------------------------
+  About-udemy udemy講座一覧
+-------------------------------------------------- */
+.about-udemy__wrapper {
+  display: flex;
+  gap: 0 48px;
+}
+.about-udemy__item {
+  width: 272px;
+}
+.about-udemy__label {
+  background-color: #555;
+}
+.about-udemy__text {
+  color: #fafafa;
+  font-size: 1.4rem;
+  padding: 12px;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -1229,7 +1249,7 @@ template {
   top: 37px;
   line-height: 40px;
   z-index: 4;
-  background-color: #101010;
+  background-color: #555;
   width: 100%;
   visibility: hidden;
   opacity: 0;
@@ -1299,7 +1319,7 @@ template {
 .tab__icon {
   width: 16px;
   height: 16px;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 @media screen and (max-width: 767px) {
   .tab__icon {
