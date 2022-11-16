@@ -10,13 +10,85 @@
 /* //////////// 変数読み込み //////////// */
 
 /* --------------------------------------------------
+  Prev / Next ボタンデザイン
+-------------------------------------------------- */
+.swiper-button-prev, .swiper-button-next {
+  width: 48px;
+  height: 48px;
+  background-color: $slide-arrow;
+  cursor: pointer;
+  transition: 0.3s;
+  top: 40%;
+
+  @include mq(sp) {
+    width: 40px;
+    height: 40px;
+    top: 40%;
+  }
+  &:hover {
+    background-color: $slide-arrow_hover;
+  }
+}
+
+.swiper-button-prev {
+  left: 0;
+  &::after {
+    content: "";
+    background-image: url("/images/ico/ico_slide-arrow.svg");
+    width: 12px;
+    height: 22px;
+    @include mq(sp) {
+      background-image: url("/images/ico/ico_slide-arrow_sp.svg");
+      width: 9px;
+      height: 16px;
+    }
+  }
+}
+
+.swiper-button-next {
+  right: 0;
+  &::after {
+    content: "";
+    background-image: url("/images/ico/ico_slide-arrow.svg");
+    transform: rotate(180deg);
+    width: 12px;
+    height: 22px;
+    @include mq(sp) {
+      background-image: url("/images/ico/ico_slide-arrow_sp.svg");
+      width: 9px;
+      height: 16px;
+    }
+  }
+}
+
+/* --------------------------------------------------
+  swiper-pagination スワイプボタンデザイン
+-------------------------------------------------- */
+.swiper-pagination > .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgb(97, 97, 97);
+  background-color: inherit;
+  
+  &.swiper-pagination-bullet-active {
+    background-color: $background-black;
+  }
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 12px;
+}
+
+/* --------------------------------------------------
   自動画像カルーセル about.html
 -------------------------------------------------- */
 /* スライダーのwrapper */
 .loop-swiper {
   z-index: -1000;
   margin-bottom: 80px;
-  
+
   &__wrapper {
     transition-timing-function: linear;
     width: 100%;
@@ -38,5 +110,50 @@
         margin-top: 24px;
       }
     }
+  }
+}
+
+/* --------------------------------------------------
+  カードスライド about.html udemy講座一覧
+-------------------------------------------------- */
+.card-slide {
+  width: 100%;
+  margin: 0 auto;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  padding-bottom: 40px;
+  box-sizing: content-box;
+
+  @include mq(sp) {
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  &__item {
+    width: 100%;
+    @include mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__label {
+    background-color: $background-black;
+    min-height: 72px;
+    min-height: 72px;
+    padding: 12px;
+    color: $font-white;
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+  
+  &__image {
+    width: 100%;
+  }
+
+  & .swiper-pagination {
+    bottom: 0;
   }
 }

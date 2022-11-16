@@ -231,6 +231,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 32px 64px;
+
+
     @include animation(
         $name: tabAnime,
         $duration: 2s,

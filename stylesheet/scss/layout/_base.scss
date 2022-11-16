@@ -82,6 +82,7 @@ p {
     &--about {
       padding-top: 48px
     }
+
   }
 
   &__desc {
@@ -103,8 +104,16 @@ p {
     @include mq(sp) {
       margin-bottom: 64px;
     }
+
+    &--about-genre {
+      margin-bottom: 48px;
+      @include mq(sp) {
+        margin-bottom: 32px;
+      }
+    }
     
   }
 }
+
 
 

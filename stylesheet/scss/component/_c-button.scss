@@ -92,7 +92,7 @@
   position: relative;
   transition: all 0.3s;
   border: 1px solid $border-black;
-  
+
   &:hover {
     background: $background-gray;
     border: 1px solid $border-base;
@@ -128,10 +128,72 @@
       color: $font-black;
     }
   }
-  
+
   &__button[disabled] {
-    background-color: #B2B2B2;
+    background-color: #b2b2b2;
     color: $font-white;
     cursor: not-allowed;
+  }
+}
+
+/* --------------------------------------------------
+ Works セレクトボタン 指定 
+-------------------------------------------------- */
+.select-button {
+  width: 296px;
+  height: 48px;
+  border-radius: 24px;
+  line-height: 48px;
+  text-align: center;
+  appearance: none;
+  background-color: $button-background;
+  color: $font-white;
+  position: relative;
+  z-index: 1;
+
+  @include mq(sp) {
+    width: 100%;
+  }
+  
+  &::after {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    right: 16px;
+    top: 40%;
+    transform: translateY(-50%) rotate(45deg);
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    z-index: -1;
+  }
+
+  &:hover::after {
+    border-bottom: 2px solid $border-black;
+    border-right: 2px solid $border-black;
+    z-index: 0;
+  }
+
+  &__inner {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    color: $font-white;
+    font-size: 1.6em;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      border-radius: 24px;
+      background: $background-gray;
+      border: 1px solid $border-base;
+      color: $font-black;
+    }
+    
   }
 }

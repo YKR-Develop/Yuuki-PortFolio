@@ -19,6 +19,10 @@
     background: url("../../images/img/img_about-visual.jpg") no-repeat center / cover;
   }
 
+  &--works {
+    background: url("/works/images/img/img_works-visual.jpg") no-repeat center / cover;
+  }
+
   &__inner {
     height: 100vh;
     position: relative;

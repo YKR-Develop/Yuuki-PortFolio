@@ -8,6 +8,7 @@
 -------------------------------------------------- */ 
 @use "pages/top";
 @use "pages/about";
+@use "pages/works";
 
 
 /* --------------------------------------------------
@@ -32,6 +33,7 @@
 @use "component/c-form";
 @use "component/c-pkz";
 @use "component/c-slider";
+@use "component/c-pagination";
 
 /* --------------------------------------------------
  Layout ページ構成 Scss読み込み
