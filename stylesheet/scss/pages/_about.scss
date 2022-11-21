@@ -135,6 +135,8 @@
   }
 
   &__item {
+    display: flex;
+    flex-direction: column;
     width: calc(100% / 2 - 32px / 2 * 2);
     @include mq(sp) {
       width: 100%;

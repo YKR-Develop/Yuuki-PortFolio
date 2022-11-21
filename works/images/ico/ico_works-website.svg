@@ -1,10 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <g id="WEBサイトアイコン_2_" data-name="WEBサイトアイコン (2)" transform="translate(0 -0.002)">
-    <path id="パス_278" data-name="パス 278" d="M0,0V16H16V0Zm14.871,14.87H1.129V3.484H14.871V14.872Z" transform="translate(0 0)" fill="#4b4b4b"/>
-    <rect id="長方形_242" data-name="長方形 242" width="11.106" height="3.023" transform="translate(2.447 5.252)" fill="#4b4b4b"/>
-    <rect id="長方形_243" data-name="長方形 243" width="4.329" height="3.718" transform="translate(9.224 9.686)" fill="#4b4b4b"/>
-    <rect id="長方形_244" data-name="長方形 244" width="5.082" height="0.565" transform="translate(2.447 9.742)" fill="#4b4b4b"/>
-    <rect id="長方形_245" data-name="長方形 245" width="5.082" height="0.565" transform="translate(2.447 12.783)" fill="#4b4b4b"/>
-    <rect id="長方形_246" data-name="長方形 246" width="5.082" height="0.565" transform="translate(2.447 11.263)" fill="#4b4b4b"/>
+<svg class="works-nav__icon" id="グループ_3511" data-name="グループ 3511" xmlns="http://www.w3.org/2000/svg" width="34" height="32.415" viewBox="0 0 34 32.415">
+  <g id="長方形_1885" data-name="長方形 1885" fill="none" stroke="#555" stroke-width="1.5">
+    <rect width="34" height="23.839" rx="1" stroke="none"/>
+    <rect x="0.75" y="0.75" width="32.5" height="22.339" rx="0.25" fill="none"/>
   </g>
+  <g id="長方形_1886" data-name="長方形 1886" transform="translate(12.405 22.839)" fill="none" stroke="#555" stroke-width="1.5">
+    <rect width="9.38" height="9.161" stroke="none"/>
+    <rect x="0.75" y="0.75" width="7.88" height="7.661" fill="none"/>
+  </g>
+  <line id="線_1015" data-name="線 1015" x1="27.471" transform="translate(3.35 31.665)" fill="none" stroke="#555" stroke-width="1.5"/>
+  <path id="Icon_material-web" data-name="Icon material-web" d="M26.392,32.751H7.506V25.306H26.392Zm0-9.306H7.506V16H26.392Zm8.585,9.306H28.109V16h6.868Z" transform="translate(-4.487 -12.456)" fill="none" stroke="#555" stroke-width="1.5"/>
 </svg>

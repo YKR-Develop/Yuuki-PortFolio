@@ -23,9 +23,53 @@
     background: url("/works/images/img/img_works-visual.jpg") no-repeat center / cover;
   }
 
+  &--works-website {
+    height: 560px;
+    background: url("/works/images/img/img_works_website-visual.jpg") no-repeat center / cover;
+  }
+
+  &--works-programing {
+    width: 100%;
+    height: 60%;
+    background: url("/works/images/img/img_works_programing-visual.jpg") no-repeat center / cover;
+  }
+  &--works-uiux {
+    width: 100%;
+    height: 60%;
+    background: url("/works/images/img/img_works_uiuxdesign-visual.jpg") no-repeat center / cover;
+  }
+
+  &--works-photoshop {
+    width: 100%;
+    height: 60%;
+    background: url("/works/images/img/img_works_photoshop-visual.jpg") no-repeat center / cover;
+  }
+
+  &--works-illustrator {
+    width: 100%;
+    height: 60%;
+    background: url("/works/images/img/img_works_illustrator-visual.jpg") no-repeat center / cover;
+  }
+  
+  &--works-molding {
+    width: 100%;
+    height: 60%;
+    background: url("/works/images/img/img_works_molding&dress-visual.jpg") no-repeat center / cover;
+  }
+
   &__inner {
-    height: 100vh;
     position: relative;
+    &--vh {
+      height: 100vh;
+    }
+
+    &--height {
+      height: 560px;
+
+      @include mq(sp) {
+        height: 400px;
+      }
+    }
   }
 
 /* --------------------------------------------------
@@ -43,6 +87,7 @@
     @include mq(sp) {
       top: 40%;
     }
+
   }
 
   &__text-line {
@@ -68,6 +113,13 @@
     @include mq(sp) {
       left: -18px;
     }
+
+    &--center {
+      top: 45%;
+      @include mq(sp) {
+        top: 70%;
+      }
+    }
   }
 
   &__heading {
@@ -75,7 +127,7 @@
     font-size: fluid-size(26, 48);
     color: $font-white;
     font-weight: 300;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
 
   &__sub-heading {

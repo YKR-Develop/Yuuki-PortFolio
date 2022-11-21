@@ -8,6 +8,60 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み //////////// */
+/* --------------------------------------------------
+  works-category カテゴリーリストの指定 works_top.html
+-------------------------------------------------- */
+.works-category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px 64px;
+  @include mq(sp) {
+    gap: 32px 0;
+  }
+  
+  &__item {
+    width: calc(100% / 2 - 32px / 2 * 2);
+    position: relative;
+
+    @include mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__thumb {
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    transition: 0.5s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__label-inner {
+    color: $font-white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__label {
+    text-align: center;
+    font-weight: 400;
+    &--lg {
+      display: block;
+      font-size: fluid-size(20, 24);
+      margin-bottom: 8px;
+    }
+    &--sm {
+      display: block;
+      font-size: fluid-size(14, 18);
+    }
+  }
+}
 
 /* --------------------------------------------------
   works-tab タブナビゲーションの指定
@@ -25,9 +79,9 @@
   width: 100%;
   margin: 0 auto 120px auto;
 
-  &__button {
+  &__button-area {
     display: flex;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
     @include mq(sp) {
       flex-wrap: wrap;
     }
@@ -42,6 +96,7 @@
     @include mq(sp) {
       width: 100%;
       margin: 0 0 24px 0;
+      z-index: 0;
     }
   }
 
@@ -62,42 +117,113 @@
 .works-list {
   display: flex;
   flex-wrap: wrap;
+  box-sizing: border-box;
   gap: 64px 64px;
-  
-  &__item {
-    width: calc(100% / 2 - 32px / 2 * 2);
+  @include mq(sp) {
+    flex-wrap: wrap;
+    gap: 48px 0;
+  }
+}
+
+.works-item {
+  width: calc(100% / 2 - 32px / 2 * 2);
+  display: flex;
+  flex-direction:column;
+  &--website {
+    width: calc(100% / 3 - 43px / 3 * 3);
+    @include mq(tab) {
+      width: calc(100% / 2 - 32px / 2 * 2);
+    }
   }
 
-  &__mockup {
-    margin-bottom: 24px;
-  }
-
-  &__image {
+  @include mq(sp) {
     width: 100%;
   }
 
-  &__label {
-    text-align: center;
-    font-size: 1.8rem;
+  &--mb {
+    @include mq(sp) {
+      margin-bottom: 32px;
+    }
+  } 
+
+  &__image {
+    width: 100%;
     margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: fluid-size(16, 18);
+    text-align: left;
+    margin-bottom: 16px;
+    @include mq(sp) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 1rem;
+  }
+
+  &__text-link {
+    display: inline-block;
   }
 
   &__desc {
-    font-size: fluid-size(14, 16);
-    margin-bottom: 24px;
-    height: 112px;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    flex-grow: 1;
   }
 
-  &__category {
+  &__management-list {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    @include mq(sp) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__management-item {
+    display: block;
+    position: relative;
+    padding-right: 16px;
+    &:nth-child(n + 2) {
+      padding-left: 8px;
+    }
+    &::after {
+      content: "/";
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    &:last-child::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    &::after {
+      content: "/";
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &__genre {
     display: flex;
     align-items: center;
     margin-bottom: 24px;
+    @include mq(sp) {
+      margin-bottom: 8px;
+    }
   }
 
-  &__site-category {
-    padding: 4px 12px;
-    border: 1px solid $border-base;
+  &__category {
     font-size: 1.4rem;
+    padding: 4px 8px;
+    border: 1px solid $border-base;
     margin-right: 24px;
   }
 
@@ -105,8 +231,7 @@
     font-size: fluid-size(14, 16);
     position: relative;
     padding-left: 24px;
-    font-weight: 600;
-    &::before {
+    &::after {
       content: "";
       position: absolute;
       top: 50%;
@@ -118,15 +243,15 @@
   }
 
   &__detail-link {
-    text-align: right;
+    text-align: center;
   }
 
   &__link {
     display: inline-block;
     font-size: fluid-size(14, 16);
     color: $font-black;
-    padding-right: 24px;
     position: relative;
+    padding-right: 24px;
     &::before {
       @include stickArrow;
     }
@@ -138,7 +263,22 @@
       transform: scale(1, 1);
     }
   }
+
+  /* ######## PhotoShop レタッチ写真限定デザイン ######## */
+  &__ps-desc {
+    display: flex;
+    font-size: 1.4rem;
+    @include mq(sp) {
+      flex-direction: column;
+    }
+  }
+
+  &__ps-label-item {
+    display: flex;
+    @include mq(sp) {
+      width: 100%;
+    }
+  }
+
 }
-
-
 

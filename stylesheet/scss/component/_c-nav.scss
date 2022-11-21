@@ -54,7 +54,7 @@
 }
 
 /* --------------------------------------------------
- header-fixed__nav 固定ナビ
+ header-fixed__nav 固定ナビゲーション
 -------------------------------------------------- */
 .header-fixed {
   position: fixed;
@@ -157,7 +157,7 @@
  Tab__nav タブナビゲーション
 -------------------------------------------------- */
 .tab {
-  &__list{
+  &__list {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -183,7 +183,7 @@
       width: 50%;
     }
   }
-  
+
   &__icon {
     width: 16px;
     height: 16px;
@@ -218,32 +218,26 @@
     pointer-events: none;
   }
 
-
   /* //////////// タブ内エリア //////////// */
   &__area {
-    display: none;/*はじめは非表示*/
-    opacity: 0;/*透過0*/ 
+    display: none; /*はじめは非表示*/
+    opacity: 0; /*透過0*/
   }
 
   &__area.is-active {
-    display: block;/*表示*/
+    display: block; /*表示*/
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 32px 64px;
 
-
-    @include animation(
-        $name: tabAnime,
-        $duration: 2s,
-        $fill-mode: forwards
-    );
+    @include animation($name: tabAnime, $duration: 2s, $fill-mode: forwards);
 
     @include mq(sp) {
       gap: 16px 16px;
     }
   }
-  @keyframes tabAnime{
+  @keyframes tabAnime {
     from {
       opacity: 0;
     }
@@ -295,7 +289,7 @@
       }
       &::after {
         opacity: 0;
-      }     
+      }
     }
   }
 
@@ -330,6 +324,77 @@
   }
 }
 
+/* --------------------------------------------------
+ works-nav Works制作実績用ナビゲーション
+-------------------------------------------------- */
+.works-nav {
+  @include centerWidth;
+  margin: 0 auto 32px auto;
+
+  &__list {
+    display: flex;
+    height: 80px;
+
+    @include mq(sp) {
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 6);
+    text-align: center;
+    border: 1px solid $border-base;
+    transition: 0.3s;
+    background-color: $background-white;
+    @include mq(sp) {
+      width: 49.4%;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    transition: 0.5s;
+    position: relative;
+
+    &:hover {
+      background-color: $button-background;
+      color: $font-white;
+    }
+
+    &:hover > .works-nav__link-icon {
+      filter: brightness(0) saturate(100%) invert(99%) sepia(32%);
+    }
+
+    &:hover > .works-nav__text {
+      color: $font-white;
+    }
+  }
+
+  &__link-icon {
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    color: $font-black;
+    font-size: 1.2rem;
+  }
+
+  & .style-change {
+    background-color: $button-background;
+  }
+
+  & .style-change > .works-nav__link-icon {
+    filter: brightness(0) saturate(100%) invert(99%) sepia(32%);
+  }
+
+  & .style-change > .works-nav__text {
+    color: $font-white;
+  }
+}
 
 /* ================================== 以下 スマホ画面指定 ================================== */
 
@@ -385,7 +450,7 @@
 }
 
 /* --------------------------------------------------
- scroll-nav スマホ用スクロールナビ
+ scroll-nav スマホ用スクロールナビゲーション
 -------------------------------------------------- */
 .scroll-nav {
   position: relative;
@@ -458,5 +523,3 @@
     font-size: fluid-size(14, 14);
   }
 }
-
-

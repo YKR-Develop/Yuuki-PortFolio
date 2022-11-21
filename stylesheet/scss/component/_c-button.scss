@@ -142,7 +142,6 @@
 .select-button {
   width: 296px;
   height: 48px;
-  border-radius: 24px;
   line-height: 48px;
   text-align: center;
   appearance: none;
@@ -150,6 +149,10 @@
   color: $font-white;
   position: relative;
   z-index: 1;
+  margin-right: 80px;
+  &:last-child {
+    margin-right: 0;
+  }
 
   @include mq(sp) {
     width: 100%;
@@ -160,8 +163,8 @@
     content: "";
     width: 8px;
     height: 8px;
-    right: 16px;
-    top: 40%;
+    right: 32px;
+    top: 45%;
     transform: translateY(-50%) rotate(45deg);
     border-bottom: 2px solid #fff;
     border-right: 2px solid #fff;
@@ -174,7 +177,13 @@
     z-index: 0;
   }
 
-  &__inner {
+  &__label {
+    font-size: 1.6em;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  &__item {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -189,7 +198,6 @@
     transition: 0.3s;
 
     &:hover {
-      border-radius: 24px;
       background: $background-gray;
       border: 1px solid $border-base;
       color: $font-black;

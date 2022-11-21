@@ -173,5 +173,15 @@ jQuery(function($) {
   });
 })
 
+/* --------------------------------------------------
+  ナビゲーションメニュー 滞在ページの表示変更 worksページ
+-------------------------------------------------- */ 
+let navLink = document.getElementsByClassName('works-nav__link');
+    for (let i = 0; i < navLink.length; i++) {
+      if(navLink[i].href === location.href) {
+          navLink[i].classList.add('style-change');
+        }
+    }
+
 
 
