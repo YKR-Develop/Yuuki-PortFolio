@@ -24,9 +24,15 @@
   &--odd {
     flex-direction: row-reverse;
   }
+
+  @include mq(tab) {
+    padding-top: 24px;
+  }
+
   @include mq(sp) {
     flex-wrap: wrap;
     margin: 32px auto 0 auto;
+    padding-top: 0;
   }
 
   &__thumb {
@@ -54,7 +60,7 @@
     font-size: fluid-size(14, 16);
     margin: 4% 32px;
 
-    @include mq(sp) {
+    @include mq(tab) {
       margin: 0 0 24px;
     }
   }
@@ -146,6 +152,8 @@
       bottom: -4px;
     }
   }
+  
+  
 }
 /* ******* トップページ SP画面限定 ******* */
 

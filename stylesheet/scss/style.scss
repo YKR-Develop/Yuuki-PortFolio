@@ -9,6 +9,7 @@
 @use "pages/top";
 @use "pages/about";
 @use "pages/works";
+@use "pages/blog";
 
 
 /* --------------------------------------------------
@@ -34,6 +35,8 @@
 @use "component/c-pkz";
 @use "component/c-slider";
 @use "component/c-pagination";
+@use "component/c-accordion";
+@use "component/c-tab";
 
 /* --------------------------------------------------
  Layout ページ構成 Scss読み込み

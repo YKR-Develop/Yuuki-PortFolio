@@ -10,8 +10,7 @@
   <title>Yukuro CreateFolio | Works 造形・衣装制作</title>
 
   <!-- metaディスクリプション -->
-  <meta name="description"
-    content="趣味で制作しているコスプレで使う小道具やキャラクターのアレンジ衣装などを主に掲載しております。全て手作りです。">
+  <meta name="description" content="趣味で制作しているコスプレで使う小道具やキャラクターのアレンジ衣装などを主に掲載しております。全て手作りです。">
 
   <!-- OGPタグ -->
   <meta property="og:url" content="ページURL">
@@ -78,7 +77,7 @@
                 <a href="/about.html" class="header-top__link">About</a>
               </li>
               <li class="header-top__item">
-                <a href="/blog.html" class="header-top__link">Blog</a>
+                <a href="/blog/blog.html" class="header-top__link">Blog</a>
               </li>
               <li class="header-top__item">
                 <a href="/index.html#contact" class="header-top__link">Contact</a>
@@ -87,82 +86,6 @@
           </nav>
         </header>
         <!-- ビジュアルナビゲーション__PC ここまで ***************** -->
-
-        <!-- ヘッダーナビゲーション__SP ここから ***************** -->
-        <header class="header-mobile is-sp">
-          <div class="header-mobile__nav">
-            <!-- ロゴリンク -->
-            <a class="header-mobile__top-link" href="/index.html">
-              <h1 class="header-mobile__logo">
-                <img class="header-mobile__logo-img" src="/images/ico/ico_logo.png" alt="Yukuro CreateFolio">
-              </h1>
-            </a>
-            <!-- ロゴリンク -->
-
-            <!-- 検索フォーム ※WordPress検索のためid指定 -->
-            <div class="search-open-btn"></div>
-            <div class="search-wrap">
-              <div class="search-close-btn">
-                <span class="search-close-btn__border"></span>
-                <span class="search-close-btn__border"></span>
-              </div>
-              <div class="search-area">
-                <form class="search-wrap__form" role="search" method="get" action="">
-                  <input class="search-wrap__input" type="text" value="" name="" id="search-text" placeholder="search">
-                  <input class="search-wrap__submit" type="submit" id="searchsubmit" value="">
-                </form>
-              </div>
-            </div>
-            <!-- 検索フォーム -->
-          </div>
-
-          <!-- 横スクロールナビゲーション ここから -->
-          <div class="scroll-nav is-sp">
-            <nav class="scroll-nav__nav">
-              <ul class="scroll-nav__list scroll-nav__list--works">
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_website.html" class="scroll-nav__link">
-                    Webサイト制作
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_programing.html" class="scroll-nav__link">
-                    プログラミング開発
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_uiuxdesign.html" class="scroll-nav__link">
-                    UI UXデザイン
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_photoshop.html" class="scroll-nav__link">
-                    PhotoShop
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_illustrator.html" class="scroll-nav__link">
-                    Illustrator
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_molding&dress.html" class="scroll-nav__link">
-                    造形・衣装作品
-                  </a>
-                </li>
-
-              </ul>
-            </nav>
-            <div class="scroll-nav__next-btn">＞</div>
-          </div>
-          <!-- 横スクロールナビゲーション_SP ここまで -->
-        </header>
-        <!-- ヘッダーナビゲーション__SP / 横スクロールナビゲーション_SP ここまで ***************** -->
 
         <!-- ページタイトル ここから ***************** -->
         <h1 class="main-visual__page-title main-visual__page-title--center">
@@ -225,7 +148,7 @@
 
             <!-- ==== 3階層目 About ==== -->
             <li class="pkz__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a class="pkz__link" itemprop="About" href="/works/works_uiuxdesign.html">Works UI UXデザイン</a>
+              <a class="pkz__link" itemprop="About" href="/works/works_uiuxdesign.html">造形・衣装作品</a>
               <meta itemprop="position" content="1">
             </li>
           </ol>
@@ -237,7 +160,7 @@
         <!-- ⬇︎ /////////////////// Works 制作実績 Start /////////////////// ⬇︎ -->
         <article class="contents__article contents__article--works">
           <!-- ⬇︎ /////////////////// Works ナビゲーション Start /////////////////// ⬇︎ -->
-          <div class="works-nav">
+          <div class="works-nav is-pc">
             <ul class="works-nav__list">
 
               <!-- ##### Webサイト制作 ##### -->
@@ -303,6 +226,16 @@
           </div>
           <!-- ⬆︎ /////////////////// Works ナビゲーション End /////////////////// ⬆︎ -->
 
+          <div class="works-desc">
+            <p class="works-desc__text">
+              こちらに掲載している作品は、私が運営しているハンドメイドサイト「<a class="works-desc__text-link"
+                href="works-desc__text-link">YuCoRea</a>」にも掲載しておりますので、そちらではより詳細な制作過程などをご覧になれます。
+            </p>
+            <p class="works-desc__text">
+              YuCoReaでは小道具・衣装制作のオーダーメイドを始め、ハンドメイドアクセサリーなどの販売を行っておりますので、ご興味がございましたら是非ご覧ください。
+            </p>
+          </div>
+
           <!------ ##### セレクト絞り込みボタン ここから ##### ------>
           <div class="contents-works__button-area">
             <div class="contents-works__button-item">
@@ -326,115 +259,117 @@
           <div class="works-list  js-filter-items">
 
             <!------ ##### 鬼滅の刃風 虚哭神去風 ##### ------>
-            <section class="works-item js-filter-item" data-category="is-props"> 
+            <section class="works-card js-filter-item" data-category="is-props">
               <!-- イメージ画像 -->
-              <div class="works-item__works-image">
-                <img src="/works/images/img/img_works-molding-sample01.jpg" alt="鬼滅の刃風 虚哭神去風" class="works-item__image">
+              <div class="works-card__works-image">
+                <img src="/works/images/img/img_works-molding-sample01.jpg" alt="鬼滅の刃風 虚哭神去風" class="works-card__image">
               </div>
 
               <!-- サイト名 -->
-              <h3 class="works-item__title">
+              <h3 class="works-card__title">
                 鬼滅の刃風 虚哭神去風
               </h3>
 
               <!-- サイト説明 -->
-              <div class="works-item__desc">
-                <p class="works-item__text">
+              <div class="works-card__desc">
+                <p class="works-card__text">
                   刀身は透明バインダーとアルミテープを使用し、眼球は立体感を持たせるために樹脂粘土と目玉ボタンを使用し作成しました。
                 </p>
-                <p class="works-item__text">
+                <p class="works-card__text">
                   中にLEDテープを仕込んでいるので、光らせることも可能です。
                 </p>
               </div>
 
               <!-- カテゴリー -->
-              <div class="works-item__genre">
-                <p class="works-item__category">小道具</p>
+              <div class="works-card__genre">
+                <p class="works-card__category">小道具</p>
               </div>
             </section>
 
             <!------ ##### まどマギ風 マスケット銃風 ##### ------>
-            <section class="works-item js-filter-item" data-category="is-props">
+            <section class="works-card js-filter-item" data-category="is-props">
               <!-- イメージ画像 -->
-              <div class="works-item__works-image">
-                <img src="/works/images/img/img_works-molding-sample02.jpg" alt="まどマギ風 マスケット銃風" class="works-item__image">
+              <div class="works-card__works-image">
+                <img src="/works/images/img/img_works-molding-sample02.jpg" alt="まどマギ風 マスケット銃風"
+                  class="works-card__image">
               </div>
 
               <!-- サイト名 -->
-              <h3 class="works-item__title">
+              <h3 class="works-card__title">
                 まどマギ風 マスケット銃風
               </h3>
 
               <!-- サイト説明 -->
-              <div class="works-item__desc">
-                <p class="works-item__text">
-                  型紙はギャクヨガ様（<a class="works-item__text-link" href="http://www.gyakuyoga.com/buki/buki-juu-mami.html">http://www.gyakuyoga.com/buki/buki-juu-mami.html</a>）を参照に制作させて頂きました。
+              <div class="works-card__desc">
+                <p class="works-card__text">
+                  型紙はギャクヨガ様（<a class="works-card__text-link" href="http://www.gyakuyoga.com/buki/buki-juu-mami.html"
+                    target="_blank">http://www.gyakuyoga.com/buki/buki-juu-mami.html</a>）を参照に制作させて頂きました。
                 </p>
-                <p class="works-item__text">
+                <p class="works-card__text">
                   デザインの柄などの細かいパーツは塗装する際に下地のベースに色がはみ出てしまう等の神経質な工程がとても多く作り甲斐がありました。
                 </p>
               </div>
 
               <!-- カテゴリー -->
-              <div class="works-item__genre">
-                <p class="works-item__category">小道具</p>
+              <div class="works-card__genre">
+                <p class="works-card__category">小道具</p>
               </div>
             </section>
 
             <!------ ##### 鴉天狗の仮面マスク ##### ------>
-            <section class="works-item js-filter-item" data-category="is-equipment">
+            <section class="works-card js-filter-item" data-category="is-equipment">
               <!-- イメージ画像 -->
-              <div class="works-item__works-image">
-                <img src="/works/images/img/img_works-molding-sample03.jpg" alt="鴉天狗の仮面マスク" class="works-item__image">
+              <div class="works-card__works-image">
+                <img src="/works/images/img/img_works-molding-sample03.jpg" alt="鴉天狗の仮面マスク" class="works-card__image">
               </div>
 
               <!-- サイト名 -->
-              <h3 class="works-item__title">
+              <h3 class="works-card__title">
                 鴉天狗の仮面マスク
               </h3>
 
               <!-- サイト説明 -->
-              <div class="works-item__desc">
-                <p class="works-item__text">
+              <div class="works-card__desc">
+                <p class="works-card__text">
                   東方Projectに登場する鴉天狗をイメージして制作したオリジナル作品です。
                 </p>
-                <p class="works-item__text">
+                <p class="works-card__text">
                   素材がダイソーで取り扱っているEVAスポンジシートを使用し、全体を作成していますので、予算を抑えて制作が可能です。
                 </p>
               </div>
 
               <!-- カテゴリー -->
-              <div class="works-item__genre">
-                <p class="works-item__category">装備品</p>
+              <div class="works-card__genre">
+                <p class="works-card__category">装備品</p>
               </div>
             </section>
 
             <!------ ##### 魂魄妖夢 アレンジ衣装 ##### ------>
-            <section class="works-item js-filter-item" data-category="is-equipment">
+            <section class="works-card js-filter-item" data-category="is-dress">
               <!-- イメージ画像 -->
-              <div class="works-item__works-image">
-                <img src="/works/images/img/img_works-molding-sample04.jpg" alt="魂魄妖夢 アレンジ衣装" class="works-item__image">
+              <div class="works-card__works-image">
+                <img src="/works/images/img/img_works-molding-sample04.jpg" alt="魂魄妖夢 アレンジ衣装" class="works-card__image">
               </div>
 
               <!-- サイト名 -->
-              <h3 class="works-item__title">
+              <h3 class="works-card__title">
                 魂魄妖夢 アレンジ衣装
               </h3>
 
               <!-- サイト説明 -->
-              <div class="works-item__desc">
-                <p class="works-item__text">
+              <div class="works-card__desc">
+                <p class="works-card__text">
                   東方Projectに登場する魂魄妖夢をモデルに制作した初めてのアレンジ衣装作品です。
                 </p>
-                <p class="works-item__text">
+                <p class="works-card__text">
                   初めての衣装作りということもあり、端処理や縫い合わせが甘かったりと様々な勉強になった時間でした。<br>
                   これをきっかけに、今でも様々なアレンジ衣装を制作しています。
                 </p>
               </div>
 
               <!-- カテゴリー -->
-              <div class="works-item__genre">
-                <p class="works-item__category">装備品</p>
+              <div class="works-card__genre">
+                <p class="works-card__category">衣装</p>
               </div>
             </section>
           </div>
@@ -446,9 +381,84 @@
     </div>
 
     <!-- =================================================== ページ内コンテンツ End =================================================== -->
+    
+    <!-- ⬇︎ /////////////////// ヘッダーナビゲーション__SP Start /////////////////// ⬇︎ -->
+    <header class="header-mobile is-sp">
+      <div class="header-mobile__nav">
+        <!-- ロゴリンク -->
+        <a class="header-mobile__top-link" href="/index.html">
+          <h1 class="header-mobile__logo">
+            <img class="header-mobile__logo-img" src="/images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+          </h1>
+        </a>
+        <!-- ロゴリンク -->
+
+        <!-- 検索フォーム ※WordPress検索のためid指定 -->
+        <div class="search-open-btn"></div>
+        <div class="search-wrap">
+          <div class="search-close-btn">
+            <span class="search-close-btn__border"></span>
+            <span class="search-close-btn__border"></span>
+          </div>
+          <div class="search-area">
+            <form class="search-wrap__form" role="search" method="get" action="">
+              <input class="search-wrap__input" type="text" value="" name="" id="search-text" placeholder="search">
+              <input class="search-wrap__submit" type="submit" id="searchsubmit" value="">
+            </form>
+          </div>
+        </div>
+        <!-- 検索フォーム -->
+      </div>
+
+      <!-- 横スクロールナビゲーション ここから -->
+      <div class="scroll-nav is-sp">
+        <nav class="scroll-nav__nav">
+          <ul class="scroll-nav__list scroll-nav__list--works">
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_website.html" class="scroll-nav__link">
+                Webサイト制作
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_programing.html" class="scroll-nav__link">
+                プログラミング
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_uiuxdesign.html" class="scroll-nav__link">
+                UI UXデザイン
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_photoshop.html" class="scroll-nav__link">
+                PhotoShop
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_illustrator.html" class="scroll-nav__link">
+                Illustrator
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_molding&dress.html" class="scroll-nav__link">
+                造形・衣装作品
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <div class="scroll-nav__next-btn">＞</div>
+      </div>
+      <!-- 横スクロールナビゲーション_SP ここまで -->
+    </header>
+    <!-- ⬆︎ /////////////////// ヘッダーナビゲーション__SP End /////////////////// ⬆︎ -->
 
     <!-- ⬇︎ /////////////////// ボトムナビゲーション＿SP Start /////////////////// ⬇︎ -->
-    <!-- ボトムナビゲーション_SP ここから ***************** -->
     <nav class="bottom-nav is-sp">
       <ul class="bottom-nav__list">
 
@@ -484,7 +494,7 @@
 
         <!-- ==== Blogリンク ==== -->
         <li class="bottom-nav__item bottom-nav__item--width-max">
-          <a href="/blog.html" class="bottom-nav__link">
+          <a href="/blog/blog.html" class="bottom-nav__link">
             <img class="bottom-nav__icon" src="/images/ico/ico_blog_border-nav_sp.svg" alt="Blogリンク"><br>
             <span class="bottom-nav__text">
               Blog
@@ -504,8 +514,7 @@
 
       </ul>
     </nav>
-    <!-- ボトムナビゲーション_SP ここまで ***************** -->
-    <!-- ⬇︎ /////////////////// ボトムナビゲーション＿SP End /////////////////// ⬇︎ -->
+    <!-- ⬆︎ /////////////////// ボトムナビゲーション＿SP End /////////////////// ⬆︎ -->
 
     <!-- ⬇︎ /////////////////// 入れ替え用ヘッダー Start /////////////////// ⬇︎ -->
     <header class="header-fixed is-pc is-tab is-fixed-header">
@@ -569,19 +578,19 @@
               <a class="header-fixed__link header-fixed__link--arrow" href="#">Blog</a>
               <ul class="header-fixed__sublist">
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/blog.html">Top</a>
+                  <a class="header-fixed__sublink" href="/blog/blog.html">Top</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/program-design_blog.html">プログラミング・デザイン</a>
+                  <a class="header-fixed__sublink" href="/program-design_/blog/blog.html">プログラミング・デザイン</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/molding-dress_blog.html">造形・衣装制作</a>
+                  <a class="header-fixed__sublink" href="/molding-dress_/blog/blog.html">造形・衣装制作</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/handmade_blog.html">ハンドメイド</a>
+                  <a class="header-fixed__sublink" href="/handmade_/blog/blog.html">ハンドメイド</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/hobby-life_blog.html">趣味・生活</a>
+                  <a class="header-fixed__sublink" href="/hobby-life_/blog/blog.html">趣味・生活</a>
                 </li>
               </ul>
             </li>
@@ -614,10 +623,8 @@
 
     <!-- ================================================================================ -->
 
-    <!-- ================================================================================ -->
-
     <!-- ⬇︎ /////////////////// Footer フッター_PC Start /////////////////// ⬇︎ -->
-    <footer class="footer-pc is-pc">
+    <footer class="footer-pc is-pc is-tab">
       <div class="footer-pc__inner">
         <!-- ===== フッターロゴ Footer-Logo ===== -->
         <a href="index.html" class="footer-pc__logo">
@@ -702,20 +709,20 @@
 
             <!-- ===== Blog ===== -->
             <li class="footer-pc__nav-item">
-              <p class="footer-pc__nav-title"><a class="footer-pc__nav-link" href="/blog.html">Blog</a></p>
+              <p class="footer-pc__nav-title"><a class="footer-pc__nav-link" href="/blog/blog.html">Blog</a></p>
               <!-- ===== サブナビ Footer-navchild ===== -->
               <ul class="footer-pc__navchild-list">
                 <li class="footer-pc__navchild-item">
-                  <a class="footer-pc__navchild-link" href="/program-design_blog.html">プログラミング/デザイン</a>
+                  <a class="footer-pc__navchild-link" href="/program-design_/blog/blog.html">プログラミング/デザイン</a>
                 </li>
                 <li class="footer-pc__navchild-item">
-                  <a class="footer-pc__navchild-link" href="/molding-dress_blog.html">造形・衣装制作</a>
+                  <a class="footer-pc__navchild-link" href="/molding-dress_/blog/blog.html">造形・衣装制作</a>
                 </li>
                 <li class="footer-pc__navchild-item">
-                  <a class="footer-pc__navchild-link" href="/handmade_blog.html">ハンドメイド</a>
+                  <a class="footer-pc__navchild-link" href="/handmade_/blog/blog.html">ハンドメイド</a>
                 </li>
                 <li class="footer-pc__navchild-item">
-                  <a class="footer-pc__navchild-link" href="/hobby-life_blog.html">趣味・生活</a>
+                  <a class="footer-pc__navchild-link" href="/hobby-life_/blog/blog.html">趣味・生活</a>
                 </li>
               </ul>
               <!-- ===== サブナビ Footer-navchild ===== -->
@@ -860,19 +867,19 @@
           <p class="accordion__title js-accordion-title">Blog</p>
           <ul class="accordion__menu-list">
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/blog.html">Top</a>
+              <a class="accordion__menu-link" href="/blog/blog.html">Top</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/program-design_blog.html">プログラミング/デザイン</a>
+              <a class="accordion__menu-link" href="/program-design_/blog/blog.html">プログラミング/デザイン</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/molding-dress_blog.html">造形・衣装制作</a>
+              <a class="accordion__menu-link" href="/molding-dress_/blog/blog.html">造形・衣装制作</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/handmade_blog.html">ハンドメイド</a>
+              <a class="accordion__menu-link" href="/handmade_/blog/blog.html">ハンドメイド</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/hobby-life_blog.html">趣味・生活</a>
+              <a class="accordion__menu-link" href="/hobby-life_/blog/blog.html">趣味・生活</a>
             </li>
           </ul>
         </div>

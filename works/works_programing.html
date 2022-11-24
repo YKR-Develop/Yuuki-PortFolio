@@ -78,7 +78,7 @@
                 <a href="/about.html" class="header-top__link">About</a>
               </li>
               <li class="header-top__item">
-                <a href="/blog.html" class="header-top__link">Blog</a>
+                <a href="/blog/blog.html" class="header-top__link">Blog</a>
               </li>
               <li class="header-top__item">
                 <a href="/index.html#contact" class="header-top__link">Contact</a>
@@ -87,82 +87,6 @@
           </nav>
         </header>
         <!-- ビジュアルナビゲーション__PC ここまで ***************** -->
-
-        <!-- ヘッダーナビゲーション__SP ここから ***************** -->
-        <header class="header-mobile is-sp">
-          <div class="header-mobile__nav">
-            <!-- ロゴリンク -->
-            <a class="header-mobile__top-link" href="/index.html">
-              <h1 class="header-mobile__logo">
-                <img class="header-mobile__logo-img" src="/images/ico/ico_logo.png" alt="Yukuro CreateFolio">
-              </h1>
-            </a>
-            <!-- ロゴリンク -->
-
-            <!-- 検索フォーム ※WordPress検索のためid指定 -->
-            <div class="search-open-btn"></div>
-            <div class="search-wrap">
-              <div class="search-close-btn">
-                <span class="search-close-btn__border"></span>
-                <span class="search-close-btn__border"></span>
-              </div>
-              <div class="search-area">
-                <form class="search-wrap__form" role="search" method="get" action="">
-                  <input class="search-wrap__input" type="text" value="" name="" id="search-text" placeholder="search">
-                  <input class="search-wrap__submit" type="submit" id="searchsubmit" value="">
-                </form>
-              </div>
-            </div>
-            <!-- 検索フォーム -->
-          </div>
-
-          <!-- 横スクロールナビゲーション ここから -->
-          <div class="scroll-nav is-sp">
-            <nav class="scroll-nav__nav">
-              <ul class="scroll-nav__list scroll-nav__list--works">
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_website.html" class="scroll-nav__link">
-                    Webサイト制作
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_programing.html" class="scroll-nav__link">
-                    プログラミング開発
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_uiuxdesign.html" class="scroll-nav__link">
-                    UI UXデザイン
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_photoshop.html" class="scroll-nav__link">
-                    PhotoShop
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_illustrator.html" class="scroll-nav__link">
-                    Illustrator
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_molding&dress.html" class="scroll-nav__link">
-                    造形・衣装作品
-                  </a>
-                </li>
-
-              </ul>
-            </nav>
-            <div class="scroll-nav__next-btn">＞</div>
-          </div>
-          <!-- 横スクロールナビゲーション_SP ここまで -->
-        </header>
-        <!-- ヘッダーナビゲーション__SP / 横スクロールナビゲーション_SP ここまで ***************** -->
 
         <!-- ページタイトル ここから ***************** -->
         <h1 class="main-visual__page-title main-visual__page-title--center">
@@ -225,7 +149,7 @@
 
             <!-- ==== 3階層目 About ==== -->
             <li class="pkz__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a class="pkz__link" itemprop="About" href="/works/works_programing.html">Works プログラミング</a>
+              <a class="pkz__link" itemprop="About" href="/works/works_programing.html">プログラミング</a>
               <meta itemprop="position" content="1">
             </li>
           </ol>
@@ -237,7 +161,7 @@
         <!-- ⬇︎ /////////////////// Works プログラミング 制作実績 Start /////////////////// ⬇︎ -->
         <article class="contents__article contents__article--works">
           <!-- ⬇︎ /////////////////// Works ナビゲーション Start /////////////////// ⬇︎ -->
-          <div class="works-nav">
+          <div class="works-nav is-pc">
             <ul class="works-nav__list">
               <!-- ##### Webサイト制作 ##### -->
               <li class="works-nav__item">
@@ -324,77 +248,77 @@
           <div class="works-list js-filter-items">
 
             <!------ ##### How Much Hobby ##### ------>
-            <section class="works-item js-filter-item" data-category="is-webdev">
+            <section class="works-card js-filter-item" data-category="is-webdev">
               <!-- イメージ画像 -->
-              <div class="works-item__works-image">
+              <div class="works-card__works-image">
                 <img src="/works/images/img/img_works-programing-sample01.jpg" alt="How Much Hobby"
-                  class="works-item__image">
+                  class="works-card__image">
               </div>
 
               <!-- サイト名 -->
-              <h3 class="works-item__title">
+              <h3 class="works-card__title">
                 How Much Hobby
               </h3>
 
               <!-- サイト説明 -->
-              <div class="works-item__desc">
-                <p class="works-item__text">
+              <div class="works-card__desc">
+                <p class="works-card__text">
                   給料が出ると何も考えずに趣味にお金を出費していませんか？
                 </p>
-                <p class="works-item__text">
+                <p class="works-card__text">
                   そんな散財を管理するための財政管理サービスを制作してみました。
                 </p>
-                <p class="works-item__text">
+                <p class="works-card__text">
                   普段から趣味にいくら掛けていて毎月いくらあれば、貯金などのストレス無く大好きな趣味を続けられるのか見直すのに使ってみてください。
                 </p>
               </div>
 
               <!-- カテゴリー / 業種 -->
-              <div class="works-item__genre">
-                <p class="works-item__category">Web開発</p>
+              <div class="works-card__genre">
+                <p class="works-card__category">Web開発</p>
 
               </div>
 
               <!-- 制作詳細リンク -->
-              <div class="works-item__detail-link">
-                <a class="works-item__link" href="works-sample.html">制作詳細はこちら</a>
+              <div class="works-card__detail-link">
+                <a class="works-card__link" href="works-sample.html">制作詳細はこちら</a>
               </div>
             </section>
 
             <!------ ##### 映姫様説教逃走ゲーム ##### ------>
-            <section class="works-item js-filter-item" data-category="is-gamedev">
+            <section class="works-card js-filter-item" data-category="is-gamedev">
               <!-- イメージ画像 -->
-              <div class="works-item__works-image">
+              <div class="works-card__works-image">
                 <img src="/works/images/img/img_works-programing-sample02.jpg" alt="映姫様説教逃走ゲーム"
-                  class="works-item__image">
+                  class="works-card__image">
               </div>
 
               <!-- サイト名 -->
-              <h3 class="works-item__title">
+              <h3 class="works-card__title">
                 映姫様説教逃走ゲーム
               </h3>
 
               <!-- サイト説明 -->
-              <div class="works-item__desc">
-                <p class="works-item__text">
+              <div class="works-card__desc">
+                <p class="works-card__text">
                   東方Projectにおける2次創作ゲームをプログラミングの勉強も兼ねて制作しました。
                 </p>
-                <p class="works-item__text">
+                <p class="works-card__text">
                   主にJavaScriptを用いています。
                 </p>
-                <p class="works-item__text">
+                <p class="works-card__text">
                   ゲームの内容は5分間ひたすら英姫様の攻撃から逃げ続けてください。クリアすると特典イラストが見れます。
                 </p>
               </div>
 
               <!-- カテゴリー / 業種 -->
-              <div class="works-item__genre">
-                <p class="works-item__category">ゲーム開発</p>
+              <div class="works-card__genre">
+                <p class="works-card__category">ゲーム開発</p>
               </div>
 
               <!-- 制作詳細リンク -->
-              <div class="works-item__detail-link">
-                <a class="works-item__link" href="works-sample.html">制作詳細はこちら</a>
+              <div class="works-card__detail-link">
+                <a class="works-card__link" href="works-sample.html">制作詳細はこちら</a>
               </div>
             </section>
           </div>
@@ -406,8 +330,83 @@
 
     <!-- =================================================== ページ内コンテンツ End =================================================== -->
 
+    <!-- ⬇︎ /////////////////// ヘッダーナビゲーション__SP Start /////////////////// ⬇︎ -->
+    <header class="header-mobile is-sp">
+      <div class="header-mobile__nav">
+        <!-- ロゴリンク -->
+        <a class="header-mobile__top-link" href="/index.html">
+          <h1 class="header-mobile__logo">
+            <img class="header-mobile__logo-img" src="/images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+          </h1>
+        </a>
+        <!-- ロゴリンク -->
+
+        <!-- 検索フォーム ※WordPress検索のためid指定 -->
+        <div class="search-open-btn"></div>
+        <div class="search-wrap">
+          <div class="search-close-btn">
+            <span class="search-close-btn__border"></span>
+            <span class="search-close-btn__border"></span>
+          </div>
+          <div class="search-area">
+            <form class="search-wrap__form" role="search" method="get" action="">
+              <input class="search-wrap__input" type="text" value="" name="" id="search-text" placeholder="search">
+              <input class="search-wrap__submit" type="submit" id="searchsubmit" value="">
+            </form>
+          </div>
+        </div>
+        <!-- 検索フォーム -->
+      </div>
+
+      <!-- 横スクロールナビゲーション ここから -->
+      <div class="scroll-nav is-sp">
+        <nav class="scroll-nav__nav">
+          <ul class="scroll-nav__list scroll-nav__list--works">
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_website.html" class="scroll-nav__link">
+                Webサイト制作
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_programing.html" class="scroll-nav__link">
+                プログラミング
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_uiuxdesign.html" class="scroll-nav__link">
+                UI UXデザイン
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_photoshop.html" class="scroll-nav__link">
+                PhotoShop
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_illustrator.html" class="scroll-nav__link">
+                Illustrator
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_molding&dress.html" class="scroll-nav__link">
+                造形・衣装作品
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <div class="scroll-nav__next-btn">＞</div>
+      </div>
+      <!-- 横スクロールナビゲーション_SP ここまで -->
+    </header>
+    <!-- ⬆︎ /////////////////// ヘッダーナビゲーション__SP End /////////////////// ⬆︎ -->
+
     <!-- ⬇︎ /////////////////// ボトムナビゲーション＿SP Start /////////////////// ⬇︎ -->
-    <!-- ボトムナビゲーション_SP ここから ***************** -->
     <nav class="bottom-nav is-sp">
       <ul class="bottom-nav__list">
 
@@ -443,7 +442,7 @@
 
         <!-- ==== Blogリンク ==== -->
         <li class="bottom-nav__item bottom-nav__item--width-max">
-          <a href="/blog.html" class="bottom-nav__link">
+          <a href="/blog/blog.html" class="bottom-nav__link">
             <img class="bottom-nav__icon" src="/images/ico/ico_blog_border-nav_sp.svg" alt="Blogリンク"><br>
             <span class="bottom-nav__text">
               Blog
@@ -463,8 +462,7 @@
 
       </ul>
     </nav>
-    <!-- ボトムナビゲーション_SP ここまで ***************** -->
-    <!-- ⬇︎ /////////////////// ボトムナビゲーション＿SP End /////////////////// ⬇︎ -->
+    <!-- ⬆︎ /////////////////// ボトムナビゲーション＿SP End /////////////////// ⬆︎ -->
 
     <!-- ⬇︎ /////////////////// 入れ替え用ヘッダー Start /////////////////// ⬇︎ -->
     <header class="header-fixed is-pc is-tab is-fixed-header">
@@ -528,19 +526,19 @@
               <a class="header-fixed__link header-fixed__link--arrow" href="#">Blog</a>
               <ul class="header-fixed__sublist">
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/blog.html">Top</a>
+                  <a class="header-fixed__sublink" href="/blog/blog.html">Top</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/program-design_blog.html">プログラミング・デザイン</a>
+                  <a class="header-fixed__sublink" href="/program-design_/blog/blog.html">プログラミング・デザイン</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/molding-dress_blog.html">造形・衣装制作</a>
+                  <a class="header-fixed__sublink" href="/molding-dress_/blog/blog.html">造形・衣装制作</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/handmade_blog.html">ハンドメイド</a>
+                  <a class="header-fixed__sublink" href="/handmade_/blog/blog.html">ハンドメイド</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/hobby-life_blog.html">趣味・生活</a>
+                  <a class="header-fixed__sublink" href="/hobby-life_/blog/blog.html">趣味・生活</a>
                 </li>
               </ul>
             </li>
@@ -570,13 +568,11 @@
       </div>
     </header>
     <!-- ⬆︎ /////////////////// 入れ替え用ヘッダー End /////////////////// ⬆︎ -->
-
-    <!-- ================================================================================ -->
-
+    
     <!-- ================================================================================ -->
 
     <!-- ⬇︎ /////////////////// Footer フッター_PC Start /////////////////// ⬇︎ -->
-    <footer class="footer-pc is-pc">
+    <footer class="footer-pc is-pc is-tab">
       <div class="footer-pc__inner">
         <!-- ===== フッターロゴ Footer-Logo ===== -->
         <a href="index.html" class="footer-pc__logo">
@@ -661,20 +657,20 @@
 
             <!-- ===== Blog ===== -->
             <li class="footer-pc__nav-item">
-              <p class="footer-pc__nav-title"><a class="footer-pc__nav-link" href="/blog.html">Blog</a></p>
+              <p class="footer-pc__nav-title"><a class="footer-pc__nav-link" href="/blog/blog.html">Blog</a></p>
               <!-- ===== サブナビ Footer-navchild ===== -->
               <ul class="footer-pc__navchild-list">
                 <li class="footer-pc__navchild-item">
-                  <a class="footer-pc__navchild-link" href="/program-design_blog.html">プログラミング/デザイン</a>
+                  <a class="footer-pc__navchild-link" href="/program-design_/blog/blog.html">プログラミング/デザイン</a>
                 </li>
                 <li class="footer-pc__navchild-item">
-                  <a class="footer-pc__navchild-link" href="/molding-dress_blog.html">造形・衣装制作</a>
+                  <a class="footer-pc__navchild-link" href="/molding-dress_/blog/blog.html">造形・衣装制作</a>
                 </li>
                 <li class="footer-pc__navchild-item">
-                  <a class="footer-pc__navchild-link" href="/handmade_blog.html">ハンドメイド</a>
+                  <a class="footer-pc__navchild-link" href="/handmade_/blog/blog.html">ハンドメイド</a>
                 </li>
                 <li class="footer-pc__navchild-item">
-                  <a class="footer-pc__navchild-link" href="/hobby-life_blog.html">趣味・生活</a>
+                  <a class="footer-pc__navchild-link" href="/hobby-life_/blog/blog.html">趣味・生活</a>
                 </li>
               </ul>
               <!-- ===== サブナビ Footer-navchild ===== -->
@@ -819,19 +815,19 @@
           <p class="accordion__title js-accordion-title">Blog</p>
           <ul class="accordion__menu-list">
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/blog.html">Top</a>
+              <a class="accordion__menu-link" href="/blog/blog.html">Top</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/program-design_blog.html">プログラミング/デザイン</a>
+              <a class="accordion__menu-link" href="/program-design_/blog/blog.html">プログラミング/デザイン</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/molding-dress_blog.html">造形・衣装制作</a>
+              <a class="accordion__menu-link" href="/molding-dress_/blog/blog.html">造形・衣装制作</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/handmade_blog.html">ハンドメイド</a>
+              <a class="accordion__menu-link" href="/handmade_/blog/blog.html">ハンドメイド</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/hobby-life_blog.html">趣味・生活</a>
+              <a class="accordion__menu-link" href="/hobby-life_/blog/blog.html">趣味・生活</a>
             </li>
           </ul>
         </div>

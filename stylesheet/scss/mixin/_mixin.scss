@@ -12,7 +12,7 @@
   Max-Width コンテンツ最大幅の指定
 -------------------------------------------------- */ 
 @mixin maxWidth {
-  padding: 0 48px;
+  padding: 0 80px;
   @include mq(sp) {
     padding: 0 18px;
   }
@@ -64,7 +64,7 @@
   画像ホバーの指定
 -------------------------------------------------- */
 @mixin hoverImage {
-  transition: 0.3s;
+  transition: 0.5s;
 
   &:hover {
     transform: scale(1.2, 1.2);

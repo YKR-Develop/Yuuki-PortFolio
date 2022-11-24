@@ -53,7 +53,7 @@ p {
   letter-spacing: 0.1em;
   font-weight: 300;
   
-  @include mq(sp) {
+  @include mq(tab) {
     line-height: 1.7;
   }
 }
@@ -64,11 +64,15 @@ p {
 .container {
   z-index: 0;
   position: relative;
-  @include mq(sp) {
-    padding-top: 80px;
-  }
+
   @include mq(tab) {
     padding-top: 80px;
+  }
+
+  &--top {
+    @include mq(tab) {
+      padding-top: 56px;
+    }
   }
 }
 
@@ -77,8 +81,13 @@ p {
 -------------------------------------------------- */
 .contents {
   &__article {
-    padding: 80px 80px;
-    @include mq(sp) {
+    padding: 64px 64px;
+
+    &:last-child {
+      padding-bottom: 120px;
+    }
+
+    @include mq(tab) {
       padding: 64px 18px;
     }
     &--bg {
@@ -121,7 +130,6 @@ p {
         margin-bottom: 32px;
       }
     }
-    
   }
 }
 

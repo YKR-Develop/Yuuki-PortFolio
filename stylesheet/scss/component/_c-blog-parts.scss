@@ -20,15 +20,42 @@
   padding-bottom: 32px;
   border-bottom: 1px dotted $border-black;
 
-  @include mq(sp) {
-    width: calc(100% / 2 - 8px / 2 * 2);
+  // blog.html カテゴリー内ブログカードの指定
+  &--category {
+    width: 100%;
+    margin: 32px 0;
+  }
+
+  @include mq(tab) {
+    width: calc(100% / 2 - 32px / 2 * 2);
     flex-wrap: wrap;
     height: auto;
     padding-bottom: 24px;
+
+    &--category {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+
+  @include mq(sp) {
+    width: calc(100% / 2 - 12px / 2 * 2);
+    flex-wrap: wrap;
+    height: auto;
+    padding-bottom: 24px;
+    &--category {
+      width: calc(100% / 2 - 12px / 2 * 2);
+      flex-wrap: wrap;
+    }
   }
 
   &__label {
     padding-left: 24px;
+
+    @include mq(tab) {
+      padding-left: 0;
+    }
+
     @include mq(sp) {
       padding-left: 0;
     }
@@ -36,23 +63,40 @@
 
   &__thumb {
     width: calc(100% / 2);
-    min-width: 162px;
+    min-width: 240px;
     display: inline-block;
     overflow: hidden;
-    @include mq(sp) {
+
+    @include mq(tab) {
       width: 100%;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    @include mq(sp) {
+      min-width: 110px;
+      margin-bottom: 16px;
     }
   }
 
   &__image {
     @include hoverImage;
+    @include mq(tab) {
+      width: 100%;
+    }
   }
 
   &__title {
     font-size: fluid-size(14, 16);
     margin-bottom: 24px;
     line-height: 1.5;
+    @include mq(tab) {
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+
     @include mq(sp) {
       margin-bottom: 16px;
       display: -webkit-box;
@@ -83,7 +127,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      content: url("/images/ico/ico_folder.svg");
+      content: url("/blog/images/ico/ico_folder.svg");
       vertical-align: bottom;
     }
 
@@ -111,8 +155,7 @@
       position: absolute;
       top: 0px;
       right: 80px;
-      content: url("/images/ico/ico_clock.svg");
-
+      content: url("/blog/images/ico/ico_clock.svg");
       @include mq(sp) {
         right: 70px;
       }
@@ -130,13 +173,14 @@
   margin-bottom: 48px;
   @include mq(sp) {
     gap: 40px 0;
-   flex-wrap: wrap;
+    flex-wrap: wrap;
   }
+
   &__item {
     width: calc(100% / 2 - 32px / 2 * 2);
     margin-bottom: 72px;
 
-    &:nth-child(n+2) {
+    &:nth-child(n + 2) {
       margin-bottom: 0;
     }
 
@@ -153,7 +197,7 @@
     position: relative;
 
     &::after {
-      content: 'Read More';
+      content: "Read More";
       font-size: fluid-size(14, 16);
       letter-spacing: 0.1em;
       text-align: center;
@@ -161,7 +205,7 @@
       width: 100%;
       height: 100%;
       display: block;
-      background: rgba(0,0,0, 0.4);
+      background: rgba(0, 0, 0, 0.4);
       transition: 0.8s;
       position: absolute;
       top: 0;
@@ -199,12 +243,117 @@
   &__category-list {
     display: flex;
     flex-wrap: wrap;
+    height: 88px;
     justify-content: space-between;
+    flex-grow: 1;
     gap: 16px 0;
-    
   }
 
   &__category-item {
     width: calc(100% / 2 - 12px / 2 * 2);
+  }
+
+  &__blog-list {
+    @include mq(tab) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @include mq(sp) {
+      display: flex;
+      gap: 0 24px;
+    }
+  }
+}
+
+/* --------------------------------------------------
+ Blog-Affiliate アフィリエイト広告
+-------------------------------------------------- */
+.blog-affiliate {
+  @include maxWidth;
+  margin-bottom: 80px;
+  display: flex;
+  gap: 0 32px;
+
+  @include mq(sp) {
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &__thumb {
+    width: calc(100% / 3);
+
+    @include mq(sp) {
+      width: calc(100% / 2 - 16px);
+    }
+  }
+}
+
+/* --------------------------------------------------
+ Blog-Nav ブログ内ナビゲーション
+-------------------------------------------------- */
+.blog-nav {
+  @include maxWidth;
+  display: flex;
+  gap: 0 40px;
+  margin-bottom: 120px;
+  @include mq(tab) {
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: calc(100% / 3);
+    @include mq(tab) {
+      width: 100%;
+      margin-bottom: 48px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__label {
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $border-base;
+    position: relative;
+    margin-bottom: 16px;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      border-bottom: 1px solid $border-black;
+      width: 150px;
+      height: 1px;
+    }
+  }
+
+  /* ========= 関連キーワード ========= */
+  &__keyword {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 8px;
+  }
+
+  &__keyword-link {
+    font-size: 1.4rem;
+    position: relative;
+    padding: 8px;
+    background-color: $border-black;
+    color: $font-white;
+    padding-left: 28px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 27%;
+      left: 0;
+      background-image: url("/blog/images/ico/ico_tag.svg");
+      width: 14px;
+      height: 14px;
+      margin-left: 8px;
+    }
   }
 }

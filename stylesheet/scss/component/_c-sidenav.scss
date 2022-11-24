@@ -17,6 +17,9 @@
   top: 50%;
   left: 24px;
   transform: translate(-50%, -50%);
+  @include mq(tab) {
+    display: none;
+  }
 
   &__sns-list {
     writing-mode: vertical-rl;

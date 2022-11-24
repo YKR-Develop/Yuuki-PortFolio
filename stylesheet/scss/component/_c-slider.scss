@@ -12,7 +12,8 @@
 /* --------------------------------------------------
   Prev / Next ボタンデザイン
 -------------------------------------------------- */
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   width: 48px;
   height: 48px;
   background-color: $slide-arrow;
@@ -70,7 +71,7 @@
   border-radius: 50%;
   border: 2px solid rgb(97, 97, 97);
   background-color: inherit;
-  
+
   &.swiper-pagination-bullet-active {
     background-color: $background-black;
   }
@@ -148,9 +149,86 @@
     font-size: 1.4rem;
     line-height: 1.5;
   }
-  
+
   &__image {
     width: 100%;
+  }
+
+  & .swiper-pagination {
+    bottom: 0;
+  }
+}
+
+/* --------------------------------------------------
+  ブログ記事カルーセル ※blog.html限定
+-------------------------------------------------- */
+.article-slide {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 40px;
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__item {
+    position: relative;
+    width: calc(100% / 3);
+    overflow: hidden;
+  }
+
+  &__label {
+    position: absolute;
+    width: calc(100% - 32px);
+    bottom: 0;
+    left: 0;
+    color: $font-white;
+    padding: 16px;
+    background-color: $background-opacity;
+    flex-grow: 1;
+  }
+
+  &__category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px 16px;
+    color: $font-white;
+    background-color: $background-opacity;
+    font-size: 1.4rem;
+  }
+
+  &__image {
+    width: 100%;
+    transition: 0.5s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title-link {
+    font-weight: 400;
+    font-size: fluid-size(14, 16);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    height: 72px;
+  }
+
+  &__date {
+    display: block;
+    text-align: right;
+    font-size: fluid-size(10, 12);
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 0px;
+      right: 80px;
+      content: url("/images/ico/ico_clock.svg");
+      filter: brightness(0) saturate(100%) invert(99%) sepia(32%);
+      @include mq(sp) {
+        right: 70px;
+      }
+    }
   }
 
   & .swiper-pagination {

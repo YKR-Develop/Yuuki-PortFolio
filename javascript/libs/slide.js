@@ -55,3 +55,48 @@ const swiper = new Swiper('.card-slide', {
   }
 })
 
+/* --------------------------------------------------
+  Blogページ 最新の記事スライド
+-------------------------------------------------- */
+const swiperBlog = new Swiper('.article-slide', {
+  slidesPerView: 1.5,
+  loop: false,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+
+  // スライドのページネーション
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+
+  // ナビゲーションボタン
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // ブレイクポイント
+  breakpoints: {
+    320: {
+      slidesPerView: 1.1,
+      spaceBetween: 16,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 32,
+    },
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 32,
+    },
+    1440: {
+      slidesPerView: 3.1,
+      spaceBetween: 32,
+    }
+  }
+})
+

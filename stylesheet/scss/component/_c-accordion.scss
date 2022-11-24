@@ -1,0 +1,117 @@
+/*===================================================
+ c-accordion.scss
+ アコーディオンメニューの指定
+================================================== */
+/* ⬇︎ //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../mixin/animation" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* ⬆︎ //////////// 変数読み込み //////////// */
+
+/* --------------------------------------------------
+ Accordion アコーディンオンナビゲーション ※ フッター
+-------------------------------------------------- */
+.accordion {
+  width: 100%;
+  margin: 0 auto;
+
+  &__item {
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    position: relative;
+    font-size: fluid-size(16, 16);
+    color: $font-white;
+    border-bottom: 1px solid $border-base;
+    cursor: pointer;
+    padding-bottom: 16px;
+
+    /* ======= ブログ用 ここから ======= */
+    &--blog {
+      color: $font-black;
+    }
+
+    &--icon {
+      padding-right: 4px;
+      &::before {
+        content:  url("/images/ico/ico_folder.svg");
+        width: 21px;
+        height: 16px;
+      }
+    }
+    /* ======= ブログ用 まで ======= */
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      width: 12px;
+      height: 2px;
+      transform: rotate(90deg);
+      background-color: $border-base;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      width: 12px;
+      height: 2px;
+      background-color: $border-base;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &.open {
+      &::before {
+        transform: rotate(180deg);
+      }
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__menu-list {
+    display: none;
+    border-bottom: 1px solid $border-base;
+    margin-bottom: 24px;
+  }
+
+  &__menu-item {
+    padding: 16px 8px;
+    border-bottom: 1px solid $border-base;
+    &:last-child {
+      border: none;
+    }
+  }
+
+  &__menu-link {
+    color: $font-white;
+    font-size: fluid-size(14, 14);
+    position: relative;
+    padding-left: 16px;
+
+    &--blog {
+    color: $font-black;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 8px;
+      height: 1px;
+      background-color: $border-base;
+    }
+  }
+}

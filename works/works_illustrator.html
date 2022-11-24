@@ -10,8 +10,7 @@
   <title>Yukuro CreateFolio | Works Illustrator</title>
 
   <!-- metaディスクリプション -->
-  <meta name="description"
-    content="Illustratorを使用し制作したロゴ画像やイラスト、衣装のデザインの作品を主に掲載しております。">
+  <meta name="description" content="Illustratorを使用し制作したロゴ画像やイラスト、衣装のデザインの作品を主に掲載しております。">
 
   <!-- OGPタグ -->
   <meta property="og:url" content="ページURL">
@@ -78,7 +77,7 @@
                 <a href="/about.html" class="header-top__link">About</a>
               </li>
               <li class="header-top__item">
-                <a href="/blog.html" class="header-top__link">Blog</a>
+                <a href="/blog/blog.html" class="header-top__link">Blog</a>
               </li>
               <li class="header-top__item">
                 <a href="/index.html#contact" class="header-top__link">Contact</a>
@@ -87,82 +86,6 @@
           </nav>
         </header>
         <!-- ビジュアルナビゲーション__PC ここまで ***************** -->
-
-        <!-- ヘッダーナビゲーション__SP ここから ***************** -->
-        <header class="header-mobile is-sp">
-          <div class="header-mobile__nav">
-            <!-- ロゴリンク -->
-            <a class="header-mobile__top-link" href="/index.html">
-              <h1 class="header-mobile__logo">
-                <img class="header-mobile__logo-img" src="/images/ico/ico_logo.png" alt="Yukuro CreateFolio">
-              </h1>
-            </a>
-            <!-- ロゴリンク -->
-
-            <!-- 検索フォーム ※WordPress検索のためid指定 -->
-            <div class="search-open-btn"></div>
-            <div class="search-wrap">
-              <div class="search-close-btn">
-                <span class="search-close-btn__border"></span>
-                <span class="search-close-btn__border"></span>
-              </div>
-              <div class="search-area">
-                <form class="search-wrap__form" role="search" method="get" action="">
-                  <input class="search-wrap__input" type="text" value="" name="" id="search-text" placeholder="search">
-                  <input class="search-wrap__submit" type="submit" id="searchsubmit" value="">
-                </form>
-              </div>
-            </div>
-            <!-- 検索フォーム -->
-          </div>
-
-          <!-- 横スクロールナビゲーション ここから -->
-          <div class="scroll-nav is-sp">
-            <nav class="scroll-nav__nav">
-              <ul class="scroll-nav__list scroll-nav__list--works">
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_website.html" class="scroll-nav__link">
-                    Webサイト制作
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_programing.html" class="scroll-nav__link">
-                    プログラミング開発
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_uiuxdesign.html" class="scroll-nav__link">
-                    UI UXデザイン
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_photoshop.html" class="scroll-nav__link">
-                    PhotoShop
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_illustrator.html" class="scroll-nav__link">
-                    Illustrator
-                  </a>
-                </li>
-
-                <li class="scroll-nav__item scroll-nav__item--works">
-                  <a href="/works/works_molding&dress.html" class="scroll-nav__link">
-                    造形・衣装作品
-                  </a>
-                </li>
-
-              </ul>
-            </nav>
-            <div class="scroll-nav__next-btn">＞</div>
-          </div>
-          <!-- 横スクロールナビゲーション_SP ここまで -->
-        </header>
-        <!-- ヘッダーナビゲーション__SP / 横スクロールナビゲーション_SP ここまで ***************** -->
 
         <!-- ページタイトル ここから ***************** -->
         <h1 class="main-visual__page-title main-visual__page-title--center">
@@ -225,7 +148,7 @@
 
             <!-- ==== 3階層目 About ==== -->
             <li class="pkz__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a class="pkz__link" itemprop="About" href="/works/works_uiuxdesign.html">Works UI UXデザイン</a>
+              <a class="pkz__link" itemprop="About" href="/works/works_uiuxdesign.html">illustrator</a>
               <meta itemprop="position" content="1">
             </li>
           </ol>
@@ -237,7 +160,7 @@
         <!-- ⬇︎ /////////////////// Works 制作実績 Start /////////////////// ⬇︎ -->
         <article class="contents__article contents__article--works">
           <!-- ⬇︎ /////////////////// Works ナビゲーション Start /////////////////// ⬇︎ -->
-          <div class="works-nav">
+          <div class="works-nav is-pc">
             <ul class="works-nav__list">
 
               <!-- ##### Webサイト制作 ##### -->
@@ -310,8 +233,10 @@
               <div class="select-button">
                 <select class="select-button__item js-filter" name="category">
                   <option class="select-button__option" value="all">全カテゴリー</option>
-                  <option class="select-button__option" value="is-app-design">アプリデザイン</option>
-                  <option class="select-button__option" value="is-game-design">ゲームUIデザイン</option>
+                  <option class="select-button__option" value="is-logo">ロゴマーク</option>
+                  <option class="select-button__option" value="is-label">ラベル</option>
+                  <option class="select-button__option" value="is-illustration">イラスト</option>
+                  <option class="select-button__option" value="is-others">その他</option>
                 </select>
               </div>
             </div>
@@ -324,102 +249,119 @@
           <!-- ===== 作品制作実績 ここから ===== -->
           <div class="works-list  js-filter-items">
 
-            <!------ ##### デリバリーショップUI ##### ------>
-            <section class="works-item js-filter-item" data-category="is-app-design"> 
+            <!------ ##### Yukuro CreateFolio ロゴマーク ##### ------>
+            <section class="works-card js-filter-item" data-category="is-logo">
               <!-- イメージ画像 -->
-              <div class="works-item__works-image">
-                <img src="/works/images/img/img_works-uiux-sample01.jpg" alt="デリバリーショップUI" class="works-item__image">
+              <div class="works-card__works-image">
+                <img src="/works/images/img/img_works-illustrator-sample01.jpg" alt="Yukuro CreateFolio ロゴマーク"
+                  class="works-card__image">
               </div>
 
               <!-- サイト名 -->
-              <h3 class="works-item__title">
-                デリバリーショップUI
+              <h3 class="works-card__title">
+                Yukuro CreateFolioロゴマーク
               </h3>
 
               <!-- サイト説明 -->
-              <div class="works-item__desc">
-                <p class="works-item__text">
-                  ハンバーガーショップのデリバリーアプリのデザインです。
+              <div class="works-card__desc">
+                <p class="works-card__text">
+                  当サイトのロゴです。
                 </p>
-                <p class="works-item__text">
-                  購入履歴を残しておくことで、スマホで注文する時間がない場面で4STEPで商品を注文する事ができるようなUXを意識しました。
+                <p class="works-card__text">
+                  様々な作品を掲載することを目的としたサイトなので、「モノづくりの様々な経験を積み重ねつつ発展していくポートフォリオサイト」というコンセプトがあります。
                 </p>
               </div>
 
               <!-- カテゴリー / 業種 -->
-              <div class="works-item__genre">
-                <p class="works-item__category">アプリデザイン</p>
-                <p class="works-item__industry">デリバリー</p>
-              </div>
-
-              <!-- 制作詳細リンク -->
-              <div class="works-item__detail-link">
-                <a class="works-item__link" href="works-sample.html">制作詳細はこちら</a>
+              <div class="works-card__genre">
+                <p class="works-card__category">ロゴマーク</p>
               </div>
             </section>
 
-            <!------ ##### 運動管理アプリUI ##### ------>
-            <section class="works-item js-filter-item" data-category="is-app-design">
+            <!------ ##### Yukuro CreateFolio 名刺 ##### ------>
+            <section class="works-card js-filter-item" data-category="is-others">
               <!-- イメージ画像 -->
-              <div class="works-item__works-image">
-                <img src="/works/images/img/img_works-uiux-sample02.jpg" alt="運動管理アプリUI" class="works-item__image">
+              <div class="works-card__works-image">
+                <img src="/works/images/img/img_works-illustrator-sample02.jpg" alt="Yukuro CreateFolio 名刺"
+                  class="works-card__image">
               </div>
 
               <!-- サイト名 -->
-              <h3 class="works-item__title">
-                運動管理アプリUI
+              <h3 class="works-card__title">
+                Yukuro CreateFolio 名刺
               </h3>
 
               <!-- サイト説明 -->
-              <div class="works-item__desc">
-                <p class="works-item__text">
-                  日々の運動の習慣やその成果や食事の記録など結果として記録したいものが多いからこそ、わかりやすく効率的でユーザビリティを考えたデザインや考え方が必要なデザインでした。
+              <div class="works-card__desc">
+                <p class="works-card__text">
+                  当サイトをイメージした名刺です。
+                </p>
+                <p class="works-card__text">
+                  白黒印刷に対応することができるよう装飾を少なくシンプルな形でデザインしております。
                 </p>
               </div>
 
               <!-- カテゴリー / 業種 -->
-              <div class="works-item__genre">
-                <p class="works-item__category">アプリデザイン</p>
-                <p class="works-item__industry">健康・美容</p>
-              </div>
-
-              <!-- 制作詳細リンク -->
-              <div class="works-item__detail-link">
-                <a class="works-item__link" href="works-sample.html">制作詳細はこちら</a>
+              <div class="works-card__genre">
+                <p class="works-card__category">名刺</p>
               </div>
             </section>
 
-            <!------ ##### 街づくりシュミレーターゲーム ##### ------>
-            <section class="works-item js-filter-item" data-category="is-game-design">
+            <!------ ##### JR貨物 EF210型電気機関車 ##### ------>
+            <section class="works-card js-filter-item" data-category="is-illustration">
               <!-- イメージ画像 -->
-              <div class="works-item__works-image">
-                <img src="/works/images/img/img_works-uiux-sample03.jpg" alt="運動管理アプリUI" class="works-item__image">
+              <div class="works-card__works-image">
+                <img src="/works/images/img/img_works-illustrator-sample03.jpg" alt="JR貨物 EF210型電気機関車"
+                  class="works-card__image">
               </div>
 
               <!-- サイト名 -->
-              <h3 class="works-item__title">
-                街づくりシュミレーターゲーム
+              <h3 class="works-card__title">
+                JR貨物 EF210型電気機関車
               </h3>
 
               <!-- サイト説明 -->
-              <div class="works-item__desc">
-                <p class="works-item__text">
-                  スマホでの操作性を重視した都市経営シュミレーションのゲームUIです。
+              <div class="works-card__desc">
+                <p class="works-card__text">
+                  JR貨物 EF210型電気機関車をフリー素材の写真からトレースし制作したものです。
                 </p>
-                <p class="works-item__text">
-                  電車の混雑時にスマホゲームを使用する際に周りに気を使ってあまり手首を動かす事ができないことを想定し、ゲーム内メニューは基本的に左右の利き手側に配置できるようにしています。
+                <p class="works-card__text">
+                  illustratorの操作練習の一貫として制作し、曲線のベジェ曲線の書き方やレイヤーの配置・配色などをいろいろ学ぶきっかけとなりました。
                 </p>
               </div>
 
               <!-- カテゴリー / 業種 -->
-              <div class="works-item__genre">
-                <p class="works-item__category">アプリデザイン</p>
-                <p class="works-item__industry">健康・美容</p>
+              <div class="works-card__genre">
+                <p class="works-card__category">イラスト</p>
+              </div>
+            </section>
+
+            <!------ ##### 化粧品 ロゴマーク ##### ------>
+            <section class="works-card js-filter-item" data-category="is-label">
+              <!-- イメージ画像 -->
+              <div class="works-card__works-image">
+                <img src="/works/images/img/img_works-illustrator-sample04.jpg" alt="化粧品 ロゴマーク"
+                  class="works-card__image">
               </div>
 
-              <!-- 制作詳細リンク -->
-              <div class="works-item__detail-link">
-                <a class="works-item__link" href="works-sample.html">制作詳細はこちら</a>
+              <!-- サイト名 -->
+              <h3 class="works-card__title">
+                化粧品 ロゴマーク
+              </h3>
+
+              <!-- サイト説明 -->
+              <div class="works-card__desc">
+                <p class="works-card__text">
+                  商品のラベルをイメージしたロゴを作成しました。
+                </p>
+                <p class="works-card__text">
+                  テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+                </p>
+              </div>
+
+              <!-- カテゴリー / 業種 -->
+              <div class="works-card__genre">
+                <p class="works-card__category">イラスト</p>
               </div>
             </section>
           </div>
@@ -432,8 +374,83 @@
 
     <!-- =================================================== ページ内コンテンツ End =================================================== -->
 
+    <!-- ⬇︎ /////////////////// ヘッダーナビゲーション__SP Start /////////////////// ⬇︎ -->
+    <header class="header-mobile is-sp">
+      <div class="header-mobile__nav">
+        <!-- ロゴリンク -->
+        <a class="header-mobile__top-link" href="/index.html">
+          <h1 class="header-mobile__logo">
+            <img class="header-mobile__logo-img" src="/images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+          </h1>
+        </a>
+        <!-- ロゴリンク -->
+
+        <!-- 検索フォーム ※WordPress検索のためid指定 -->
+        <div class="search-open-btn"></div>
+        <div class="search-wrap">
+          <div class="search-close-btn">
+            <span class="search-close-btn__border"></span>
+            <span class="search-close-btn__border"></span>
+          </div>
+          <div class="search-area">
+            <form class="search-wrap__form" role="search" method="get" action="">
+              <input class="search-wrap__input" type="text" value="" name="" id="search-text" placeholder="search">
+              <input class="search-wrap__submit" type="submit" id="searchsubmit" value="">
+            </form>
+          </div>
+        </div>
+        <!-- 検索フォーム -->
+      </div>
+
+      <!-- 横スクロールナビゲーション ここから -->
+      <div class="scroll-nav is-sp">
+        <nav class="scroll-nav__nav">
+          <ul class="scroll-nav__list scroll-nav__list--works">
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_website.html" class="scroll-nav__link">
+                Webサイト制作
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_programing.html" class="scroll-nav__link">
+                プログラミング
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_uiuxdesign.html" class="scroll-nav__link">
+                UI UXデザイン
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_photoshop.html" class="scroll-nav__link">
+                PhotoShop
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_illustrator.html" class="scroll-nav__link">
+                Illustrator
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--works">
+              <a href="/works/works_molding&dress.html" class="scroll-nav__link">
+                造形・衣装作品
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <div class="scroll-nav__next-btn">＞</div>
+      </div>
+      <!-- 横スクロールナビゲーション_SP ここまで -->
+    </header>
+    <!-- ⬆︎ /////////////////// ヘッダーナビゲーション__SP End /////////////////// ⬆︎ -->
+
     <!-- ⬇︎ /////////////////// ボトムナビゲーション＿SP Start /////////////////// ⬇︎ -->
-    <!-- ボトムナビゲーション_SP ここから ***************** -->
     <nav class="bottom-nav is-sp">
       <ul class="bottom-nav__list">
 
@@ -469,7 +486,7 @@
 
         <!-- ==== Blogリンク ==== -->
         <li class="bottom-nav__item bottom-nav__item--width-max">
-          <a href="/blog.html" class="bottom-nav__link">
+          <a href="/blog/blog.html" class="bottom-nav__link">
             <img class="bottom-nav__icon" src="/images/ico/ico_blog_border-nav_sp.svg" alt="Blogリンク"><br>
             <span class="bottom-nav__text">
               Blog
@@ -489,8 +506,7 @@
 
       </ul>
     </nav>
-    <!-- ボトムナビゲーション_SP ここまで ***************** -->
-    <!-- ⬇︎ /////////////////// ボトムナビゲーション＿SP End /////////////////// ⬇︎ -->
+    <!-- ⬆︎ /////////////////// ボトムナビゲーション＿SP End /////////////////// ⬆︎ -->
 
     <!-- ⬇︎ /////////////////// 入れ替え用ヘッダー Start /////////////////// ⬇︎ -->
     <header class="header-fixed is-pc is-tab is-fixed-header">
@@ -554,19 +570,19 @@
               <a class="header-fixed__link header-fixed__link--arrow" href="#">Blog</a>
               <ul class="header-fixed__sublist">
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/blog.html">Top</a>
+                  <a class="header-fixed__sublink" href="/blog/blog.html">Top</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/program-design_blog.html">プログラミング・デザイン</a>
+                  <a class="header-fixed__sublink" href="/program-design_/blog/blog.html">プログラミング・デザイン</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/molding-dress_blog.html">造形・衣装制作</a>
+                  <a class="header-fixed__sublink" href="/molding-dress_/blog/blog.html">造形・衣装制作</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/handmade_blog.html">ハンドメイド</a>
+                  <a class="header-fixed__sublink" href="/handmade_/blog/blog.html">ハンドメイド</a>
                 </li>
                 <li class="header-fixed__subitem">
-                  <a class="header-fixed__sublink" href="/hobby-life_blog.html">趣味・生活</a>
+                  <a class="header-fixed__sublink" href="/hobby-life_/blog/blog.html">趣味・生活</a>
                 </li>
               </ul>
             </li>
@@ -599,10 +615,8 @@
 
     <!-- ================================================================================ -->
 
-    <!-- ================================================================================ -->
-
     <!-- ⬇︎ /////////////////// Footer フッター_PC Start /////////////////// ⬇︎ -->
-    <footer class="footer-pc is-pc">
+    <footer class="footer-pc is-pc is-tab">
       <div class="footer-pc__inner">
         <!-- ===== フッターロゴ Footer-Logo ===== -->
         <a href="index.html" class="footer-pc__logo">
@@ -762,7 +776,7 @@
       <!-- ===== フッターロゴ Footer-Logo ===== -->
 
       <!-- アコーディオンナビゲーション ここから ***************** -->
-      <nav class="accordion accordion--footer">
+      <div class="accordion accordion--footer">
 
         <!-- ===== Home ===== -->
         <div class="accordion__item">
@@ -862,7 +876,7 @@
           </ul>
         </div>
         <!-- ===== About ===== -->
-      </nav>
+      </div>
       <!-- アコーディオンナビゲーション ここまで ***************** -->
 
       <!-- ===== SNSナビ SNS-Nav ===== -->

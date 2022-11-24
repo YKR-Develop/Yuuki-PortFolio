@@ -59,6 +59,7 @@
 .header-fixed {
   position: fixed;
   z-index: 1000;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
   &__nav {
     position: absolute;
     width: 100vw;
@@ -150,177 +151,6 @@
   &__toggle-item:active &__item:active > &__sublist {
     visibility: visible;
     opacity: 1;
-  }
-}
-
-/* --------------------------------------------------
- Tab__nav タブナビゲーション
--------------------------------------------------- */
-.tab {
-  &__list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 48px;
-
-    @include mq(sp) {
-      flex-wrap: wrap;
-      gap: 16px 0;
-      margin-bottom: 24px;
-    }
-  }
-
-  &__item {
-    width: calc(100% / 4);
-    text-align: center;
-    border-bottom: 1px solid $border-base;
-
-    &--about {
-      width: calc(100% / 3);
-    }
-
-    @include mq(sp) {
-      width: 50%;
-    }
-  }
-
-  &__icon {
-    width: 16px;
-    height: 16px;
-    vertical-align: baseline;
-    @include mq(sp) {
-      display: block;
-      margin: 0 auto 8px auto;
-    }
-  }
-
-  &__link {
-    display: block;
-    font-size: fluid-size(13, 16);
-    padding-bottom: 4px;
-    color: $font-black;
-    position: relative;
-    &::before {
-      @include hoverBorder;
-      border-color: $border-black;
-      bottom: -2px;
-    }
-    &:hover::before {
-      transform: scale(1, 1);
-    }
-  }
-
-  // アクティブ状態の指定
-  &__item.active &__link {
-    font-weight: 600;
-    padding-top: 2px;
-    border-bottom: 2px solid $border-black;
-    pointer-events: none;
-  }
-
-  /* //////////// タブ内エリア //////////// */
-  &__area {
-    display: none; /*はじめは非表示*/
-    opacity: 0; /*透過0*/
-  }
-
-  &__area.is-active {
-    display: block; /*表示*/
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 32px 64px;
-
-    @include animation($name: tabAnime, $duration: 2s, $fill-mode: forwards);
-
-    @include mq(sp) {
-      gap: 16px 16px;
-    }
-  }
-  @keyframes tabAnime {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-}
-
-/* --------------------------------------------------
- Accordion-nav アコーディンオンナビゲーション
--------------------------------------------------- */
-.accordion {
-  width: 100%;
-  margin: 0 auto;
-  &__title {
-    position: relative;
-    font-size: fluid-size(16, 16);
-    color: $font-white;
-    padding: 24px 0 4px 8px;
-    border-bottom: 1px solid $border-base;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 70%;
-      right: 8px;
-      width: 12px;
-      height: 2px;
-      transform: rotate(90deg);
-      background-color: $border-base;
-      transition: all 0.3s ease-in-out;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 70%;
-      right: 8px;
-      width: 12px;
-      height: 2px;
-      background-color: $border-base;
-      transition: all 0.2s ease-in-out;
-    }
-
-    &.open {
-      &::before {
-        transform: rotate(180deg);
-      }
-      &::after {
-        opacity: 0;
-      }
-    }
-  }
-
-  &__menu-list {
-    display: none;
-    border-bottom: 1px solid $border-base;
-  }
-
-  &__menu-item {
-    padding: 16px 8px;
-    border-bottom: 1px solid $border-base;
-    &:last-child {
-      border: none;
-    }
-  }
-
-  &__menu-link {
-    color: $font-white;
-    font-size: fluid-size(14, 14);
-    position: relative;
-    padding-left: 16px;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 8px;
-      height: 1px;
-      background-color: $border-base;
-    }
   }
 }
 
@@ -479,6 +309,10 @@
     &--about {
       min-width: 350px;
     }
+
+    &--blog {
+      min-width: 700px;
+    }
   }
 
   // メニュー個別幅
@@ -494,6 +328,10 @@
 
     &--about {
       width: 30%;
+    }
+
+    &--blog {
+      width: 25%;
     }
 
     &:last-child {
