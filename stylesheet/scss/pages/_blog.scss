@@ -11,6 +11,13 @@
 /* --------------------------------------------------
   
 -------------------------------------------------- */
-
-
-
+.blog-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px 64px;
+  margin-bottom: 48px;
+  @include mq(sp) {
+    gap: 16px 16px;
+  }
+}
