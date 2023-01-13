@@ -22,12 +22,12 @@ function EachTextAnimeControl() {
 }
 
 // 画面をスクロールをしたら動かしたい場合の記述
-$(window).scroll(function () {
+jQuery(window).scroll(function () {
   EachTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
 });// ここまで画面をスクロールをしたら動かしたい場合の記述
 
 // 画面が読み込まれたらすぐに動かしたい場合の記述
-$(window).on('load', function () {
+jQuery(window).on('load', function () {
   //spanタグを追加する
   let element = $(".js-text-animation");
   element.each(function () {
@@ -57,13 +57,13 @@ $(window).on('load', function () {
   検索窓動作 クリック時にモーダルで検索フォーム表示
 -------------------------------------------------- */ 
 //開くボタンを押した時には
-$(".search-open-btn").click(function () {
+jQuery(".search-open-btn").click(function () {
   $(".search-wrap").addClass('panelactive');//#search-wrapへpanelactiveクラスを付与
 $('#search-text').focus();//テキスト入力のinputにフォーカス
 });
 
 //閉じるボタンを押した時には
-$(".search-close-btn").click(function () {
+jQuery(".search-close-btn").click(function () {
   $(".search-wrap").removeClass('panelactive');//#search-wrapからpanelactiveクラスを除去
 });
 
@@ -102,7 +102,7 @@ function FixedAnime() {
 }
 
 //ナビゲーションをクリックした際のスムーススクロール
-$('.header-blog__link').click(function () {
+jQuery('.header-blog__link').click(function () {
   let elmHash = $(this).attr('href'); //hrefの内容を取得
   let pos = Math.round($(elmHash).offset().top-120);  //headerの高さを引く
   $('body,html').animate({scrollTop: pos}, 500);//取得した位置にスクロール※数値が大きいほどゆっくりスクロール
@@ -111,7 +111,7 @@ $('.header-blog__link').click(function () {
 
 
 // 画面をスクロールをしたら動かしたい場合の記述
-$(window).scroll(function () {
+jQuery(window).scroll(function () {
   FixedAnime();/* スクロール途中からヘッダーを出現させる関数を呼ぶ*/
 });
 
@@ -136,13 +136,13 @@ function GethashID(hashIDName) {
 }
 
 // タブをクリックしたら
-$('.tab-nav__link').on('click', function() {
+jQuery('.tab-nav__link').on('click', function() {
   let idName = $(this).attr('href');
   GethashID(idName);
   return false;
 });
 
-$(window).on('load', function() {
+jQuery(window).on('load', function() {
   $('.tab-nav__item:first-of-type').addClass("active");
   $('.tab-contents:first-of-type').addClass("is-active");
   let hashName = location.hash;
@@ -168,7 +168,7 @@ function GethashID (hashIDName){
 }
 
 //タブをクリックしたら
-$('.tab__link').on('click', function() {
+jQuery('.tab__link').on('click', function() {
 	let idName = $(this).attr('href'); //タブ内のリンク名を取得	
 	GethashID (idName);//設定したタブの読み込みと
 	return false;//aタグを無効にする
@@ -176,7 +176,7 @@ $('.tab__link').on('click', function() {
 
 
 // 上記の動きをページが読み込まれたらすぐに動かす
-$(window).on('load', function () {
+jQuery(window).on('load', function () {
     $('.tab__item:first-of-type').addClass("active"); //最初のliにactiveクラスを追加
     $('.tab__area:first-of-type').addClass("is-active"); //最初の.areaにis-activeクラスを追加
 	let hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
