@@ -176,9 +176,9 @@
     flex-wrap: wrap;
   }
 
+
   &__item {
     width: calc(100% / 2 - 32px / 2 * 2);
-    margin-bottom: 72px;
 
     &:nth-child(n + 2) {
       margin-bottom: 0;
@@ -222,6 +222,10 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+  
+  &__thumb {
+    position: relative;
   }
 
   &__title {
@@ -270,7 +274,7 @@
 -------------------------------------------------- */
 .blog-affiliate {
   @include maxWidth;
-  margin-bottom: 80px;
+  margin: 64px 0;
   display: flex;
   gap: 0 32px;
 

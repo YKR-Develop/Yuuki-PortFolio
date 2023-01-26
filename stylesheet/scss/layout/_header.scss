@@ -61,3 +61,26 @@
   }
 }
 
+/* --------------------------------------------------
+ header-blog__nav ブログページ用固定ナビ
+-------------------------------------------------- */
+.header-blog {
+  width: 100%;
+  position: fixed;
+  transition: 0.5s;
+  left: 0;
+  background-color: $background-nav;
+  padding: 6px 0;
+
+  &__inner {
+    @include maxWidth;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 152px;
+    height: 48px;
+  }
+}

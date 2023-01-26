@@ -7,19 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- タイトル -->
-  <title>Yukuro CreateFolio | Blog</title>
+  <title>Yukuro CreateFolio | Blog | ハンドメイド | 小道具制作</title>
 
   <!-- metaディスクリプション -->
-  <meta name="description"
-    content="Yukuro CreateFolioのブログサイトです。主に「Web制作/開発・デザイン」「ハンドメイド」「ハンドメイド」のモノづくりに関する記事を中心に掲載しております。">
+  <meta name="description" content="コスプレで使用する小道具制作を中心に掲載しております。">
 
   <!-- OGPタグ -->
   <meta property="og:url" content="ページURL">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Yukuro CreateFolio | Blog">
-  <meta property="og:description" content="「Web制作/開発・デザイン」「ハンドメイド」「ハンドメイド」のモノづくりに関する記事を中心に掲載しております。">
+  <meta property="og:title" content="Yukuro CreateFolio | Blog | ハンドメイド">
+  <meta property="og:description" content="コスプレで使用する小道具制作を中心に掲載しております。">
   <meta property="og:site_name" content="Yukuro CreateFolioのBlogページ">
-  <meta property="og:image" content="//images/img/img_ogp_thumb-blog.jpg">
+  <meta property="og:image" content="/images/img/img_ogp_thumb-blog.jpg">
 
   <!-- Twitterカード -->
   <meta name="twitter:card" content="Summary Card">
@@ -36,6 +35,7 @@
 
   <!-- プラグイン関連CSSファイル 読み込み -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
   <!-- stylesheet 読み込み -->
   <link rel="stylesheet" href="/stylesheet/css/style.css">
 
@@ -55,51 +55,106 @@
 <body>
 
   <div class="container">
-    <!-- ⬇︎ /////////////////// メインビジュアル Start /////////////////// ⬇︎ -->
-    <!-- ⬇︎ ############ メインビジュアル Start ############ ⬇︎ -->
-    <div class="main-visual main-visual--blog is-hero-img">
-      <div class="main-visual__inner main-visual__inner--vh">
 
-        <!-- ⬇︎ /////////////////// ヘッダー / グローバルナビゲーション Start /////////////////// ⬇︎ -->
-        <!-- ビジュアルナビゲーション__PC ここから ***************** -->
-        <header class="header-top is-pc is-tab is-top-header">
-          <nav class="header-top__nav">
-            <!-- ロゴリンク -->
-            <a class="header-top__top-link" href="/index.html">
-              <div class="header-top__logo">
-                <img class="header-top__logo-img" src="/images/ico/ico_logo.png" alt="Yukuro CreateFolio">
-              </div>
-            </a>
+    <!-- ⬇︎ /////////////////// ブログ用ヘッダー Start /////////////////// ⬇︎ -->
+    <header class="header-blog is-pc is-tab">
+      <div class="header-blog__inner">
 
-            <!-- ナビゲーションメニュー -->
-            <ul class="header-top__list">
-              <li class="header-top__item">
-                <a href="/works/works_top.html" class="header-top__link">Works</a>
-              </li>
-              <li class="header-top__item">
-                <a href="/about.html" class="header-top__link">About</a>
-              </li>
-              <li class="header-top__item">
-                <a href="/blog/blog.html" class="header-top__link">Blog</a>
-              </li>
-              <li class="header-top__item">
-                <a href="/index.html#contact" class="header-top__link">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <!-- ビジュアルナビゲーション__PC ここまで ***************** -->
+        <a class="header-blog__top-link" href="/index.html">
+          <h1 class="header-blog__logo">
+            <img class="header-blog__icon" src="/images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+          </h1>
+        </a>
 
-        <!-- ページタイトル ここから ***************** -->
-        <h1 class="main-visual__page-title">
-          <span class="main-visual__heading js-text-animation">Yukuro CreateLog</span>
-          <span class="main-visual__sub-heading js-text-animation">Blog</span>
-        </h1>
-        <!-- ページタイトル ここまで ***************** -->
-        <!-- ⬆︎ /////////////////// ヘッダー / グローバルナビゲーション End /////////////////// ⬆︎ -->
+
+        <!-- ===== ナビゲーション ====== -->
+        <nav class="header-blog__nav">
+          <ul class="header-blog__list">
+            <!-- ===== worksリンク ===== -->
+            <li class="header-blog__toggle-item">
+              <a class="header-blog__link header-blog__link--arrow" href="/works/works_top.html">Works</a>
+              <ul class="header-blog__sublist">
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="/works/works_website.html">Webサイト制作</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="/works/works_programing.html">プログラミング</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="/works/works_uiuxdesign.html">UI UXデザイン</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="/works/works_photoshop.html">PhotoShop</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="/works/works_illustrator.html">Illustrator</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="/works/works_molding&dress.html">造形・衣装作品</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- ===== Aboutリンク ===== -->
+            <li class="header-blog__toggle-item">
+              <a class="header-blog__link header-blog__link--arrow" href="/about.html">About</a>
+              <ul class="header-blog__sublist">
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="/about.html#production-overview">制作・開発概要</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="/about.html#about-me">私について</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="/about.html#skill">スキル</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- ===== Blogリンク ===== -->
+            <li class="header-blog__toggle-item">
+              <a class="header-blog__link header-blog__link--arrow" href="/blog/blog.html">Blog</a>
+              <ul class="header-blog__sublist">
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="program-design_/blog/blog.html">Web制作/開発・デザイン</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="molding-dress_/blog/blog.html">ハンドメイド</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="handmade_/blog/blog.html">ハンドメイド</a>
+                </li>
+                <li class="header-blog__subitem">
+                  <a class="header-blog__sublink" href="hobby-life_/blog/blog.html">趣味・生活</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- ===== Newsリンク ===== -->
+            <li class="header-blog__item">
+              <a class="header-blog__link" href="news.html">News</a>
+            </li>
+
+            <!-- ===== Contactリンク ===== -->
+            <li class="header-blog__item">
+              <a class="header-blog__link" href="i#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- ===== ナビゲーション ====== -->
+
+        <!-- ===== 検索フォーム ====== -->
+        <form role="search" method="get" class="searchform" action="#">
+          <div>
+            <input class="searchform__input" type="text" name="search" placeholder="Search">
+            <input class="searchform__submit" type="submit" id="searchsubmit" value=""
+              src="//images/ico/ico_search_pc.svg">
+          </div>
+        </form>
+        <!-- ===== 検索フォーム ====== -->
       </div>
-    </div>
-    <!-- ⬆︎ ############ メインビジュアル End ############ ⬆︎ -->
+    </header>
+    <!-- ⬆︎ /////////////////// ブログ用ヘッダー End /////////////////// ⬆︎ -->
 
 
     <!-- ================================================================================ -->
@@ -135,7 +190,7 @@
       <div class="contents__inner">
 
         <!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
-        <div class="pkz">
+        <div class="pkz pkz--blog">
           <ol class="pkz__list" itemscope itemtype="https://schema.org/BreadcrumbList">
             <!-- ==== 1階層目 Home ==== -->
             <li class="pkz__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -148,392 +203,78 @@
               <a class="pkz__link" itemprop="About" href="/blog/blog.html">Blog</a>
               <meta itemprop="position" content="1">
             </li>
+
+            <!-- ==== 3階層目 About ==== -->
+            <li class="pkz__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a class="pkz__link" itemprop="About" href="/blog/handmade_category.html">ハンドメイド</a>
+              <meta itemprop="position" content="1">
+            </li>
+
+            <!-- ==== 4階層目 About ==== -->
+            <li class="pkz__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a class="pkz__link" itemprop="About" href="/blog/handmade_category.html">小道具制作</a>
+              <meta itemprop="position" content="1">
+            </li>
           </ol>
         </div>
         <!-- ⬆︎ /////////////////// パンくずリスト End /////////////////// ⬆︎ -->
 
         <!-- ================================================================================ -->
 
-        <!-- ⬇︎ /////////////////// 最新の記事カルーセル Start /////////////////// ⬇︎ -->
+        <!-- ⬇︎ /////////////////// 記事一覧 Start /////////////////// ⬇︎ -->
         <article class="contents__article contents__article--bg">
+
           <!-- ===== コンテンツ見出し Heading ===== -->
           <h2 class="cotents-heading">
             <span class="cotents-heading__main">
-              Latest Articles
+              Props Making
             </span>
             <span class="cotents-heading__sub">
-              最新の記事
+              小道具制作
             </span>
           </h2>
           <!-- ===== コンテンツ見出し Heading ===== -->
 
-          <!-- ⬇︎ ############ 最新の記事一覧 Start ############ ⬇︎ -->
-          <section class="contents__wrapper contents__wrapper--mb-none">
+          <!-- ⬇︎ /////////////////// カテゴリー ナビゲーション Start /////////////////// ⬇︎ -->
+          <div class="category-nav is-pc is-tab">
+            <ul class="category-nav__list category-nav__list--blog">
 
-            <div class="article-slide swiper-container">
-              <div class="article-slide__wrapper swiper-wrapper">
-
-                <!-- ##### スライド記事01 ##### -->
-                <a class="article-slide__item swiper-slide" href="/blog/article_sample.html">
-                  <!-- 記事サムネイル -->
-                  <div class="article-slide__thumb">
-                    <img src="/blog/images/img/img_slide-thumb-sample01.jpg" alt="記事タイトル" class="article-slide__image">
+              <!-- ##### ハンドメイド制作 ##### -->
+              <li class="category-nav__item">
+                <a href="/blog/handmade_article.html" class="category-nav__link">
+                  <div class="category-nav__link-icon">
+                    <img class="category-nav__icon" src="./images/ico/ico_nav-handmade.svg" alt="ハンドメイド制作">
                   </div>
-
-                  <!-- カテゴリー -->
-                  <p class="article-slide__category">Web制作/開発・デザイン</p>
-
-                  <!-- 記事タイトル / 投稿日時 -->
-                  <div class="article-slide__label">
-                    <h3 class=article-slide__title-link>
-                      記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                    </h3>
-                    <time class="article-slide__date">
-                      2022.10.01
-                    </time>
-                  </div>
-                </a>
-
-                <!-- ##### スライド記事02 ##### -->
-                <a class="article-slide__item swiper-slide" href="/blog/article_sample.html">
-                  <!-- 記事サムネイル -->
-                  <div class="article-slide__thumb">
-                    <img src="/blog/images/img/img_slide-thumb-sample02.jpg" alt="記事タイトル" class="article-slide__image">
-                  </div>
-
-                  <!-- カテゴリー -->
-                  <p class="article-slide__category">ハンドメイド</p>
-
-                  <!-- 記事タイトル / 投稿日時 -->
-                  <div class="article-slide__label">
-                    <h3 class=article-slide__title-link>
-                      記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                    </h3>
-                    <time class="article-slide__date">
-                      2022.10.01
-                    </time>
-                  </div>
-                </a>
-
-                <!-- ##### スライド記事03 ##### -->
-                <a class="article-slide__item swiper-slide" href="/blog/article_sample.html">
-                  <!-- 記事サムネイル -->
-                  <div class="article-slide__thumb">
-                    <img src="/blog/images/img/img_slide-thumb-sample01.jpg" alt="記事タイトル" class="article-slide__image">
-                  </div>
-
-                  <!-- カテゴリー -->
-                  <p class="article-slide__category">Web制作/開発・デザイン</p>
-
-                  <!-- 記事タイトル / 投稿日時 -->
-                  <div class="article-slide__label">
-                    <h3 class=article-slide__title-link>
-                      記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                    </h3>
-                    <time class="article-slide__date">
-                      2022.10.01
-                    </time>
-                  </div>
-                </a>
-
-              </div>
-
-              <!-- ##### スライドショー ページネーション / スライドボタン -->
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-
-            </div>
-          </section>
-          <!-- ⬆︎ ############ 最新の記事一覧 Start ############ ⬆︎ -->
-
-          <!-- タブナビゲーション ここから ***************** -->
-          <nav class="tab">
-            <ul class="tab__list">
-              <li class="tab__item tab__item--three-tab">
-                <a class="tab__link" href="#molding-dress_blog">
-                  <img class="tab__icon" src="/blog/images/ico/ico_pickup.svg" alt="おすすめの記事">
-                  おすすめの記事
+                  <span class="category-nav__text">ハンドメイド制作</span>
                 </a>
               </li>
-              <li class="tab__item tab__item--three-tab">
-                <a class="tab__link" href="#handmade_blog">
-                  <img class="tab__icon" src="/blog/images/ico/ico_special-feature.svg" alt="特集記事">
-                  特集記事
+
+              <!-- ##### 衣装制作 ##### -->
+              <li class="category-nav__item">
+                <a href="/blog/dress_article.html" class="category-nav__link">
+                  <div class="category-nav__link-icon">
+                    <img class="category-nav__icon" src="./images/ico/ico_nav-dress.svg" alt="衣装制作">
+                  </div>
+                  <span class="category-nav__text">衣装制作</span>
                 </a>
               </li>
-              <li class="tab__item tab__item--three-tab">
-                <a class="tab__link" href="#hobby-life_blog">
-                  <img class="tab__icon" src="/blog/images/ico/ico_ranking.svg" alt="ランキング">
-                  ランキング
+
+              <!-- ##### 小道具 ##### -->
+              <li class="category-nav__item">
+                <a href="/blog/props_article.html" class="category-nav__link">
+                  <div class="category-nav__link-icon">
+                    <img class="category-nav__icon" src="/blog/images/ico/ico_nav-props.svg" alt="ハンドメイド制作">
+                  </div>
+                  <span class="category-nav__text">小道具制作</span>
                 </a>
               </li>
+
             </ul>
-          </nav>
-
-          <!-- ⬇︎ ############ おすすめの記事 Start ############ ⬇︎ -->
-          <div id="molding-dress_blog" class="tab__area">
-            <!-- ===== おすすめの記事 ブログカード 01 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_programing-thumb01.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/web-site_article.html">
-                  Web制作
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== おすすめの記事 ブログカード 01 ここまで ===== -->
-            <!-- ===== おすすめの記事 ブログカード 02 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_molding-thumb01.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/props_article.html">
-                  小道具制作
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== おすすめの記事 ブログカード 02 ここまで ===== -->
-            <!-- ===== おすすめの記事 ブログカード 03 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_handmade-thumb04.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/dress_article.html">
-                  衣装制作
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== おすすめの記事 ブログカード 03 ここまで ===== -->
-            <!-- ===== おすすめの記事 ブログカード 04 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_handmade-thumb01.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/blog-handmade.html#side-job-article">
-                  ハンドメイド制作
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== おすすめの記事 ブログカード 04 ここまで ===== -->
           </div>
-          <!-- ⬆︎ ############ おすすめの記事 End ############ ⬆︎ -->
+          <!-- ⬆︎ /////////////////// カテゴリー ナビゲーション End /////////////////// ⬆︎ -->
 
-          <!-- ============================================================================== -->
-
-          <!-- ⬇︎ ############ 特集記事 Start ############ ⬇︎ -->
-          <div id="handmade_blog" class="tab__area">
-            <!-- ===== 特集記事 ブログカード 01 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_programing-thumb03.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/web-site_article.html">
-                  Web制作
-                </a>
-                <a class="blog-card__category-link" href="/blog/programing_article.html">
-                  プログラミング
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== 特集記事 ブログカード 01 ここまで ===== -->
-            <!-- ===== 特集記事 ブログカード 02 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_molding-thumb03.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/props_article.html">
-                  小道具制作
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== 特集記事 ブログカード 02 ここまで ===== -->
-            <!-- ===== 特集記事 ブログカード 03 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_handmade-thumb05.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/handmade_article.html">
-                  ハンドメイド制作
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== 特集記事 ブログカード 03 ここまで ===== -->
-            <!-- ===== 特集記事 ブログカード 04 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_handmade-thumb06.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/handmade_article.html">
-                  ハンドメイド制作
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== 特集記事 ブログカード 04 ここまで ===== -->
-          </div>
-          <!-- ⬆︎ ############ 特集記事 End ############ ⬆︎ -->
-
-          <!-- ============================================================================== -->
-
-          <!-- ⬇︎ ############ ランキング記事 Start ############ ⬇︎ -->
-          <div id="hobby-life_blog" class="tab__area">
-            <!-- ===== ランキング記事 ブログカード 01 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_programing-thumb02.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/web-design_category.html">
-                  Web制作
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== ランキング記事 ブログカード 01 ここまで ===== -->
-            <!-- ===== ランキング記事 ブログカード 02 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_programing-thumb06.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/design_article.html">
-                  デザイン
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== ランキング記事 ブログカード 02 ここまで ===== -->
-            <!-- ===== ランキング記事 ブログカード 03 ここから ===== -->
-            <div class="blog-card">
-              <!-- ブログサムネイル -->
-              <a class="blog-card__thumb" href="/blog/article_sample.html">
-                <img class="blog-card__image" src="/blog/images/img/img_handmade-thumb01.jpg" alt="記事のタイトルが入ります。">
-              </a>
-              <!-- ブログタイトル / カテゴリー / 投稿日 -->
-              <div class="blog-card__label">
-                <h4 class="blog-card__title">
-                  <a class="blog-card__title-link" href="/blog/article_sample.html">
-                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                  </a>
-                </h4>
-                <a class="blog-card__category-link" href="/blog/handmade_article.html">
-                  ハンドメイド
-                </a>
-                <time class="blog-card__date">
-                  2022.10.01
-                </time>
-              </div>
-            </div>
-            <!-- ===== ランキング記事 ブログカード 03 ここまで ===== -->
-            <!-- ===== ランキング記事 ブログカード 04 ここから ===== -->
+          <div class="blog-list">
+            <!-- ===== 小道具制作 ブログカード 01 ここから ===== -->
             <div class="blog-card">
               <!-- ブログサムネイル -->
               <a class="blog-card__thumb" href="/blog/article_sample.html">
@@ -546,200 +287,103 @@
                     記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
                   </a>
                 </h4>
-                <a class="blog-card__category-link" href="/blog/dress_article.html">
-                  衣装制作
+                <a class="blog-card__category-link" href="各小カテゴリー">
+                  小道具制作
                 </a>
                 <time class="blog-card__date">
                   2022.10.01
                 </time>
               </div>
             </div>
-            <!-- ===== ランキング記事 ブログカード 04 ここまで ===== -->
-          </div>
-          <!-- ⬆︎ ############ ランキング記事 End ############ ⬆︎ -->
-
-
-        </article>
-        <!-- ⬆︎ /////////////////// 最新の記事カルーセル End /////////////////// ⬆︎ -->
-
-        <!-- ================================================================================ -->
-
-        <!-- ⬇︎ /////////////////// 最新の記事カルーセル Start /////////////////// ⬇︎ -->
-        <article class="contents__article">
-          <!-- ===== コンテンツ見出し Heading ===== -->
-          <h2 class="cotents-heading">
-            <span class="cotents-heading__main">
-              Category
-            </span>
-            <span class="cotents-heading__sub">
-              カテゴリー
-            </span>
-          </h2>
-          <!-- ===== コンテンツ見出し Heading ===== -->
-
-          <div class="blog-category">
-            <!-- ===== Web制作/開発・デザイン カテゴリ Start ===== -->
-            <div class="blog-category__item">
-              <a href="/blog/web-design_category.html" class="blog-category__thumb-link">
-                <h4 class="blog-category__title">Web制作/開発・デザイン</h4>
-                <img class="blog-category__image" src="/blog/images/img/img_blog-category_programing-visual.jpg"
-                  alt="Web制作/開発・デザイン">
+            <!-- ===== 小道具制作 ブログカード 01 ここまで ===== -->
+            <!-- ===== 小道具制作 ブログカード 02 ここから ===== -->
+            <div class="blog-card">
+              <!-- ブログサムネイル -->
+              <a class="blog-card__thumb" href="/blog/article_sample.html">
+                <img class="blog-card__image" src="/blog/images/img/img_molding-thumb03.jpg" alt="記事のタイトルが入ります。">
               </a>
-              <ul class="blog-category__category-list">
-                <li class="blog-category__category-item">
-                  <a href="/blog/web-design_category.html"
-                    class="blog-category__category-link secondary-button">Web制作</a>
-                </li>
-                <li class="blog-category__category-item">
-                  <a href="/blog/web-design_category.html"
-                    class="blog-category__category-link secondary-button">プログラミング</a>
-                </li>
-                <li class="blog-category__category-item">
-                  <a href="/blog/web-design_category.html"
-                    class="blog-category__category-link secondary-button">デザイン</a>
-                </li>
-                <li class="blog-category__category-item">
-                  <a href="/blog/web-design_category.html"
-                    class="blog-category__category-link secondary-button">制作ツール</a>
-                </li>
-              </ul>
-
-              <div class="blog-category__blog-list">
-                <!-- ===== プラグラミング・デザイン ブログカード 01 ここから ===== -->
-                <div class="blog-card blog-card--category">
-                  <!-- ブログサムネイル -->
-                  <a class="blog-card__thumb" href="/blog/article_sample.html">
-                    <img class="blog-card__image" src="/blog/images/img/img_programing-thumb01.jpg" alt="記事のタイトルが入ります。">
+              <!-- ブログタイトル / カテゴリー / 投稿日 -->
+              <div class="blog-card__label">
+                <h4 class="blog-card__title">
+                  <a class="blog-card__title-link" href="/blog/article_sample.html">
+                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
                   </a>
-                  <!-- ブログタイトル / カテゴリー / 投稿日 -->
-                  <div class="blog-card__label">
-                    <h4 class="blog-card__title">
-                      <a class="blog-card__title-link" href="/blog/article_sample.html">
-                        記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                      </a>
-                    </h4>
-                    <a class="blog-card__category-link" href="/blog/web-design_category.html">
-                      Web制作
-                    </a>
-                    <time class="blog-card__date">
-                      2022.10.01
-                    </time>
-                  </div>
-                </div>
-                <!-- ===== プラグラミング・デザイン ブログカード 01 ここまで ===== -->
-
-                <!-- ===== プラグラミング・デザイン ブログカード 02 ここから ===== -->
-                <div class="blog-card blog-card--category">
-                  <!-- ブログサムネイル -->
-                  <a class="blog-card__thumb" href="/blog/article_sample.html">
-                    <img class="blog-card__image" src="/blog/images/img/img_programing-thumb01.jpg" alt="記事のタイトルが入ります。">
-                  </a>
-                  <!-- ブログタイトル / カテゴリー / 投稿日 -->
-                  <div class="blog-card__label">
-                    <h4 class="blog-card__title">
-                      <a class="blog-card__title-link" href="/blog/article_sample.html">
-                        記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                      </a>
-                    </h4>
-                    <a class="blog-card__category-link" href="/blog/web-design_category.html">
-                      デザイン
-                    </a>
-                    <time class="blog-card__date">
-                      2022.10.01
-                    </time>
-                  </div>
-                </div>
-                <!-- ===== プラグラミング・デザイン ブログカード 02 ここまで ===== -->
-              </div>
-
-              <!-- ===== ページ遷移ボタン ===== -->
-              <div class="primary-button">
-                <a class="primary-button__link" href="web-design_category.html">Read More<span
-                    class="primary-button__arrow"></span></a>
+                </h4>
+                <a class="blog-card__category-link" href="">
+                  小道具制作
+                </a>
+                <time class="blog-card__date">
+                  2022.10.01
+                </time>
               </div>
             </div>
-            <!-- ===== Web制作/開発・デザイン カテゴリ ENd ===== -->
-
-            <!-- ===== ハンドメイド カテゴリ Start ===== -->
-            <div class="blog-category__item">
-              <a href="/blog/handmade_category.html" class="blog-category__thumb-link">
-                <h4 class="blog-category__title">ハンドメイド</h4>
-                <img class="blog-category__image" src="/blog/images/img/img_blog-category_molding-visual.jpg"
-                  alt="ハンドメイド">
+            <!-- ===== 小道具制作 ブログカード 02 ここまで ===== -->
+            <!-- ===== 小道具制作 ブログカード 03 ここから ===== -->
+            <div class="blog-card">
+              <!-- ブログサムネイル -->
+              <a class="blog-card__thumb" href="/blog/article_sample.html">
+                <img class="blog-card__image" src="/blog/images/img/img_molding-thumb04.jpg" alt="記事のタイトルが入ります。">
               </a>
-              <ul class="blog-category__category-list">
-                <li class="blog-category__category-item">
-                  <a href="/blog/handmade_article.html" class="blog-category__category-link secondary-button">
-                    ハンドメイド制作
+              <!-- ブログタイトル / カテゴリー / 投稿日 -->
+              <div class="blog-card__label">
+                <h4 class="blog-card__title">
+                  <a class="blog-card__title-link" href="/blog/article_sample.html">
+                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
                   </a>
-                </li>
-                <li class="blog-category__category-item">
-                  <a href="/blog//blog/handmade_category.html" class="blog-category__category-link secondary-button">
-                    衣装制作
-                  </a>
-                </li>
-                <li class="blog-category__category-item">
-                  <a href="/blog/props_article.html" class="blog-category__category-link secondary-button">
-                    小道具制作
-                  </a>
-                </li>
-              </ul>
-
-              <div class="blog-category__blog-list">
-                <!-- ===== ハンドメイド ブログカード 01 ここから ===== -->
-                <div class="blog-card blog-card--category">
-                  <!-- ブログサムネイル -->
-                  <a class="blog-card__thumb" href="/blog/article_sample.html">
-                    <img class="blog-card__image" src="/blog/images/img/img_molding-thumb01.jpg" alt="記事のタイトルが入ります。">
-                  </a>
-                  <!-- ブログタイトル / カテゴリー / 投稿日 -->
-                  <div class="blog-card__label">
-                    <h4 class="blog-card__title">
-                      <a class="blog-card__title-link" href="/blog/article_sample.html">
-                        記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                      </a>
-                    </h4>
-                    <a class="blog-card__category-link" href="/blog/props_article.html">
-                      小道具制作
-                    </a>
-                    <time class="blog-card__date">
-                      2022.10.01
-                    </time>
-                  </div>
-                </div>
-                <!-- ===== ハンドメイド ブログカード 01 ここまで ===== -->
-
-                <!-- ===== ハンドメイド ブログカード 02 ここから ===== -->
-                <div class="blog-card blog-card--category">
-                  <!-- ブログサムネイル -->
-                  <a class="blog-card__thumb" href="/blog/article_sample.html">
-                    <img class="blog-card__image" src="/blog/images/img/img_molding-thumb02.jpg" alt="記事のタイトルが入ります。">
-                  </a>
-                  <!-- ブログタイトル / カテゴリー / 投稿日 -->
-                  <div class="blog-card__label">
-                    <h4 class="blog-card__title">
-                      <a class="blog-card__title-link" href="/blog/article_sample.html">
-                        記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                      </a>
-                    </h4>
-                    <a class="blog-card__category-link" href="/blog/dress_article.html">
-                      衣装制作
-                    </a>
-                    <time class="blog-card__date">
-                      2022.10.01
-                    </time>
-                  </div>
-                </div>
-              </div>
-              <!-- ===== ハンドメイド ブログカード 02 ここまで ===== -->
-
-              <!-- ===== ページ遷移ボタン ===== -->
-              <div class="primary-button">
-                <a class="primary-button__link" href="/blog/handmade_category.html">Read More<span
-                    class="primary-button__arrow"></span></a>
+                </h4>
+                <a class="blog-card__category-link" href="/blog/blog-hobby.html#bile-article">
+                  小道具制作
+                </a>
+                <time class="blog-card__date">
+                  2022.10.01
+                </time>
               </div>
             </div>
-            <!-- ===== ハンドメイド カテゴリ ENd ===== -->
+            <!-- ===== 小道具制作 ブログカード 03 ここまで ===== -->
+            <!-- ===== 小道具制作 ブログカード 04 ここから ===== -->
+            <div class="blog-card">
+              <!-- ブログサムネイル -->
+              <a class="blog-card__thumb" href="/blog/article_sample.html">
+                <img class="blog-card__image" src="/blog/images/img/img_molding-thumb05.jpg" alt="記事のタイトルが入ります。">
+              </a>
+              <!-- ブログタイトル / カテゴリー / 投稿日 -->
+              <div class="blog-card__label">
+                <h4 class="blog-card__title">
+                  <a class="blog-card__title-link" href="/blog/article_sample.html">
+                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                  </a>
+                </h4>
+                <a class="blog-card__category-link" href="/blog/blog-handmade.html#side-job-article">
+                  小道具制作
+                </a>
+                <time class="blog-card__date">
+                  2022.10.01
+                </time>
+              </div>
+            </div>
+            <!-- ===== 小道具制作 ブログカード 04 ここまで ===== -->
+            <!-- ===== 小道具制作 ブログカード 05 ここから ===== -->
+            <div class="blog-card">
+              <!-- ブログサムネイル -->
+              <a class="blog-card__thumb" href="/blog/article_sample.html">
+                <img class="blog-card__image" src="/blog/images/img/img_molding-thumb01.jpg" alt="記事のタイトルが入ります。">
+              </a>
+              <!-- ブログタイトル / カテゴリー / 投稿日 -->
+              <div class="blog-card__label">
+                <h4 class="blog-card__title">
+                  <a class="blog-card__title-link" href="/blog/article_sample.html">
+                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                  </a>
+                </h4>
+                <a class="blog-card__category-link" href="/blog/blog-handmade.html#side-job-article">
+                  小道具制作
+                </a>
+                <time class="blog-card__date">
+                  2022.10.01
+                </time>
+              </div>
+            </div>
+            <!-- ===== 小道具制作 ブログカード 05 ここまで ===== -->
           </div>
         </article>
         <!-- ⬆︎ /////////////////// 最新の記事カルーセル End /////////////////// ⬆︎ -->
@@ -792,8 +436,7 @@
                       href="/blog/design_article.html">Webデザイン</a>
                   </li>
                   <li class="accordion__menu-item">
-                    <a class="accordion__menu-link accordion__menu-link--blog"
-                      href="/blog/tool_article.html">制作ツール</a>
+                    <a class="accordion__menu-link accordion__menu-link--blog" href="/blog/tool_article.html">制作ツール</a>
                   </li>
                 </ul>
               </div>
@@ -811,12 +454,10 @@
                       href="/blog/handmade_article.html">ハンドメイド</a>
                   </li>
                   <li class="accordion__menu-item">
-                    <a class="accordion__menu-link accordion__menu-link--blog"
-                      href="/blog/dress_article.html">衣装制作</a>
+                    <a class="accordion__menu-link accordion__menu-link--blog" href="/blog/dress_article.html">衣装制作</a>
                   </li>
                   <li class="accordion__menu-item">
-                    <a class="accordion__menu-link accordion__menu-link--blog"
-                      href="/blog/props_article.html">小道具制作</a>
+                    <a class="accordion__menu-link accordion__menu-link--blog" href="/blog/props_article.html">小道具制作</a>
                   </li>
                 </ul>
               </div>
@@ -836,7 +477,7 @@
                 レジン
               </a>
               <a href="#" class="blog-nav__keyword-link">
-                Webデザイン
+                デザイン
               </a>
               <a href="#" class="blog-nav__keyword-link">
                 アクセサリー
@@ -881,11 +522,10 @@
               </div>
             </form>
           </div>
-          <!-- ===== 検索フォーム End ===== -->
+          <!-- ===== 関連キーワード End ===== -->
         </div>
         <!-- ⬆︎ ############ ブログボトムナビゲーション End ############ ⬆︎ -->
       </div>
-
     </div>
 
     <!-- =================================================== ページ内コンテンツ End =================================================== -->
@@ -955,7 +595,12 @@
                 <li class="header-fixed__subitem">
                   <a class="header-fixed__sublink" href="molding-dress_/blog/blog.html">ハンドメイド</a>
                 </li>
-
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="handmade_/blog/blog.html">ハンドメイド</a>
+                </li>
+                <li class="header-fixed__subitem">
+                  <a class="header-fixed__sublink" href="hobby-life_/blog/blog.html">趣味・生活</a>
+                </li>
               </ul>
             </li>
 
@@ -1019,13 +664,24 @@
           <ul class="scroll-nav__list scroll-nav__list--blog">
             <li class="scroll-nav__item scroll-nav__item--blog">
               <a href="/blog//blog/handmade_category.html" class="scroll-nav__link">
-                Web制作/開発・デザイン
+                Web制作
               </a>
             </li>
 
             <li class="scroll-nav__item scroll-nav__item--blog">
               <a href="/blog//blog/handmade_category.html" class="scroll-nav__link">
-                ハンドメイド
+                プログラミング
+              </a>
+            </li>
+
+            <li class="scroll-nav__item scroll-nav__item--blog">
+              <a href="/blog//blog/handmade_category.html" class="scroll-nav__link">
+                デザイン
+              </a>
+            </li>
+            <li class="scroll-nav__item scroll-nav__item--blog">
+              <a href="/blog//blog/handmade_category.html" class="scroll-nav__link">
+                制作ツール
               </a>
             </li>
           </ul>
@@ -1191,7 +847,6 @@
                 <li class="footer-pc__navchild-item">
                   <a class="footer-pc__navchild-link" href="/blog/handmade_category.html">ハンドメイド</a>
                 </li>
-
               </ul>
               <!-- ===== サブナビ Footer-navchild ===== -->
             </li>
@@ -1242,38 +897,39 @@
     </footer>
     <!-- ⬆︎ /////////////////// Footer フッター_PC End /////////////////// ⬆︎ -->
 
+
     <!-- ⬇︎ /////////////////// Footer フッター_SP Start /////////////////// ⬇︎ -->
     <footer class="footer-sp is-sp">
       <!-- ===== フッターロゴ Footer-Logo ===== -->
-      <a href="index.html" class="footer-sp__logo">
-        <img class="footer-sp__logo-img" src="./images/ico/ico_logo.png" alt="Yukuro CreateFolio">
+      <a href="/index.html" class="footer-sp__logo">
+        <img class="footer-sp__logo-img" src="/images/ico/ico_logo.png" alt="Yukuro CreateFolio">
       </a>
       <!-- ===== フッターロゴ Footer-Logo ===== -->
 
       <!-- アコーディオンナビゲーション ここから ***************** -->
-      <nav class="accordion accordion--footer">
+      <div class="accordion accordion--footer">
 
         <!-- ===== Home ===== -->
         <div class="accordion__item">
-          <p class="accordion__title js-accordion-title">Home</p>
+          <p class="accordion__title accordion__title--top-pdnone js-accordion-title">Home</p>
           <ul class="accordion__menu-list">
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="index.html">Top</a>
+              <a class="accordion__menu-link" href="/index.html">Top</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="index.html#works-top">Works</a>
+              <a class="accordion__menu-link" href="/index.html#works-top">Works</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="index.html#about-top">About</a>
+              <a class="accordion__menu-link" href="/index.html#about-top">About</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="index.html#blog-top">Blog</a>
+              <a class="accordion__menu-link" href="/index.html#blog-top">Blog</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="index.html#news-top">News</a>
+              <a class="accordion__menu-link" href="/index.html#news-top">News</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="index.html#contact">Contact</a>
+              <a class="accordion__menu-link" href="/index.html#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -1284,9 +940,6 @@
           <p class="accordion__title js-accordion-title">Works</p>
           <ul class="accordion__menu-list">
 
-            <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/works/works_top.html">Top</a>
-            </li>
             <li class="accordion__menu-item">
               <a class="accordion__menu-link" href="/works/works_website.html">Webサイト制作</a>
             </li>
@@ -1315,16 +968,13 @@
           <ul class="accordion__menu-list">
 
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="about.html">Top</a>
+              <a class="accordion__menu-link" href="/about.html#production-overview">制作・開発概要</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="about.html#production-overview">制作・開発概要</a>
+              <a class="accordion__menu-link" href="/about.html#about-me">私について</a>
             </li>
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="about.html#about-me">私について</a>
-            </li>
-            <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="about.html#skill">スキル</a>
+              <a class="accordion__menu-link" href="/about.html#skill">スキル</a>
             </li>
 
           </ul>
@@ -1337,9 +987,6 @@
           <ul class="accordion__menu-list">
 
             <li class="accordion__menu-item">
-              <a class="accordion__menu-link" href="/blog/blog.html">Top</a>
-            </li>
-            <li class="accordion__menu-item">
               <a class="accordion__menu-link" href="/blog/web-design_category.html">Web制作/開発・デザイン</a>
             </li>
             <li class="accordion__menu-item">
@@ -1348,25 +995,25 @@
 
           </ul>
         </div>
-        <!-- ===== Blog ===== -->
-      </nav>
+        <!-- ===== About ===== -->
+      </div>
       <!-- アコーディオンナビゲーション ここまで ***************** -->
 
       <!-- ===== SNSナビ SNS-Nav ===== -->
       <div class="footer-sp__sns-box">
         <div class="footer-sp__sns-item">
           <a class="footer-sp__sns-link" href="Twitter:URL">
-            <img class="footer-sp__sns-icon" src="./images/ico/ico_twitter-footer.svg" alt="Twitter">
+            <img class="footer-sp__sns-icon" src="/images/ico/ico_twitter-footer.svg" alt="Twitter">
           </a>
         </div>
         <div class="footer-sp__sns-item">
           <a class="footer-sp__sns-link" href="Instagram:URL">
-            <img class="footer-sp__sns-icon" src="./images/ico/ico_instagram-footer.svg" alt="Instagram">
+            <img class="footer-sp__sns-icon" src="/images/ico/ico_instagram-footer.svg" alt="Instagram">
           </a>
         </div>
         <div class="footer-sp__sns-item">
           <a class="footer-sp__sns-link" href="Pinterest:URL">
-            <img class="footer-sp__sns-icon" src="./images/ico/ico_pinterest-footer.svg" alt="Pinterest">
+            <img class="footer-sp__sns-icon" src="/images/ico/ico_pinterest-footer.svg" alt="Pinterest">
           </a>
         </div>
       </div>
@@ -1381,7 +1028,7 @@
           <a href="sitemap.html" class="footer-sp__subnav-link">サイトマップ</a>
         </li>
         <li class="footer-sp__subnav-item">
-          <a href="index.html#contact" class="footer-sp__subnav-link">お問い合わせ</a>
+          <a href="/index.html#contact" class="footer-sp__subnav-link">お問い合わせ</a>
         </li>
       </ul>
       <!-- ===== フッターサブナビゲーション Footer-SubNav ===== -->
@@ -1395,8 +1042,8 @@
   </div>
 
   <!-- ⬇︎ ################# JSファイル 読み込み ################# ⬇︎ -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  <script src="/javascript/libs/slide.js"></script>
+  <script src="/javascript/libs/pagination.js"></script>
+  <script src="/javascript/plugin/paginathing.min.js"></script>
   <script src="/javascript/main.js"></script>
 </body>
 
