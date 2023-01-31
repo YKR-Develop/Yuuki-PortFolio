@@ -1122,6 +1122,19 @@
 /* --------------------------------------------------
 
 -------------------------------------------------- */
+.blog-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px 64px;
+  margin-bottom: 48px;
+}
+@media screen and (max-width: 767px) {
+  .blog-list {
+    gap: 16px 16px;
+  }
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -1604,25 +1617,28 @@ template {
 }
 
 /* --------------------------------------------------
- works-nav Works制作実績用ナビゲーション
+ category-nav 固定ページ内カテゴリーナビ
 -------------------------------------------------- */
-.works-nav {
+.category-nav {
   max-width: 976px;
   margin: 0 auto;
   margin: 0 auto 32px auto;
 }
-.works-nav__list {
+.category-nav__list {
   display: flex;
   height: 80px;
 }
+.category-nav__list--blog {
+  justify-content: center;
+}
 @media screen and (max-width: 767px) {
-  .works-nav__list {
+  .category-nav__list {
     display: flex;
     flex-wrap: wrap;
     height: 100%;
   }
 }
-.works-nav__item {
+.category-nav__item {
   width: 16.6666666667%;
   text-align: center;
   border: 1px solid #cecece;
@@ -1630,42 +1646,165 @@ template {
   background-color: #fafafa;
 }
 @media screen and (max-width: 767px) {
-  .works-nav__item {
+  .category-nav__item {
     width: 49.4%;
   }
 }
-.works-nav__link {
+.category-nav__link {
   display: block;
   width: 100%;
   padding: 12px 0;
   transition: 0.5s;
   position: relative;
 }
-.works-nav__link:hover {
+.category-nav__link:hover {
   background-color: #555;
   color: #fafafa;
 }
-.works-nav__link:hover > .works-nav__link-icon {
+.category-nav__link:hover > .category-nav__link-icon {
   filter: brightness(0) saturate(100%) invert(99%) sepia(32%);
 }
-.works-nav__link:hover > .works-nav__text {
+.category-nav__link:hover > .category-nav__text {
   color: #fafafa;
 }
-.works-nav__link-icon {
+.category-nav__link-icon {
   margin-bottom: 8px;
 }
-.works-nav__text {
+.category-nav__text {
   color: #555;
   font-size: 1.2rem;
 }
-.works-nav .style-change {
+.category-nav .style-change {
   background-color: #555;
 }
-.works-nav .style-change > .works-nav__link-icon {
+.category-nav .style-change > .category-nav__link-icon {
   filter: brightness(0) saturate(100%) invert(99%) sepia(32%);
 }
-.works-nav .style-change > .works-nav__text {
+.category-nav .style-change > .category-nav__text {
   color: #fafafa;
+}
+
+/* --------------------------------------------------
+ header-blog__nav ブログ用固定ナビゲーション
+-------------------------------------------------- */
+.header-blog {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+  /* ===== サブメニューの設定 ===== */
+}
+.header-blog__nav {
+  position: absolute;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header-blog__list {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+@media screen and (max-width: 1024px) {
+  .header-blog__list {
+    padding: 0 88px;
+    justify-content: center;
+  }
+}
+.header-blog__toggle-item, .header-blog__item {
+  margin-right: 5%;
+}
+.header-blog__toggle-item:last-child, .header-blog__item:last-child {
+  margin-right: 0;
+}
+.header-blog__link {
+  display: block;
+  font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+  transition: all 0.3s;
+  color: #fafafa;
+  position: relative;
+}
+.header-blog__link--arrow::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: -16px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #fafafa;
+  border-right: 2px solid #fafafa;
+  transform: rotate(45deg);
+}
+.header-blog__link--arrow:hover::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #fafafa;
+  border-right: 2px solid #fafafa;
+  transition: all 0.3s;
+  transform: rotate(135deg);
+}
+.header-blog__link::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #cecece;
+  left: 0;
+  bottom: 8px;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+  bottom: -4px;
+}
+.header-blog__link:hover::before {
+  transform: scale(1, 1);
+}
+.header-blog__sublist {
+  position: absolute;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 37px;
+  line-height: 40px;
+  z-index: 4;
+  background-color: #555;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.header-blog__sublink {
+  position: relative;
+  color: #fafafa;
+  font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+  margin-right: 56px;
+}
+.header-blog__sublink::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #cecece;
+  left: 0;
+  bottom: 8px;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+}
+.header-blog__sublink:hover::after {
+  transform: scale(1, 1);
+}
+.header-blog__toggle-item:hover > .header-blog__sublist, .header-blog__toggle-item:hover > .header-blog__subitem:hover > .header-blog__sublist, .header-blog__toggle-item:active > .header-blog__sublist, .header-blog__toggle-item:active .header-blog__item:active > .header-blog__sublist {
+  visibility: visible;
+  opacity: 1;
+}
+.header-blog.fixed {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
 }
 
 /* ================================== 以下 スマホ画面指定 ================================== */
@@ -1742,9 +1881,6 @@ template {
 .scroll-nav__list--about {
   min-width: 350px;
 }
-.scroll-nav__list--blog {
-  min-width: 700px;
-}
 .scroll-nav__item {
   float: left;
   width: 16.5%;
@@ -1759,7 +1895,7 @@ template {
   width: 30%;
 }
 .scroll-nav__item--blog {
-  width: 25%;
+  width: 20%;
 }
 .scroll-nav__item:last-child {
   border: none;
@@ -2494,7 +2630,6 @@ template {
 }
 .blog-category__item {
   width: calc(50% - 32px);
-  margin-bottom: 72px;
 }
 .blog-category__item:nth-child(n+2) {
   margin-bottom: 0;
@@ -2534,6 +2669,9 @@ template {
 }
 .blog-category__thumb-link:hover {
   text-decoration: underline;
+}
+.blog-category__thumb {
+  position: relative;
 }
 .blog-category__title {
   position: absolute;
@@ -2581,7 +2719,7 @@ template {
 -------------------------------------------------- */
 .blog-affiliate {
   padding: 0 80px;
-  margin-bottom: 80px;
+  margin: 64px 0;
   display: flex;
   gap: 0 32px;
 }
@@ -3096,6 +3234,9 @@ template {
     padding: 0 18px;
   }
 }
+.pkz--blog {
+  padding-top: 80px;
+}
 @media screen and (max-width: 767px) {
   .pkz {
     padding-top: 24px;
@@ -3387,9 +3528,65 @@ template {
  pagination.scss
  ページネーションの指定
 ================================================== */
+/* //////////// 変数読み込み //////////// */
+/* //////////// 変数読み込み //////////// */
 /* --------------------------------------------------
-  works タブ内ページネーション 指定
+  Blog ページネーション 指定
 -------------------------------------------------- */
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  transition: 0.3s;
+}
+.pagination li {
+  border: 1px solid #cecece;
+}
+.pagination li:hover {
+  background-color: #333;
+}
+.pagination .prev {
+  padding-left: 1rem;
+}
+.pagination .prev a {
+  position: relative;
+}
+.pagination .prev a::before {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  content: "＜";
+}
+.pagination .next {
+  padding-right: 1rem;
+}
+.pagination .next a {
+  position: relative;
+}
+.pagination .next a::before {
+  position: absolute;
+  top: 40%;
+  right: 0%;
+  content: "＞";
+}
+.pagination a {
+  display: block;
+  text-decoration: none;
+  color: #555;
+  padding: 20px;
+  font-size: clamp(1.4rem, 1.3333333333rem + 0.2083333333vw, 1.6rem);
+  transition: 0.5s;
+}
+.pagination a:hover {
+  color: #fafafa;
+}
+.pagination .active {
+  background-color: #555;
+}
+.pagination .active a {
+  color: #fafafa;
+}
+
 /*===================================================
  c-accordion.scss
  アコーディオンメニューの指定
@@ -3514,7 +3711,7 @@ template {
   }
 }
 .tab__item {
-  width: 25%;
+  width: 50%;
   text-align: center;
   border-bottom: 1px solid #cecece;
 }
@@ -3567,6 +3764,9 @@ template {
 .tab__area {
   display: none; /*はじめは非表示*/
   opacity: 0; /*透過0*/
+}
+.tab__area--pagination {
+  display: flex;
 }
 .tab__area.is-active {
   display: block; /*表示*/
@@ -3659,6 +3859,33 @@ template {
   width: 136px;
   height: 36px;
   margin: 0;
+}
+
+/* --------------------------------------------------
+ header-blog__nav ブログページ用固定ナビ
+-------------------------------------------------- */
+.header-blog {
+  width: 100%;
+  position: fixed;
+  transition: 0.5s;
+  left: 0;
+  background-color: rgba(85, 85, 85, 0.9);
+  padding: 6px 0;
+}
+.header-blog__inner {
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .header-blog__inner {
+    padding: 0 18px;
+  }
+}
+.header-blog__logo {
+  width: 152px;
+  height: 48px;
 }
 
 /*===================================================
@@ -3943,9 +4170,6 @@ p {
 .contents__article {
   padding: 64px 64px;
 }
-.contents__article:last-child {
-  padding-bottom: 120px;
-}
 @media screen and (max-width: 1024px) {
   .contents__article {
     padding: 64px 18px;
@@ -4058,8 +4282,13 @@ p {
   height: 60%;
   background: url("/blog/images/img/img_blog-category_programing-visual.jpg") no-repeat center/cover;
 }
+.main-visual--blog-handmade {
+  width: 100%;
+  height: 60%;
+  background: url("/blog/images/img/img_blog-category_molding-visual.jpg") no-repeat center/cover;
+}
 @media screen and (max-width: 1024px) {
-  .main-visual--works-website, .main-visual--works-programing, .main-visual--works-uiux, .main-visual--works-photoshop, .main-visual--works-illustrator, .main-visual--works-molding, .main-visual--blog-programing {
+  .main-visual--works-website, .main-visual--works-programing, .main-visual--works-uiux, .main-visual--works-photoshop, .main-visual--works-illustrator, .main-visual--works-molding, .main-visual--blog-programing, .main-visual--blog-handmade {
     height: 75vh;
   }
 }
@@ -4117,6 +4346,13 @@ p {
     padding-left: 18px;
   }
 }
+@media screen and (max-width: 767px) {
+  .main-visual__page-title {
+    letter-spacing: 0.4rem;
+    top: 50%;
+    padding-left: 18px;
+  }
+}
 .main-visual__page-title--center {
   top: 45%;
 }
@@ -4154,6 +4390,15 @@ p {
 /*===================================================
  style.scss
 ================================================== */
+/* --------------------------------------------------
+ WordPressテーマ化 コメント
+-------------------------------------------------- */
+/*
+Theme Name: Yukuro CreateFolio
+Author: ゆくろ
+Description: ポートフォリオの掲載とブログ更新を同時に行えるように制作したゆくろのポートフォリオテーマです。
+Version: 1.0
+*/
 /* --------------------------------------------------
  Pages 各ページ Scss読み込み
 -------------------------------------------------- */

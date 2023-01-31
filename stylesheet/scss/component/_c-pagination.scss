@@ -2,6 +2,75 @@
  pagination.scss
  ページネーションの指定
 ================================================== */
+
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../mixin/animation" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
 /* --------------------------------------------------
-  works タブ内ページネーション 指定
+  Blog ページネーション 指定
 -------------------------------------------------- */
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  transition: 0.3s;
+
+  & li {
+    border: 1px solid $border-base;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+
+  & .prev {
+    padding-left: 1rem;
+    & a {
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        content: "＜";
+      }
+    }
+  }
+
+  & .next {
+    padding-right: 1rem;
+    & a {
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 40%;
+        right: 0%;
+        content: "＞";
+      }
+    }
+  }
+
+  & a {
+    display: block;
+    text-decoration: none;
+    color: $font-black;
+    padding: 20px;
+    font-size: fluid-size(14, 16);
+    transition: 0.5s;
+
+    &:hover {
+      color: $font-white;
+    }
+  }
+
+  & .active {
+    background-color: $background-black;
+  }
+
+  & .active a {
+    color: $font-white;
+  }
+}

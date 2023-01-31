@@ -14,6 +14,10 @@
   padding-top: 24px;
   background-color: $background-gray;
 
+  &--blog {
+    padding-top: 80px;
+  }
+
   @include mq(sp) {
     padding-top: 24px;
   }
