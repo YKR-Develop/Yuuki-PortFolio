@@ -2570,7 +2570,7 @@ template {
   position: absolute;
   top: 0;
   left: 0;
-  content: url("/blog/images/ico/ico_folder.svg");
+  content: url("../../images/blog_ico/ico_folder.svg");
   vertical-align: bottom;
 }
 .blog-card__category-link::before {
@@ -2605,7 +2605,7 @@ template {
   position: absolute;
   top: 0px;
   right: 80px;
-  content: url("/blog/images/ico/ico_clock.svg");
+  content: url("../../images/blog_ico/ico_clock.svg");
 }
 @media screen and (max-width: 767px) {
   .blog-card__date::before {
