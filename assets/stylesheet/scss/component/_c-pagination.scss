@@ -14,63 +14,31 @@
   Blog ページネーション 指定
 -------------------------------------------------- */
 .pagination {
+  padding-bottom: 64px;
   list-style: none;
   display: flex;
   justify-content: center;
   transition: 0.3s;
+  background-color: $background-gray;
 
-  & li {
-    border: 1px solid $border-base;
-
-    &:hover {
-      background-color: #333;
-    }
-  }
-
-  & .prev {
-    padding-left: 1rem;
-    & a {
-      position: relative;
-      &::before {
-        position: absolute;
-        top: 40%;
-        left: 0%;
-        content: "＜";
-      }
-    }
-  }
-
-  & .next {
-    padding-right: 1rem;
-    & a {
-      position: relative;
-      &::before {
-        position: absolute;
-        top: 40%;
-        right: 0%;
-        content: "＞";
-      }
-    }
-  }
-
-  & a {
+  & .page-numbers {
     display: block;
     text-decoration: none;
     color: $font-black;
+    border: 1px solid $border-base;
     padding: 20px;
     font-size: fluid-size(14, 16);
     transition: 0.5s;
 
     &:hover {
       color: $font-white;
+      background-color: $background-black;
     }
   }
 
-  & .active {
+  & .current {
     background-color: $background-black;
-  }
-
-  & .active a {
     color: $font-white;
   }
+  
 }

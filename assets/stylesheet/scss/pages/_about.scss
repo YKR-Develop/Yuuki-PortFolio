@@ -12,13 +12,13 @@
 /* --------------------------------------------------
   ご挨拶本文
 -------------------------------------------------- */
-.about-greeting {
+.about-text {
   &__box {
     @include centerWidth;
     font-size: fluid-size(14, 16);
   }
 
-  &__text {
+  &__item {
     margin-bottom: 16px;
     @include mq(sp) {
       margin-bottom: 24px;
@@ -35,21 +35,23 @@
 .about-genre {
   @include centerWidth;
 
-  &__box {
-    display: flex;
-    flex-wrap: wrap;
+  & .is-layout-flex {
     justify-content: space-between;
+    align-items: start;
+    @include mq(tab) {
+      flex-direction: column;
+      gap: 32px 0;
+    }
   }
 
   &__list {
-
     @include mq(sp) {
       margin-bottom: 24px;
       &:last-child {
         margin-bottom: 0;
       }
     }
-    
+
     @include mq(tab) {
       margin-bottom: 24px;
       &:last-child {
@@ -59,8 +61,16 @@
   }
 
   &__item {
-    font-size: fluid-size(14,16);
+    font-size: fluid-size(14, 16);
     margin-bottom: 32px;
+    position: relative;
+    padding-left: 16px;
+    &::before {
+      content: "・";
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
     &:last-child {
       margin-bottom: 0;
     }
@@ -71,26 +81,26 @@
         margin-bottom: 0;
       }
     }
-  }
 
-  &__link {
-    display: inline-block;
-    color: $font-black;
-    position: relative;
-    border-bottom: 1px solid $border-base;
-    padding-bottom: 4px;
-    @include hoverText;
-
-    @include mq(sp) {
-      width: 100%;
-    }
-
-    &::before {
-      @include stickArrow;
-      right: -20px;
+    & > a {
+      display: inline-block;
+      color: $font-black;
+      position: relative;
+      border-bottom: 1px solid $border-base;
+      padding-bottom: 4px;
+      @include hoverText;
 
       @include mq(sp) {
-        right: 0;
+        width: 100%;
+      }
+
+      &::before {
+        @include stickArrow;
+        right: -20px;
+
+        @include mq(sp) {
+          right: 0;
+        }
       }
     }
   }
@@ -123,22 +133,38 @@
       font-size: fluid-size(14, 18);
       font-weight: 600;
     }
+
+    &--desc {
+      font-size: fluid-size(14, 16);
+      font-weight: 600;
+      height: 60px;
+      margin-bottom: 12px;
+      @include mq(tab) {
+        height: auto;
+      }
+    }
   }
 
   &__desc-list {
+    padding-bottom: 64px;
     display: flex;
     flex-wrap: wrap;
-    gap: 64px 64px;
+    align-items: stretch;
+    gap: 48px 64px;
     @include mq(sp) {
-      gap: 32px 0 ;
+      flex-direction: column;
+      gap: 32px 0;
+      padding: 0 48px;
     }
   }
 
   &__item {
     display: flex;
     flex-direction: column;
-    width: calc(100% / 2 - 32px / 2 * 2);
-    @include mq(sp) {
+    flex-basis: calc(100% / 2 - 32px / 2 * 2);
+
+    @include mq(tab) {
+      height: auto;
       width: 100%;
     }
   }
@@ -162,18 +188,14 @@
     }
   }
 
-  &__img-desc {
-    font-size: fluid-size(14, 16);
-    font-weight: 600;
-    height: 56px;
-    margin-bottom: 12px;
-    @include mq(sp) {
-      height: auto;
+  &__thumb {
+    & > img {
+      width: 100%;
     }
   }
 
-  &__image {
-    width: 100%;
+  & .wp-block-columns {
+    flex-wrap: wrap !important;
   }
 }
 
@@ -185,6 +207,13 @@
     display: flex;
     gap: 0 64px;
     margin-bottom: 64px;
+
+    @include mq(tab) {
+      &:nth-child(odd) {
+        flex-direction: column-reverse;
+      }
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -193,6 +222,7 @@
     }
 
     @include mq(sp) {
+      flex-direction: column;
       display: block;
       margin-bottom: 48px;
     }
@@ -201,21 +231,19 @@
   &__thumb {
     flex: 1;
     width: 100%;
-    @include mq(sp) {
+    @include mq(tab) {
       margin-bottom: 24px;
     }
-  }
 
-  &__image {
-    width: 100%;
+    & img {
+      width: 100% !important;
+    }
   }
-
 
   &__desc {
     flex: 1;
     width: 100%;
   }
-
 
   &__label {
     font-size: fluid-size(16, 22);
@@ -248,9 +276,15 @@
   margin: 0 auto;
 
   &__item {
+
+  }
+
+  & .is-layout-flex {
     display: flex;
+    justify-content: start;
     align-items: center;
     margin-bottom: 40px;
+    gap: 0 32px;
     &:last-child {
       margin-bottom: 0;
     }
@@ -264,9 +298,11 @@
   &__licence-icon {
     width: 32px;
     height: 32px;
-    margin-right: 32px;
+    text-align: center;
     vertical-align: top;
+    font-size: 24px;
   }
+
 
   &__date {
     font-size: fluid-size(14, 16);
@@ -276,7 +312,6 @@
     line-height: 32px;
     border-radius: 4px;
     border: 1px solid $border-base;
-    margin-right: 32px;
 
     @include mq(sp) {
       margin: 0 0 16px 0;
@@ -365,4 +400,3 @@
 .about-udemy {
   width: 100%;
 }
-

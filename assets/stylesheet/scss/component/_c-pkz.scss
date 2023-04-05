@@ -10,18 +10,63 @@
 /* //////////// 変数読み込み //////////// */
 
 .pkz {
-  @include maxWidth;
-  padding-top: 24px;
+  width: 100%;
   background-color: $background-gray;
 
-  &--blog {
-    padding-top: 80px;
+  @include mq(tab) {
+    background-color: $background-white;
+    padding-top: 12px;
   }
 
-  @include mq(sp) {
-    padding-top: 24px;
+
+  &__inner {
+    @include maxWidth;
+    padding: 32px 64px 0 64px;
+    display: flex;
+    @include mq(tab) {
+      padding: 0 18px;
+    }
   }
 
+  &__item {
+    
+  }
+
+  #breadcrumbs {
+    font-size: 14px;
+    @include mq(tab) {
+      font-size: 12px;
+    }
+
+    & ul {
+      display: flex;
+      @include mq(tab) {
+        overflow: hidden;
+        overflow-x: scroll;
+        word-break: keep-all;
+        white-space: nowrap;
+        scrollbar-gutter: stable;
+        padding-bottom: 8px;
+      }
+      
+
+      & li {
+        &:nth-child(even) {
+          padding: 0 24px;
+          @include mq(tab) {
+            padding: 0 12px;
+          }
+        }
+
+        & a {
+          color: $font-black;
+          display: inline;
+          border-bottom: 1px solid $border-black;
+          @include hoverText;
+        }
+      }
+    }
+  }
   &__list {
     display: flex;
 

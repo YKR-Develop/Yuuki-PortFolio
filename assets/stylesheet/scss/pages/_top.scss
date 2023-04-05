@@ -231,6 +231,10 @@
     @include mq(sp) {
       flex-wrap: wrap;
     }
+
+    & > p {
+      margin-bottom: 0;
+    }
   }
 
   &__date {
@@ -245,7 +249,7 @@
     }
   }
 
-  &__category {
+  &__tag {
     width: 96px;
     height: 32px;
     line-height: 32px;
@@ -275,5 +279,12 @@
     &:hover {
       @include hoverText;
     }
+  }
+}
+
+.news-desc {
+  @include centerWidth;
+  @include mq(sp) {
+    margin-bottom: 24px;
   }
 }

@@ -11,6 +11,76 @@
 /* ⬆︎ //////////// 変数読み込み //////////// */
 
 /* --------------------------------------------------
+ WordPress WPTabプラグインCSS
+-------------------------------------------------- */
+#sp-wp-tabs-wrapper_686 {
+  & .sp-tab__nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  & .sp-tab__nav-item {
+    width: calc(100% / 3);
+    margin-top: 0;
+    border-bottom: 1px solid $border-base;
+
+  }
+
+  & .sp-tab__tab_title {
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+    
+    & > img {
+      margin-right: 16px;
+    }
+  }
+
+  &.sp-tab__nav-link {
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+
+#sp-wp-tabs-wrapper_686 .sp-tab__nav-tabs .sp-tab__nav-item.show .sp-tab__nav-link, #sp-wp-tabs-wrapper_686.sp-tab__lay-default ul li label.sp-tab__active {
+  border-bottom: 2px solid $border-black;
+}
+
+.sp-tab-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 64px;
+}
+
+
+ul.tab li{ /*タブ部分*/
+  float: left;
+  margin-right: 10px;
+  }
+ul.tab li.active a{ /*選択中のタブ*/
+  color: #333;
+  font-weight: bold;
+  }
+.tab_area{ /*切り替え部分非表示*/
+  display: none;
+  }
+.tab_content{ /*内容*/
+  width: 300px; /*幅*/
+  clear: both;
+  overflow: hidden;
+  }
+.tab_content ul li{ /*内容のリスト表示*/
+  clear: both; /*画像有りの場合*/
+  }
+.tab_content ul li img{ /*リスト内画像*/
+  float: left;
+  margin: 0 10px 10px 0;
+  }
+
+  /* --------------------------------------------------
  Tab タブメニュー
 -------------------------------------------------- */
 .tab {
@@ -19,6 +89,10 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 48px;
+
+    &--top-blog {
+      justify-content: flex-start;
+    }
 
     @include mq(sp) {
       flex-wrap: wrap;
@@ -31,6 +105,10 @@
     width: calc(100% / 2);
     text-align: center;
     border-bottom: 1px solid $border-base;
+
+    &--two-tab {
+      width: calc(100% / 2);
+    }
 
     &--three-tab {
       width: calc(100% / 3);
@@ -106,4 +184,3 @@
     }
   }
 }
-

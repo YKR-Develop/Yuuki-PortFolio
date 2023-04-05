@@ -16,13 +16,9 @@
   position: relative;
   padding: 0;
   margin: 0 10px 0 0;
-  width: 15%;
 
-  &--blog {
-    width: 100%
-  }
 
-  &__input {
+  & input[type="text"] {
     line-height: 23px;
     padding: 5px 30px 5px 5px;
     font-size: fluid-size(14, 14);
@@ -32,34 +28,28 @@
     font-weight: bold;
     outline: none;
     background-color: $background-white;
-
-    &--blog {
-      padding: 17px 56px 17px 8px;
-      font-size: 1.4rem;
-    }
   }
 
-  &__submit {
+  & input[type="submit"] {
     position: absolute;
     top: 1px;
     right: 8px;
     vertical-align: top;
     line-height: 23px;
     border: none;
-    background: url("/images/ico/ico_search_pc.svg")no-repeat center right;
+    background: url("../../images/ico/ico_search_pc.svg")no-repeat center right;
     cursor: pointer;
     width: 30px;
     padding: 4px 0px;
+  }
+}
 
-    &--blog {
-      right: 0;
-      top: 0;
-      background: url("/images/ico/ico_search-white_pc.svg")no-repeat center center;
-      width: 48px;
-      padding: 17px;
-      line-height: 23px;
-      background-color: $background-black;
-    }
+/* --------------------------------------------------
+ ブログナビ 検索フォーム
+-------------------------------------------------- */
+.blog-nav-search {
+  & .searchform input[type=text] {
+    width: 100%;
   }
 }
 
@@ -69,9 +59,8 @@
 /*========= 検索窓を開くための虫眼鏡ボタン設定 ===========*/
 .search-open-btn {
   position: absolute;
-  top: 50;
   right: 18px;
-  background: url("/images/ico/ico_search_sp.svg") no-repeat center; /*虫眼鏡アイコンを背景に表示*/
+  background: url("../../images/ico/ico_search_sp.svg") no-repeat center; /*虫眼鏡アイコンを背景に表示*/
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -124,7 +113,6 @@
     padding: 12px 12px;
     border: none;
     transition: all 0.5s;
-    letter-spacing: 100;
     font-size: fluid-size(14, 14);
 
     &:focus {
@@ -136,7 +124,7 @@
     position: absolute;
     top: -20px;
     right: -13px;
-    background: url("/images/ico/ico_search_sp.svg")
+    background: url("../../images/ico/ico_search_sp.svg")
     no-repeat 7px center; /*虫眼鏡アイコンを背景に表示*/
     background-color: #555;
     background-size: 24px 24px;

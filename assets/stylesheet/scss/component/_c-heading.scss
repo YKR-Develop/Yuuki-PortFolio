@@ -12,7 +12,7 @@
 /* --------------------------------------------------
  Contents-Heading ページ内コンテンツ見出し 
 -------------------------------------------------- */
-.cotents-heading {
+.contents-heading {
   font-size: fluid-size(28, 48);
   text-align: center;
   margin-bottom: fluid-size(32, 48);
@@ -40,13 +40,14 @@
     display: block;
     font-size: fluid-size(16, 18);
     padding-top: 32px;
+    margin-left: auto;
 
     @include mq(sp) {
       padding-top: 16px;
     }
   }
 
-  &__side-link {
+  &__side-link, &__side-time {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -66,6 +67,12 @@
     &:hover::after {
       transform: scale(1, 1);
     }
+  }
+
+  &__time {
+    font-size: fluid-size(14, 14);
+    color: $font-black;
+    font-weight: 300;
   }
 }
 
@@ -153,3 +160,4 @@
     }
   }
 }
+

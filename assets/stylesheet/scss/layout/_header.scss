@@ -9,41 +9,42 @@
 @use "../config/mq" as *;
 /* ⬆︎ //////////// 変数読み込み //////////// */
 /* --------------------------------------------------
- header-top ページ上部ナビ
--------------------------------------------------- */
-.header-top {
-  padding-top: 50px;
-  @include maxWidth;
-}
-
-/* --------------------------------------------------
  header-fixed__nav 固定ナビ
 -------------------------------------------------- */
 .header-fixed {
   width: 100%;
+  margin: 0 auto;
+  transition: 0.5s;
+  background-color: $background-nav;
+  box-shadow: $shadow;
+  padding: 6px 0;
+  z-index: 50;
   position: fixed;
   top: -63px;
-  transition: 0.5s;
-  left: 0;
-  background-color: $background-nav;
-  padding: 6px 0;
+
+  & .custom-logo-link {
+    width: 152px;
+    height: 48px;
+    z-index: 100;
+  }
 
   &__inner {
     @include maxWidth;
+    padding: 0 64px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  &__logo {
-    width: 152px;
-    height: 48px;
+  // JSで動作
+  &.is-show {
+    top: 0;
   }
 }
 
 /* --------------------------------------------------
  header-mobile__nav スマホ用ヘッダー
--------------------------------------------------- */ 
+-------------------------------------------------- */
 .header-mobile {
   position: fixed;
   z-index: 999;
@@ -53,34 +54,44 @@
   height: 56px;
   background-color: $background-nav;
 
-  &__logo {
+  & .custom-logo-link {
     width: 136px;
     height: 36px;
     margin: 0;
-    
   }
 }
 
 /* --------------------------------------------------
- header-blog__nav ブログページ用固定ナビ
+ header-single singleページ用固定ナビ
 -------------------------------------------------- */
-.header-blog {
+.header-single {
   width: 100%;
-  position: fixed;
+  height: auto;
   transition: 0.5s;
   left: 0;
   background-color: $background-nav;
   padding: 6px 0;
+  z-index: 1;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 
+
+  &.fixed {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+  }
   &__inner {
     @include maxWidth;
+    padding: 0 64px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  &__logo {
+  & .custom-logo-link {
     width: 152px;
     height: 48px;
+    z-index: 100;
   }
 }

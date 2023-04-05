@@ -12,18 +12,16 @@
   Max-Width コンテンツ最大幅の指定
 -------------------------------------------------- */ 
 @mixin maxWidth {
-  padding: 0 80px;
-  @include mq(sp) {
-    padding: 0 18px;
+  max-width: 1600px;
+  margin: 0 auto;
+  @include mq(tab) {
+    padding: 0 8px;
   }
 }
 
 @mixin centerWidth {
   max-width: $center-width;
   margin: 0 auto 64px auto;
-  @include mq(sp) {
-    margin: 0 auto 32px auto;
-  }
 }
 
 /* --------------------------------------------------
@@ -65,7 +63,7 @@
 -------------------------------------------------- */
 @mixin hoverImage {
   transition: 0.5s;
-
+  
   &:hover {
     transform: scale(1.2, 1.2);
   }

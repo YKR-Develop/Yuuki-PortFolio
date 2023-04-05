@@ -11,165 +11,113 @@
 /* ⬆︎ //////////// 変数読み込み //////////// */
 
 /* --------------------------------------------------
- header-top__nav ページ上部ナビ
--------------------------------------------------- */
-.header-top {
-  &__nav {
-    padding-top: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__logo {
-    width: 200px;
-    height: 55px;
-  }
-
-  &__list {
-    display: flex;
-  }
-
-  &__item {
-    margin-right: 56px;
-    font-size: fluid-size(14, 14);
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__link {
-    color: $font-white;
-    position: relative;
-
-    &::before {
-      @include hoverBorder;
-      bottom: -4px;
-    }
-
-    &:hover::before {
-      transform: scale(1, 1);
-    }
-  }
-}
-
-/* --------------------------------------------------
  header-fixed__nav 固定ナビゲーション
 -------------------------------------------------- */
-.header-fixed {
-  position: fixed;
-  z-index: 1000;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
-  &__nav {
-    position: absolute;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &__list {
+.header-nav {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 60px;
+  & ul {
     display: flex;
     justify-content: center;
     position: relative;
 
-    @include mq(tab) {
-      padding: 0 88px;
-      justify-content: center;
+    // ###### 標準メニュー ######
+    & .menu-item {
+      margin-right: 5%;
+
+      & a {
+        display: block;
+        font-size: 14px;
+        transition: all 0.3s;
+        color: #fafafa;
+        position: relative;
+        line-height: 60px;
+        &::before {
+          @include hoverBorder;
+          bottom: 16px;
+        }
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+      }
+    }
+
+    // ###### サブメニュー付きメニュー ######
+    & .menu-item_arrow {
+      margin-right: 5%;
+      & > a {
+        display: block;
+        font-size: 14px;
+        transition: all 0.3s;
+        color: #fafafa;
+        position: relative;
+        line-height: 60px;
+        &::before {
+          @include hoverBorder;
+          bottom: 16px;
+        }
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+
+        @include rightArrow;
+        &::after {
+          top: 26px;
+        }
+      }
     }
   }
 
-  &__toggle-item,
-  &__item {
-    margin-right: 5%;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__link {
-    display: block;
-    font-size: fluid-size(14, 14);
-    transition: all 0.3s;
-    color: $font-white;
-    position: relative;
-
-    &--arrow {
-      @include rightArrow;
-    }
-
-    &::before {
-      @include hoverBorder;
-      bottom: -4px;
-    }
-
-    &:hover::before {
-      transform: scale(1, 1);
-    }
-  }
-
-  // JSで動作
-  &.is-show {
-    top: 0;
-  }
-
-  /* ===== サブメニューの設定 ===== */
-  &__sublist {
+  // サブメニュー
+  & .sub-menu {
     position: absolute;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 37px;
-    line-height: 40px;
-    z-index: 4;
-    background-color: $background-black;
+    top: 60px;
+    left: 0;
+    height: 40px;
+    background-color: #555;
     width: 100%;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-  }
 
-  &__sublink {
-    position: relative;
-    color: $font-white;
-    font-size: fluid-size(14, 14);
-    margin-right: 56px;
-    &::after {
-      @include hoverBorder;
+    & .menu-subitem {
+      margin-right: 5%;
+      & a {
+        color: $font-white;
+        position: relative;
+        font-size: 14px;
+        position: relative;
+        line-height: 40px;
+        &::before {
+          @include hoverBorder;
+          bottom: 8px;
+        }
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+      }
     }
-
-    &:hover::after {
-      transform: scale(1, 1);
-    }
-  }
-
-  &__toggle-item:hover > &__sublist,
-  &__toggle-item:hover > &__subitem:hover > &__sublist,
-  &__toggle-item:active > &__sublist,
-  &__toggle-item:active &__item:active > &__sublist {
-    visibility: visible;
-    opacity: 1;
   }
 }
 
 /* --------------------------------------------------
- category-nav 固定ページ内カテゴリーナビ
+ category-nav ブログカテゴリーナビ
 -------------------------------------------------- */
 .category-nav {
   @include centerWidth;
+  justify-content: center;
   margin: 0 auto 32px auto;
 
   &__list {
     display: flex;
     height: 80px;
 
-    &--blog {
-      justify-content: center;
-    }
-
-    @include mq(sp) {
+    @include mq(tab) {
       display: flex;
       flex-wrap: wrap;
       height: 100%;
@@ -177,7 +125,7 @@
   }
 
   &__item {
-    width: calc(100% / 6);
+    width: calc(100% / 3);
     text-align: center;
     border: 1px solid $border-base;
     transition: 0.3s;
@@ -185,26 +133,25 @@
     @include mq(sp) {
       width: 49.4%;
     }
-  }
+    & > a {
+      display: block;
+      width: 100%;
+      padding: 12px 0;
+      transition: 0.5s;
+      position: relative;
 
-  &__link {
-    display: block;
-    width: 100%;
-    padding: 12px 0;
-    transition: 0.5s;
-    position: relative;
+      &:hover {
+        background-color: $button-background;
+        color: $font-white;
+      }
 
-    &:hover {
-      background-color: $button-background;
-      color: $font-white;
-    }
+      &:hover > .category-nav__link-icon {
+        filter: brightness(0) saturate(100%) invert(99%) sepia(32%);
+      }
 
-    &:hover > .category-nav__link-icon {
-      filter: brightness(0) saturate(100%) invert(99%) sepia(32%);
-    }
-
-    &:hover > .category-nav__text {
-      color: $font-white;
+      &:hover > .category-nav__text {
+        color: $font-white;
+      }
     }
   }
 
@@ -214,7 +161,7 @@
 
   &__text {
     color: $font-black;
-    font-size: 1.2rem;
+    font-size: 14px;
   }
 
   & .style-change {
@@ -231,107 +178,99 @@
 }
 
 /* --------------------------------------------------
- header-blog__nav ブログ用固定ナビゲーション
+ header-single__nav singleページ用固定ナビゲーション
 -------------------------------------------------- */
-.header-blog {
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
-  &__nav {
-    position: absolute;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &__list {
+.header-single-nav {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 60px;
+  & ul {
     display: flex;
     justify-content: center;
     position: relative;
 
-    @include mq(tab) {
-      padding: 0 88px;
-      justify-content: center;
+    // ###### 標準メニュー ######
+    & .menu-item {
+      margin-right: 5%;
+
+      & a {
+        display: block;
+        font-size: 14px;
+        transition: all 0.3s;
+        color: #fafafa;
+        position: relative;
+        line-height: 60px;
+        &::before {
+          @include hoverBorder;
+          bottom: 16px;
+        }
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+      }
+    }
+
+    // ###### サブメニュー付きメニュー ######
+    & .menu-item_arrow {
+      margin-right: 5%;
+      & > a {
+        display: block;
+        font-size: 14px;
+        transition: all 0.3s;
+        color: #fafafa;
+        position: relative;
+        line-height: 60px;
+        &::before {
+          @include hoverBorder;
+          bottom: 16px;
+        }
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+
+        @include rightArrow;
+        &::after {
+          top: 26px;
+        }
+      }
     }
   }
 
-  &__toggle-item,
-  &__item {
-    margin-right: 5%;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__link {
-    display: block;
-    font-size: fluid-size(14, 14);
-    transition: all 0.3s;
-    color: $font-white;
-    position: relative;
-
-    &--arrow {
-      @include rightArrow;
-    }
-
-    &::before {
-      @include hoverBorder;
-      bottom: -4px;
-    }
-
-    &:hover::before {
-      transform: scale(1, 1);
-    }
-  }
-
-
-  /* ===== サブメニューの設定 ===== */
-  &__sublist {
+  // サブメニュー
+  & .sub-menu {
     position: absolute;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 37px;
-    line-height: 40px;
-    z-index: 4;
-    background-color: $background-black;
-    width: 100%;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  &__sublink {
-    position: relative;
-    color: $font-white;
-    font-size: fluid-size(14, 14);
-    margin-right: 56px;
-    &::after {
-      @include hoverBorder;
-    }
-
-    &:hover::after {
-      transform: scale(1, 1);
-    }
-  }
-
-  &__toggle-item:hover > &__sublist,
-  &__toggle-item:hover > &__subitem:hover > &__sublist,
-  &__toggle-item:active > &__sublist,
-  &__toggle-item:active &__item:active > &__sublist {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  &.fixed {
-    position: fixed;
-    z-index: 1000;
-    top: 0;
+    top: 60px;
     left: 0;
+    height: 40px;
+    background-color: #555;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    & .menu-subitem {
+      margin-right: 5%;
+      & a {
+        color: $font-white;
+        position: relative;
+        font-size: 14px;
+        position: relative;
+        line-height: 40px;
+        &::before {
+          @include hoverBorder;
+          bottom: 8px;
+        }
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+      }
+    }
   }
 }
-
 
 /* ================================== 以下 スマホ画面指定 ================================== */
 
@@ -355,34 +294,36 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 45px;
+  height: 48px;
   margin: 0;
   padding: 5px 0;
   background-color: $background-nav;
   z-index: 999;
 
-  &__list {
+  & .bottom-menu {
     display: flex;
     justify-content: space-between;
+
+    & > li {
+      width: 20%;
+      text-align: center;
+
+      & > a {
+        display: block;
+        color: $font-white;
+        padding-top: 4px;
+        font-size: 12px;
+      }
+    }
   }
 
-  &__item {
-    width: 20%;
-    text-align: center;
-  }
-
-  &__link {
-    display: block;
-    color: $font-white;
-    padding-top: 4px;
-  }
-
-  &__icon {
+  & .size {
+    font-size: 2.5rem;
     margin-bottom: 4px;
   }
 
-  &__text {
-    font-size: fluid-size(12, 12);
+  & span {
+    display: block;
   }
 }
 
@@ -416,7 +357,6 @@
     &--about {
       min-width: 350px;
     }
-
   }
 
   // メニュー個別幅

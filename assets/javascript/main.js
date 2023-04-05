@@ -70,7 +70,7 @@ $(".search-close-btn").click(function () {
 
 /* --------------------------------------------------
   .header-fixed ヘッダー固定表示
--------------------------------------------------- */
+// -------------------------------------------------- */
 let _window = $(window),
   _header = $('.is-top-header'),
   headerChange = $('.is-fixed-header'),
@@ -85,35 +85,55 @@ _window.on('scroll', function () {
     headerChange.removeClass('is-show');
   }
 });
+
 _window.trigger('scroll');
 
+$('.header-nav ul li.current-menu-item a, .header-nav ul li ul.sub-menu li.current-menu-item a').css('cursor', 'default').attr('href', '#');
+$('.header-nav ul li.current-menu-item a, .header-nav ul li ul.sub-menu li.current-menu-item a').click(function () { return false; });
+$('.header-nav ul>li').find('ul').hide();
+$('.header-nav ul>li').hover(function () {
+  $('ul:not(:animated)', this).slideDown(300);
+},
+  function () {
+    $('ul', this).hide();
+  });
+
+
 /* --------------------------------------------------
-  .header-fixed ブログ用ヘッダー固定表示 
+  .header-fixed(singleページ用) ブログ用ヘッダー固定表示 
 -------------------------------------------------- */
 //スクロールすると上部に固定させるための設定を関数でまとめる
 function FixedAnime() {
-  let headerH = $('.header-blog').outerHeight(true);
+  let headerH = $('.header-single').outerHeight(true);
   let scroll = $(window).scrollTop();
   if (scroll >= headerH) {//headerの高さ以上になったら
-    $('.header-blog').addClass('fixed');//fixedというクラス名を付与
+    $('.header-single').addClass('fixed');//fixedというクラス名を付与
   } else {//それ以外は
-    $('.header-blog').removeClass('fixed');//fixedというクラス名を除去
+    $('.header-single').removeClass('fixed');//fixedというクラス名を除去
   }
 }
 
 //ナビゲーションをクリックした際のスムーススクロール
-$('.header-blog__link').click(function () {
+$('.header-single-nav a').click(function () {
   let elmHash = $(this).attr('href'); //hrefの内容を取得
   let pos = Math.round($(elmHash).offset().top - 120);  //headerの高さを引く
   $('body,html').animate({ scrollTop: pos }, 500);//取得した位置にスクロール※数値が大きいほどゆっくりスクロール
   return false;//リンクの無効化
 });
 
-
-// 画面をスクロールをしたら動かしたい場合の記述
 $(window).scroll(function () {
-  FixedAnime();/* スクロール途中からヘッダーを出現させる関数を呼ぶ*/
+  FixedAnime();
 });
+
+$('.header-single-nav ul li.current-menu-item a, .header-single-nav ul li ul.sub-menu li.current-menu-item a').css('cursor', 'default').attr('href', '#');
+$('.header-single-nav ul li.current-menu-item a, .header-single-nav ul li ul.sub-menu li.current-menu-item a').click(function () { return false; });
+$('.header-single-nav ul>li').find('ul').hide();
+$('.header-single-nav ul>li').hover(function () {
+  $('ul:not(:animated)', this).slideDown(300);
+},
+  function () {
+    $('ul', this).hide();
+  });
 
 /* --------------------------------------------------
   タブメニューリンク
@@ -136,13 +156,13 @@ function GethashID(hashIDName) {
 }
 
 // タブをクリックしたら
-$('.tab-nav__link').on('click', function () {
+jQuery('.tab-nav__link').on('click', function () {
   let idName = $(this).attr('href');
   GethashID(idName);
   return false;
 });
 
-$(window).on('load', function () {
+jQuery(window).on('load', function () {
   $('.tab-nav__item:first-of-type').addClass("active");
   $('.tab-contents:first-of-type').addClass("is-active");
   let hashName = location.hash;
@@ -168,7 +188,7 @@ function GethashID(hashIDName) {
 }
 
 //タブをクリックしたら
-$('.tab__link').on('click', function () {
+jQuery('.tab__link').on('click', function () {
   let idName = $(this).attr('href'); //タブ内のリンク名を取得	
   GethashID(idName);//設定したタブの読み込みと
   return false;//aタグを無効にする
@@ -176,7 +196,7 @@ $('.tab__link').on('click', function () {
 
 
 // 上記の動きをページが読み込まれたらすぐに動かす
-$(window).on('load', function () {
+jQuery(window).on('load', function () {
   $('.tab__item:first-of-type').addClass("active"); //最初のliにactiveクラスを追加
   $('.tab__area:first-of-type').addClass("is-active"); //最初の.areaにis-activeクラスを追加
   let hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
@@ -186,19 +206,21 @@ $(window).on('load', function () {
 /* --------------------------------------------------
   アコーディオンメニュー
 -------------------------------------------------- */
-jQuery(function ($) {
-  // タイトルがクリックされたら
-  $(".js-accordion-title").on('click', function () {
-    // クリックしたjs-accordion-title以外の全てのopenをとる
-    $(".js-accordion-title").not(this).removeClass("open");
-    // クリックされたjs-accordion-title以外のcontentを閉じる
-    $(".js-accordion-title").not(this).next().slideUp(300);
-    // thisにopenクラスを付与
+
+// メニューアコーディオン
+var submenu = $(".accordion");
+submenu.each(function () {
+  var noTargetSubmenu = $(this).siblings(submenu);
+  $(this).find(".menu-item > a:first-of-type").click(function () {
+    $(this).next(".sub-menu").slideToggle();
     $(this).toggleClass("open");
-    // thisのcontentを展開、開いていれば閉じる
-    $(this).next().slideToggle(300);
+    noTargetSubmenu.find(".sub-menu").slideUp();
+    noTargetSubmenu.find(".menu-item > a:first-of-type").removeClass("open");
+    return false;
   });
-})
+});
+var accordion = $(".accordion");
+
 
 /* --------------------------------------------------
   ナビゲーションメニュー 滞在ページの表示変更 worksページ
@@ -306,7 +328,7 @@ multi_filter('d-none', '.js-filter-item', '.js-filter', '.js-filter-msg');
   Aboutページ [制作・開発概要]自動スライド
 -------------------------------------------------- */
 window.addEventListener("DOMContentLoaded", () => {
-  const infiniteSlider = new Swiper(".loop-swiper", {
+  const infiniteSlider = new Swiper(".loop-swiper > .wp-block-group__inner-container", {
     loop: true,
     loopedSlides: 5,
     slidesPerView: "auto",
@@ -403,4 +425,90 @@ const swiperBlog = new Swiper('.article-slide', {
 /* --------------------------------------------------
   ブログページネーションの設定
 -------------------------------------------------- */
-!function(t,a,e){"use strict";var i=function(a,e){return this.el=t(a),this.options=t.extend({},t.fn.paginathing.defaults,e),this.startPage=1,this.currentPage=1,this.totalItems=this.el.children().length,this.totalPages=Math.max(Math.ceil(this.totalItems/this.options.perPage),this.options.limitPagination),this.container=t("<nav></nav>").addClass(this.options.containerClass),this.ul=t("<ul></ul>").addClass(this.options.ulClass),this.show(this.startPage),this};i.prototype={pagination:function(a,e){var i=this,n=t("<li></li>"),s=t("<a></a>").attr("href","#"),r="number"===a?i.options.liClass:a,o="";return o="number"===a?e:"pageNumbers"===a?i.paginationNumbersText():i.paginationText(a),n.addClass(r),n.data("pagination-type",a),n.data("page",e),n.append(s.html(o)),n},paginationText:function(t){return this.options[t+"Text"]},paginationNumbersText:function(){return"Page "+this.currentPage+"/"+this.totalPages},buildPagination:function(){var t,a,e=this,i=[],n=e.currentPage-1<e.startPage?e.startPage:e.currentPage-1,s=e.currentPage+1>e.totalPages?e.totalPages:e.currentPage+1,r=e.options.limitPagination;r?e.currentPage<=Math.ceil(r/2)+1?(t=1,a=r):e.currentPage+Math.floor(r/2)>=e.totalPages?(t=e.totalPages+1-r,a=e.totalPages):(t=e.currentPage-Math.ceil(r/2),a=e.currentPage+Math.floor(r/2)):(t=e.startPage,a=e.totalPages),e.options.firstLast&&i.push(e.pagination("first",e.startPage)),e.options.prevNext&&i.push(e.pagination("prev",n));for(var o=t;o<=a;o++)i.push(e.pagination("number",o));return e.options.prevNext&&i.push(e.pagination("next",s)),e.options.firstLast&&i.push(e.pagination("last",e.totalPages)),e.options.pageNumbers&&i.push(e.pagination("pageNumbers",e.currentPage)),i},render:function(a){var e=this,i=e.options,n=e.buildPagination();e.ul.children().remove(),e.ul.append(n);var s=1===a?0:(a-1)*i.perPage,r=a*i.perPage;e.el.children().hide(),e.el.children().slice(s,r).show(),e.ul.children().each(function(){var n=t(this);switch(n.data("pagination-type")){case"number":n.data("page")===a&&n.addClass(i.activeClass);break;case"first":a===e.startPage&&n.toggleClass(i.disabledClass);break;case"last":a===e.totalPages&&n.toggleClass(i.disabledClass);break;case"prev":a-1<e.startPage&&n.toggleClass(i.disabledClass);break;case"next":a+1>e.totalPages&&n.toggleClass(i.disabledClass)}}),i.insertAfter?e.container.append(e.ul).insertAfter(t(i.insertAfter)):e.el.after(e.container.append(e.ul))},handle:function(){var a=this;a.container.find("li").each(function(){var e=t(this);e.click(function(t){t.preventDefault();var i=e.data("page");a.currentPage=i,a.show(i)})})},show:function(t){this.render(t),this.handle()}},t.fn.paginathing=function(t){return this.each(function(){return new i(this,t)})},t.fn.paginathing.defaults={perPage:10,limitPagination:!1,prevNext:!0,firstLast:!0,prevText:"&laquo;",nextText:"&raquo;",firstText:"First",lastText:"Last",containerClass:"pagination-container",ulClass:"pagination",liClass:"page",activeClass:"active",disabledClass:"disabled",insertAfter:null,pageNumbers:!1}}(jQuery,window,document);
+!function (t, a, e) { "use strict"; var i = function (a, e) { return this.el = t(a), this.options = t.extend({}, t.fn.paginathing.defaults, e), this.startPage = 1, this.currentPage = 1, this.totalItems = this.el.children().length, this.totalPages = Math.max(Math.ceil(this.totalItems / this.options.perPage), this.options.limitPagination), this.container = t("<nav></nav>").addClass(this.options.containerClass), this.ul = t("<ul></ul>").addClass(this.options.ulClass), this.show(this.startPage), this }; i.prototype = { pagination: function (a, e) { var i = this, n = t("<li></li>"), s = t("<a></a>").attr("href", "#"), r = "number" === a ? i.options.liClass : a, o = ""; return o = "number" === a ? e : "pageNumbers" === a ? i.paginationNumbersText() : i.paginationText(a), n.addClass(r), n.data("pagination-type", a), n.data("page", e), n.append(s.html(o)), n }, paginationText: function (t) { return this.options[t + "Text"] }, paginationNumbersText: function () { return "Page " + this.currentPage + "/" + this.totalPages }, buildPagination: function () { var t, a, e = this, i = [], n = e.currentPage - 1 < e.startPage ? e.startPage : e.currentPage - 1, s = e.currentPage + 1 > e.totalPages ? e.totalPages : e.currentPage + 1, r = e.options.limitPagination; r ? e.currentPage <= Math.ceil(r / 2) + 1 ? (t = 1, a = r) : e.currentPage + Math.floor(r / 2) >= e.totalPages ? (t = e.totalPages + 1 - r, a = e.totalPages) : (t = e.currentPage - Math.ceil(r / 2), a = e.currentPage + Math.floor(r / 2)) : (t = e.startPage, a = e.totalPages), e.options.firstLast && i.push(e.pagination("first", e.startPage)), e.options.prevNext && i.push(e.pagination("prev", n)); for (var o = t; o <= a; o++)i.push(e.pagination("number", o)); return e.options.prevNext && i.push(e.pagination("next", s)), e.options.firstLast && i.push(e.pagination("last", e.totalPages)), e.options.pageNumbers && i.push(e.pagination("pageNumbers", e.currentPage)), i }, render: function (a) { var e = this, i = e.options, n = e.buildPagination(); e.ul.children().remove(), e.ul.append(n); var s = 1 === a ? 0 : (a - 1) * i.perPage, r = a * i.perPage; e.el.children().hide(), e.el.children().slice(s, r).show(), e.ul.children().each(function () { var n = t(this); switch (n.data("pagination-type")) { case "number": n.data("page") === a && n.addClass(i.activeClass); break; case "first": a === e.startPage && n.toggleClass(i.disabledClass); break; case "last": a === e.totalPages && n.toggleClass(i.disabledClass); break; case "prev": a - 1 < e.startPage && n.toggleClass(i.disabledClass); break; case "next": a + 1 > e.totalPages && n.toggleClass(i.disabledClass) } }), i.insertAfter ? e.container.append(e.ul).insertAfter(t(i.insertAfter)) : e.el.after(e.container.append(e.ul)) }, handle: function () { var a = this; a.container.find("li").each(function () { var e = t(this); e.click(function (t) { t.preventDefault(); var i = e.data("page"); a.currentPage = i, a.show(i) }) }) }, show: function (t) { this.render(t), this.handle() } }, t.fn.paginathing = function (t) { return this.each(function () { return new i(this, t) }) }, t.fn.paginathing.defaults = { perPage: 10, limitPagination: !1, prevNext: !0, firstLast: !0, prevText: "&laquo;", nextText: "&raquo;", firstText: "First", lastText: "Last", containerClass: "pagination-container", ulClass: "pagination", liClass: "page", activeClass: "active", disabledClass: "disabled", insertAfter: null, pageNumbers: !1 } }(jQuery, window, document);
+
+jQuery(function ($) {
+  // タブの切り替え（idでもclassでも可能）
+  $(document).ready(function () {
+    $(".tab_content").hide();//全ての.tab_contentを非表示
+    $("ul.tabs li:first").addClass("active").show();//tabs内最初のliに.activeを追加
+    $(".tab_content:first").show();//最初の.tab_contentを表示
+    $("ul.tabs li").click(function () {
+      $("ul.tabs li").removeClass("active");//.activeを外す
+      $(this).addClass("active");//クリックタブに.activeを追加
+      $(".tab_content").hide();//全ての.tab_contentを非表示
+      var activeTab = $(this).find("a").attr("href");//アクティブタブコンテンツ
+      $(activeTab).fadeIn();//アクティブタブコンテンツをフェードイン
+      return false;
+    });
+  });
+})
+
+
+/* --------------------------------------------------
+  タブメニューリンク
+-------------------------------------------------- */ 
+function GethashID(hashIDName) {
+  if(hashIDName) {
+    // タブ内のaタグを全て取得
+    $('.tab-nav__item').find('a').each(function() {
+      let idName = $(this).attr('href');
+      // リンク元の指定されたURLのハッシュタグ
+      if(idName == hashIDName) {
+        let parentElm = $(this).parent();
+        $('.tab-nav__item').removeClass("active");
+        $(parentElm).addClass("active");
+        $(".tab-contents").removeClass("is-active");
+        $(hashIDName).addClass("is-active");
+      }
+    });
+  }
+}
+
+// タブをクリックしたら
+$('.tab-nav__link').on('click', function() {
+  let idName = $(this).attr('href');
+  GethashID(idName);
+  return false;
+});
+
+$(window).on('load', function() {
+  $('.tab-nav__item:first-of-type').addClass("active");
+  $('.tab-contents:first-of-type').addClass("is-active");
+  let hashName = location.hash;
+  GethashID(hashName);
+});
+
+//任意のタブにURLからリンクするための設定
+function GethashID (hashIDName){
+	if(hashIDName){
+		//タブ設定
+		$('.tab__item').find('a').each(function() { //タブ内のaタグ全てを取得
+			let idName = $(this).attr('href'); //タブ内のaタグのリンク名（例）#lunchの値を取得	
+			if(idName == hashIDName){ //リンク元の指定されたURLのハッシュタグ（例）http://example.com/#lunch←この#の値とタブ内のリンク名（例）#lunchが同じかをチェック
+				let parentElm = $(this).parent(); //タブ内のaタグの親要素（li）を取得
+				$('.tab__item').removeClass("active"); //タブ内のliについているactiveクラスを取り除き
+				$(parentElm).addClass("active"); //リンク元の指定されたURLのハッシュタグとタブ内のリンク名が同じであれば、liにactiveクラスを追加
+				//表示させるエリア設定
+				$(".tab__area").removeClass("is-active"); //もともとついているis-activeクラスを取り除き
+				$(hashIDName).addClass("is-active"); //表示させたいエリアのタブリンク名をクリックしたら、表示エリアにis-activeクラスを追加	
+			}
+		});
+	}
+}
+
+//タブをクリックしたら
+$('.tab__link').on('click', function() {
+	let idName = $(this).attr('href'); //タブ内のリンク名を取得	
+	GethashID (idName);//設定したタブの読み込みと
+	return false;//aタグを無効にする
+});
+
+
+// 上記の動きをページが読み込まれたらすぐに動かす
+$(window).on('load', function () {
+    $('.tab__item:first-of-type').addClass("active"); //最初のliにactiveクラスを追加
+    $('.tab__area:first-of-type').addClass("is-active"); //最初の.areaにis-activeクラスを追加
+	let hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
+	GethashID (hashName);//設定したタブの読み込み
+});

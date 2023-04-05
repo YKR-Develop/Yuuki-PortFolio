@@ -9,183 +9,124 @@
 @use "../config/mq" as *;
 /* //////////// 変数読み込み //////////// */
 
-.main-visual {
-  height: 100vh;
+.main_visual {
   position: relative;
-  background: url("../../images/img/img_hero-visual.jpg") no-repeat center / cover;
-  z-index: 1;
-  @include mq(tab) {
-    height: 75vh;
-  }
+  z-index: 100;
 
-  &--about {
-    background: url("../../images/img/img_about-visual.jpg") no-repeat center / cover;
-  }
-
-  &--blog {
-    background: url("/blog/images/img/img_blog-visual.jpg") no-repeat center / cover;
-  }
-
-  &--works {
-    background: url("/works/images/img/img_works-visual.jpg") no-repeat center / cover;
-  }
-
-  &--works-website {
-    height: 560px;
-    background: url("/works/images/img/img_works_website-visual.jpg") no-repeat center / cover;
-  }
-
-  &--works-programing {
+  &__eye-catching > img {
     width: 100%;
-    height: 60%;
-    background: url("/works/images/img/img_works_programing-visual.jpg") no-repeat center / cover;
-  }
-
-  &--works-uiux {
-    width: 100%;
-    height: 60%;
-    background: url("/works/images/img/img_works_uiuxdesign-visual.jpg") no-repeat center / cover;
-  }
-
-  &--works-photoshop {
-    width: 100%;
-    height: 60%;
-    background: url("/works/images/img/img_works_photoshop-visual.jpg") no-repeat center / cover;
-  }
-
-  &--works-illustrator {
-    width: 100%;
-    height: 60%;
-    background: url("/works/images/img/img_works_illustrator-visual.jpg") no-repeat center / cover;
-  }
-
-  &--works-molding {
-    width: 100%;
-    height: 60%;
-    background: url("/works/images/img/img_works_molding&dress-visual.jpg") no-repeat center / cover;
-  }
-
-  &--blog-programing {
-    width: 100%;
-    height: 60%;
-    background: url("/blog/images/img/img_blog-category_programing-visual.jpg") no-repeat center / cover;
-  }
-
-  &--blog-handmade {
-    width: 100%;
-    height: 60%;
-    background: url("/blog/images/img/img_blog-category_molding-visual.jpg") no-repeat center / cover;
-  }
-
-  &--works-website,
-  &--works-programing,
-  &--works-uiux,
-  &--works-photoshop,
-  &--works-illustrator,
-  &--works-molding,
-  &--blog-programing,
-  &--blog-handmade {
-    @include mq(tab) {
-      height: 75vh;
-    }
-  }
-
-  &__inner {
-    position: relative;
-    &--vh {
-      height: 100vh;
-    }
-
-    &--height {
-      height: 560px;
-
-      @include mq(sp) {
-        height: 400px;
-      }
-    }
-  }
-
-  /* --------------------------------------------------
- キャッチコピー ※トップページのみ
--------------------------------------------------- */
-  &__catchcopy {
-    font-family: $font-catch-copy;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    font-size: fluid-size(26, 56);
-    color: $font-white;
-    padding-right: 48px;
-
-    @include mq(tab) {
-      top: 30%;
-    }
   }
 
   &__text-line {
-    line-height: 1.7;
-    display: block;
-    &--bottom {
-      margin-left: 110px;
-      @include mq(sp) {
-        margin-left: 42px;
+    padding-right: 64px;
+    position: absolute;
+    top: 35%;
+    right: 64px;
+    text-align: right;
+    & > span {
+      font-family: $font-catch-copy;
+      font-size: fluid-size(26, 56);
+      color: $font-white;
+    }
+
+    @include mq(tab) {
+      padding-right: 8px;
+      right: 0;
+    }
+  }
+
+  &__catch {
+    padding-right: 64px;
+  }
+  &__sub-catch {
+    padding-left: 64px;
+  }
+
+  &__img {
+    width: 100%;
+    position: relative;
+  }
+
+  &__inner {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  & .custom-logo-link {
+    width: 200px;
+    height: 55px;
+  }
+
+  &__menu {
+    @include maxWidth;
+    padding: 0 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & nav {
+      margin-left: auto;
+      & ul {
+        display: flex;
+        justify-content: flex-end;
+
+        & li {
+          margin-right: 56px;
+          font-size: fluid-size(14, 14);
+          &:last-child {
+            margin-right: 0;
+          }
+
+          & a {
+            color: $font-white;
+            position: relative;
+
+            &::before {
+              @include hoverBorder;
+              bottom: -4px;
+            }
+
+            &:hover::before {
+              transform: scale(1, 1);
+            }
+          }
+        }
       }
     }
   }
 
-  /* --------------------------------------------------
- 各ページタイトル
--------------------------------------------------- */
-  &__page-title {
+  & .page-heading {
     position: absolute;
     top: 50%;
     left: 0;
+    transform: translate(0%, -50%);
     padding-left: 80px;
-    letter-spacing: 0.4rem;
+    color: $font-white;
+    line-height: 48px;
 
-    @include mq(tab) {
-      letter-spacing: 0.4rem;
-      top: 30%;
-      padding-left: 18px;
-    }
-    @include mq(sp) {
-      letter-spacing: 0.4rem;
-      top: 50%;
-      padding-left: 18px;
+    &__main-heading {
+      font-size: fluid-size(26, 48);
+      font-weight: 300;
     }
 
-    &--center {
-      top: 45%;
-      @include mq(tab) {
-        padding-left: 64px;
-        top: 30%;
+    &__sub-heading {
+      font-weight: 300;
+      font-size: fluid-size(20, 24);
+      position: relative;
+      padding-left: 40px;
+      color: $font-white;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: fluid-size(16, 32);
+        height: 1px;
+        background-color: $border-base;
       }
-    }
-  }
-
-  &__heading {
-    display: block;
-    font-size: fluid-size(26, 48);
-    color: $font-white;
-    font-weight: 300;
-    margin-bottom: 16px;
-  }
-
-  &__sub-heading {
-    display: block;
-    font-weight: 300;
-    font-size: fluid-size(20, 24);
-    position: relative;
-    padding-left: 40px;
-    color: $font-white;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: fluid-size(16, 32);
-      height: 1px;
-      background-color: $border-base;
     }
   }
 }

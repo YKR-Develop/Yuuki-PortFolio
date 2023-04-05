@@ -37,4 +37,5 @@
 
   <!-- スマホ用アイコン画像 PHP書き換え -->
   <link rel="apple-touch-icon-precomposed" href="<?php echo esc_url(get_theme_file_uri('assets/images/ico/favicon.ico')); ?>">
+  
 </head>

@@ -158,7 +158,7 @@
   @include mq(sp) {
     width: 100%;
   }
-  
+
   &::after {
     position: absolute;
     content: "";
@@ -203,6 +203,70 @@
       border: 1px solid $border-base;
       color: $font-black;
     }
-    
+  }
+}
+
+// WordPressブロック用ボタンデザイン
+.wp-block-button {
+  width: 280px;
+  margin: 0 auto;
+  box-shadow: $shadow;
+  text-align: center;
+
+  &__link {
+    display: block;
+    border-radius: 0;
+    padding: 16px 42px;
+    margin: 0 auto;
+    color: $font-white;
+    font-size: 16px;
+    background: $button-background;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s;
+
+    @include mq(sp) {
+      z-index: 0;
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: $background-gray;
+      border: 1px solid $border-black;
+      transform-origin: 100% 50%;
+      transform: scaleX(0);
+      transition: transform ease 0.5s;
+    }
+
+    &:hover {
+      color: $font-black;
+      border-color: $border-black;
+    }
+
+    &:hover::before {
+      transform-origin: 0% 50%;
+      transform: scaleX(1);
+    }
+
+    &:after {
+      @include stickArrow;
+      top: 45%;
+      right: 12%;
+      border-color: $font-white;
+
+      @include mq(sp) {
+        right: 20%;
+      }
+    }
+
+    &:hover::after {
+      border-color: $border-black;
+    }
   }
 }

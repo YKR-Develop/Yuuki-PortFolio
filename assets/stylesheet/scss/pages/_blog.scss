@@ -12,12 +12,215 @@
   
 -------------------------------------------------- */
 .blog-list {
+  @include maxWidth;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 32px 64px;
-  margin-bottom: 48px;
-  @include mq(sp) {
+  @include mq(tab) {
     gap: 16px 16px;
+  }
+}
+
+/* --------------------------------------------------
+  single.php
+  ブログ記事CSSスタイル
+-------------------------------------------------- */
+.blog-heading {
+  padding-bottom: 16px;
+  border-bottom: 1px solid $border-base;
+  margin-bottom: 32px;
+  &__date {
+    font-size: fluid-size(12, 14);
+    position: relative;
+    display: block;
+    padding-left: 20px;
+    margin-bottom: 16px;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: url("../../images/blog_ico/ico_clock.svg");
+      @include mq(sp) {
+        right: 70px;
+      }
+    }
+  }
+
+  &__title {
+    font-size: fluid-size(18, 24);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  &__category-link {
+    display: inline-block;
+    font-size: fluid-size(12, 14);
+    position: relative;
+    padding-left: 24px;
+    color: $font-black;
+    &:nth-child(n + 2) {
+      margin-left: 24px;
+      @include mq(tab) {
+        margin-left: 12px;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: url("../../images/blog_ico/ico_folder.svg");
+      vertical-align: bottom;
+    }
+
+    &::before {
+      @include hoverBorder;
+      bottom: -4px;
+    }
+
+    &:hover::before {
+      transform: scale(1, 1);
+    }
+
+    @include mq(sp) {
+      margin: 0 0 8px 0;
+    }
+  }
+}
+
+.blog-eyecatch {
+  margin-bottom: 48px;
+  & > img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.blog-contents {
+  max-width: 768px;
+  font-size: fluid-size(14, 16);
+
+  h2 {
+    padding: 12px;
+    background-color: $background-white;
+    margin-bottom: 16px;
+    box-shadow: $shadow;
+  }
+
+  h3 {
+    padding: 0 0 6px 12px;
+    border-bottom: 2px solid $border-base;
+    margin-bottom: 8px;
+  }
+
+  p {
+    padding: 24px 0;
+  }
+  hr {
+    padding: 24px 0;
+  }
+}
+
+/* --------------------------------------------------
+ ブログ記事内前後遷移リンク
+-------------------------------------------------- */
+.blog-prev_next {
+  max-width: 768px;
+  margin: 0 auto 64px auto;
+  
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    @include mq(tab) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    height: auto;
+    border-right: 1px dotted $border-black;
+    padding-right: 24px;
+    &:nth-child(2) {
+      border-right: none;
+      padding-left: 24px;
+      padding-right: 0;
+    }
+
+    @include mq(tab) {
+      margin-bottom: 32px;
+      padding-right: 0;
+      border: none;
+      &:last-child {
+        margin-bottom: 0;
+        padding-left: 0;
+      }
+    }
+    &--next {
+      margin-left: auto;
+      padding-right: 0;
+      padding-left: 24px;
+      border-right: none;
+      border-left: 1px dotted $border-black;
+      @include mq(tab){
+        border: none;
+      }
+    }
+  }
+
+  &__btn {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 0;
+    background-color: $background-black;
+    border: 1px solid $background-black;
+    font-size: 14px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: $font-white;
+    transition: 0.5s;
+
+
+    &:hover {
+      background-color: $background-white;
+      color: $font-black;
+      border: 1px solid $border-base;
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+  }
+
+  &__thumb {
+    width: 150px;
+    margin-right: 16px;
+    &:nth-child(2) {
+      margin-right: 0;
+    }
+    & > img {
+      width: 100%;
+    }
+    @include mq(tab) {
+      width: 50%;
+    }
+  }
+
+  &__title-inner {
+    width: 200px;
+    display: inline-block;
+    @include mq(tab) {
+      width: 100%;
+    }
+  }
+  &__title-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: $font-black;
   }
 }

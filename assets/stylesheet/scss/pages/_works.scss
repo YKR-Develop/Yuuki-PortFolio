@@ -8,6 +8,11 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み //////////// */
+.works-greeting {
+  &__box {
+    @include centerWidth;
+  }
+}
 /* --------------------------------------------------
   works-category カテゴリーリストの指定 works_top.html
 -------------------------------------------------- */
@@ -129,9 +134,9 @@
   works-item 作品紹介カード 指定
 -------------------------------------------------- */
 .works-card {
-  width: calc(100% / 2 - 32px / 2 * 2);
+  width: calc(100% / 3 - 43px / 3 * 3);
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   &--website {
     width: calc(100% / 3 - 43px / 3 * 3);
     @include mq(tab) {
@@ -157,27 +162,23 @@
   &__title {
     font-size: fluid-size(16, 18);
     text-align: left;
+    flex: 1;
+    height: 100%;
+    min-height: 0%;
     margin-bottom: 16px;
     @include mq(sp) {
       margin-bottom: 16px;
     }
   }
 
-  &__text {
-    margin-bottom: 1rem;
-  }
+  &__excerpt {
+    flex: 1;
+    height: 100%;
+    margin-bottom: 24px;
 
-  &__text-link {
-    display: inline-block;
-    padding: 0 4px;
-    color: $font-black;
-    text-decoration: underline;
-  }
-
-  &__desc {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-    flex-grow: 1;
+    & > p {
+      font-size: 1.4rem;
+    }
   }
 
   &__management-list {
@@ -250,6 +251,9 @@
 
   &__detail-link {
     text-align: center;
+    flex: 1;
+    height: 100%;
+    min-height: 0%;
   }
 
   &__link {

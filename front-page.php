@@ -319,7 +319,7 @@
 
           <!-- ===== ページ遷移ボタン ===== -->
           <div class="primary-button">
-            <a class="primary-button__link" href="#">About 詳細はこちら<span class="primary-button__arrow"></span></a>
+            <a class="primary-button__link" href="http://yukuro-createfolio.local/about/">About 詳細はこちら<span class="primary-button__arrow"></span></a>
           </div>
 
           <!-- ⬆︎ ############ About 各要素コンテンツ Start ############ ⬆︎ -->
@@ -515,15 +515,15 @@
           </div>
           <!-- ===== 各要素タイトル Title / link ===== -->
 
-          <div class="blog-category">
+          <div class="blog-category blog-category--top">
             <!-- ===== Web制作/開発・デザイン カテゴリ Start ===== -->
-            <div class="blog-category__item">
+            <div class="blog-category__item blog-category__item--top">
               <a href="<?php echo esc_url(get_category_link('7')); ?>" class="blog-category__thumb-link">
                 <h4 class="blog-category__title">Web制作/開発・デザイン</h4>
                 <img class="blog-category__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog_img/img_blog-category_programing-visual.jpg" alt="Web制作/開発・デザイン">
               </a>
-              <ul class="blog-category__category-list">
-                
+              
+              <ul class="blog-category__category-list blog-category__category-list--top">
               <?php
               $categories = get_categories('parent=7');
               foreach ($categories as $category) : ?>
@@ -533,7 +533,7 @@
                   $childs = get_categories('child_of=' . $category->term_id);
                   if ($childs) :
                   ?>
-                    <ul class="blog-category__category-list">
+                    <ul class="blog-category__category-list blog-category__category-list--top">
                       <?php foreach ($childs as $child) : ?>
                         <li class="blog-category__category-item">
                           <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($child->term_id); ?>"><?php echo $child->name; ?></a>
@@ -548,12 +548,12 @@
             <!-- ===== Web制作/開発・デザイン カテゴリ ENd ===== -->
 
             <!-- ===== ハンドメイド カテゴリ Start ===== -->
-            <div class="blog-category__item">
+            <div class="blog-category__item blog-category__item--top">
               <a href="<?php echo esc_url(get_category_link('3')); ?>" class="blog-category__thumb-link">
                 <h4 class="blog-category__title">ハンドメイド</h4>
                 <img class="blog-category__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog_img/img_blog-category_molding-visual.jpg" alt="ハンドメイド">
               </a>
-              <ul class="blog-category__category-list">
+              <ul class="blog-category__category-list blog-category__category-list--top">
               <?php
               $categories = get_categories('parent=3');
               foreach ($categories as $category) : ?>
@@ -563,7 +563,7 @@
                   $childs = get_categories('child_of=' . $category->term_id);
                   if ($childs) :
                   ?>
-                    <ul class="blog-category__category-list">
+                    <ul class="blog-category__category-list blog-category__category-list--top">
                       <?php foreach ($childs as $child) : ?>
                         <li class="blog-category__category-item">
                           <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($child->term_id); ?>"><?php echo $child->name; ?></a>

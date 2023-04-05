@@ -15,7 +15,6 @@
 -------------------------------------------------- */
 .footer-pc {
   position: relative;
-  
   background-color: $background-footer;
 
   &__inner {
@@ -24,49 +23,47 @@
   }
 
   /* //////////// ロゴの指定 //////////// */
-  &__logo {
+  & .custom-logo-link {
     width: 200px;
     height: 56px;
     margin: 0 auto 48px auto;
   }
 
   /* //////////// フッターナビゲーションの指定 //////////// */
-  &__nav {
-    margin-bottom: 40px;
-  }
-
-  &__nav-list {
+  & .menu {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 40px;
+
+    & .footer-menu {
+      width: 100%;
+      cursor: pointer;
+      & > a {
+        display: inline-block;
+        font-size: fluid-size(14, 16);
+        color: $font-white;
+        margin-bottom: 16px;
+        position: relative;
+        &::before {
+          @include hoverBorder;
+          bottom: -4px;
+        }
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+      }
+    }
   }
 
-  &__nav-link {
-    display: inline-block;
-    font-size: fluid-size(14, 16);
-    color: $font-white;
-    margin-bottom: 24px;
-    position: relative;
-
-    &::before {
-      @include hoverBorder;    
-      bottom: 0px;
-    }
-
-    &:hover::before {
-      transform: scale(1, 1);
-    }
-  }
-
-  &__navchild-item {
+  & .footer-submenu {
     margin-bottom: 16px;
+    position: relative;
+    padding-left: 16px;
+
     &:last-child {
       margin-bottom: 0;
     }
-  }
-
-  &__navchild-item {
-    position: relative;
-    padding-left: 16px;
     &::after {
       content: "";
       position: absolute;
@@ -76,79 +73,79 @@
       height: 1px;
       background-color: $border-base;
     }
-  }
 
-  &__navchild-link {
-    display: inline-block;
-    color: $font-white;
-    font-size: 14px;
-    position: relative;
-    line-height: 1.5;
+    & > a {
+      display: inline-block;
+      color: $font-white;
+      font-size: 14px;
+      position: relative;
+      line-height: 1.5;
 
-    &::before {
-      @include hoverBorder;    
-      bottom: -4px;
-    }
+      &::before {
+        @include hoverBorder;
+        bottom: -4px;
+      }
 
-    &:hover::before {
-      transform: scale(1, 1);
-    }
-  }
-
-  /* //////////// フッターSNSの指定 //////////// */
-  &__sns-box {
-    display: flex;
-    justify-content: center;
-    gap: 0 24px;
-    margin-bottom: 32px;
-  }
-
-  &__sns-link {
-    transition: 0.3s;
-    &:hover {
-      transform: scale(1.3);
+      &:hover::before {
+        transform: scale(1, 1);
+      }
     }
   }
 
   /* //////////// サブナビゲーションの指定 //////////// */
-  &__subnav {
+  & .footer-subnav {
     display: flex;
     justify-content: center;
     margin-bottom: 32px;
-  }
 
-  &__subnav-item {
-    border-right: 1px solid $border-base;
-    padding: 0 24px;
+    & > li {
+      border-right: 1px solid $border-base;
+      padding: 0 24px;
 
-    &:last-child {
-      border: none;
-      padding-right: 0;
-    }
-  }
+      &:first-child {
+        padding-left: 0;
+      }
 
-  &__subnav-link {
-    font-size:  14px;
-    color: $font-white;
-    position: relative;
-    display: inline-block;
-    &::before {
-      @include hoverBorder;    
-      bottom: -4px;
-    }
+      &:last-child {
+        border: none;
+        padding-right: 0;
+      }
 
-    &:hover::before {
-      transform: scale(1, 1);
+      & > a {
+        font-size: 14px;
+        color: $font-white;
+        position: relative;
+        display: inline-block;
+        &::before {
+          @include hoverBorder;
+          bottom: -4px;
+        }
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+      }
     }
   }
 
   /* //////////// コピーライトの指定 //////////// */
   &__copyright {
-    display: block;
+    display: flex;
+    justify-content: center;
     text-align: center;
     font-size: 14px;
     color: $font-white;
     font-weight: 300;
+  }
+
+  &__copyright-text {
+    display: block;
+    padding: 0 4px;
+    color: $font-white;
+  }
+
+  & .sns-share {
+    display: none;
   }
 }
 
@@ -157,20 +154,15 @@
 -------------------------------------------------- */
 .footer-sp {
   background-color: $background-footer;
-  padding: 24px 18px 64px 18px;
 
-  /* //////////// ロゴの指定 //////////// */
-  &__logo {
+  &__inner {
+    padding: 24px 18px 64px 18px;
+  }
+
+  & .custom-logo-link {
     width: 136px;
     height: 37px;
     margin: 0 auto 24px auto;
-  }
-
-  /* //////////// アコーディオンの余白指定 //////////// */
-  & .accordion {
-    &--footer {
-      margin-bottom: 24px;
-    }
   }
 
   /* //////////// snsナビゲーションの指定 //////////// */
@@ -187,17 +179,25 @@
   }
 
   /* //////////// サブナビゲーションの指定 //////////// */
-  &__subnav {
+  & .footer-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 24px;
-  }
+    gap: 16px 0;
 
-  &__subnav-item {
-    margin-bottom: 24px;
-  }
 
-  &__subnav-link {
-    font-size: 14px;
-    color: $font-white;
+    & > li {
+      padding-right: 24px;
+      &:last-child {
+        padding-right: 0;
+      }
+
+      & > a {
+        font-size: 14px;
+        color: $font-white;
+      }
+    }
   }
 
   /* //////////// コピーライトの指定 //////////// */
@@ -208,4 +208,3 @@
     font-size: 14px;
   }
 }
-

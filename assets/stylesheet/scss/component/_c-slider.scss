@@ -91,9 +91,13 @@
   margin-bottom: 80px;
 
   &__wrapper {
-    transition-timing-function: linear;
-    width: 100%;
-    display: flex;
+
+    & > .wp-block-group__inner-container {
+      transition-timing-function: linear;
+      width: 100%;
+      display: flex;
+    }
+
   }
 
   &__item {
@@ -165,23 +169,26 @@
 .article-slide {
   overflow: hidden;
   position: relative;
-  padding-bottom: 40px;
 
   &__wrapper {
     display: flex;
+    gap: 32px;
   }
 
   &__item {
-    position: relative;
     width: calc(100% / 3);
     overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 
   &__label {
     position: absolute;
-    width: calc(100% - 32px);
     bottom: 0;
     left: 0;
+    width: calc(100% - 32px);
     color: $font-white;
     padding: 16px;
     background-color: $background-opacity;
@@ -196,13 +203,21 @@
     color: $font-white;
     background-color: $background-opacity;
     font-size: 1.4rem;
+    display: flex;
+    & > a {
+      color: $font-white;
+      display: block;
+    }
   }
 
-  &__image {
-    width: 100%;
-    transition: 0.5s;
-    &:hover {
-      transform: scale(1.2);
+  &__thumb {
+    overflow: hidden;
+    & > img {
+      width: 100%;
+      transition: 0.7s;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 
@@ -211,7 +226,6 @@
     font-size: fluid-size(14, 16);
     line-height: 1.5;
     margin-bottom: 16px;
-    height: 72px;
   }
 
   &__date {
@@ -233,5 +247,14 @@
 
   & .swiper-pagination {
     bottom: 0;
+  }
+}
+
+
+.metaslider {
+  position: relative;
+
+  .caption-wrap {
+    height: 38px;
   }
 }

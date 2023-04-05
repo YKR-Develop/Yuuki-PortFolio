@@ -1,0 +1,23 @@
+/*===================================================
+ sns.scss
+ snsアイコン・シェアボタンの指定
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../mixin/animation" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
+
+.sns-menu {
+  display: flex;
+  justify-content: center;
+  gap: 0 24px;
+  margin-bottom: 32px;
+
+  & .size  {
+    font-size: 3rem;
+    color: $font-white;
+  }
+}
