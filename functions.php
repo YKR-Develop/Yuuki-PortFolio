@@ -506,6 +506,18 @@ function create_post_type()
     )
   );
 
+  register_taxonomy(
+    'works-responsible-person',
+    'works',
+    array(
+      'label' => '担当箇所',
+      'hierarchical' => false,
+      'public' => true,
+      'show_in_rest' => true,
+      'update_count_callback' => '_update_post_term_count',
+    )
+  );
+
 
   /* --------------------------------------------------
   お知らせ欄
@@ -589,3 +601,4 @@ function sortable_column_custom_meta_views($columns)
   return $columns;
 }
 add_filter('manage_edit-post_sortable_columns', 'sortable_column_custom_meta_views');
+
