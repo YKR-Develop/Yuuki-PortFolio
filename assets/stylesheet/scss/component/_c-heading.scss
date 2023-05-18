@@ -56,7 +56,9 @@
   &__link {
     font-size: fluid-size(14, 14);
     color: $font-black;
-    padding-right: 24px;
+    padding: 0 24px 4px 0;
+    font-weight: 300;
+    border-bottom: 1px solid $border-base;
     &::before {
       @include stickArrow;
     }
@@ -83,27 +85,31 @@
   text-align: center;
   position: relative;
   
-
   &__title {
     width: fluid-size(300, 426);
-    margin: 0 auto 48px auto;
+    margin: 0 auto 32px auto;
     text-align: center;
     font-size: fluid-size(18, 24);
     position: relative;
-    font-weight: 300;
+    font-weight: 600;
 
     &--works {
       margin-bottom: 0;
     }
+
+    
+    @include mq(tab) {
+      margin-bottom: 32px;
+    }
     
     @include mq(sp) {
-      width: 300px;
+      width: 240px;
       margin-bottom: 24px;
     }
 
     &::after {
       content: "";
-      width: fluid-size(56, 96);
+      width: fluid-size(40, 96);
       height: 1px;
       background-color: $border-base;
       position: absolute;
@@ -113,7 +119,7 @@
 
     &::before {
       content: "";
-      width: fluid-size(56, 96);
+      width: fluid-size(40, 96);
       height: 1px;
       background-color: $border-base;
       position: absolute;
@@ -146,8 +152,10 @@
   &__link {
     color: $font-black;
     position: relative;
-    padding-right: 24px;
+    padding: 0 24px 4px 0;
     font-weight: 300;
+    border-bottom: 1px solid $border-base;
+
     &::before {
       @include stickArrow;
     }

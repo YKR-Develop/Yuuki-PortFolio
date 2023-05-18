@@ -143,10 +143,6 @@
     padding: 0 4px;
     color: $font-white;
   }
-
-  & .sns-share {
-    display: none;
-  }
 }
 
 /* --------------------------------------------------
@@ -176,6 +172,10 @@
   &__sns-icon {
     width: 32px;
     height: 32px;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1);
+    }
   }
 
   /* //////////// サブナビゲーションの指定 //////////// */

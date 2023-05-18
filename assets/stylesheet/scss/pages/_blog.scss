@@ -23,6 +23,132 @@
 }
 
 /* --------------------------------------------------
+  最新の記事一覧
+-------------------------------------------------- */
+.new-article {
+  overflow: hidden;
+  position: relative;
+  display: -webkit-box;
+
+  &__wrapper {
+    display: flex;
+    gap: 32px;
+    @include mq(tab) {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 3);
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    @include mq(tab) {
+      width: calc(100% / 2 - 8px / 2 * 2);
+    }
+  }
+
+  &__thumb {
+    overflow: hidden;
+    & > img {
+      width: 100%;
+      transition: 0.7s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__category-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__category {
+    background-color: $background-opacity;
+    padding: 8px 16px;
+    color: $font-white;
+    font-size: 1.4rem;
+    display: flex;
+    & > a {
+      color: $font-white;
+      display: block;
+    }
+    @include mq(tab) {
+      background-color: $background-opacity;
+      font-size: 1.2rem;
+      padding: 8px 8px;
+    }
+  }
+
+  &__label {
+    padding: 12px;
+    border: 1px solid $border-base;
+    display: flex;
+    flex-direction: column;
+    background-color: $background-white;
+    display: block;
+    @include mq(sp) {
+      font-size: 14px;
+      padding: 6px;
+    }
+  }
+
+  &__label-inner {
+    flex-grow: 1;
+  }
+
+
+  &__title-link {
+    min-height: 48px;
+    font-weight: 600;
+    font-size: fluid-size(13, 16);
+    margin-bottom: 16px;
+    color: $font-black;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    @include mq(tab) {
+      min-height: 40px;
+      margin-bottom: 8px;
+    }
+    &:hover {
+      @include hoverText;
+    }
+  }
+
+  &__date-box {
+    text-align: right;
+  }
+
+  &__date {
+    flex-grow: 1;
+    padding-left: 24px;
+    display: inline-block;
+    font-size: fluid-size(10, 12);
+    position: relative;
+    color: $font-black;
+    &::before {
+      position: absolute;
+      top: 0px;
+      right: 80px;
+      content: url("../../images/blog_ico/ico_clock.svg");
+      @include mq(sp) {
+        right: 70px;
+      }
+    }
+  }
+}
+
+
+/* --------------------------------------------------
   single.php
   ブログ記事CSSスタイル
 -------------------------------------------------- */
@@ -30,13 +156,23 @@
   padding-bottom: 16px;
   border-bottom: 1px solid $border-base;
   margin-bottom: 32px;
+
+  &__title {
+    font-size: fluid-size(18, 24);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  &__genre {
+    display: flex;
+  }
+
   &__date {
     font-size: fluid-size(12, 14);
     position: relative;
     display: block;
     padding-left: 20px;
-    margin-bottom: 16px;
-
+    margin-left: auto;
     &::before {
       position: absolute;
       top: 0;
@@ -48,11 +184,6 @@
     }
   }
 
-  &__title {
-    font-size: fluid-size(18, 24);
-    margin-bottom: 24px;
-    line-height: 1.5;
-  }
 
   &__category-link {
     display: inline-block;
@@ -64,6 +195,7 @@
       margin-left: 24px;
       @include mq(tab) {
         margin-left: 12px;
+        margin-bottom: 0;
       }
     }
     &:last-child {
@@ -87,8 +219,8 @@
       transform: scale(1, 1);
     }
 
-    @include mq(sp) {
-      margin: 0 0 8px 0;
+    @include mq(tab) {
+      margin: 0 0 0 0;
     }
   }
 }
@@ -110,20 +242,16 @@
     background-color: $background-white;
     margin-bottom: 16px;
     box-shadow: $shadow;
+    font-size: fluid-size(18, 24);
   }
 
   h3 {
     padding: 0 0 6px 12px;
     border-bottom: 2px solid $border-base;
     margin-bottom: 8px;
+    font-size: fluid-size(16, 20);
   }
 
-  p {
-    padding: 24px 0;
-  }
-  hr {
-    padding: 24px 0;
-  }
 }
 
 /* --------------------------------------------------
@@ -131,7 +259,7 @@
 -------------------------------------------------- */
 .blog-prev_next {
   max-width: 768px;
-  margin: 0 auto 64px auto;
+  margin: 0 auto;
   
   &__list {
     display: flex;
@@ -183,8 +311,8 @@
     text-align: center;
     color: $font-white;
     transition: 0.5s;
-
-
+    font-weight: 600;
+    
     &:hover {
       background-color: $background-white;
       color: $font-black;
@@ -200,11 +328,17 @@
   &__thumb {
     width: 150px;
     margin-right: 16px;
+    overflow: hidden;
     &:nth-child(2) {
       margin-right: 0;
     }
     & > img {
+      transition: 0.5s;
       width: 100%;
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
     @include mq(tab) {
       width: 50%;
@@ -212,15 +346,60 @@
   }
 
   &__title-inner {
+    position: relative;
     width: 200px;
     display: inline-block;
     @include mq(tab) {
       width: 100%;
     }
   }
+
   &__title-text {
-    font-size: 14px;
+    font-size: fluid-size(14, 16);
     font-weight: 600;
     color: $font-black;
+    &:hover {
+      @include hoverText;
+    }
+  }
+}
+
+/* --------------------------------------------------
+ ブログ関連記事一覧
+-------------------------------------------------- */
+.related-article {
+  &__label {
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 24px;
+  }
+
+  &__item {
+    width: calc(100% / 3 - 16px / 3 * 3);
+    @include mq(sp) {
+      width: calc(100% / 2 - 16px / 3 * 3);
+    }
+  }
+
+  &__thumb {
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    color: $font-black;
+    font-weight: 600;
+    font-size: 1.4rem;
+    min-height: 32px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    &:hover {
+      @include hoverText;
+    }
   }
 }

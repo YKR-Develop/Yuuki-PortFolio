@@ -111,7 +111,7 @@
 .category-nav {
   @include centerWidth;
   justify-content: center;
-  margin: 0 auto 32px auto;
+  margin: 0 auto 48px auto;
 
   &__list {
     display: flex;
@@ -119,7 +119,8 @@
 
     @include mq(tab) {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      justify-content: center;
       height: 100%;
     }
   }
@@ -130,8 +131,8 @@
     border: 1px solid $border-base;
     transition: 0.3s;
     background-color: $background-white;
-    @include mq(sp) {
-      width: 49.4%;
+    @include mq(tab) {
+      width: calc(100% / 3);
     }
     & > a {
       display: block;
@@ -143,6 +144,7 @@
       &:hover {
         background-color: $button-background;
         color: $font-white;
+        width: 100%;
       }
 
       &:hover > .category-nav__link-icon {
@@ -162,6 +164,9 @@
   &__text {
     color: $font-black;
     font-size: 14px;
+    @include mq(tab) {
+      font-size: 1.2rem;
+    }
   }
 
   & .style-change {
@@ -330,24 +335,22 @@
 /* --------------------------------------------------
  scroll-nav スマホ用スクロールナビゲーション
 -------------------------------------------------- */
-.scroll-nav {
+.scroll-menu {
   position: relative;
+  background-color: $background-nav;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 
-  &__nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: $background-nav;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar-track {
+    background-color: $border-base;
   }
 
   &__list {
-    width: 100%;
-    min-width: 770px;
-    overflow: hidden;
-    height: 24px;
-    line-height: 24px;
+    display: flex;
+    justify-content: space-between;
+    width: max-content;
+    padding: 6px;
     margin: 0 auto;
     padding-right: 25px;
     &:last-child {
@@ -360,9 +363,8 @@
   }
 
   // メニュー個別幅
-  &__item {
-    float: left;
-    width: 16.5%;
+  &__item-about {
+    padding: 0 12px;
     height: 15px;
     line-height: 15px;
     text-align: center;
@@ -370,38 +372,46 @@
     border-right: 0.5px solid $border-base;
     box-sizing: border-box;
 
-    &--about {
-      width: 30%;
-    }
-
-    &--blog {
-      width: 20%;
-    }
-
     &:last-child {
       border: none;
       padding-right: 0;
     }
   }
 
-  &__link {
+  &__item-works {
+    width: 100%;
+    padding: 0 16px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    display: table-cell;
+    border-right: 0.5px solid $border-base;
+    box-sizing: border-box;
+    &:last-child {
+      border: none;
+      padding-right: 0;
+    }
+  }
+
+  &__item-blog {
+    width: 100%;
+    padding: 0 16px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    display: table-cell;
+    border-right: 0.5px solid $border-base;
+    box-sizing: border-box;
+    &:last-child {
+      border: none;
+      padding-right: 0;
+    }
+  }
+
+  & a {
     display: inline-block;
     color: $font-white;
     font-size: fluid-size(12, 12);
     letter-spacing: 0.1em;
-  }
-
-  // ネクストボタン
-  &__next-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    text-align: center;
-    height: 24px;
-    line-height: 24px;
-    background-color: $background-nav;
-    color: $font-white;
-    font-size: fluid-size(14, 14);
   }
 }

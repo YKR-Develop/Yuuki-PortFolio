@@ -140,7 +140,7 @@
   &__item {
     width: 100%;
     @include mq(sp) {
-      width: 100%;
+      width: 50%;
     }
   }
 
@@ -162,94 +162,6 @@
     bottom: 0;
   }
 }
-
-/* --------------------------------------------------
-  ブログ記事カルーセル ※blog.html限定
--------------------------------------------------- */
-.article-slide {
-  overflow: hidden;
-  position: relative;
-
-  &__wrapper {
-    display: flex;
-    gap: 32px;
-  }
-
-  &__item {
-    width: calc(100% / 3);
-    overflow: hidden;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-
-  &__label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: calc(100% - 32px);
-    color: $font-white;
-    padding: 16px;
-    background-color: $background-opacity;
-    flex-grow: 1;
-  }
-
-  &__category {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 8px 16px;
-    color: $font-white;
-    background-color: $background-opacity;
-    font-size: 1.4rem;
-    display: flex;
-    & > a {
-      color: $font-white;
-      display: block;
-    }
-  }
-
-  &__thumb {
-    overflow: hidden;
-    & > img {
-      width: 100%;
-      transition: 0.7s;
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-  }
-
-  &__title-link {
-    font-weight: 400;
-    font-size: fluid-size(14, 16);
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-
-  &__date {
-    display: block;
-    text-align: right;
-    font-size: fluid-size(10, 12);
-    position: relative;
-    &::before {
-      position: absolute;
-      top: 0px;
-      right: 80px;
-      content: url("/images/ico/ico_clock.svg");
-      filter: brightness(0) saturate(100%) invert(99%) sepia(32%);
-      @include mq(sp) {
-        right: 70px;
-      }
-    }
-  }
-
-  & .swiper-pagination {
-    bottom: 0;
-  }
-}
-
 
 .metaslider {
   position: relative;

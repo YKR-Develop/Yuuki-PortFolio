@@ -49,11 +49,12 @@ h1 {
 }
 
 p {
-  font-size: fluid-size(14,16);
+  font-size: fluid-size(14, 16);
   margin-bottom: 8px;
   line-height: 1.5;
   letter-spacing: 0.1em;
   font-weight: 300;
+  letter-spacing: 4;
   &:last-child {
     margin-bottom: 0;
   }
@@ -70,12 +71,12 @@ p {
   position: relative;
 
   @include mq(tab) {
-    padding-top: 80px;
+    padding-top: 56px;
   }
 
   &--top {
     @include mq(tab) {
-      padding-top: 56px;
+      padding-top: 48px;
     }
   }
 }
@@ -85,33 +86,43 @@ p {
 -------------------------------------------------- */
 .contents {
   z-index: 1;
+  background-color: $background-gray;
   &__article {
     padding: 64px 64px;
-
-
+  
     @include mq(tab) {
-      padding: 64px 18px;
+      padding: 32px 18px;
+      &:last-child {
+        padding-bottom: 48px;
+      }
     }
-    &--bg {
-      background-color: $background-gray;
+    &--white-bg {
+      background-color: $background-white;
     }
 
     &--about {
       padding-top: 48px;
+      @include mq(tab) {
+        padding: 32px 18px;
+      }
     }
 
     &--works {
       padding-top: 48px;
       background-color: $background-gray;
+      @include mq(tab) {
+        padding: 32px 18px;
+      }
+    }
+
+    &--single {
+      max-width: $single-width;
+      margin: 0 auto;
     }
   }
 
   &__article-inner {
     @include maxWidth;
-    &--blog {
-      max-width: 768px;
-      margin: 0 auto 64px auto;
-    }
 
     @include mq(tab) {
       padding: 0 0;
@@ -129,17 +140,21 @@ p {
     @include mq(sp) {
       margin: 0 auto 32px auto;
     }
+
+    &--search-form {
+      margin-top: 64px;
+    }
   }
 
   &__wrapper {
-    margin-bottom: 80px;
+    margin-bottom: 64px;
 
     &:last-child {
       margin-bottom: 0;
     }
 
     @include mq(sp) {
-      margin-bottom: 64px;
+      margin-bottom: 48px;
     }
 
     &--about-genre {
@@ -152,14 +167,63 @@ p {
 }
 
 /* --------------------------------------------------
+ WordPress font-weight / linkのhover指定
+-------------------------------------------------- */
+.font-bold {
+  font-weight: 600;
+}
+
+.border-link > a {
+  display: inline-block;
+  font-size: 14px;
+  color: $font-black;
+  position: relative;
+  padding-right: 32px;
+  &::before {
+    @include stickArrow;
+  }
+  &::after {
+    @include hoverBorder;
+    bottom: -4px;
+  }
+  &:hover::after {
+    transform: scale(1, 1);
+  }
+  &:visited {
+    color: inherit;
+  }
+}
+
+/* --------------------------------------------------
  WordPress flex並び替え
 -------------------------------------------------- */
 .is-layout-flex {
   justify-content: center;
+  &--works-flex {
+    margin: 40px 0;
+    flex-wrap: nowrap !important;
+
+    @include mq(tab) {
+      margin: 24px 0;
+    }
+
+  }
+}
+
+.wp-element-caption {
+  text-align: right;
+  padding: 8px 8px;
+  font-size: 12px;
+
+
+  @include mq(sp) {
+    text-align: right;
+    padding: 4px 0;
+    font-size: 11px;
+  }
 }
 
 .wp-block-group__inner-container {
-  @include maxWidth;
 }
 
 /* --------------------------------------------------
@@ -168,5 +232,23 @@ p {
 .wp-block-separator {
   opacity: 0;
   margin-bottom: 32px;
+
+  &--large {
+    margin-bottom: 64px;
+    @include mq(tab) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &--works {
+    opacity: 1;
+    margin-top: 16px;
+    margin-bottom: 40px;
+  }
 }
 
+.wp-block-image {
+  &--padding-bt {
+    margin-bottom: 48px;
+  }
+}

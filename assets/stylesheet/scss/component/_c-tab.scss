@@ -13,6 +13,16 @@
 /* --------------------------------------------------
  WordPress WPTabプラグインCSS
 -------------------------------------------------- */
+#sp-wp-tabs-wrapper_686.sp-tab__lay-default > ul li.sp-tab__nav-item {
+  width: calc(100% / 3);
+  margin-top: 0;
+    border-bottom: 1px solid $border-base;
+  @include mq(sp) {
+    width: 50%;
+    margin-bottom: 8px;
+  }
+}
+
 #sp-wp-tabs-wrapper_686 {
   & .sp-tab__nav {
     display: flex;
@@ -20,67 +30,84 @@
     margin-bottom: 48px;
   }
 
-  & .sp-tab__nav-item {
-    width: calc(100% / 3);
-    margin-top: 0;
-    border-bottom: 1px solid $border-base;
-
-  }
-
   & .sp-tab__tab_title {
     display: flex;
     align-items: center;
     padding-bottom: 8px;
-    
+    transition: 0.3s;
+
     & > img {
       margin-right: 16px;
     }
+
+    & > span {
+      font-weight: 300;
+      @include mq(sp) {
+        font-size: 14px;
+      }
+    }
   }
 
-  &.sp-tab__nav-link {
-    &:hover {
-      color: white;
+  & .sp-tab__nav-link {
+    & .sp-tab__tab_title:hover {
+      color: #818181 !important;
+
+      & img {
+        filter: invert(53%) sepia(2%) saturate(3%) hue-rotate(342deg) brightness(95%) contrast(93%);
+      }
     }
   }
 }
 
-
-#sp-wp-tabs-wrapper_686 .sp-tab__nav-tabs .sp-tab__nav-item.show .sp-tab__nav-link, #sp-wp-tabs-wrapper_686.sp-tab__lay-default ul li label.sp-tab__active {
+#sp-wp-tabs-wrapper_686 .sp-tab__nav-tabs .sp-tab__nav-item.show .sp-tab__nav-link,
+#sp-wp-tabs-wrapper_686.sp-tab__lay-default ul li label.sp-tab__active {
+  padding-top: 2px;
   border-bottom: 2px solid $border-black;
+  & .sp-tab__tab_title > span {
+    font-weight: 600;
+  }
 }
 
 .sp-tab-content {
   display: flex;
   flex-wrap: wrap;
   gap: 32px 64px;
+  @include mq(tab) {
+    gap: 16px;
+  }
 }
 
-
-ul.tab li{ /*タブ部分*/
+ul.tab li {
+  /*タブ部分*/
   float: left;
   margin-right: 10px;
-  }
-ul.tab li.active a{ /*選択中のタブ*/
+}
+ul.tab li.active a {
+  /*選択中のタブ*/
   color: #333;
   font-weight: bold;
-  }
-.tab_area{ /*切り替え部分非表示*/
+}
+.tab_area {
+  /*切り替え部分非表示*/
   display: none;
-  }
-.tab_content{ /*内容*/
+}
+.tab_content {
+  /*内容*/
   width: 300px; /*幅*/
   clear: both;
   overflow: hidden;
-  }
-.tab_content ul li{ /*内容のリスト表示*/
+}
+.tab_content ul li {
+  /*内容のリスト表示*/
   clear: both; /*画像有りの場合*/
-  }
-.tab_content ul li img{ /*リスト内画像*/
+}
+.tab_content ul li img {
+  /*リスト内画像*/
   float: left;
   margin: 0 10px 10px 0;
-  }
+}
 
-  /* --------------------------------------------------
+/* --------------------------------------------------
  Tab タブメニュー
 -------------------------------------------------- */
 .tab {
@@ -168,11 +195,14 @@ ul.tab li.active a{ /*選択中のタブ*/
     justify-content: space-between;
     gap: 32px 64px;
 
-    
     @include animation($name: tabAnime, $duration: 2s, $fill-mode: forwards);
 
-    @include mq(sp) {
+    @include mq(tab) {
       gap: 16px 16px;
+    }
+
+    @include mq(sp) {
+      gap: 40px 16px;
     }
   }
   @keyframes tabAnime {

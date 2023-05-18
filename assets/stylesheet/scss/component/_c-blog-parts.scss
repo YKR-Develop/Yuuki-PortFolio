@@ -22,7 +22,6 @@
   &:first-child {
     padding-top: 0;
   }
-  
 
   // blog.html カテゴリー内ブログカードの指定
   &--category {
@@ -34,7 +33,7 @@
   }
 
   @include mq(tab) {
-    width: calc(100% / 2 - 32px / 2 * 2);
+    width: calc(100% / 2 - 8px / 2 * 2);
     flex-wrap: wrap;
     height: auto;
     padding-bottom: 24px;
@@ -47,12 +46,12 @@
   }
 
   @include mq(sp) {
-    width: calc(100% / 2 - 12px / 2 * 2);
     flex-wrap: wrap;
+    flex-direction: column;
     height: auto;
     padding-bottom: 24px;
     &--category {
-      width: calc(100% / 2 - 12px / 2 * 2);
+      width: calc(100% / 2 - 8px / 2 * 2);
     }
   }
 
@@ -60,12 +59,13 @@
     width: 100%;
     padding-left: 24px;
 
-
     @include mq(tab) {
       padding-left: 0;
     }
 
     @include mq(sp) {
+      display: flex;
+      flex-direction: column;
       padding-left: 0;
     }
   }
@@ -79,7 +79,6 @@
       margin-bottom: 16px;
     }
 
-
     & > img {
       width: 100%;
       transition: 0.7s;
@@ -88,7 +87,6 @@
       }
     }
   }
-
 
   &__title {
     font-size: fluid-size(14, 16);
@@ -106,7 +104,7 @@
       margin-bottom: 16px;
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       overflow: hidden;
     }
   }
@@ -116,13 +114,19 @@
     @include hoverText;
     font-size: fluid-size(13, 16);
     font-weight: 600;
+    flex-grow: 1;
+    min-height: 60px;
+    @include mq(tab) {
+      min-height: 40px;
+    }
   }
 
   &__category-link {
     display: flex;
-    gap: 8px 16px;
     flex-wrap: wrap;
+    gap: 8px 16px;
     margin-bottom: 16px;
+    flex-grow: 1;
 
     & > a {
       color: $font-black;
@@ -147,12 +151,17 @@
       }
 
       @include mq(sp) {
-        margin: 0 0 8px 0;
+        font-size: 12px;
       }
+    }
+    @include mq(sp) {
+      flex-grow: 1;
+      flex-wrap: wrap;
     }
   }
 
   &__date {
+    flex-grow: 1;
     font-size: fluid-size(10, 12);
     position: relative;
     display: block;
@@ -270,19 +279,14 @@
   }
 
   &__category-item {
-    width: calc(100% / 2 - 12px / 2 * 2);
+    width: calc(100% / 2 - 8px / 2 * 2);
   }
 
   &__blog-list {
-
     @include mq(tab) {
       display: flex;
-      gap: 0 24px;
+      gap: 0 16px;
       margin-bottom: 32px;
-    }
-    @include mq(sp) {
-      display: flex;
-      gap: 0 24px;
     }
   }
 }
@@ -291,13 +295,21 @@
  Blog-Affiliate アフィリエイト広告
 -------------------------------------------------- */
 .blog-affiliate {
-  @include maxWidth;
-  padding: 0 128px;
+  padding: 64px 64px 0 64px;
+  margin-bottom: 64px;
   display: flex;
   gap: 0 32px;
 
   @include mq(tab) {
+    padding: 48px 18px 0 18px;
+    margin-bottom: 0;
     flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  @include mq(sp) {
+    padding: 32px 18px 0 18px;
+    margin-bottom: 0;
     gap: 16px;
   }
 
@@ -305,7 +317,7 @@
     width: calc(100% / 3);
 
     @include mq(sp) {
-      width: calc(100% / 2 - 16px);
+      width: calc(100% / 2 - 8px);
     }
   }
 }
@@ -314,21 +326,28 @@
  Blog-Nav ブログ内ナビゲーション
 -------------------------------------------------- */
 .blog-nav {
-  @include maxWidth;
-  padding: 64px;
-  display: flex;
-  gap: 0 40px;
+  background-color: $background-gray;
 
-  @include mq(tab) {
-    padding: 48px 18px;
-    flex-wrap: wrap;
+  &__inner {
+    padding: 0 64px 64px 64px;
+    display: flex;
+    gap: 0 40px;
+
+    @include mq(tab) {
+      padding: 48px 18px;
+      flex-wrap: wrap;
+    }
+    @include mq(sp) {
+      padding: 32px 18px;
+      flex-wrap: wrap;
+    }
   }
 
   &__item {
     width: calc(100% / 3);
     @include mq(tab) {
       width: 100%;
-      margin-bottom: 48px;
+      margin-bottom: 24px;
       &:last-child {
         margin-bottom: 0;
       }
@@ -354,29 +373,41 @@
   }
 
   /* ========= 関連キーワード ========= */
-  &__keyword {
+  &__tag-list {
     display: flex;
     flex-wrap: wrap;
     gap: 16px 8px;
-  }
+    
+    & a {
+      font-size: 1.4rem;
+      position: relative;
+      padding: 8px;
+      background-color: $button-background;
+      color: $font-white;
+      padding-left: 28px;
+      transition: 0.3s;
+      border: 1px solid $border-black;
+  
+      &::before {
+        content: "";
+        position: absolute;
+        top: 27%;
+        left: 0;
+        background-image: url("../../images/blog_ico/ico_tag.svg");
+        width: 14px;
+        height: 14px;
+        margin-left: 8px;
+      }
 
-  &__keyword-link {
-    font-size: 1.4rem;
-    position: relative;
-    padding: 8px;
-    background-color: $border-black;
-    color: $font-white;
-    padding-left: 28px;
+      &:hover {
+        background: $background-gray;
+        border: 1px solid $border-base;
+        color: $font-black;
+      }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 27%;
-      left: 0;
-      background-image: url("../../images/blog_ico/ico_tag.svg");
-      width: 14px;
-      height: 14px;
-      margin-left: 8px;
+      &:hover::before {
+        filter: invert(34%) sepia(0%) saturate(895%) hue-rotate(279deg) brightness(91%) contrast(88%);
+      }
     }
   }
 }
@@ -400,7 +431,7 @@
   }
 
   &__link-about {
-    text-align: right;
+    text-align: center;
 
     @include mq(tab) {
       text-align: center;
@@ -412,8 +443,9 @@
     color: $font-black;
     display: inline-block;
     position: relative;
-    padding-right: 24px;
-    font-weight: 300;
+    padding: 0 24px 4px 0;
+    border-bottom: 1px solid $border-base;
+    font-weight: 600;
     &::before {
       @include stickArrow;
     }
@@ -435,7 +467,6 @@
   margin: 0 auto 48px auto;
   background-color: $background-white;
   display: block !important;
-
 
   .toc_title {
     font-weight: 600;

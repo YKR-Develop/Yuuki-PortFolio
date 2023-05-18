@@ -15,71 +15,87 @@
 -------------------------------------------------- */
 .top-works {
   display: flex;
-  align-items: flex-end;
-  padding-top: 80px;
- 
+  justify-content: space-between;
   &:last-child {
     margin-bottom: 0;
   }
   &--odd {
+    justify-content: space-between;
     flex-direction: row-reverse;
   }
 
   @include mq(tab) {
-    padding-top: 24px;
+    margin-bottom: 24px;
   }
 
   @include mq(sp) {
     flex-wrap: wrap;
+    flex-direction: column;
     margin: 32px auto 0 auto;
     padding-top: 0;
+ 
   }
 
   &__thumb {
+    width: 25%;
     margin-right: 64px;
     &--odd {
-      margin: 0 0 0 64px;
+      margin-right: 0;
+      margin-left: 64px;
+      @include mq(tab) {
+        margin-left: 32px;
+      }
+    }
+    @include mq(tab) {
+      margin-right: 32px;
+      width: 30%;
     }
     @include mq(sp) {
-      margin: 0 0 24px 0;
+      width: 80%;
+      margin: 0 auto 24px auto;
     }
   }
 
   &__image {
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.16);
-    width: vw(427, 768);
-
     @include mq(sp) {
-      box-shadow: none;
-      width: vw(357, 767);
+      width: 100%;
     }
+  }
+
+  &__text-box {
+    margin-bottom: 48px;
   }
 
   &__text {
     display: block;
     font-size: fluid-size(14, 16);
-    margin: 4% 32px;
 
     @include mq(tab) {
-      margin: 0 0 24px;
+      margin-bottom: 16px;
     }
   }
 
+  &__desc {
+    flex: 1;
+  }
+
   /* ===== モックアップの指定 ===== */
-  &__mockup-box {
+  &__mockup-list {
     display: flex;
+
+    @include mq(tab) {
+      flex-wrap: nowrap;
+    }
 
     @include mq(sp) {
       flex-wrap: wrap;
       justify-content: center;
       margin-bottom: 24px;
     }
-    @include mq(tab) {
-      flex-wrap: nowrap;
-    }
   }
 
-  &__mockup-title {
+  &__mockup-label {
     text-align: center;
     font-size: fluid-size(16, 18);
     margin-bottom: 16px;
@@ -97,20 +113,6 @@
       margin-right: 0;
     }
 
-    @include mq(sp) {
-      max-width: 70%;
-      margin: 0 auto;
-      border-top: 1px dotted $border-black;
-      border-bottom: 1px dotted $border-black;
-      border-left: none;
-      border-right: none;
-      padding: 16px 0;
-      &:nth-child(2) {
-        border-top: none;
-        margin-left: 0;
-      }
-    }
-
     @include mq(tab) {
       max-width: 50%;
       border-left: 1px dotted $border-black;
@@ -122,23 +124,34 @@
         border-left: none;
       }
     }
-  }
 
-  &__mock-image {
-    width: vw(392, 768);
+    @include mq(sp) {
+      max-width: 100%;
+      padding: 0;
+      margin: 0 auto;
+      border: none;
+      border-left: none;
+      border-right: none;
+      &:first-child {
+        margin-bottom: 32px;
+      }
+    }
   }
 }
 
 /* ******* トップページ SP画面限定 ******* */
 .page-link-sp {
-  width: auto;
-  margin: 0 auto;
   font-size: fluid-size(14, 14);
+
+  @include mq(tab) {
+    text-align: center;
+  }
   &--news {
     width: 231px;
   }
 
   &__link {
+    display: inline-block;
     color: $font-black;
     font-weight: 600;
     position: relative;
@@ -152,8 +165,6 @@
       bottom: -4px;
     }
   }
-  
-  
 }
 /* ******* トップページ SP画面限定 ******* */
 
@@ -167,6 +178,10 @@
   position: relative;
   margin-bottom: 48px;
 
+  @include mq(tab) {
+    flex-wrap: nowrap;
+  }
+
   @include mq(sp) {
     margin-bottom: 32px;
     flex-wrap: wrap;
@@ -177,6 +192,11 @@
     font-size: fluid-size(14, 16);
     margin-right: 64px;
 
+    @include mq(tab) {
+      width: 100%;
+      margin: 0 0 48px 0;
+    }
+
     @include mq(sp) {
       width: 100%;
       margin: 0 0 32px 0;
@@ -185,18 +205,23 @@
 
   &__text {
     line-height: 1.5;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     &:last-child {
       margin-bottom: 0;
     }
 
     @include mq(sp) {
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
   }
 
   &__profile-img {
-    width: 651px;
+    max-width: 651px;
+
+    @include mq(tab) {
+      max-width: 500px;
+    }
+
   }
 }
 

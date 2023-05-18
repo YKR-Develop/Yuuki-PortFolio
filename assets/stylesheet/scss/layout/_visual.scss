@@ -61,7 +61,6 @@
   }
 
   &__menu {
-    @include maxWidth;
     padding: 0 64px;
     display: flex;
     align-items: center;
@@ -106,15 +105,18 @@
     padding-left: 80px;
     color: $font-white;
     line-height: 48px;
+    @include mq(sp) {
+      line-height: 32px;
+    }
 
     &__main-heading {
-      font-size: fluid-size(26, 48);
+      font-size: fluid-size(20, 48);
       font-weight: 300;
     }
 
     &__sub-heading {
       font-weight: 300;
-      font-size: fluid-size(20, 24);
+      font-size: fluid-size(18, 24);
       position: relative;
       padding-left: 40px;
       color: $font-white;
@@ -127,6 +129,12 @@
         height: 1px;
         background-color: $border-base;
       }
+      @include mq(sp) {
+        padding-left: 24px;
+      }
+    }
+    @include mq(sp) {
+      padding-left: 16px;
     }
   }
 }

@@ -21,7 +21,7 @@
   &__item {
     margin-bottom: 16px;
     @include mq(sp) {
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
     &:last-child {
       margin-bottom: 0;
@@ -36,21 +36,16 @@
   @include centerWidth;
 
   & .is-layout-flex {
-    justify-content: space-between;
+    gap: 48px;
     align-items: start;
     @include mq(tab) {
       flex-direction: column;
-      gap: 32px 0;
+      gap: 16px 0;
     }
   }
 
   &__list {
-    @include mq(sp) {
-      margin-bottom: 24px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
+    flex-grow: 1;
 
     @include mq(tab) {
       margin-bottom: 24px;
@@ -58,11 +53,19 @@
         margin-bottom: 0;
       }
     }
+
+    @include mq(tab) {
+      margin-bottom: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
   }
 
   &__item {
     font-size: fluid-size(14, 16);
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     position: relative;
     padding-left: 16px;
     &::before {
@@ -75,8 +78,8 @@
       margin-bottom: 0;
     }
 
-    @include mq(sp) {
-      margin-bottom: 24px;
+    @include mq(tab) {
+      margin-bottom: 16px;
       &:last-child {
         margin-bottom: 0;
       }
@@ -99,7 +102,7 @@
         right: -20px;
 
         @include mq(sp) {
-          right: 0;
+          right: -8px;
         }
       }
     }
@@ -120,14 +123,17 @@
 
   &__label {
     font-size: fluid-size(14, 20);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    @include mq(tab) {
+      margin-bottom: 16px;
+    }
   }
 
   &__text {
     font-size: fluid-size(14, 16);
     margin-bottom: 16px;
-    @include mq(sp) {
-      margin-bottom: 24px;
+    @include mq(tab) {
+      margin-bottom: 8px;
     }
     &--bold {
       font-size: fluid-size(14, 18);
@@ -151,21 +157,33 @@
     flex-wrap: wrap;
     align-items: stretch;
     gap: 48px 64px;
+    @include mq(tab) {
+      gap: 0 24px;
+    }
+    
     @include mq(sp) {
       flex-direction: column;
       gap: 32px 0;
-      padding: 0 48px;
+      padding: 0 0;
     }
   }
 
   &__item {
     display: flex;
     flex-direction: column;
-    flex-basis: calc(100% / 2 - 32px / 2 * 2);
+    width: calc(100% / 2 - 32px / 2 * 2);
 
     @include mq(tab) {
+      width: calc(100% / 2 - 12px / 2 * 2);
+      flex-wrap: wrap;
       height: auto;
+      padding-bottom: 24px;
+    }
+    
+    @include mq(sp) {
       width: 100%;
+      flex-wrap: wrap;
+      padding-bottom: 0;
     }
   }
 
@@ -196,6 +214,7 @@
 
   & .wp-block-columns {
     flex-wrap: wrap !important;
+    padding: 0;
   }
 }
 
@@ -209,6 +228,10 @@
     margin-bottom: 64px;
 
     @include mq(tab) {
+      gap: 0 24px;
+    }
+
+    @include mq(sp) {
       &:nth-child(odd) {
         flex-direction: column-reverse;
       }
@@ -224,7 +247,7 @@
     @include mq(sp) {
       flex-direction: column;
       display: block;
-      margin-bottom: 48px;
+      margin-bottom: 24px;
     }
   }
 
@@ -276,7 +299,7 @@
   margin: 0 auto;
 
   &__item {
-
+    flex-wrap: wrap;
   }
 
   & .is-layout-flex {
@@ -290,7 +313,7 @@
     }
 
     @include mq(sp) {
-      flex-wrap: wrap;
+      flex-wrap: wrap !important;
       margin-bottom: 32px;
     }
   }
@@ -322,6 +345,7 @@
     font-size: fluid-size(14, 16);
     @include mq(sp) {
       display: block;
+      margin-top: 16px;
     }
   }
 }
@@ -345,6 +369,11 @@
     display: flex;
     border-bottom: 1px dotted $border-base;
     padding-bottom: 32px;
+
+    @include mq(tab) {
+      width: calc(100% / 2 - 8px / 2 * 2);
+      padding-bottom: 24px;
+    }
 
     @include mq(sp) {
       width: 100%;
