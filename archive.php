@@ -17,8 +17,10 @@
 
       <!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
       <div class="pkz">
-        <div class="pkz__inner pkz__inner--blog">
-        <?php breadcrumbs(); ?>
+        <div id="breadcrumbs" class="pkz__inner pkz__inner--blog" typeof="BreadcrumbList" vocab="https://schema.org/">
+          <?php if (function_exists('bcn_display')) {
+            bcn_display();
+          } ?>
         </div>
       </div>
       <!-- ⬆︎ /////////////////// パンくずリスト End /////////////////// ⬆︎ -->
@@ -26,7 +28,7 @@
       <!-- ================================================================================ -->
 
       <!-- ⬇︎ /////////////////// 最新の記事カルーセル Start /////////////////// ⬇︎ -->
-      <article class="contents__article contents__article--bg">
+      <article class="contents__article">
         <!-- ===== コンテンツ見出し Heading ===== -->
         <h2 class="contents-heading">
           <span class="contents-heading__main">
@@ -41,13 +43,13 @@
         <!-- ⬇︎ ############ 最新の記事一覧 Start ############ ⬇︎ -->
         <section class="contents__wrapper contents__wrapper--mb-none">
 
-          <div class="article-slide swiper-container">
-            <div class="article-slide__wrapper swiper-wrapper">
+          <div class="new-article swiper-container">
+            <div class="new-article__wrapper swiper-wrapper">
 
               <?php
               $args = array(
                 'post_type' => 'post',
-                'posts_per_page' => 3,
+                'posts_per_page' => 4,
                 'orderby' => 'date'
               );
               $posts = get_posts($args);
@@ -55,55 +57,59 @@
                 setup_postdata($post);
               ?>
                 <!-- ##### スライド記事 ##### -->
-                <div class="article-slide__item swiper-slide">
+                <div class="new-article__item">
 
                   <!-- 記事サムネイル -->
-                  <a href="<?php the_permalink(); ?>" class="article-slide__thumb">
+                  <a href="<?php the_permalink(); ?>" class="new-article__thumb">
                     <?php
                     if (has_post_thumbnail()) :
                       the_post_thumbnail();
                     else :
                     ?>
-                      <img class="article-slide__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                      <img class="new-article__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
                     <?php endif; ?>
                   </a>
 
                   <!-- カテゴリー -->
-                  <div class="article-slide__category">
-                    <?php
-                    $categories = get_the_category();
-                    foreach ($categories as $category) {
-                      // 親カテゴリーIDを取得
-                      $parent = $category->parent;
-                      // 親カテゴリーIDがない場合
-                      if (!$parent) {
-                        echo '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
-                        break;
+                  <div class="new-article__category-box">
+                    <div class="new-article__category">
+                      <?php
+                      $categories = get_the_category();
+                      foreach ($categories as $category) {
+                        // 親カテゴリーIDを取得
+                        $parent = $category->parent;
+                        // 親カテゴリーIDがない場合
+                        if (!$parent) {
+                          echo '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
+                          break;
+                        }
                       }
-                    }
-                    ?>
+                      ?>
+                    </div>
                   </div>
 
                   <!-- 記事タイトル / 投稿日時 -->
-                  <a href="<?php the_permalink(); ?>" class="article-slide__label">
-                    <h3 class=article-slide__title-link>
-                      <?php the_title(); ?>
-                    </h3>
-                    <time class="article-slide__date">
-                      <?php the_time('Y.m.d'); ?>
-                    </time>
-                  </a>
+                  <div class="new-article__label">
+                    <div class="new-article__label-inner">
+                      <a href="<?php the_permalink(); ?>" class="new-article__link">
+                        <h3 class=new-article__title-link>
+                          <?php the_title(); ?>
+                        </h3>
+                      </a>
+                      <div class="new-article__date-box">
+                        <time class="new-article__date">
+                          <?php the_time('Y.m.d'); ?>
+                        </time>
+                      </div>
+                    </div>
+
+                  </div>
 
                 </div>
 
               <?php endforeach;
               wp_reset_postdata(); ?>
             </div>
-
-            <!-- ##### スライドショー ページネーション / スライドボタン -->
-            <div class="swiper-pagination is-sp"></div>
-            <div class="swiper-button-prev is-sp"></div>
-            <div class="swiper-button-next is-sp"></div>
 
           </div>
         </section>
@@ -255,6 +261,10 @@
             <!-- ===== 特集記事 ブログカード ここまで ===== -->
           <?php endforeach;
           wp_reset_postdata(); ?>
+          <!-- ===== ページ遷移ボタン ===== -->
+          <div class="primary-button">
+            <a class="primary-button__link" href="<?php echo esc_url(get_tag_link('32')); ?>">特集記事一覧<span class="primary-button__arrow"></span></a>
+          </div>
         </div>
         <!-- ⬆︎ ############ 特集記事 End ############ ⬆︎ -->
 
@@ -331,7 +341,7 @@
       <!-- ================================================================================ -->
 
       <!-- ⬇︎ /////////////////// カテゴリー記事一覧 Start /////////////////// ⬇︎ -->
-      <article class="contents__article">
+      <article class="contents__article contents__article--white-bg">
         <!-- ===== コンテンツ見出し Heading ===== -->
         <h2 class="contents-heading">
           <span class="contents-heading__main">
@@ -563,7 +573,7 @@
       <!-- ================================================================================ -->
 
       <!-- ⬇︎ ############ ブログボトムナビゲーション Start ############ ⬇︎ -->
-      <?php get_template_part('templates/blog_bottom-nav'); ?>
+      <?php get_template_part('article-parts/blog_bottom-nav'); ?>
       <!-- ⬆︎ ############ ブログボトムナビゲーション End ############ ⬆︎ -->
     </div>
 

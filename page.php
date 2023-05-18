@@ -5,7 +5,7 @@
 <?php get_header(); ?>
 
 
-<div class="container container--top">
+<div class="container">
 
   <!-- ⬇︎ /////////////////// visual.php 読み込み /////////////////// ⬇︎ -->
   <?php get_template_part('parts/visual'); ?>
@@ -18,13 +18,15 @@
   <!-- =================================================== ページ内コンテンツ Start =================================================== -->
   <div class="contents">
 
-    <!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
-    <div class="pkz">
-      <div class="pkz__inner pkz__inner--blog">
-      <?php breadcrumbs(); ?>
+<!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
+<div class="pkz">
+        <div id="breadcrumbs" class="pkz__inner pkz__inner--blog" typeof="BreadcrumbList" vocab="https://schema.org/">
+          <?php if (function_exists('bcn_display')) {
+            bcn_display();
+          } ?>
+        </div>
       </div>
-    </div>
-    <!-- ⬆︎ /////////////////// パンくずリスト End /////////////////// ⬆︎ -->
+      <!-- ⬆︎ /////////////////// パンくずリスト End /////////////////// ⬆︎ -->
 
     <div class="contents__inner">
       <?php if (have_posts()) :

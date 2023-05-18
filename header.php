@@ -42,6 +42,27 @@
       </div>
     </header>
 
+  <?php elseif (is_page(775)) : ?>
+
+    <header class="header-single is-tab">
+      <div class="header-single__inner">
+        <!-- ##### ロゴ画像 出力 ##### -->
+        <?php the_custom_logo(); ?>
+
+        <nav class="header-single-nav">
+          <?php wp_nav_menu(array(
+            'theme_location' => 'global-nav',
+            'container' => false,
+            'items_wrap' => '<ul>%3$s</ul>'
+          )); ?>
+        </nav>
+
+        <!-- ##### 検索フォーム 出力 #####-->
+        <?php get_search_form(); ?>
+
+      </div>
+    </header>
+
   <?php elseif (is_single()) : ?>
 
     <header class="header-single is-tab">
@@ -63,11 +84,71 @@
       </div>
     </header>
 
+  <?php elseif (is_tax('works-cat', array('web-site', 'ui-ux-design', 'photoshop', 'illustrator', 'handmade-works'))) : ?>
+    <header class="header-single is-tab">
+      <div class="header-single__inner">
+        <!-- ##### ロゴ画像 出力 ##### -->
+        <?php the_custom_logo(); ?>
+
+        <nav class="header-single-nav">
+          <?php wp_nav_menu(array(
+            'theme_location' => 'global-nav',
+            'container' => false,
+            'items_wrap' => '<ul>%3$s</ul>'
+          )); ?>
+        </nav>
+
+        <!-- ##### 検索フォーム 出力 #####-->
+        <?php get_search_form(); ?>
+
+      </div>
+    </header>
+
+  <?php elseif (is_404()) : ?>
+    <header class="header-single is-tab">
+      <div class="header-single__inner">
+        <!-- ##### ロゴ画像 出力 ##### -->
+        <?php the_custom_logo(); ?>
+
+        <nav class="header-single-nav">
+          <?php wp_nav_menu(array(
+            'theme_location' => 'global-nav',
+            'container' => false,
+            'items_wrap' => '<ul>%3$s</ul>'
+          )); ?>
+        </nav>
+
+        <!-- ##### 検索フォーム 出力 #####-->
+        <?php get_search_form(); ?>
+
+      </div>
+    </header>
+
+  <?php elseif (is_search()) : ?>
+    <header class="header-single is-tab">
+      <div class="header-single__inner">
+        <!-- ##### ロゴ画像 出力 ##### -->
+        <?php the_custom_logo(); ?>
+
+        <nav class="header-single-nav">
+          <?php wp_nav_menu(array(
+            'theme_location' => 'global-nav',
+            'container' => false,
+            'items_wrap' => '<ul>%3$s</ul>'
+          )); ?>
+        </nav>
+
+        <!-- ##### 検索フォーム 出力 #####-->
+        <?php get_search_form(); ?>
+
+      </div>
+    </header>
     <!-- -------------------------------------------------
     特定の固定ページ
     ------------------------------------------------- -->
   <?php elseif (is_page('757') || is_page('775')) : ?>
-    
+
+
   <?php elseif (is_category(array('41', '42', '43', '10', '9', '8'))) : ?>
 
     <header class="header-single is-tab">
@@ -129,8 +210,6 @@
 
     </div>
   </header>
-
-  <!-- ======================================================================= -->
 
   <!-- ⬇︎-------------------------------------------------
 ボトムナビゲーション SP画面

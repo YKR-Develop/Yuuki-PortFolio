@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 
 <div class="container">
-  <!-- ⬇︎ /////////////////// メインビジュアル Start /////////////////// ⬇︎ -->
-  <?php get_template_part('parts/visual'); ?>
 
   <!-- ================================================================================ -->
 
@@ -17,7 +15,7 @@
 
       <!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
       <div class="pkz">
-        <div class="pkz__inner" typeof="BreadcrumbList" vocab="https://schema.org/">
+        <div id="breadcrumbs" class="pkz__inner pkz__inner--blog" typeof="BreadcrumbList" vocab="https://schema.org/">
           <?php if (function_exists('bcn_display')) {
             bcn_display();
           } ?>
@@ -30,52 +28,16 @@
       <!-- ⬇︎ ############ Web制作・開発の記事一覧 Start ############ ⬇︎ -->
       <article class="contents__article contents__article--bg">
 
-        <?php if (is_category(array('41', '42', '43', '10', '9', '8'))) : ?>
-
-          <!-- ===== コンテンツ見出し Heading ※子カテゴリーページのみ表示 ===== -->
-          <h1 class="contents-heading">
-            <span class="contents-heading__main">
-              Blog
-            </span>
-            <span class="contents-heading__sub">
-              <?php single_cat_title(); ?>
-            </span>
-          </h1>
-        <?php else : ?>
-
-        <?php endif; ?>
         <!-- ===== コンテンツ見出し Heading ※子カテゴリーページのみ表示 ===== -->
-
-
-        <!-- ⬇︎ /////////////////// カテゴリー ナビゲーション Start /////////////////// ⬇︎ -->
-        <?php if (is_category(array('7', '41', '42', '43'))) : ?>
-          <div class="category-nav">
-            <!-- ===== カテゴリーナビ 出力 ===== -->
-            <?php
-            wp_nav_menu(array(
-              'menu' => 'web-design_menu',
-              'theme_location' => 'category-nav',
-              'menu_class' => 'category-nav__list',
-              'container' => false,
-              'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
-            ));
-            ?>
-          </div>
-        <?php else : ?>
-          <div class="category-nav">
-            <!-- ===== カテゴリーナビ 出力 ===== -->
-            <?php
-            wp_nav_menu(array(
-              'menu' => 'handmade_menu',
-              'theme_location' => 'category-nav',
-              'menu_class' => 'category-nav__list',
-              'container' => false,
-              'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
-            ));
-            ?>
-          </div>
-        <?php endif; ?>
-        <!-- ⬆︎ /////////////////// カテゴリー ナビゲーション End /////////////////// ⬆︎ -->
+        <h1 class="contents-heading">
+          <span class="contents-heading__main">
+            Blog
+          </span>
+          <span class="contents-heading__sub">
+            <?php single_cat_title(); ?>
+          </span>
+        </h1>
+        <!-- ===== コンテンツ見出し Heading ※子カテゴリーページのみ表示 ===== -->
 
 
         <div class="blog-list">

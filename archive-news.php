@@ -16,17 +16,17 @@
 
     <!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
     <div class="pkz">
-      <div class="pkz__inner pkz__inner--blog">
-        <?php breadcrumbs(); ?>
+        <div id="breadcrumbs" class="pkz__inner pkz__inner--blog" typeof="BreadcrumbList" vocab="https://schema.org/">
+          <?php if (function_exists('bcn_display')) {
+            bcn_display();
+          } ?>
+        </div>
       </div>
-    </div>
-
-    <!-- ⬆︎ /////////////////// パンくずリスト End /////////////////// ⬆︎ -->
-
+      <!-- ⬆︎ /////////////////// パンくずリスト End /////////////////// ⬆︎ -->
 
     <!-- ⬇︎ /////////////////// お知らせ一覧表示 Start /////////////////// ⬇︎ -->
     <!-- ===== News お知らせ一覧 News-list ===== -->
-    <div class="contents__article contents__article--bg">
+    <div class="contents__article">
 
       <!-- ===== コンテンツ見出し Heading ===== -->
       <h1 class="contents-heading">
@@ -39,54 +39,36 @@
       </h1>
       <!-- ===== コンテンツ見出し Heading ===== -->
 
-      <ul class="news-list">
+      <div class="news-list">
+        <!-- ===== News お知らせ一覧 News-list ===== -->
         <?php if (have_posts()) : ?>
-          <?php while (have_posts()) : the_post();
-            $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'medium') : 'https://placehold.jp/150x150.png';
-          ?>
+          <?php while (have_posts()) : the_post(); ?>
 
-            <?php
-            $news_args = array(
-              'post_type' => array('news'),
-              'post-status' => 'publish',
-              'posts_per_page' => 8,
-              'paged' => $paged
-            );
-            $news_query = new WP_Query($news_args);
-            ?>
-
-
-            <!-- ループ処理 -->
-            <li class="news-list__item">
+            <article class="news-list__item">
               <time class="news-list__date">
                 <span><?php echo date("Y", strtotime($post->post_date)); ?></span><br>
                 <span class="news-list__date news-list__date--lg"><?php echo date("m.d", strtotime($post->post_date)); ?></span>
               </time>
               <p class="news-list__tag">
-                <?php $posttags = get_the_tags();
-                if ($posttags) {
-                  foreach ($posttags as $tag) {
-                    echo $tag->name . ' ';
-                  }
-                }
-                ?>
+                <?php echo get_the_excerpt(); ?>
               </p>
-              <a class="news-list__text-link" href="<?php the_permalink(); ?>">
-                <span class="title"><?php the_title(); ?></span>
-              </a>
-            <li>
-            <?php endwhile; ?>
-          <?php else : ?>
-            投稿がありません
-          <?php endif; ?>
-      </ul>
-    </div>
+              <a class="news-list__text-link" href="<?php the_permalink(); ?>"><span class="title"><?php the_title(); ?></span></a>
+            </article>
+          <?php endwhile; ?>
+          <?php wp_reset_postdata(); ?>
 
-    <?php
-    set_query_var('paging_query', $wp_query);
-    get_template_part('templates/pagination');
-    ?>
-    <!-- ⬆︎ /////////////////// お知らせ一覧表示 End /////////////////// ⬆︎ -->
+
+          <?php
+          set_query_var('paging_query', $wp_query);
+          get_template_part('templates/pagination');
+          ?>
+
+        <?php else : ?>
+          何も投稿がありません。
+        <?php endif; ?>
+
+        <!-- ⬆︎ /////////////////// お知らせ一覧表示 End /////////////////// ⬆︎ -->
+      </div>
+    </div>
   </div>
-</div>
-<?php get_footer(); ?>
+  <?php get_footer(); ?>

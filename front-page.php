@@ -19,7 +19,7 @@
     <div class="contents__inner">
 
       <!-- ⬇︎ /////////////////// Top_Works 制作実績 Start /////////////////// ⬇︎ -->
-      <article class="contents__article contents__article--bg" id="works-top">
+      <article class="contents__article" id="works-top">
         <section class="contents__article-inner">
           <!-- ===== コンテンツ見出し Heading ===== -->
           <h2 class="contents-heading">
@@ -35,239 +35,226 @@
           <!-- ⬇︎ ############ Webサイト制作 各要素コンテンツ Start ############ ⬇︎ -->
           <section class="contents__wrapper">
             <!-- ===== 各要素タイトル Title / link ===== -->
-            <div class="contents-title contents-title--works">
-              <h3 class="contents-title__title contents-title__title--works">Webサイト制作</h3>
+            <div class="contents-title">
+              <h3 class="contents-title__title">Webサイト</h3>
               <!-- リンクあり -->
               <div class="contents-title__page-link is-pc">
-                <a class="contents-title__link" href="/works/works_website.html">
-                  Webサイト制作 制作実績はこちら
+                <a class="contents-title__link" href="<?php echo get_category_link(55); ?>">
+                  Webサイト 制作実績はこちら
                 </a>
               </div>
             </div>
             <!-- ===== 各要素タイトル Title / link ===== -->
 
-            <!-- ===== 背景文字スクロール ===== -->
-            <div class="scroll-anime is-pc is-tab">
-              <div class="scroll-anime__box">
-                <div class="scroll-anime__item">
-                  <span class="scroll-anime__text">Coding</span>
-                  <span class="scroll-anime__text">WordPress</span>
-                  <span class="scroll-anime__text">EC</span>
-                  <span class="scroll-anime__text">LP</span>
-                </div>
-                <div class="scroll-anime__item">
-                  <span class="scroll-anime__text">Coding</span>
-                  <span class="scroll-anime__text">WordPress</span>
-                  <span class="scroll-anime__text">EC</span>
-                  <span class="scroll-anime__text">LP</span>
-                </div>
-              </div>
-            </div>
-            <!-- ===== 背景文字スクロール ===== -->
-
             <div class="top-works">
               <div class="top-works__thumb">
-                <img class="top-works__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets//images/img/img_top-works-webthumb.jpg" alt="Webサイト制作">
+                <img class="top-works__image" src="http://yukuro-createfolio.local/wp-content/uploads/2023/04/img_top-works-webthumb.jpg" alt="Webサイト制作">
               </div>
 
               <div class="top-works__desc">
-                <p class="top-works__text">
-                  デザインからコーディングで制作したHTMLサイトを始めPHPを用いたWordPressサイトやノーコードツールを利用したWebサイトなどを幅広く掲載しております。
-                </p>
-
-                <div class="top-works__mockup-box">
-
-                  <!-- Webサイト モックアップ① -->
-                  <div class="top-works__mockup-item">
-                    <h4 class="top-works__mockup-title">
-                      YuCoRea
-                    </h4>
-                    <a class="top-works__mockup" href="制作詳細ページURL">
-                      <img class="top-works__mock-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/img/img_top-works_webmockup.png" alt="YuCoRea モックアップ">
-                    </a>
-                  </div>
-
-                  <!-- Webサイト モックアップ② -->
-                  <div class="top-works__mockup-item">
-                    <h4 class="top-works__mockup-title">
-                      Cafe MITAKE
-                    </h4>
-                    <a class="top-works__mockup" href="制作詳細ページURL">
-                      <img class="top-works__mock-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/img/img_top-works_webmockup.png" alt="Cafe MITAKE モックアップ">
-                    </a>
-                  </div>
+                <div class="top-works__text-box">
+                  <p class="top-works__text">
+                    デザインからコーディングで制作したHTMLサイトを始めPHPを用いたWordPressサイトやノーコードツールを利用したWebサイトなどを幅広く掲載しております。
+                  </p>
+                  <p class="top-works__text">
+                    詳細ページでは制作時に使用したペルソナやカスタマージャーニーマップなどの資料も閲覧できます。
+                  </p>
                 </div>
-              </div>
 
-              <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
-              <div class="page-link-sp is-sp">
-                <a class="page-link-sp__link" href="/works/works_website.html">
-                  Webサイト制作 制作実績はこちら
-                </a>
+                <?php
+                $args = array(
+                  'post_type' => 'works',
+                  'posts_per_page' => 2,
+                  'tax_query' => array(
+                    array(
+                      'taxonomy' => 'works-cat',
+                      'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
+                      'terms'    => 'web-site'
+                    ),
+                  ),
+                );
+                $the_query = new WP_Query($args);
+                ?>
+
+                <ul class="top-works__mockup-list">
+                  <?php if ($the_query->have_posts()) : ?>
+                    <?php while ($the_query->have_posts()) : $the_query->the_post();
+                      $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
+                      <li class="top-works__mockup-item">
+                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
+                        <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
+                          <div class="top-works__mockup-thumb">
+                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="">
+                          </div>
+                        </a>
+                      </li>
+                    <?php endwhile; ?>
+                  <?php endif;
+                  wp_reset_postdata(); ?>
+                </ul>
               </div>
+            </div>
+            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
+            <div class="page-link-sp is-sp">
+              <a class="page-link-sp__link" href="<?php echo get_category_link(55); ?>">
+                Webサイト 制作実績はこちら
+              </a>
             </div>
             <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
           </section>
           <!-- ⬆︎ ############ Webサイト制作 各要素コンテンツ Start ############ ⬆︎ -->
 
 
-          <!-- ⬇︎ ############ プログラミング開発 各要素コンテンツ Start ############ ⬇︎ -->
-          <section class="contents__wrapper">
-            <!-- ===== 各要素タイトル Title / link ===== -->
-            <div class="contents-title contents-title--works">
-              <h3 class="contents-title__title contents-title__title--works">プログラミング</h3>
-              <!-- リンクあり -->
-              <div class="contents-title__page-link is-pc">
-                <a class="contents-title__link" href="/works/works_programing.html">
-                  プログラミング 制作実績はこちら
-                </a>
-              </div>
-            </div>
-            <!-- ===== 各要素タイトル Title / link ===== -->
-
-            <!-- ===== 背景文字スクロール ===== -->
-            <div class="scroll-anime is-pc is-tab">
-              <div class="scroll-anime__box">
-                <div class="scroll-anime__item">
-                  <span class="scroll-anime__text">Web</span>
-                  <span class="scroll-anime__text">Game</span>
-                  <span class="scroll-anime__text">Development</span>
-                </div>
-                <div class="scroll-anime__item">
-                  <span class="scroll-anime__text">Web</span>
-                  <span class="scroll-anime__text">Game</span>
-                  <span class="scroll-anime__text">Development</span>
-                </div>
-              </div>
-            </div>
-            <!-- ===== 背景文字スクロール ===== -->
-
-            <div class="top-works top-works--odd">
-              <div class="top-works__thumb top-works__thumb--odd">
-                <img class="top-works__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets//images/img/img_top-works-devthumb.jpg" alt="プログラミング">
-              </div>
-
-              <div class="top-works__desc">
-                <p class="top-works__text">
-                  PHP / JavaScript等の基本的なプログラミング言語を用いて開発したツールやゲーム作品を主に掲載しております。ご興味がございましたら、是非ご利用してみて下さい。
-                </p>
-
-                <div class="top-works__mockup-box">
-
-                  <!-- Webサイト モックアップ① -->
-                  <div class="top-works__mockup-item">
-                    <h4 class="top-works__mockup-title">
-                      How Much Hobby?
-                    </h4>
-                    <a class="top-works__mockup" href="制作詳細ページURL">
-                      <img class="top-works__mock-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/img/img_top-works-phonemockup.png" alt="YuCoRea モックアップ">
-                    </a>
-                  </div>
-
-                  <!-- Webサイト モックアップ② -->
-                  <div class="top-works__mockup-item">
-                    <h4 class="top-works__mockup-title">
-                      映姫様説教逃走ゲーム
-                    </h4>
-                    <a class="top-works__mockup" href="制作詳細ページURL">
-                      <img class="top-works__mock-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/img/img_top-works_webmockup02.png" alt="Cafe MITAKE モックアップE">
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
-              <div class="page-link-sp is-sp">
-                <a class="page-link-sp__link" href="/works/works_programing.html">
-                  プログラミング 制作実績はこちら
-                </a>
-              </div>
-            </div>
-            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
-          </section>
-          <!-- ⬆︎ ############ プログラミング開発 各要素コンテンツ Start ############ ⬆︎ -->
-
-
           <!-- ⬇︎ ############ UI UXデザイン 各要素コンテンツ Start ############ ⬇︎ -->
           <section class="contents__wrapper">
             <!-- ===== 各要素タイトル Title / link ===== -->
-            <div class="contents-title contents-title--works">
-              <h3 class="contents-title__title contents-title__title--works">UI UXデザイン</h3>
+            <div class="contents-title">
+              <h3 class="contents-title__title">UI UXデザイン</h3>
               <!-- リンクあり -->
               <div class="contents-title__page-link is-pc">
-                <a class="contents-title__link" href="/works/works_uiuxdesign.html">
+                <a class="contents-title__link" href="<?php echo get_category_link(56); ?>">
                   UI UXデザイン 制作実績はこちら
                 </a>
               </div>
             </div>
             <!-- ===== 各要素タイトル Title / link ===== -->
 
-            <!-- ===== 背景文字スクロール ===== -->
-            <div class="scroll-anime is-pc is-tab">
-              <div class="scroll-anime__box">
-                <div class="scroll-anime__item">
-                  <span class="scroll-anime__text">App</span>
-                  <span class="scroll-anime__text">Game</span>
-                  <span class="scroll-anime__text">UI Design</span>
-                </div>
-                <div class="scroll-anime__item">
-                  <span class="scroll-anime__text">App</span>
-                  <span class="scroll-anime__text">Game</span>
-                  <span class="scroll-anime__text">UI Design</span>
-                </div>
-              </div>
-            </div>
-            <!-- ===== 背景文字スクロール ===== -->
 
-            <div class="top-works top-works">
-              <div class="top-works__thumb top-works__thumb">
-                <img class="top-works__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/img/img_top-works-uiuxthumb.jpg" alt="プログラミング">
+            <div class="top-works top-works--odd">
+              <div class="top-works__thumb top-works__thumb--odd">
+                <img class="top-works__image" src="http://yukuro-createfolio.local/wp-content/uploads/2023/04/img_top-works-uiuxthumb.jpg" alt="プログラミング">
               </div>
 
               <div class="top-works__desc">
-                <p class="top-works__text">
-                  主にFigmaを使用して制作したアプリのUI UXデザインやゲームのUIデザインを掲載しております。
-                  FigmaURLでデザインの詳細を確認することができます。
-                </p>
-
-                <div class="top-works__mockup-box">
-
-                  <!-- Webサイト モックアップ① -->
-                  <div class="top-works__mockup-item">
-                    <h4 class="top-works__mockup-title">
-                      デリバリーショップUI
-                    </h4>
-                    <a class="top-works__mockup" href="制作詳細ページURL">
-                      <img class="top-works__mock-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/img/img_top-works-phonemockup.png" alt="デリバリーショップUI モックアップ">
-                    </a>
-                  </div>
-
-                  <!-- Webサイト モックアップ② -->
-                  <div class="top-works__mockup-item">
-                    <h4 class="top-works__mockup-title">
-                      運動管理アプリUI
-                    </h4>
-                    <a class="top-works__mockup" href="制作詳細ページURL">
-                      <img class="top-works__mock-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/img/img_top-works-phonemockup.png" alt="運動管理アプリUI モックアップ">
-                    </a>
-                  </div>
+                <div class="top-works__text-box">
+                  <p class="top-works__text">
+                    主にFigmaを使用して制作したアプリのUI UXデザインやゲームのUIデザインを掲載しております。
+                  </p>
+                  <p class="top-works__text">
+                    詳細ページでは実際にFigmaからデザインを確認することができるURLと制作時に使用した資料などもご覧いただけます。
+                  </p>
                 </div>
-              </div>
 
-              <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
-              <div class="page-link-sp is-sp">
-                <a class="page-link-sp__link" href="/works/works_uiuxdesign.html">
-                  UI UXデザイン制作 制作実績はこちら
-                </a>
+                <?php
+                $args = array(
+                  'post_type' => 'works',
+                  'posts_per_page' => 2,
+                  'tax_query' => array(
+                    array(
+                      'taxonomy' => 'works-cat',
+                      'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
+                      'terms'    => 'ui-ux-design'
+                    ),
+                  ),
+                );
+                $the_query = new WP_Query($args);
+                ?>
+
+                <ul class="top-works__mockup-list">
+                  <?php if ($the_query->have_posts()) : ?>
+                    <?php while ($the_query->have_posts()) : $the_query->the_post();
+                      $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
+                      <li class="top-works__mockup-item">
+                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
+                        <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
+                          <div class="top-works__mockup-thumb">
+                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="">
+                          </div>
+                        </a>
+                      </li>
+                    <?php endwhile; ?>
+                  <?php endif;
+                  wp_reset_postdata(); ?>
+                </ul>
               </div>
+            </div>
+
+            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
+            <div class="page-link-sp is-sp">
+              <a class="page-link-sp__link" href="<?php echo get_category_link(56); ?>">
+                UI UXデザイン制作 制作実績はこちら
+              </a>
             </div>
             <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
           </section>
           <!-- ⬆︎ ############ UI UXデザイン 各要素コンテンツ Start ############ ⬆︎ -->
 
+
+          <!-- ⬇︎ ############ ハンドメイド 各要素コンテンツ Start ############ ⬇︎ -->
+          <section class="contents__wrapper">
+            <!-- ===== 各要素タイトル Title / link ===== -->
+            <div class="contents-title contents-title--works">
+              <h3 class="contents-title__title">ハンドメイド</h3>
+              <!-- リンクあり -->
+              <div class="contents-title__page-link is-pc">
+                <a class="contents-title__link" href="<?php echo get_category_link(61); ?>">
+                  ハンドメイド 制作実績はこちら
+                </a>
+              </div>
+            </div>
+            <!-- ===== 各要素タイトル Title / link ===== -->
+
+            <div class="top-works top-works">
+              <div class="top-works__thumb top-works__thumb">
+                <img class="top-works__image" src="http://yukuro-createfolio.local/wp-content/uploads/2023/04/img_top-works-handmadethumb.jpg" alt="ハンドメイド">
+              </div>
+
+              <div class="top-works__desc">
+                <div class="top-works__text-box">
+                  <p class="top-works__text">
+                    私が趣味で制作しているハンドメイド作品を掲載しております。
+                  </p>
+                  <p class="top-works__text">
+                    アクセサリーを始め、コスプレで使用する衣装の制作や小道具の制作など幅広いジャンルを制作しております。
+                  </p>
+                </div>
+
+                <?php
+                $args = array(
+                  'post_type' => 'works',
+                  'posts_per_page' => 2,
+                  'tax_query' => array(
+                    array(
+                      'taxonomy' => 'works-cat',
+                      'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
+                      'terms'    => 'handmade-works'
+                    ),
+                  ),
+                );
+                $the_query = new WP_Query($args);
+                ?>
+
+                <ul class="top-works__mockup-list">
+                  <?php if ($the_query->have_posts()) : ?>
+                    <?php while ($the_query->have_posts()) : $the_query->the_post();
+                      $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
+                      <li class="top-works__mockup-item">
+                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
+                        <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
+                          <div class="top-works__mockup-thumb">
+                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="">
+                          </div>
+                        </a>
+                      </li>
+                    <?php endwhile; ?>
+                  <?php endif;
+                  wp_reset_postdata(); ?>
+                </ul>
+              </div>
+            </div>
+            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
+            <div class="page-link-sp is-sp">
+              <a class="page-link-sp__link" href="<?php echo get_category_link(61); ?>">
+                ハンドメイド 制作実績はこちら
+              </a>
+            </div>
+            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
+          </section>
+          <!-- ⬆︎ ############ ハンドメイド 各要素コンテンツ Start ############ ⬆︎ -->
+
           <!-- ===== ページ遷移ボタン ===== -->
           <div class="primary-button">
-            <a class="primary-button__link" href="/works/works_top.html">Works 詳細はこちら<span class="primary-button__arrow"></span></a>
+            <a class="primary-button__link" href="<?php echo home_url(); ?>/works">Works 詳細はこちら<span class="primary-button__arrow"></span></a>
           </div>
         </section>
       </article>
@@ -276,7 +263,7 @@
       <!-- ================================================================================ -->
 
       <!-- ⬇︎ /////////////////// Top_About Yukuro CreateFolioについて Start /////////////////// ⬇︎ -->
-      <article class="contents__article" id="about-top">
+      <article class="contents__article contents__article--white-bg" id="about-top">
         <!-- ===== コンテンツ見出し Heading ===== -->
         <section class="contents__article-inner">
           <h2 class="contents-heading">
@@ -301,13 +288,13 @@
               </p>
               <p class="top-about__text">
                 こちらのポートフォリオサイトでは、<br>
-                Webサイト / プログラミング開発 / UI UXデザイン等の制作作品の掲載と、ブログでの情報発信を行なっております。
+                Webサイト / UI UXデザイン / ハンドメイド作品等の作品掲載をはじめ、web制作やハンドメイド制作などの「ものづくり」に関する情報をブログ記事で発信しております。
               </p>
               <p class="top-about__text">
-                私は小さな頃から時間を忘れるほど好きだった「モノづくり」の力を活かせる職や仕事がないかと思った時に、「Webデザイン」という職に出会いました。
+                私は小さな頃から時間を忘れるほど好きだった「何かを作りたい」という探究心を活かせる仕事がないかと思った時に、「Webデザイン」という仕事に出会いました。
               </p>
               <p class="top-about__text">
-                時間を忘れながらWeb制作の勉強をしていく内に清掃員から転職し、現在はアルバイトではありますが、webデザイナーとして都内の会社で勤務しています。
+                時間を忘れながらWeb制作の勉強をしていく内に元の仕事の清掃員から転職し、Webデザイナーとして現在、都内の会社で働いております。
               </p>
             </div>
 
@@ -319,7 +306,7 @@
 
           <!-- ===== ページ遷移ボタン ===== -->
           <div class="primary-button">
-            <a class="primary-button__link" href="http://yukuro-createfolio.local/about/">About 詳細はこちら<span class="primary-button__arrow"></span></a>
+            <a class="primary-button__link" href="<?php echo home_url(); ?>/about">About 詳細はこちら<span class="primary-button__arrow"></span></a>
           </div>
 
           <!-- ⬆︎ ############ About 各要素コンテンツ Start ############ ⬆︎ -->
@@ -330,7 +317,7 @@
       <!-- ================================================================================ -->
 
       <!-- ⬇︎ /////////////////// Top_Blog ブログ Start /////////////////// ⬇︎ -->
-      <article class="contents__article contents__article--bg" id="blog-top">
+      <article class="contents__article" id="blog-top">
         <section class="contents__article-inner">
           <!-- ===== コンテンツ見出し Heading ===== -->
           <h2 class="contents-heading">
@@ -376,8 +363,6 @@
               </ul>
             </nav>
 
-            
-            
             <!-- ⬇︎ ############ Web制作・デザイン Start ############ ⬇︎ -->
             <div id="web-design_articles" class="tab__area">
               <?php
@@ -410,7 +395,7 @@
                   <!-- ブログタイトル / カテゴリー / 投稿日 -->
                   <div class="blog-card__label">
                     <h4 class="blog-card__title">
-                      <a class="blog-card__title-link" href="/blog/article_sample.html">
+                      <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
                         <?php the_title(); ?>
                       </a>
                     </h4>
@@ -518,62 +503,62 @@
           <div class="blog-category blog-category--top">
             <!-- ===== Web制作/開発・デザイン カテゴリ Start ===== -->
             <div class="blog-category__item blog-category__item--top">
-              <a href="<?php echo esc_url(get_category_link('7')); ?>" class="blog-category__thumb-link">
+              <a href="<?php echo home_url(); ?>/web-design" class="blog-category__thumb-link">
                 <h4 class="blog-category__title">Web制作/開発・デザイン</h4>
                 <img class="blog-category__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog_img/img_blog-category_programing-visual.jpg" alt="Web制作/開発・デザイン">
               </a>
-              
+
               <ul class="blog-category__category-list blog-category__category-list--top">
-              <?php
-              $categories = get_categories('parent=7');
-              foreach ($categories as $category) : ?>
-                <li class="blog-category__category-item">
-                  <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
-                  <?php
-                  $childs = get_categories('child_of=' . $category->term_id);
-                  if ($childs) :
-                  ?>
-                    <ul class="blog-category__category-list blog-category__category-list--top">
-                      <?php foreach ($childs as $child) : ?>
-                        <li class="blog-category__category-item">
-                          <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($child->term_id); ?>"><?php echo $child->name; ?></a>
-                        </li>
-                      <?php endforeach; ?>
-                    </ul>
-                  <?php endif; ?>
-                </li>
-              <?php endforeach; ?>
-            </ul>
+                <?php
+                $categories = get_categories('parent=7');
+                foreach ($categories as $category) : ?>
+                  <li class="blog-category__category-item">
+                    <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
+                    <?php
+                    $childs = get_categories('child_of=' . $category->term_id);
+                    if ($childs) :
+                    ?>
+                      <ul class="blog-category__category-list blog-category__category-list--top">
+                        <?php foreach ($childs as $child) : ?>
+                          <li class="blog-category__category-item">
+                            <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($child->term_id); ?>"><?php echo $child->name; ?></a>
+                          </li>
+                        <?php endforeach; ?>
+                      </ul>
+                    <?php endif; ?>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
             </div>
             <!-- ===== Web制作/開発・デザイン カテゴリ ENd ===== -->
 
             <!-- ===== ハンドメイド カテゴリ Start ===== -->
             <div class="blog-category__item blog-category__item--top">
-              <a href="<?php echo esc_url(get_category_link('3')); ?>" class="blog-category__thumb-link">
+              <a href="<?php echo home_url(); ?>/handmade" class="blog-category__thumb-link">
                 <h4 class="blog-category__title">ハンドメイド</h4>
                 <img class="blog-category__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog_img/img_blog-category_molding-visual.jpg" alt="ハンドメイド">
               </a>
               <ul class="blog-category__category-list blog-category__category-list--top">
-              <?php
-              $categories = get_categories('parent=3');
-              foreach ($categories as $category) : ?>
-                <li class="blog-category__category-item">
-                  <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
-                  <?php
-                  $childs = get_categories('child_of=' . $category->term_id);
-                  if ($childs) :
-                  ?>
-                    <ul class="blog-category__category-list blog-category__category-list--top">
-                      <?php foreach ($childs as $child) : ?>
-                        <li class="blog-category__category-item">
-                          <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($child->term_id); ?>"><?php echo $child->name; ?></a>
-                        </li>
-                      <?php endforeach; ?>
-                    </ul>
-                  <?php endif; ?>
-                </li>
-              <?php endforeach; ?>
-            </ul>
+                <?php
+                $categories = get_categories('parent=3');
+                foreach ($categories as $category) : ?>
+                  <li class="blog-category__category-item">
+                    <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
+                    <?php
+                    $childs = get_categories('child_of=' . $category->term_id);
+                    if ($childs) :
+                    ?>
+                      <ul class="blog-category__category-list blog-category__category-list--top">
+                        <?php foreach ($childs as $child) : ?>
+                          <li class="blog-category__category-item">
+                            <a class="blog-category__category-link secondary-button" href="<?php echo get_category_link($child->term_id); ?>"><?php echo $child->name; ?></a>
+                          </li>
+                        <?php endforeach; ?>
+                      </ul>
+                    <?php endif; ?>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
             </div>
             <!-- ===== ハンドメイド カテゴリ ENd ===== -->
 
@@ -583,7 +568,7 @@
 
           <!-- ===== ページ遷移ボタン ===== -->
           <div class="primary-button">
-            <a class="primary-button__link" href="<?php echo home_url(); ?>/blog">Yukuro CreateLog<span class="primary-button__arrow"></span></a>
+            <a class="primary-button__link" href="<?php echo home_url(); ?>/blog">Blog 一覧はこちら<span class="primary-button__arrow"></span></a>
           </div>
           <!-- ⬆︎ ############ Blog 各要素コンテンツ Start ############ ⬆︎ -->
         </section>
@@ -593,7 +578,7 @@
       <!-- ================================================================================ -->
 
       <!-- ⬇︎ /////////////////// Top_News お知らせ Start /////////////////// ⬇︎ -->
-      <article class="contents__article" id="news-top">
+      <article class="contents__article contents__article--white-bg" id="news-top">
         <section class="contents__article-inner">
           <!-- ===== コンテンツ見出し Heading ===== -->
           <h2 class="contents-heading">
@@ -605,7 +590,7 @@
             </span>
 
             <div class="contents-heading__side-link is-pc">
-              <a class="contents-heading__link" href="http://yukuro-createfolio.local/?post_type=news">News お知らせ一覧はこちら</a>
+              <a class="contents-heading__link" href="<?php echo home_url(); ?>/news">News お知らせ一覧はこちら</a>
             </div>
           </h2>
           <!-- ===== コンテンツ見出し Heading ===== -->
@@ -628,19 +613,19 @@
                   <span class="news-list__date news-list__date--lg"><?php echo date("m.d", strtotime($post->post_date)); ?></span>
                 </time>
                 <p class="news-list__tag">
-                  <?php $posttags = get_the_tags();
-                  if ($posttags) {
-                    foreach ($posttags as $tag) {
-                      echo $tag->name . ' ';
-                    }
-                  }
-                  ?>
+                  <?php echo get_the_excerpt(); ?>
                 </p>
                 <a class="news-list__text-link" href="<?php the_permalink(); ?>"><span class="title"><?php the_title(); ?></span></a>
-
-              <?php endforeach; ?>
-              <?php wp_reset_postdata(); ?>
+              </li>
+            <?php endforeach; ?>
+            <?php wp_reset_postdata(); ?>
           </ul>
+          <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
+          <div class="page-link-sp is-sp">
+            <a class="page-link-sp__link" href="<?php echo home_url(); ?>/news">
+              News お知らせ一覧はこちら
+            </a>
+          </div>
 
         </section>
       </article>
@@ -649,7 +634,7 @@
       <!-- ================================================================================ -->
 
       <!-- ⬇︎ /////////////////// Contact お問い合わせ Start /////////////////// ⬇︎ -->
-      <article class="contents__article contents__article--bg" id="contact">
+      <article class="contents__article" id="contact">
         <section class="contents__article-inner">
           <!-- ===== コンテンツ見出し Heading ===== -->
           <h2 class="contents-heading">

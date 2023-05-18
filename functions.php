@@ -142,6 +142,65 @@ add_filter('user_contactmethods', 'my_user_meta', 10, 1);
 // プロフィール内でのタグ使用実装
 remove_filter('pre_user_description', 'wp_filter_kses');
 
+/* --------------------------------------------------
+  見出しにID属性を自動挿入実装
+  ------------------------------------------------- */
+/**
+ * Summary
+ * 見出しに id を自動挿入
+ * @param string $the_content 記事の本文.
+ */
+function add_auto_id($the_content)
+{
+  // idを付加する見出しレベルを設定
+  $start = 1;
+  $end = 6;
+
+  // 見出しのパターンを作成
+  $pattern = '/^<h([' . $start . '-' . $end . ']).*?>.+?<\/h[' . $start . '-' . $end . ']>$/im';
+  /*
+		$headingsにページ内の見出し要素を格納
+		$headings[0]：マッチした文字列
+		$headings[1]：見出しレベル（h3なら"3"）
+	*/
+  if (!preg_match_all($pattern, $the_content, $headings)) {
+    /* 見出しがない場合は終了 */
+    return $the_content;
+  }
+
+  /* idが設定されているかどうかを判断するためのパターン */
+  $id_pattern = '/^<h([' . $start . '-' . $end . ']).+?id\s*=\s*\"(.+?)\".*>(.+?)<\/h[' . $start . '-' . $end . ']>$/im';
+
+  /* 見出しごとにidが設定されていない見出しにidを付加 */
+  $num_count = count($headings[0]);
+  for ($i = 0; $i < $num_count; $i++) {
+
+    /* 見出しにidが設定されているかどうかの判断. 見出しにidが設定されている場合のみマッチ */
+    if (!preg_match($id_pattern, $headings[0][$i], $dummy)) {
+
+      /* idが設定されていない見出しの場合に行う処理. idを付加した文字列（<hX id=autoid-Y）を作成 */
+      $id_str = '<h' . $headings[1][$i] . ' id="autoid-' . $i . '"';
+
+      /* id_str（<hX id=autoid-Y）で元々の見出しの"<hX"部分に置換 */
+      $replaced_heading =
+        str_replace('<h' . $headings[1][$i], $id_str, $headings[0][$i]);
+
+      /* id付加後の見出しで元々のコンテンツ内の見出しを置換 */
+      $the_content =
+        str_replace($headings[0][$i], $replaced_heading, $the_content);
+    }
+  }
+
+  return $the_content;
+}
+
+/* the_contentフックに関数をフック */
+add_filter('the_content', 'add_auto_id', 9);
+/* 見出しにid属性を自動挿入 End */
+
+
+
+
 /* ================================================
 
   ナビゲーションメニュー実装
@@ -161,6 +220,9 @@ function register_my_menus()
       'bottom-nav' => ('ボトムナビ'),
       'category-menu' => ('カテゴリーメニュー'),
       'category-nav' => ('カテゴリーナビ'),
+      'sp-scroll-menu-about' => ('about用スクロールメニュー'),
+      'sp-scroll-menu-works' => ('works用スクロールメニュー'),
+      'sp-scroll-menu-blog' => ('blog用スクロールメニュー'),
     )
   );
 }
@@ -192,189 +254,16 @@ function my_custom_nav($classes, $item)
 
 
 /* --------------------------------------------------
-  パンくずリスト
+  パンくずリスト Breacrumb navXT のトップページの表記を書き換える
   ------------------------------------------------- */
-function breadcrumbs($args = array())
-{
-  global $post;
-  $str = '';
-  $defaults = array(
-    'id' => "breadcrumbs",
-    'home' => "Home",
-    'search' => "で検索した結果",
-    'tag' => "タグ",
-    'author' => "投稿者",
-    'notfound' => "404 Not found",
-    'separator' => '>'
-  );
-
-  $args = wp_parse_args($args, $defaults);
-  extract($args, EXTR_SKIP);
-  if (is_home()) {
-    echo  '<div id="' . $id . '" >' . '<ul><li>' . $home . '</li></ul></div>';
-  }
-
-  if (!is_home() && !is_admin()) {
-    $str .= '<div id="' . $id . '" >';
-    $str .= '<ul>';
-    $str .= '<li class="breadcrumb-top" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/" itemprop="url"><span itemprop="title">' . $home . '</span></a></li>';
-    $str .= '<li>' . $separator . '</li>';
-    $my_taxonomy = get_query_var('taxonomy');
-    $cpt = get_query_var('post_type');
-
-    if ($my_taxonomy && is_tax($my_taxonomy)) {
-      $my_tax = get_queried_object();
-      $post_types = get_taxonomy($my_taxonomy)->object_type;
-      $cpt = $post_types[0];
-      $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_post_type_archive_link($cpt) . '" itemprop="url"><span itemprop="title">' . get_post_type_object($cpt)->label . '</span></a></li>';
-      $str .= '<li>' . $separator . '</li>';
-
-      if ($my_tax->parent != 0) {
-        $ancestors = array_reverse(get_ancestors($my_tax->term_id, $my_tax->taxonomy));
-
-        foreach ($ancestors as $ancestor) {
-          $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_term_link($ancestor, $my_tax->taxonomy) . '" itemprop="url"><span itemprop="title">' . get_term($ancestor, $my_tax->taxonomy)->name . '</span></a></li>';
-          $str .= '<li>' . $separator . '</li>';
-        }
-      }
-      $str .= '<li>' . $my_tax->name . '</li>';
-    } elseif (is_category()) {
-      $cat = get_queried_object();
-      if ($cat->parent != 0) {
-        $ancestors = array_reverse(get_ancestors($cat->cat_ID, 'category'));
-        foreach ($ancestors as $ancestor) {
-          $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link($ancestor) . '" itemprop="url"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
-          $str .= '<li>' . $separator . '</li>';
-        }
-      }
-      $str .= '<li>' . $cat->name . '</li>';
-    } elseif (is_post_type_archive()) {
-      $cpt = get_query_var('post_type');
-      $str .= '<li>' . get_post_type_object($cpt)->label . '</li>';
-    } elseif ($cpt && is_singular($cpt)) {
-      $taxes = get_object_taxonomies($cpt);
-      $mytax = $taxes[0];
-      $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_post_type_archive_link($cpt) . '" itemprop="url"><span itemprop="title">' . get_post_type_object($cpt)->label . '</span></a></li>';
-      $str .= '<li>' . $separator . '</li>';
-      $taxes = get_the_terms($post->ID, $mytax);
-      $tax = get_youngest_tax($taxes, $mytax);
-
-      if ($tax->parent != 0) {
-        $ancestors = array_reverse(get_ancestors($tax->term_id, $mytax));
-        foreach ($ancestors as $ancestor) {
-          $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_term_link($ancestor, $mytax) . '" itemprop="url"><span itemprop="title">' . get_term($ancestor, $mytax)->name . '</span></a></li>';
-          $str .= '<li>' . $separator . '</li>';
-        }
-      }
-      $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_term_link($tax, $mytax) . '" itemprop="url"><span itemprop="title">' . $tax->name . '</span></a></li>';
-      $str .= '<li>' . $separator . '</li>';
-      $str .= '<li>' . $post->post_title . '</li>';
-    } elseif (is_single()) {
-      $categories = get_the_category($post->ID);
-      $cat = get_youngest_cat($categories);
-      if ($cat->parent != 0) {
-        $ancestors = array_reverse(get_ancestors($cat->cat_ID, 'category'));
-        foreach ($ancestors as $ancestor) {
-          $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link($ancestor) . '" itemprop="url"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
-          $str .= '<li>' . $separator . '</li>';
-        }
-      }
-      $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link($cat->term_id) . '" itemprop="url"><span itemprop="title">' . $cat->cat_name . '</span></a></li>';
-      $str .= '<li>' . $separator . '</li>';
-      $str .= '<li>' . $post->post_title . '</li>';
-    } elseif (is_page()) {
-      if ($post->post_parent != 0) {
-        $ancestors = array_reverse(get_post_ancestors($post->ID));
-        foreach ($ancestors as $ancestor) {
-          $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_permalink($ancestor) . '" itemprop="url"><span itemprop="title">' . get_the_title($ancestor) . '</span></a></li>';
-          $str .= '<li>' . $separator . '</li>';
-        }
-      }
-      $str .= '<li>' . $post->post_title . '</li>';
-    } elseif (is_date()) {
-      if (get_query_var('day') != 0) {
-        $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_year_link(get_query_var('year')) . '" itemprop="url"><span itemprop="title">' . get_query_var('year') . '年</span></a></li>';
-        $str .= '<li>' . $separator . '</li>';
-        $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_month_link(get_query_var('year'), get_query_var('monthnum')) . '" itemprop="url"><span itemprop="title">' . get_query_var('monthnum') . '月</span></a></li>';
-        $str .= '<li>' . $separator . '</li>';
-        $str .= '<li>' . get_query_var('day') . '日</li>';
-      } elseif (get_query_var('monthnum') != 0) {
-        $str .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_year_link(get_query_var('year')) . '" itemprop="url"><span itemprop="title">' . get_query_var('year') . '年</span></a></li>';
-        $str .= '<li>' . $separator . '</li>';
-        $str .= '<li>' . get_query_var('monthnum') . '月</li>';
-      } else {
-        $str .= '<li>' . get_query_var('year') . '年</li>';
-      }
-    } elseif (is_author()) {
-      $str .= '<li>' . $author . ' : ' . get_the_author_meta('display_name', get_query_var('author')) . '</li>';
-    } elseif (is_tag()) {
-      $str .= '<li>' . $tag . ' : ' . single_tag_title('', false) . '</li>';
-    } elseif (is_attachment()) {
-      $str .= '<li>' . $post->post_title . '</li>';
-    } elseif (is_404()) {
-      $str .= '<li>' . $notfound . '</li>';
-    } else {
-      $str .= '<li>' . wp_title('', true) . '</li>';
+add_filter( 'bcn_breadcrumb_title', 'nskw_bcn_breadcrumb_title_filter', 10, 2 );
+function nskw_bcn_breadcrumb_title_filter( $title, $type=null ) {
+ 
+    if ( 'home' === $type[0] ) {
+        $title = 'HOME';
     }
-
-    $str .= '</ul>';
-    $str .= '</div>';
-  }
-  echo $str;
-}
-
-function get_youngest_cat($categories)
-{
-  global $post;
-  if (count($categories) == 1) {
-    $youngest = $categories[0];
-  } else {
-    $count = 0;
-    foreach ($categories as $category) {
-      $children = get_term_children($category->term_id, 'category');
-      if ($children) {
-        if ($count < count($children)) {
-          $count = count($children);
-          $lot_children = $children;
-          foreach ($lot_children as $child) {
-            if (in_category($child, $post->ID)) {
-              $youngest = get_category($child);
-            }
-          }
-        }
-      } else {
-        $youngest = $category;
-      }
-    }
-  }
-  return $youngest;
-}
-
-function get_youngest_tax($taxes, $mytaxonomy)
-{
-  global $post;
-  if (count($taxes) == 1) {
-    $youngest = $taxes[key($taxes)];
-  } else {
-    $count = 0;
-    foreach ($taxes as $tax) {
-      $children = get_term_children($tax->term_id, $mytaxonomy);
-      if ($children) {
-        if ($count < count($children)) {
-          $count = count($children);
-          $lot_children = $children;
-          foreach ($lot_children as $child) {
-            if (is_object_in_term($post->ID, $mytaxonomy)) {
-              $youngest = get_term($child, $mytaxonomy);
-            }
-          }
-        }
-      } else {
-        $youngest = $tax;
-      }
-    }
-  }
-  return $youngest;
+ 
+    return $title;
 }
 
 /* --------------------------------------------------
@@ -518,11 +407,9 @@ function create_post_type()
     )
   );
 
-
   /* --------------------------------------------------
   お知らせ欄
   ------------------------------------------------- */
-
   register_post_type(
     'news',
     array(
@@ -546,27 +433,27 @@ function create_post_type()
       )
     )
   );
-  register_taxonomy('news', array('news'), array(
-    'hierarchical' => true,
-    'label' => 'ページカテゴリー',
-    'show_ui' => true,
-    'public' => true
-  ));
   register_taxonomy_for_object_type('news', array('news'));
-  register_taxonomy_for_object_type('post_tag', 'news');
 }
 
 
 /* --------------------------------------------------
   お知らせ記事一覧ページネーション
   ------------------------------------------------- */
-$news_args = array(
-  'post_type' => array('news'),
-  'post_status' => 'publish',
-  'posts_per_page' => 6,
-  'paged' => $paged,
-);
-$news_query = new WP_Query($news_args);
+  add_action('pre_get_posts', 'my_pre_get_posts');
+ 
+  function my_pre_get_posts($query) {
+  if (!is_admin() && $query->is_main_query() && is_post_type_archive('news')) {
+    $query->set('posts_per_page', 4);
+    }
+  }
+
+  add_action('pre_get_posts', 'my_pre_get_posts_works');
+  function my_pre_get_posts_works($query) {
+  if (!is_admin() && $query->is_main_query() && is_post_type_archive('works')) {
+    $query->set('posts_per_page',3);
+    }
+  }
 
 /* --------------------------------------------------
   ランキング記事一覧の作成
@@ -602,3 +489,28 @@ function sortable_column_custom_meta_views($columns)
 }
 add_filter('manage_edit-post_sortable_columns', 'sortable_column_custom_meta_views');
 
+/* ================================================
+
+  検索フォームの実装
+
+  ================================================ */
+  function custom_search($search, $wp_query  ) {
+    //query['s']があったら検索ページ表示
+    if ( isset($wp_query->query['s']) ) 
+  $wp_query->is_search = true;
+    return $search;
+  }
+  add_filter('posts_search','custom_search', 10, 2);
+/* --------------------------------------------------
+  タイトルを変更
+  ------------------------------------------------- */
+  function wp_search_title($search_title) {
+    if(is_search()) {
+      $search_title = '「'.get_search_query().'」の検索結果';
+    }
+    return $search_title;
+  }
+  add_filter('wp_title', 'wp_search_title');
+
+  
+  

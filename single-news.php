@@ -4,7 +4,7 @@
 ================================================== -->
 <?php get_header(); ?>
 
-<div class="container container--top">
+<div class="container">
 
   <!-- ================================================================================ -->
 
@@ -16,12 +16,14 @@
 
     <!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
     <div class="pkz">
-      <div class="pkz__inner pkz__inner--blog">
-      <?php breadcrumbs(); ?>
+        <div id="breadcrumbs" class="pkz__inner pkz__inner--blog" typeof="BreadcrumbList" vocab="https://schema.org/">
+          <?php if (function_exists('bcn_display')) {
+            bcn_display();
+          } ?>
+        </div>
       </div>
-    </div>
-
-    <!-- ⬆︎ /////////////////// パンくずリスト End /////////////////// ⬆︎ -->
+      <!-- ⬆︎ /////////////////// パンくずリスト End /////////////////// ⬆︎ -->
+      
     <div class="contents__inner">
       <?php while (have_posts()) : the_post(); ?>
         <!-- ⬇︎ /////////////////// お知らせ記事コンテンツ Start /////////////////// ⬇︎ -->
