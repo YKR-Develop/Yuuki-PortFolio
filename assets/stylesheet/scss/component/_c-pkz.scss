@@ -53,15 +53,19 @@
       @include mq(tab) {
         font-size: 12px;
       }
+      
 
       & a span {
-        &:hover {
-          @include hoverText;
+        border-bottom: 1px solid $border-base;
+        &::after {
+          @include hoverBorder;
+          bottom: -4px;
         }
+
+        @include hoverText;
+        
       }
     }
   }
-
-  
 }
 

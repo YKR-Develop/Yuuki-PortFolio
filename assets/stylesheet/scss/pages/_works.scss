@@ -34,7 +34,41 @@
   }
 
   &__thumb {
+    width: 100%;
+    height: 224px;
     overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: "Read More";
+      font-size: fluid-size(14, 16);
+      letter-spacing: 0.1em;
+      text-align: center;
+      color: $font-white;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: rgba(0, 0, 0, 0.4);
+      transition: 0.5s;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-top: 18%;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+    
+    @include mq(tab){
+      height: 100%;
+    }
   }
 
   &__image {

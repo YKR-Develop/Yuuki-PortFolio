@@ -71,7 +71,6 @@
   }
 
   &__thumb {
-    height: 200px;
     overflow: hidden;
     @include mq(tab) {
       min-width: 110px;
@@ -226,7 +225,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding-top: 20%;
+      padding-top: 18%;
       opacity: 0;
     }
 

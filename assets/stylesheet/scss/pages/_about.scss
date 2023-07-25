@@ -101,9 +101,7 @@
         @include stickArrow;
         right: -20px;
 
-        @include mq(sp) {
-          right: -8px;
-        }
+        
       }
     }
   }
@@ -247,7 +245,7 @@
     @include mq(sp) {
       flex-direction: column;
       display: block;
-      margin-bottom: 24px;
+      margin-bottom: 40px;
     }
   }
 

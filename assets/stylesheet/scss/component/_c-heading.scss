@@ -115,6 +115,7 @@
       position: absolute;
       top: 50%;
       left: 0;
+      
     }
 
     &::before {
@@ -136,6 +137,10 @@
     bottom: 0;
     right: 0;
 
+    @include mq(tab) {
+      display: none;
+    }
+
     @include mq(sp) {
       width: 261px;
       margin: 0 auto;
@@ -144,16 +149,13 @@
       transform: translate(-50%, -50%)
     }
 
-    @include mq(tab) {
-      display: none;
-    }
   }
 
   &__link {
     color: $font-black;
     position: relative;
     padding: 0 24px 4px 0;
-    font-weight: 300;
+    font-weight: 600;
     border-bottom: 1px solid $border-base;
 
     &::before {

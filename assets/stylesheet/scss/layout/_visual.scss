@@ -12,6 +12,7 @@
 .main_visual {
   position: relative;
   z-index: 100;
+  
 
   &__eye-catching > img {
     width: 100%;
@@ -20,14 +21,12 @@
   &__text-line {
     padding-right: 64px;
     position: absolute;
-    top: 35%;
+    top: 40%;
     right: 64px;
     text-align: right;
-    & > span {
-      font-family: $font-catch-copy;
-      font-size: fluid-size(26, 56);
-      color: $font-white;
-    }
+    font-family: $font-catch-copy;
+    font-size: fluid-size(26, 56);
+    color: $font-white;
 
     @include mq(tab) {
       padding-right: 8px;
@@ -35,10 +34,13 @@
     }
   }
 
-  &__catch {
-    padding-right: 64px;
+  &__top-catch {
+    display: block;
+    padding-right: 120px;
+    margin-bottom: 32px;
   }
-  &__sub-catch {
+  &__bottom-catch {
+    display: block;
     padding-left: 64px;
   }
 
