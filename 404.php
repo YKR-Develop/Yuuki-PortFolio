@@ -38,11 +38,13 @@
           </span>
         </h1>
 
-        <section class="contents__desc">
-          <p class="contents__text">当サイトをご覧いただきありがとうございます。</p>
-          <p class="contents__text">申し訳ありませんが、あなたがアクセスしようとした記事は削除されたかURLが変更されています。</p>
-          <p class="contents__text">お手数おかけ致しますが、下記の【 Home トップへ戻る 】ボタンまたは検索フォームより目的のページをお探し下さい。</p>
-        </section>
+        <div class="contents__desc">
+          <p class="contents__text">
+          当サイトをご覧いただきありがとうございます。<br>
+          申し訳ありませんが、あなたがアクセスしようとした記事は削除されたかURLが変更されています。<br>
+          お手数おかけ致しますが、下記の【 Home トップへ戻る 】ボタンまたは検索フォームより目的のページをお探し下さい。
+          </p>
+        </div>
 
         <!-- ===== ページ遷移ボタン ===== -->
         <div class="primary-button">

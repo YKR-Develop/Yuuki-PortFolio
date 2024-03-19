@@ -22,10 +22,9 @@
   <!-- OGPタグ -->
   <meta property="og:url" content="ページURL">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Yukuro CreateFolio | Home">
-  <meta property="og:description" content="Yukuro CreateFolioはWebサイトの制作 / プログラミング開発などの作品を紹介しているポートフォリオ兼ブログサイトです。
-  開発実績以外にも、オリジナルで制作したコスプレ衣装・小道具作品も掲載しております。">
-  <meta property="og:site_name" content="Yukuro CreateFolioのトップ">
+  <meta property="og:title" content="Yuuki PortFolio | Home">
+  <meta property="og:description" content="Yuuki PortFolioはWebサイトの制作 / プログラミング開発などの作品を紹介しているポートフォリオ兼ブログサイトです。その他趣味で制作したハンドメイド作品も掲載しております。">
+  <meta property="og:site_name" content="Yuuki PortFolioのトップ">
   <meta property="og:image" content="/images/img/img_ogp_thumb.jpg">
 
   <!-- Twitterカード -->
@@ -33,9 +32,10 @@
   <meta name="twitter:site" content="@Yukuro_Cos2022">
 
   <!-- ファビコン / サイトアイコン PHP書き換え -->
-  <link rel="shortcut icon" href="<?php echo esc_url(get_theme_file_uri('assets/images/ico/favicon.ico')); ?>">
+  <link rel="shortcut icon" href="https://ykr2024-portfolio.com/wp-content/uploads/2023/01/ico_site-favicon-6464.ico">
 
   <!-- スマホ用アイコン画像 PHP書き換え -->
-  <link rel="apple-touch-icon-precomposed" href="<?php echo esc_url(get_theme_file_uri('assets/images/ico/favicon.ico')); ?>">
+  <link rel="apple-touch-icon-precomposed" href="https://ykr2024-portfolio.com/wp-content/uploads/2023/01/ico_site-favicon-6464.ico">
+
   
 </head>

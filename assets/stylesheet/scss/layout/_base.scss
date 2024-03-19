@@ -16,6 +16,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -88,14 +89,8 @@ p {
   z-index: 1;
   background-color: $background-gray;
   &__article {
-    padding: 72px 64px;
-  
-    @include mq(tab) {
-      padding: 48px 18px;
-      &:last-child {
-        padding-bottom: 48px;
-      }
-    }
+    padding: 64px 0;
+    
     &--white-bg {
       background-color: $background-white;
     }
@@ -118,6 +113,13 @@ p {
     &--single {
       max-width: $single-width;
       margin: 0 auto;
+    }
+
+    @include mq(tab) {
+      padding: 48px 18px;
+      &:last-child {
+        padding-bottom: 48px;
+      }
     }
   }
 
@@ -147,6 +149,8 @@ p {
   }
 
   &__wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
     margin-bottom: 64px;
 
     &:last-child {
@@ -179,6 +183,9 @@ p {
   color: $font-black;
   position: relative;
   padding-right: 32px;
+  border-bottom: 1px solid $border-black;
+  transition: 0.3s;
+ 
   &::before {
     @include stickArrow;
   }
@@ -186,11 +193,18 @@ p {
     @include hoverBorder;
     bottom: -4px;
   }
+
+  &:hover {
+    color: $button-hover;
+  }
+
+  &:hover::before {
+    border-bottom: 2px solid $button-hover;
+  border-right: 2px solid $button-hover;
+  }
+
   &:hover::after {
     transform: scale(1, 1);
-  }
-  &:visited {
-    color: inherit;
   }
 }
 
@@ -206,7 +220,6 @@ p {
     @include mq(tab) {
       margin: 24px 0;
     }
-
   }
 }
 
@@ -224,6 +237,8 @@ p {
 }
 
 .wp-block-group__inner-container {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
 }
 
 /* --------------------------------------------------
@@ -251,4 +266,9 @@ p {
   &--padding-bt {
     margin-bottom: 48px;
   }
+}
+.hr {
+  margin: 16px 0;
+  height: 1px;
+  background-color: $border-base;
 }

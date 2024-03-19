@@ -13,9 +13,9 @@
   position: relative;
   z-index: 100;
   
-
   &__eye-catching > img {
     width: 100%;
+    height: 100%;
   }
 
   &__text-line {
@@ -24,8 +24,8 @@
     top: 40%;
     right: 64px;
     text-align: right;
-    font-family: $font-catch-copy;
-    font-size: fluid-size(26, 56);
+    font-family: $font-heading;
+    font-size: fluid-size(20, 56);
     color: $font-white;
 
     @include mq(tab) {
@@ -38,6 +38,10 @@
     display: block;
     padding-right: 120px;
     margin-bottom: 32px;
+    @include mq(tab) {
+      padding-right: 64px;
+      margin-bottom: 8px;
+    }
   }
   &__bottom-catch {
     display: block;
@@ -107,6 +111,7 @@
     padding-left: 80px;
     color: $font-white;
     line-height: 48px;
+    font-family: $font-heading;
     @include mq(sp) {
       line-height: 32px;
     }

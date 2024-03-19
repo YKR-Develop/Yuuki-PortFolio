@@ -48,9 +48,9 @@
 
 
         <!-- ⬇︎ /////////////////// カテゴリー ナビゲーション Start /////////////////// ⬇︎ -->
-        <?php if (is_category(array('7', '41', '42', '43'))) : ?>
+        <!-- <?php if (is_category(array('7', '41', '42', '43'))) : ?>
           <div class="category-nav">
-            <!-- ===== カテゴリーナビ 出力 ===== -->
+            
             <?php
             wp_nav_menu(array(
               'menu' => 'web-design_menu',
@@ -63,7 +63,7 @@
           </div>
         <?php else : ?>
           <div class="category-nav">
-            <!-- ===== カテゴリーナビ 出力 ===== -->
+            
             <?php
             wp_nav_menu(array(
               'menu' => 'handmade_menu',
@@ -74,13 +74,12 @@
             ));
             ?>
           </div>
-        <?php endif; ?>
+        <?php endif; ?> -->
         <!-- ⬆︎ /////////////////// カテゴリー ナビゲーション End /////////////////// ⬆︎ -->
 
 
         <div class="blog-list">
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
               <div class="blog-card">
                 <!-- ブログサムネイル -->
                 <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
@@ -89,7 +88,7 @@
                     the_post_thumbnail();
                   else :
                   ?>
-                    <img class="blog-card__image" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
+                    <img class="blog-card__image" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                   <?php endif; ?>
                 </a>
 
@@ -111,30 +110,31 @@
                       }
                     endforeach;
                     ?>
-
                   </div>
-                  <time class="blog-card__date">
-                    <?php the_time('Y.m.d'); ?>
-                  </time>
+
+                  <div class="blog-card__date-box">
+                    <time class="blog-card__date">
+                      <?php the_time('Y.m.d'); ?>
+                    </time>
+                  </div>
                 </div>
               </div>
             <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
           <?php else : ?>
+
+            <div class="post-wrap">
+              <p>記事が見つかりません</p>
+            </div>
+          <?php endif; ?>
         </div>
 
-        <div class="post-wrap">
-          <p>記事が見つかりません</p>
-        </div>
-
-      <?php endif; ?>
-
-      <!-- ⬇︎ ############ Web制作・開発の記事一覧 Start ############ ⬇︎ -->
+          <?php
+          set_query_var('paging_query', $wp_query);
+          get_template_part('templates/pagination');
+          ?>
+        <!-- ⬇︎ ############ Web制作・開発の記事一覧 Start ############ ⬇︎ -->
       </article>
-
-      <?php
-      set_query_var('paging_query', $wp_query);
-      get_template_part('templates/pagination');
-      ?>
 
       <!-- ⬇︎ ############ ブログボトムナビゲーション Start ############ ⬇︎ -->
       <?php get_template_part('article-parts/blog_bottom-nav'); ?>

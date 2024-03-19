@@ -7,8 +7,8 @@
  WordPressテーマ化 コメント
 -------------------------------------------------- */ 
 /*
-Theme Name: Yukuro CreateFolio
-Author: ゆくろ
+Theme Name: YKR PortFolio
+Author: ゆうき
 Description: ポートフォリオの掲載とブログ更新を同時に行えるように制作したゆくろのポートフォリオテーマです。
 Version: 1.0
 */
@@ -20,6 +20,7 @@ Version: 1.0
 @use "pages/about";
 @use "pages/works";
 @use "pages/blog";
+@use "pages/news";
 
 
 /* --------------------------------------------------
@@ -48,6 +49,8 @@ Version: 1.0
 @use "component/c-accordion";
 @use "component/c-tab";
 @use "component/c-sns";
+@use "component/c-works-contents";
+@use "component/c-blog-contents";
 
 /* --------------------------------------------------
  Layout ページ構成 Scss読み込み

@@ -15,7 +15,7 @@
 
   <!-- =================================================== ページ内コンテンツ Start =================================================== -->
   <div class="contents">
-    
+
     <div class="contents__inner">
 
       <!-- ================================================================================ -->
@@ -25,22 +25,44 @@
         <section class="contents__wrapper contents__wrapper--mb-none">
           <?php if (have_posts()) : ?>
             <?php if (!$_GET['s']) { ?>
-              <p>検索キーワードが未入力です
-              <p>
+              <div class="search-none">
+              <h1 class="contents-heading">
+                <span class="contents-heading__sub">
+                  検索キーワードが未入力です。
+                </span>
+              </h1>
 
-              <?php } else { ?>
-                <h1 class="contents-heading">
-                  <span class="contents-heading__sub">
-                    「<?php echo esc_html($_GET['s']); ?>」の検索結果：<?php echo $wp_query->found_posts; ?>件
-                   </span>
-                  </h1>
+              <div class="contents__desc">
+                <p class="contents__text">
+                  当サイトをご覧いただきありがとうございます。<br>
+                  申し訳ありませんが、正しいキーワードをご入力の上再度お試しください。
+                </p>
+              </div>
+
+              <section class="contents__desc contents__desc--search-form">
+                <!-- ===== 各要素タイトル Title / link ===== -->
+                <div class="contents-title">
+                  <h3 class="contents-title__title">検索して探す</h3>
+                </div>
+                <!-- ===== 各要素タイトル Title / link ===== -->
+
+                <!-- ##### 検索フォーム 出力 #####-->
+                <?php get_search_form(); ?>
+
+              </section>
+              
+            </div>
+
+            <?php } else { ?>
+              <h1 class="contents-heading">
+                <span class="contents-heading__sub">
+                  「<?php echo esc_html($_GET['s']); ?>」の検索結果：<?php echo $wp_query->found_posts; ?>件
+                </span>
+              </h1>
 
               <div class="blog-list">
                 <?php while (have_posts()) : the_post(); ?>
-                  <?php
-                  $cat = get_the_category();
-                  $catname = $cat[0]->cat_name;
-                  ?>
+
                   <div class="blog-card">
                     <!-- ブログサムネイル -->
                     <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
@@ -49,7 +71,7 @@
                         the_post_thumbnail();
                       else :
                       ?>
-                        <img class="blog-card__image" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
+                        <img class="blog-card__image" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                       <?php endif; ?>
                     </a>
 
@@ -83,8 +105,34 @@
 
             <?php } ?>
           <?php else : ?>
-            <p>検索されたキーワードに一致する記事はありませんでした</p>
+            <div class="search-none">
+              <h1 class="contents-heading">
+                <span class="contents-heading__sub">
+                  検索されたキーワードに一致する記事はありませんでした。
+                </span>
+              </h1>
 
+              <div class="contents__desc">
+                <p class="contents__text">
+                  当サイトをご覧いただきありがとうございます。<br>
+                  申し訳ありませんが、あなたがお探しのキーワードを含めた記事が見つかりませんでした。<br>
+                  お手数おかけ致しますが、正しいキーワードをご入力の上再度お試しください。
+                </p>
+              </div>
+
+              <section class="contents__desc contents__desc--search-form">
+                <!-- ===== 各要素タイトル Title / link ===== -->
+                <div class="contents-title">
+                  <h3 class="contents-title__title">検索して探す</h3>
+                </div>
+                <!-- ===== 各要素タイトル Title / link ===== -->
+
+                <!-- ##### 検索フォーム 出力 #####-->
+                <?php get_search_form(); ?>
+
+              </section>
+              
+            </div>
           <?php endif; ?>
         </section>
       </article>

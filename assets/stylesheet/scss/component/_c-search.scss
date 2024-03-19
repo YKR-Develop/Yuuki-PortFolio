@@ -12,35 +12,47 @@
 /* --------------------------------------------------
  search 検索フォーム
 -------------------------------------------------- */
-.searchform{
-  position: relative;
+.searchform {
   padding: 0;
   margin: 0 10px 0 0;
-
+  display: flex;
+  z-index: 1000;
 
   & input[type="text"] {
-    line-height: 23px;
-    padding: 5px 30px 5px 5px;
+    display: block;
     font-size: fluid-size(14, 14);
+    height: 40px;
     width: 100%;
+    padding: 0 16px;
     box-sizing: border-box;
     border: none;
-    font-weight: bold;
     outline: none;
     background-color: $background-white;
+
+    @include mq(tab) {
+      display: none;
+    }
   }
 
   & input[type="submit"] {
-    position: absolute;
-    top: 1px;
-    right: 8px;
     vertical-align: top;
-    line-height: 23px;
     border: none;
-    background: url("../../images/ico/ico_search_pc.svg")no-repeat center right;
+    background: url("../../images/ico/ico_search-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
-    width: 30px;
-    padding: 4px 0px;
+    width: 40px;
+    padding: 4px 16px;
+    background-color: $button_background;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $button-hover;
+    }
+
+    @include mq(tab) {
+      display: none;
+    }
   }
 }
 
@@ -48,7 +60,7 @@
  ブログナビ 検索フォーム
 -------------------------------------------------- */
 .blog-nav-search {
-  & .searchform input[type=text] {
+  & .searchform input[type="text"] {
     width: 100%;
   }
 }
@@ -59,12 +71,12 @@
 /*========= 検索窓を開くための虫眼鏡ボタン設定 ===========*/
 .search-open-btn {
   position: absolute;
-  right: 18px;
-  background: url("../../images/ico/ico_search_sp.svg") no-repeat center; /*虫眼鏡アイコンを背景に表示*/
-  width: 24px;
-  height: 24px;
+  right: 16px;
+  background: url("../../images/ico/ico_search-white.svg") no-repeat center; /*虫眼鏡アイコンを背景に表示*/
+  width: 48px;
+  height: 48px;
+  background-size: 24px 24px;
   cursor: pointer;
-  
 }
 
 /* ========= 検索窓の設定 =============== */
@@ -92,11 +104,11 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   &__form {
-    position: relative;
+    display: flex;
   }
-  
+
   &__input {
     -webkit-appearance: none; /*SafariやChromeのデフォルトの設定を無効*/
     outline: none;
@@ -107,10 +119,11 @@
   &__input[type="text"] {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 42%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    padding: 12px 12px;
+    width: 65%;
+    height: 56px;
+    padding: 0 16px;
     border: none;
     transition: all 0.5s;
     font-size: fluid-size(14, 14);
@@ -122,15 +135,17 @@
 
   &__submit {
     position: absolute;
-    top: -20px;
-    right: -13px;
-    background: url("../../images/ico/ico_search_sp.svg")
-    no-repeat 7px center; /*虫眼鏡アイコンを背景に表示*/
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    background: url("../../images/ico/ico_search-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: #555;
     background-size: 24px 24px;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
   }
 }
 
@@ -150,7 +165,7 @@
 .search-close-btn {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 16px;
   z-index: 2;
   cursor: pointer;
   width: 56px;
@@ -178,6 +193,33 @@
       transform: translateY(-6px) rotate(135deg);
       width: 50%;
     }
+  }
+}
+
+.search-none {
+  &__text {
+    margin-bottom: 32px;
+  }
+
+  .searchform {
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  input[type="text"] {
+    height: 48px;
+    border: 1px solid $border-base;
+    padding: 0 16px;
+  }
+
+  input[type="submit"] {
+    vertical-align: top;
+    background: url("../../images/ico/ico_search-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    width: 40px;
+    background-color: $button_background;
   }
 }
 

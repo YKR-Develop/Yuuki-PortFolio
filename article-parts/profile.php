@@ -17,7 +17,7 @@
     <?php echo wpautop(the_author_meta('description')); ?>
   </div>
   <div class="blog-profile__link-about">
-      <a class="blog-profile__link" href="http://yukuro-createfolio.local/about/#about-me">
+      <a class="blog-profile__link" href="/about/#about-me">
         <?php the_author_meta('profile-link'); ?>
       </a>
     </div>

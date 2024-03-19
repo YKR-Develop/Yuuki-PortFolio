@@ -67,7 +67,7 @@
   }
 
   &__text-box {
-    margin-bottom: 48px;
+    margin-bottom: 24px;
   }
 
   &__text {
@@ -94,7 +94,7 @@
     @include mq(sp) {
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 24px;
+      gap: 40px 0;
     }
   }
 
@@ -102,24 +102,19 @@
     text-align: center;
     font-size: fluid-size(16, 18);
     margin-bottom: 16px;
-    @include mq(sp) {
-      margin-bottom: 8px;
-    }
   }
 
   &__mockup-item {
-    border-left: 1px dotted $border-black;
-    border-right: 1px dotted $border-black;
+    width: 50%;
+    border-right: 1px solid $border-base;
     padding: 0 32px;
-    &:nth-child(2) {
-      border-left: none;
+    &:last-child {
+      border-right: none;
       margin-right: 0;
     }
 
     @include mq(tab) {
-      max-width: 50%;
-      border-left: 1px dotted $border-black;
-      border-right: 1px dotted $border-black;
+      width: 50%;
       border-top: none;
       border-bottom: none;
       padding: 0 16px;
@@ -129,13 +124,13 @@
     }
 
     @include mq(sp) {
-      max-width: 100%;
+      width: 100%;
       padding: 0;
       margin: 0 auto;
       border: none;
       border-left: none;
       border-right: none;
-      &:first-child {
+      &:last-child {
         margin-bottom: 32px;
       }
     }
@@ -145,22 +140,12 @@
     width: 100%;
     overflow: hidden;
     position: relative;
+  }
 
-    &::after {
-      content: "Read More";
-      font-size: fluid-size(14, 16);
-      letter-spacing: 0.1em;
-      text-align: center;
-      color: $font-white;
-      width: 100%;
-      height: 100%;
-      display: block;
-      background: rgba(0, 0, 0, 0.4);
-      transition: 0.8s;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
+  &__mockup-image {
+    transition: 0.5s;
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }

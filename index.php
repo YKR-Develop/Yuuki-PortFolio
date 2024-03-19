@@ -294,7 +294,7 @@
             <!-- ===== About 説明 Text ===== -->
             <div class="top-about__desc">
               <p class="top-about__text">
-                初めまして”ゆくろ”と申します。
+                初めましてゆくろと申します。
               </p>
               <p class="top-about__text">
                 当サイトを閲覧してくださりありがとうございます。
@@ -345,7 +345,7 @@
 
           <!-- ===== 説明 Description ===== -->
           <p class="contents__desc">
-            Web制作やプログラミングに関するアウトプット投稿を始め、副業でやっておりますハンドメイドや衣装・造形制作関連の記事などモノづくりに関する情報を幅広く発信しております。
+            Web制作やプログラミングに関するアウトプット投稿を始め、趣味でやっておりますハンドメイドや衣装・造形制作関連の記事などモノづくりに関する情報を幅広く発信しております。
           </p>
 
           <!-- ⬇︎ ############ 最新の記事一覧 各要素コンテンツ Start ############ ⬇︎ -->
@@ -363,13 +363,13 @@
               <ul class="tab__list tab__list--top-blog">
                 <li class="tab__item tab__item--two-tab">
                   <a class="tab__link" href="#web-design_articles">
-                    <img class="tab__icon" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/ico_category_web-design.svg" alt="Web制作・デザイン">
+                    <img class="tab__icon" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/ico_category_web-design.svg" alt="Web制作・デザイン">
                     Web制作・デザイン
                   </a>
                 </li>
                 <li class="tab__item tab__item--two-tab">
                   <a class="tab__link" href="#handmade_articles">
-                    <img class="tab__icon" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/ico_category_handmade.svg" alt="ハンドメイド">
+                    <img class="tab__icon" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/ico_category_handmade.svg" alt="ハンドメイド">
                     ハンドメイド
                   </a>
                 </li>
@@ -605,7 +605,7 @@
             </span>
 
             <div class="contents-heading__side-link is-pc">
-              <a class="contents-heading__link" href="http://yukuro-createfolio.local/?post_type=news">News お知らせ一覧はこちら</a>
+              <a class="contents-heading__link" href="http://ykr2024-portfolio.com/?post_type=news">News お知らせ一覧はこちら</a>
             </div>
           </h2>
           <!-- ===== コンテンツ見出し Heading ===== -->

@@ -1,0 +1,205 @@
+/*===================================================
+ works.scss
+ worksページの指定
+================================================== */
+/* //////////// 変数読み込み //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み //////////// */
+
+.works-contents {
+
+  /* --------------------------------------------------
+ 各種見出し
+-------------------------------------------------- */
+  h2 {
+    font-size: fluid-size(18, 24);
+    padding: 12px;
+    background-color: $background-white;
+    margin-bottom: 32px;
+    box-shadow: $shadow;
+  }
+
+  h3 {
+    padding: 0 0 6px 12px;
+    border-bottom: 1.5px solid $border-base;
+    margin: 32px 0;
+    font-size: fluid-size(18, 20);
+  }
+
+  h4 {
+    font-size: fluid-size(16, 18);
+    border-left: 6px solid $border-base;
+    padding-left: 8px;
+    margin: 24px 0;
+  }
+
+  h5 {
+    font-size: fluid-size(16, 16);
+    margin: 16px 0;
+  }
+
+  /* --------------------------------------------------
+ 引用 / テキスト関連
+-------------------------------------------------- */
+  & blockquote {
+    border-left: 1.5px solid $border-base;
+    padding: 8px 16px;
+    margin-bottom: 24px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    & p {
+      font-size: fluid-size(14, 14);
+    }
+  }
+
+  & p {
+    font-size: fluid-size(14, 16);
+    margin-bottom: 12px;
+  }
+
+  & .wp-block-spacer {
+    height: 48px !important;
+    margin: 0;
+  }
+
+  & a {
+    display: inline-block;
+    color: $font-black;
+    padding-bottom: 2px;
+    border-bottom: 1px solid $border-black;
+    transition: 0.3s;
+    font-weight: 600;
+
+    &::after {
+      content: "⇀";
+      padding-left: 8px;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  /* --------------------------------------------------
+ テーブル
+-------------------------------------------------- */
+  & .wp-block-table {
+    margin-bottom: 32px;
+
+    @include mq(sp) {
+      overflow-x: scroll;
+    }
+  }
+
+  & table {
+    width: 100%;
+    font-size: fluid-size(14, 14);
+    border-collapse: collapse;
+    background-color: $background-gray;
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+
+    @include mq(sp) {
+      width: 800px;
+    }
+
+    & th,
+    td {
+      border: 1px solid $border-base;
+      padding: 10px;
+    }
+
+    & a {
+      color: $font-black;
+      padding-bottom: 2px;
+      border-bottom: 1px solid $border-black;
+      transition: 0.3s;
+
+      &::after {
+        content: "⇀";
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  /* --------------------------------------------------
+ リスト
+-------------------------------------------------- */
+  & ul {
+    padding: 0 16px;
+    margin: 0 16px;
+    list-style-position: inside;
+
+    & li {
+      list-style-type: square;
+      font-size: fluid-size(14, 16);
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      & ul {
+        margin: 12px;
+
+        & li {
+          list-style-type: disc;
+
+          & ul {
+            & li {
+              list-style-type: circle;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & ol {
+    padding: 0 16px;
+    margin: 0 16px;
+    font-size: fluid-size(14, 16);
+    counter-reset: item;
+    list-style-type: none;
+
+    & li {
+      margin-bottom: 12px;
+
+      &::before {
+        counter-increment: item;
+        content: counters(item, "-") ". ";
+      }
+
+      & ol {
+        margin: 12px;
+        counter-reset: 0;
+      }
+    }
+  }
+
+  & img.alignright{
+    display: block;
+    margin: 0 0 0 auto;
+  }
+  & img.alignleft{
+    display: block;
+    margin: 0 auto 0 0;
+  }
+  & img.aligncenter{
+    display: block;
+    margin: 0 auto;
+  }
+
+  & strong {
+    font-weight: 600;
+  }
+}

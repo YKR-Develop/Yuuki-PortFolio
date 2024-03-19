@@ -12,42 +12,34 @@
         <!-- ============= Works 制作実績 ビジュアル構文 ここから ============= -->
         <!-- Works 制作実績 -->
       <?php elseif (is_post_type_archive('works')) : ?>
-        <img class="main_visual__img" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_works-visual.jpg" alt="Works 制作実績">
+        <img class="main_visual__img" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_works-visual.jpg" alt="Works 制作実績">
 
         <!-- Works ハンドメイド | カテゴリー -->
       <?php elseif (is_category(59)) : ?>
-        <img class="main_visual__img" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_category-thumb_moldingdress.jpg" alt="Works ハンドメイド">
-
-        <!-- Works Illustrator | カテゴリー -->
-      <?php elseif (is_category(60)) : ?>
-        <img class="main_visual__img" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_category-thumb_illustrator.jpg" alt="Works Illustrator">
-
-        <!-- Works PhotoShop | カテゴリー -->
-      <?php elseif (is_category(59)) : ?>
-        <img class="main_visual__img" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_category-thumb_photoshop.jpg" alt="Works PhotoShop">
+        <img class="main_visual__img" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_category-thumb_moldingdress.jpg" alt="Works ハンドメイド">
 
         <!-- Works UI UXデザイン | カテゴリー -->
       <?php elseif (is_category(56)) : ?>
-        <img class="main_visual__img" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_category-thumb_uiuxdesign.jpg" alt="Works UIUXデザイン">
+        <img class="main_visual__img" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_category-thumb_uiuxdesign.jpg" alt="Works UIUXデザイン">
 
         <!-- Works Webサイト | カテゴリー -->
       <?php elseif (is_category(61)) : ?>
-        <img class="main_visual__img" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_category-thumb_website.jpg" alt="Works Webサイト">
+        <img class="main_visual__img" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_category-thumb_website.jpg" alt="Works Webサイト">
 
         <!-- ============= Works 制作実績 ビジュアル構文 ここまで ============= -->
 
         <!-- ============= Blog ブログ ビジュアル構文 ここから ============= -->
         <!-- ブログカテゴリー「Web制作・デザイン」 -->
       <?php elseif (is_category('web-design')) : ?>
-        <img class="main_visual__img" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_blog-category_programing-visual.jpg" alt="Web制作・デザイン">
+        <img class="main_visual__img" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_blog-category_programing-visual.jpg" alt="Web制作・デザイン">
 
         <!-- ブログカテゴリー「ハンドメイド」 -->
       <?php elseif (is_category('handmade')) : ?>
-        <img class="main_visual__img" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_blog-category_molding-visual.jpg" alt="ハンドメイド">
+        <img class="main_visual__img" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_blog-category_molding-visual.jpg" alt="ハンドメイド">
 
         <!-- ブログトップページ -->
       <?php elseif (is_archive('')) : ?>
-        <img class="main_visual__img" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_blog-visual-e1678929424771.jpg" alt="Yukuro CreateLog ブログ">
+        <img class="main_visual__img" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_blog-visual-e1678929424771.jpg" alt="Yukuro CreateLog ブログ">
         <!-- ============= Blog ブログ ビジュアル構文 ここまで ============= -->
 
 
@@ -78,13 +70,14 @@
 
       <!-- ##### キャッチフレーズ出力 ※ トップページのみ ##### -->
       <?php if (is_page('145')) : ?>
-        <p class="main_visual__text-line">
-          <span class="main_visual__catch js-text-animation">
-            <?php bloginfo('description'); ?>
-          </span>
-          <br>
-          <span class="main_visual__sub-catch js-text-animation">まだ知らない自分</span>
-        </p>
+        <div class="main_visual__text-line">
+          <div class="main_visual__top-catch js-text-animation">
+            <p class="">モノづくりで見つける</p>
+          </div>
+          <div class="main_visual__bottom-catch js-text-animation">
+            <p class="">まだ知らない私</p>
+          </div>
+        </div>
       <?php else : ?>
       <?php endif; ?>
 

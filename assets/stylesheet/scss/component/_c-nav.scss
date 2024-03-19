@@ -130,23 +130,21 @@
     text-align: center;
     border: 1px solid $border-base;
     transition: 0.3s;
+    padding: 8px;
     background-color: $background-white;
-    @include mq(tab) {
-      width: calc(100% / 3);
+    
+    &:hover {
+      background-color: $button-background;
+      color: $font-white;
     }
+    
     & > a {
       display: block;
       width: 100%;
-      padding: 12px 0;
+      height: 100%;
       transition: 0.5s;
       position: relative;
-
-      &:hover {
-        background-color: $button-background;
-        color: $font-white;
-        width: 100%;
-      }
-
+      
       &:hover > .category-nav__link-icon {
         filter: brightness(0) saturate(100%) invert(99%) sepia(32%);
       }
@@ -155,6 +153,11 @@
         color: $font-white;
       }
     }
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
   }
 
   &__link-icon {

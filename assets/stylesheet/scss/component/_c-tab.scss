@@ -16,7 +16,7 @@
 #sp-wp-tabs-wrapper_686.sp-tab__lay-default > ul li.sp-tab__nav-item {
   width: calc(100% / 3);
   margin-top: 0;
-    border-bottom: 1px solid $border-base;
+  border-bottom: 1px solid $border-base;
   @include mq(sp) {
     width: 50%;
     margin-bottom: 8px;
@@ -28,6 +28,10 @@
     display: flex;
     align-items: center;
     margin-bottom: 48px;
+  }
+
+  &.sp-tab__nav-link {
+    border: 2px solid $border-black;
   }
 
   & .sp-tab__tab_title {
@@ -61,7 +65,6 @@
 
 #sp-wp-tabs-wrapper_686 .sp-tab__nav-tabs .sp-tab__nav-item.show .sp-tab__nav-link,
 #sp-wp-tabs-wrapper_686.sp-tab__lay-default ul li label.sp-tab__active {
-  padding-top: 2px;
   border-bottom: 2px solid $border-black;
   & .sp-tab__tab_title > span {
     font-weight: 600;
@@ -156,7 +159,7 @@ ul.tab li.active a {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: fluid-size(13, 16);
+    font-size: fluid-size(14, 16);
     padding-bottom: 4px;
     color: $font-black;
     position: relative;
@@ -193,7 +196,7 @@ ul.tab li.active a {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 32px 64px;
+    gap: 16px 64px;
 
     @include animation($name: tabAnime, $duration: 2s, $fill-mode: forwards);
 

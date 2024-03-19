@@ -56,8 +56,6 @@
             </article>
           <?php endwhile; ?>
           <?php wp_reset_postdata(); ?>
-
-
           <?php
           set_query_var('paging_query', $wp_query);
           get_template_part('templates/pagination');

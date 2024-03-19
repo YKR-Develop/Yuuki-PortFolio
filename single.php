@@ -67,7 +67,7 @@
                   the_post_thumbnail();
                 else :
                 ?>
-                  <img class="blog-card__image" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
+                  <img class="blog-card__image" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                 <?php endif; ?>
               </div>
 
@@ -101,7 +101,7 @@
 
 
       <!-- ⬇︎ ############ アフィリエイト広告エリア Start ############ ⬇︎ -->
-      <div class="blog-affiliate">
+      <!-- <div class="blog-affiliate">
         <a href="アフィリエイトリンク:URL" class="blog-affiliate__thumb">
           <img class="blog-affiliate__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog_img/img_blog-affiliate.png" alt="アフィリエイト広告">
         </a>
@@ -111,7 +111,7 @@
         <a href="アフィリエイトリンク:URL" class="blog-affiliate__thumb">
           <img class="blog-affiliate__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog_img/img_blog-affiliate.png" alt="アフィリエイト広告">
         </a>
-      </div>
+      </div> -->
       <!-- ⬆︎ ############ アフィリエイト広告エリア End ############ ⬆︎ -->
 
       <!-- ================================================================================ -->

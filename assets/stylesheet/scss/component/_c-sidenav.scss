@@ -43,11 +43,12 @@
     font-size: fluid-size(12, 12);
     color: $font-black;
     margin-bottom: 8px;
-    transform: rotate(-180deg);
   }
 
   &__icon {
     display: inline-block;
+    width: 16px;
+    height: 16px;
   }
 
   &.is-fixed {

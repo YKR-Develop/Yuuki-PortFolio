@@ -12,7 +12,7 @@
   Max-Width コンテンツ最大幅の指定
 -------------------------------------------------- */ 
 @mixin maxWidth {
-  max-width: 1600px;
+  max-width: 1280px;
   margin: 0 auto;
   @include mq(tab) {
     padding: 0 8px;
@@ -45,7 +45,7 @@
   bottom: 4px;
   transform: scale(0, 1);
   transform-origin: left top;
-  transition: transform 0.3s;
+  transition: transform 0.5s;
 }
 
 /* --------------------------------------------------

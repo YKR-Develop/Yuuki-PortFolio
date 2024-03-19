@@ -19,7 +19,7 @@
   <div class="contents">
 
 <!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
-<div class="pkz">
+      <div class="pkz">
         <div id="breadcrumbs" class="pkz__inner pkz__inner--blog" typeof="BreadcrumbList" vocab="https://schema.org/">
           <?php if (function_exists('bcn_display')) {
             bcn_display();

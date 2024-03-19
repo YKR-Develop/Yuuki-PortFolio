@@ -33,13 +33,14 @@ $slide-arrow_hover: rgba(85, 85, 85, 0.9);
 /* --------------------------------------------------
  Box-Shadow 影
 -------------------------------------------------- */ 
-$shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+$shadow: 5px 5px 6px rgba(65, 65, 65, 0.2);
 
 /* --------------------------------------------------
  Color フォント色
 -------------------------------------------------- */ 
 $font-white: #fafafa;
 $font-black: #555;
+$font-gray: #555;
 $font-background: #E2E2E2;  // トップページの背景文字のみ
 
 /* --------------------------------------------------
@@ -59,7 +60,7 @@ $button-hover: #818181;
  Font Family 文字指定
 -------------------------------------------------- */ 
 $font-family-sans-serif: 'Noto Sans', YuGothic,'Yu Gothic','ヒラギノ角ゴシック','Hiragino Sans','Arial', sans-serif;
-$font-catch-copy: 'klee','ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+$font-heading: "Klee One", cursive;
 
 /* --------------------------------------------------
  Line Height 行間

@@ -69,22 +69,134 @@
                 the_post_thumbnail();
               else :
               ?>
-                <img class="works-eyecatch__image" src="http://yukuro-createfolio.local/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
+                <img class="works-eyecatch__image" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
               <?php endif; ?>
             </div>
 
             <!-- ####### 作品説明リスト ####### -->
             <div class="works-desc">
-              <p class="works-desc__label">【 担当箇所 】</p>
-              <ul class="works-card__management-list works-card__management-list--works">
-                <?php
-                if ($terms = get_the_terms($post->ID, 'works-responsible-person')) {
-                  foreach ($terms as $term) {
-                    echo '<li class="works-card__management-item works-card__management-item--single">' . $term->name . '</li>';
+
+            <?php if (is_object_in_term($post->ID, 'works-cat', array('web-site'))) : ?>
+              <div class="works-info">
+                <p class="works-info__label">制作範囲</p>
+                <ul class="works-info__list">
+                  <?php
+                  if ($terms = get_the_terms($post->ID, 'works-responsible-person')) {
+                    foreach ($terms as $term) {
+                      echo '<li class="works-info__item">' . $term->name . '</li>';
+                    }
                   }
-                }
-                ?>
-              </ul>
+                  ?>
+                </ul>
+              </div>
+
+              <div class="works-info">
+                <p class="works-info__label">使用言語</p>
+                <ul class="works-info__list">
+                  <?php
+                  if ($terms = get_the_terms($post->ID, 'works-language')) {
+                    foreach ($terms as $term) {
+                      echo '<li class="works-info__item">' . $term->name . '</li>';
+                    }
+                  }
+                  ?>
+                </ul>
+              </div>
+
+              <div class="works-info">
+                <p class="works-info__label">制作ツール</p>
+                <ul class="works-info__list">
+                  <?php
+                  if ($terms = get_the_terms($post->ID, 'works-tool')) {
+                    foreach ($terms as $term) {
+                      echo '<li class="works-info__item">' . $term->name . '</li>';
+                    }
+                  }
+                  ?>
+                </ul>
+              </div>
+              
+              <div class="works-info">
+                <p class="works-info__label">制作期間</p>
+                <ul class="works-info__list">
+                  <?php
+                  if ($terms = get_the_terms($post->ID, 'works-production-period')) {
+                    foreach ($terms as $term) {
+                      echo '<li class="works-info__item">' . $term->name . '</li>';
+                    }
+                  }
+                  ?>
+                </ul>
+              </div>
+
+              <?php elseif(is_object_in_term($post->ID, 'works-cat', array('ui-ux-design'))): ?>
+                <div class="works-info">
+                <p class="works-info__label">制作範囲</p>
+                <ul class="works-info__list">
+                  <?php
+                  if ($terms = get_the_terms($post->ID, 'works-responsible-person')) {
+                    foreach ($terms as $term) {
+                      echo '<li class="works-info__item">' . $term->name . '</li>';
+                    }
+                  }
+                  ?>
+                </ul>
+              </div>
+
+                <div class="works-info">
+                <p class="works-info__label">制作ツール</p>
+                <ul class="works-info__list">
+                  <?php
+                  if ($terms = get_the_terms($post->ID, 'works-tool')) {
+                    foreach ($terms as $term) {
+                      echo '<li class="works-info__item">' . $term->name . '</li>';
+                    }
+                  }
+                  ?>
+                </ul>
+              </div>
+
+              <div class="works-info">
+                <p class="works-info__label">制作期間</p>
+                <ul class="works-info__list">
+                  <?php
+                  if ($terms = get_the_terms($post->ID, 'works-production-period')) {
+                    foreach ($terms as $term) {
+                      echo '<li class="works-info__item">' . $term->name . '</li>';
+                    }
+                  }
+                  ?>
+                </ul>
+              </div>
+              <?php else: ?>
+                <div class="works-info">
+                <p class="works-info__label">制作範囲</p>
+                <ul class="works-info__list">
+                  <?php
+                  if ($terms = get_the_terms($post->ID, 'works-responsible-person')) {
+                    foreach ($terms as $term) {
+                      echo '<li class="works-info__item">' . $term->name . '</li>';
+                    }
+                  }
+                  ?>
+                </ul>
+              </div>
+              
+                <div class="works-info">
+                <p class="works-info__label">制作期間</p>
+                <ul class="works-info__list">
+                  <?php
+                  if ($terms = get_the_terms($post->ID, 'works-production-period')) {
+                    foreach ($terms as $term) {
+                      echo '<li class="works-info__item">' . $term->name . '</li>';
+                    }
+                  }
+                  ?>
+                </ul>
+              </div>
+              <?php endif;?>
+
+
               <!-- ####### 作品詳細 ####### -->
               <div class="works-contents">
                 <?php the_content(); ?>
@@ -94,14 +206,12 @@
           <!-- ⬆︎ /////////////////// 投稿本文 End /////////////////// ⬆︎ -->
 
           <!-- ⬇︎ ############ 関連記事一覧 Start ############ ⬇︎ -->
-        <?php get_template_part('article-parts/related-article_list'); ?>
-        <!-- ⬆︎ ############ 関連記事一覧 End ############ ⬆︎ -->
-        
+
+          <!-- ⬆︎ ############ 関連記事一覧 End ############ ⬆︎ -->
+
         </article>
+    </div>
+  </div>
+<?php endwhile; ?>
 
-        
-
-
-      <?php endwhile; ?>
-
-      <?php get_footer(); ?>
+<?php get_footer(); ?>

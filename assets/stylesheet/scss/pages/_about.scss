@@ -35,6 +35,10 @@
 .about-genre {
   @include centerWidth;
 
+  &__box {
+    @include centerWidth;
+  }
+
   & .is-layout-flex {
     gap: 48px;
     align-items: start;
@@ -140,8 +144,7 @@
 
     &--desc {
       font-size: fluid-size(14, 16);
-      font-weight: 600;
-      height: 60px;
+      height: 48px;
       margin-bottom: 12px;
       @include mq(tab) {
         height: auto;
@@ -221,9 +224,14 @@
 -------------------------------------------------- */
 .about-me {
   &__item {
+    margin-bottom: 48px;
     display: flex;
-    gap: 0 64px;
-    margin-bottom: 64px;
+    gap: 0 48px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
 
     @include mq(tab) {
       gap: 0 24px;
@@ -235,9 +243,6 @@
       }
     }
 
-    &:last-child {
-      margin-bottom: 0;
-    }
     &--reverse {
       flex-direction: row-reverse;
     }
@@ -293,6 +298,8 @@
   About-skill 所有資格
 -------------------------------------------------- */
 .about-license {
+  display: flex;
+  justify-content: center;
   max-width: 640px;
   margin: 0 auto;
 

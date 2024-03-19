@@ -11,15 +11,16 @@
 
 .pkz {
   width: 100%;
-  background-color: $background-gray;
-
+  overflow: auto;
+  background-color: $background-white;
   @include mq(tab) {
     background-color: $background-white;
   }
 
 
   &__inner {
-    padding: 32px 64px 0 64px;
+    @include maxWidth;
+    padding: 16px 0;
     display: flex;
     align-items: center;
     @include mq(tab) {

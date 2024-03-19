@@ -99,7 +99,7 @@
     <!-- ===== フッターサブナビゲーション Footer-SubNav ===== -->
 
     <!-- ===== フッターコピーライト Footer-CopyRight ===== -->
-    <small class="footer-sp__copyright">&copy;2022 Yukuro CreateFolio. ALL Rights Reserved.</small>
+    <small class="footer-sp__copyright">&copy;2024 Yuuki-PortFolio. ALL Rights Reserved.</small>
     <!-- ===== フッターコピーライト Footer-CopyRight ===== -->
   </div>
 </footer>

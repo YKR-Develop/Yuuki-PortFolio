@@ -3,11 +3,9 @@
   サイト内検索パーツ
 ================================================== -->
 <!-- ===== 検索フォーム_PC Start ====== -->
-<form role="search" method="get" id="searchform" class="searchform is-tab" action="<?php echo home_url('/'); ?>">
-  <div>
-    <input type="text" name="s" placeholder="<?php if(!is_search()){ echo 'Search';} ?>">
-    <input type="submit" id="searchsubmit" value="" src="../assets/images/ico/ico_search_pc.svg">
-  </div>
+<form role="search" method="get" id="searchform" class="searchform is-sp" action="<?php echo home_url('/'); ?>">
+  <input type="text" name="s" placeholder="search">
+  <input type="submit" id="searchsubmit" value="" src="../assets/images/ico/ico_search_pc.svg">
 </form>
 <!-- ===== 検索フォーム End ====== -->
 

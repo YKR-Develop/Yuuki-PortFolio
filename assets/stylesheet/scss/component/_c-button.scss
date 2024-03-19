@@ -14,9 +14,8 @@
  ページ共通ボタン 優先度高 指定 
 -------------------------------------------------- */
 .primary-button {
-  width: 280px;
+  width: 320px;
   margin: 0 auto;
-  box-shadow: $shadow;
   text-align: center;
 
   @include mq(sp) {
@@ -25,7 +24,7 @@
   }
 
   &__link {
-    padding: 16px 42px;
+    padding: 16px 24px;
     margin: 0 auto;
     color: $font-white;
     font-size: 16px;
@@ -66,7 +65,7 @@
     &:after {
       @include stickArrow;
       top: 45%;
-      right: 12%;
+      right: 16px;
       border-color: $font-white;
 
       @include mq(sp) {

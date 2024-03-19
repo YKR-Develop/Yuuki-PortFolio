@@ -17,6 +17,7 @@
   text-align: center;
   margin-bottom: fluid-size(32, 48);
   position: relative;
+  font-family: $font-heading;
 
   &__main {
     position: relative;
@@ -26,12 +27,12 @@
       position: absolute;
       border-bottom: 1px solid;
       width: 40px;
-      bottom: -10px;
+      bottom: -20px;
       left: 50%;
       background-color: $border-black;
       transform: translate(-50%, -50%);
       @include mq(sp) {
-        bottom: -5px;
+        bottom: -10px;
       }
     }
   }
@@ -92,6 +93,7 @@
     font-size: fluid-size(18, 24);
     position: relative;
     font-weight: 600;
+    font-family: $font-heading;
 
     &--works {
       margin-bottom: 0;
@@ -111,18 +113,17 @@
       content: "";
       width: fluid-size(40, 96);
       height: 1px;
-      background-color: $border-base;
+      background-color: $border-black;
       position: absolute;
       top: 50%;
-      left: 0;
-      
+      left: 0; 
     }
 
     &::before {
       content: "";
       width: fluid-size(40, 96);
       height: 1px;
-      background-color: $border-base;
+      background-color: $border-black;
       position: absolute;
       top: 50%;
       right: 0;

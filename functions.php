@@ -11,7 +11,7 @@ function add_files()
 {
 
   // Googleフォントの読み込み
-  wp_enqueue_style('font-style', 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;500;600&family=Teko:wght@500&display=swap');
+  wp_enqueue_style('font-style', 'https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet"');
 
   // CSSの読み込み
   wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/stylesheet/css/style.css', '1.0');
@@ -399,7 +399,43 @@ function create_post_type()
     'works-responsible-person',
     'works',
     array(
-      'label' => '担当箇所',
+      'label' => '制作範囲',
+      'hierarchical' => false,
+      'public' => true,
+      'show_in_rest' => true,
+      'update_count_callback' => '_update_post_term_count',
+    )
+  );
+
+  register_taxonomy(
+    'works-language',
+    'works',
+    array(
+      'label' => '使用言語',
+      'hierarchical' => false,
+      'public' => true,
+      'show_in_rest' => true,
+      'update_count_callback' => '_update_post_term_count',
+    )
+  );
+
+  register_taxonomy(
+    'works-tool',
+    'works',
+    array(
+      'label' => '制作ツール',
+      'hierarchical' => false,
+      'public' => true,
+      'show_in_rest' => true,
+      'update_count_callback' => '_update_post_term_count',
+    )
+  );
+
+  register_taxonomy(
+    'works-production-period',
+    'works',
+    array(
+      'label' => '制作期間',
       'hierarchical' => false,
       'public' => true,
       'show_in_rest' => true,
@@ -512,5 +548,30 @@ add_filter('manage_edit-post_sortable_columns', 'sortable_column_custom_meta_vie
   }
   add_filter('wp_title', 'wp_search_title');
 
+  // 固定ページ・カスタム投稿の検索は非表示
+  function search_pre_get_posts( $query ) {
+    //管理画面、メインクエリー以外では何もしない
+    if ( is_admin() || ! $query->is_main_query() ) {
+    return;
+    }
+    //サイト内検索でのみ動作
+    else if ( $query->is_search ){
+    $query->set('post_type', 'post');
+    }
+    return $query;
+    }
+    add_action( 'pre_get_posts', 'search_pre_get_posts' );
   
-  
+    function adjust_category_paged( $query = []) {
+      if (isset($query['name'])
+       && $query['name'] === 'page'
+       && isset($query['page'])
+       && isset($query['category_name'])) {
+        $query['paged'] = intval($query['page']); // 念のため整数化しておく
+        unset($query['name']);
+        unset($query['page']);
+      }
+      return $query;
+    }
+    add_filter('request', 'adjust_category_paged');
+    
