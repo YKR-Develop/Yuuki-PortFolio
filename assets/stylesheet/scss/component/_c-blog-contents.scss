@@ -28,6 +28,10 @@
     background-color: $background-white;
     margin-bottom: 32px;
     box-shadow: $shadow;
+
+    &:nth-child(n + 2) {
+      margin-top: 48px;
+    }
   }
 
   h3 {
@@ -64,6 +68,10 @@
     & p {
       font-size: fluid-size(14, 14);
     }
+  }
+
+  & strong {
+    font-weight: 600;
   }
 
   & p {
@@ -214,7 +222,40 @@
     }
   }
 
-  & .wp-block-image {
+   /* --------------------------------------------------
+ 画像
+-------------------------------------------------- */
+  & img {
+    margin-bottom: 32px;
+  }
+
+  & img.alignright {
+    display: block;
+    margin: 0 0 0 auto;
+  }
+
+  & img.alignleft {
+    display: block;
+    margin: 0 auto 0 0;
+  }
+
+  & img.aligncenter {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  & .wp-element-caption {
+    margin-top: -20px;
     text-align: center;
+    font-size: fluid-size(14, 14);
+  }
+
+  & .wp-block-columns {
+    display: flex;
+    gap: 48px;
+
+    @include mq(sp) {
+      flex-direction: column;
+    }
   }
 }

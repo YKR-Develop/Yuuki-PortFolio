@@ -20,6 +20,10 @@
     background-color: $background-white;
     margin-bottom: 32px;
     box-shadow: $shadow;
+
+    &:nth-child(n + 2) {
+      margin-top: 48px;
+    }
   }
 
   h3 {
@@ -56,6 +60,10 @@
     & p {
       font-size: fluid-size(14, 14);
     }
+  }
+
+  & strong {
+    font-weight: 600;
   }
 
   & p {
@@ -109,6 +117,11 @@
       width: 800px;
     }
 
+    & thead th {
+      background-color: $background-black;
+      color: $font-white;
+    }
+
     & th,
     td {
       border: 1px solid $border-base;
@@ -136,8 +149,12 @@
 -------------------------------------------------- */
   & ul {
     padding: 0 16px;
-    margin: 0 16px;
+    margin: 16px 16px 32px 16px;
     list-style-position: inside;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     & li {
       list-style-type: square;
@@ -186,6 +203,9 @@
     }
   }
 
+    /* --------------------------------------------------
+ 画像
+-------------------------------------------------- */
   & img.alignright{
     display: block;
     margin: 0 0 0 auto;
@@ -199,7 +219,92 @@
     margin: 0 auto;
   }
 
-  & strong {
-    font-weight: 600;
+
+  & .wp-element-caption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: fluid-size(14, 14);
+  }
+
+  & .wp-block-columns {
+    margin-bottom: 32px;
+    display: flex;
+    gap: 48px;
+
+    @include mq(sp) {
+      flex-direction: column;
+    }
+  }
+
+
+     /* --------------------------------------------------
+ボタン
+-------------------------------------------------- */
+& .wp-block-button {
+  width: 320px;
+  margin: 24px auto 32px auto;
+  text-align: center;
+  cursor: pointer;
+
+  @include mq(sp) {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__link {
+    display: block;
+    padding: 16px 24px;
+    margin: 0 auto;
+    color: $font-white;
+    font-size: 16px;
+    background: $button-background;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s;
+
+    @include mq(sp) {
+      z-index: 0;
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: $background-gray;
+      border: 1px solid $border-black;
+      transform-origin: 100% 50%;
+      transform: scaleX(0);
+      transition: transform ease 0.5s;
+    }
+
+    &:hover {
+      color: $font-black;
+      border-color: $border-black;
+    }
+
+    &:hover::before {
+      transform-origin: 0% 50%;
+      transform: scaleX(1);
+    }
+
+    &:after {
+      @include stickArrow;
+      top: 45%;
+      right: 16px;
+      border-color: $font-white;
+
+      @include mq(sp) {
+        right: 10%;
+      }
+    }
+
+    &:hover::after {
+      border-color: $border-black;
+    }
+  }
   }
 }

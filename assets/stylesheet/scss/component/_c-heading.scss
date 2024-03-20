@@ -48,12 +48,12 @@
     }
   }
 
-  &__side-link, &__side-time {
+  &__side-link {
     position: absolute;
     bottom: 0;
     right: 0;
   }
-
+  
   &__link {
     font-size: fluid-size(14, 14);
     color: $font-black;
