@@ -5239,15 +5239,18 @@ ul.tab li.active a {
   background-color: #fafafa;
   margin-bottom: 32px;
   box-shadow: 5px 5px 6px rgba(65, 65, 65, 0.2);
+  margin-top: 56px;
 }
-.works-contents h2:nth-child(n+2) {
-  margin-top: 48px;
+@media screen and (max-width: 767px) {
+  .works-contents h2 {
+    margin-top: 48px;
+  }
 }
 .works-contents h3 {
   padding: 0 0 6px 12px;
   border-bottom: 1.5px solid #cecece;
   margin: 32px 0;
-  font-size: clamp(1.8rem, 1.7333333333rem + 0.2083333333vw, 2rem);
+  font-size: clamp(1.6rem, 1.4666666667rem + 0.4166666667vw, 2rem);
 }
 .works-contents h4 {
   font-size: clamp(1.6rem, 1.5333333333rem + 0.2083333333vw, 1.8rem);
@@ -5256,7 +5259,7 @@ ul.tab li.active a {
   margin: 24px 0;
 }
 .works-contents h5 {
-  font-size: clamp(1.6rem, 1.6rem + 0vw, 1.6rem);
+  font-size: clamp(1.4rem, 1.3333333333rem + 0.2083333333vw, 1.6rem);
   margin: 16px 0;
 }
 .works-contents blockquote {
