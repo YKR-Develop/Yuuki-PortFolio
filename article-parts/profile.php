@@ -9,7 +9,7 @@
     </div>
     <div class=blog-profile__profile-right>
       <p class="blog-profile__text"><?php the_author_nickname(); ?></p>
-      <p class="blog-profile__text">1997年生 新潟県出身 現在は千葉在住</p>
+      <p class="blog-profile__text">新潟県出身 現在は千葉在住</p>
       <p class="blog-profile__text"><?php the_author_meta('job'); ?></p>
     </div>
   </div>

@@ -25,7 +25,6 @@
         <section class="contents__wrapper contents__wrapper--mb-none">
           <?php if (have_posts()) : ?>
             <?php if (!$_GET['s']) { ?>
-              <div class="search-none">
               <h1 class="contents-heading">
                 <span class="contents-heading__sub">
                   検索キーワードが未入力です。
@@ -37,20 +36,7 @@
                   当サイトをご覧いただきありがとうございます。<br>
                   申し訳ありませんが、正しいキーワードをご入力の上再度お試しください。
                 </p>
-              </div>
-
-              <section class="contents__desc contents__desc--search-form">
-                <!-- ===== 各要素タイトル Title / link ===== -->
-                <div class="contents-title">
-                  <h3 class="contents-title__title">検索して探す</h3>
-                </div>
-                <!-- ===== 各要素タイトル Title / link ===== -->
-
-                <!-- ##### 検索フォーム 出力 #####-->
-                <?php get_search_form(); ?>
-
-              </section>
-              
+              </div> 
             </div>
 
             <?php } else { ?>
@@ -105,7 +91,7 @@
 
             <?php } ?>
           <?php else : ?>
-            <div class="search-none">
+            <section class="search-none">
               <h1 class="contents-heading">
                 <span class="contents-heading__sub">
                   検索されたキーワードに一致する記事はありませんでした。
@@ -119,20 +105,8 @@
                   お手数おかけ致しますが、正しいキーワードをご入力の上再度お試しください。
                 </p>
               </div>
-
-              <section class="contents__desc contents__desc--search-form">
-                <!-- ===== 各要素タイトル Title / link ===== -->
-                <div class="contents-title">
-                  <h3 class="contents-title__title">検索して探す</h3>
-                </div>
-                <!-- ===== 各要素タイトル Title / link ===== -->
-
-                <!-- ##### 検索フォーム 出力 #####-->
-                <?php get_search_form(); ?>
-
-              </section>
               
-            </div>
+            </section>
           <?php endif; ?>
         </section>
       </article>

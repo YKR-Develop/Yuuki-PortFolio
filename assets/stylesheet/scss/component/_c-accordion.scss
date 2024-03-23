@@ -141,6 +141,9 @@
       display: block;
       font-size: 14px;
 
+      &:hover {
+        @include hoverText;
+      }
       
       &:first-of-type {
         color: $font-black;
@@ -208,6 +211,10 @@
           width: 8px;
           height: 1px;
           background-color: $font-white;
+        }
+
+        &:hover {
+          @include hoverText;
         }
       }
     }

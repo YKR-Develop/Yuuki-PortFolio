@@ -27,7 +27,7 @@
       position: absolute;
       border-bottom: 1px solid;
       width: 40px;
-      bottom: -20px;
+      bottom: -16px;
       left: 50%;
       background-color: $border-black;
       transform: translate(-50%, -50%);
@@ -40,11 +40,11 @@
   &__sub {
     display: block;
     font-size: fluid-size(16, 18);
-    padding-top: 32px;
+    padding-top: 40px;
     margin-left: auto;
 
     @include mq(sp) {
-      padding-top: 16px;
+      padding-top: 24px;
     }
   }
 

@@ -15,7 +15,7 @@
   ?>
   <?php if ($new_query->have_posts()) : ?>
     <aside class="related-article">
-      <h3 class="related-article__heading">関連記事一覧</h3>
+      <h3 class="related-article__heading">関連記事</h3>
       <ul class="related-article__list">
         <?php while ($new_query->have_posts()) : $new_query->the_post(); ?>
           <li class="related-article__item">
@@ -62,7 +62,7 @@
     $related_query = new WP_Query($args); ?>
 
     <aside class="related-article">
-      <h3 class="related-article__heading">関連記事一覧</h3>
+      <h3 class="related-article__heading">関連記事</h3>
       <ul class="related-article__list">
         <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
           <li class="related-article__item">
@@ -75,6 +75,12 @@
               <p class="related-article__title">
                 <?php the_title(); ?>
               </p>
+
+              <div class="related-article__date-box">
+                <time class="related-article__date">
+                  <?php the_time('Y.m.d'); ?>
+                </time>
+              </div>
             </a>
           </li>
         <?php endwhile; ?>

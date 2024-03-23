@@ -48,6 +48,7 @@ add_theme_support('post-thumbnails');
 set_post_thumbnail_size(768, 400);
 
 
+
 /* --------------------------------------------------
   メインビジュアルの実装
   ------------------------------------------------- */
@@ -446,30 +447,30 @@ function create_post_type()
   /* --------------------------------------------------
   お知らせ欄
   ------------------------------------------------- */
-  register_post_type(
-    'news',
-    array(
-      'label' => 'お知らせ',
-      'labels' => array(
-        'menu_name' => 'お知らせ'
-      ),
-      'public' => true,
-      'query_var' => true,
-      'hierarchical' => false,
-      'rewrite' => array('slug' => 'news'),
-      'has_archive' => true,
-      'show_in_rest' => true,
-      'menu-position' => 6,
-      'supports' => array(
-        'title',
-        'editor',
-        'thumbnail',
-        'excerpt',
-        'author'
-      )
-    )
-  );
-  register_taxonomy_for_object_type('news', array('news'));
+  // register_post_type(
+  //   'news',
+  //   array(
+  //     'label' => 'お知らせ',
+  //     'labels' => array(
+  //       'menu_name' => 'お知らせ'
+  //     ),
+  //     'public' => true,
+  //     'query_var' => true,
+  //     'hierarchical' => false,
+  //     'rewrite' => array('slug' => 'news'),
+  //     'has_archive' => true,
+  //     'show_in_rest' => true,
+  //     'menu-position' => 6,
+  //     'supports' => array(
+  //       'title',
+  //       'editor',
+  //       'thumbnail',
+  //       'excerpt',
+  //       'author'
+  //     )
+  //   )
+  // );
+  // register_taxonomy_for_object_type('news', array('news'));
 }
 
 

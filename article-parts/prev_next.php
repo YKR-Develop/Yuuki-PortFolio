@@ -14,7 +14,7 @@
               ?>
                 <a href="<?php echo get_permalink($prev_post->ID); ?>" class="blog-prev_next__item">
                   <div class="blog-prev_next__btn">
-                    <span>&lt;&lt; 前の投稿</span>
+                    <span>&lt; Prev Post</span>
                   </div>
                   <div class="blog-prev_next__label">
 
@@ -34,8 +34,6 @@
                         <?php echo get_the_title($prev_post->ID); ?>
                       </p>
                     </div>
-                    
-
                   </div>
                 </a>
               <?php endif; ?>
@@ -44,7 +42,7 @@
               ?>
                 <a href="<?php echo get_permalink($next_post->ID); ?>" class="blog-prev_next__item blog-prev_next__item--next">
                   <div class="blog-prev_next__btn blog-prev_next__btn--next">
-                    <span>次の投稿 &gt;&gt;</span>
+                    <span>Next Post &gt;</span>
                   </div>
 
                   <div class="blog-prev_next__label">

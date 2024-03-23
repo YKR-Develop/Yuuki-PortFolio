@@ -196,160 +196,151 @@
 
           <!-- ⬇︎ /////////////////// Webサイト制作 Start /////////////////// ⬇︎ -->
           <div id="website-works" class="tab__area">
-
-            <?php
-            $args = array(
-              'post_type' => 'works',
-              'posts_per_page' => 2,
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'works-cat',
-                  'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
-                  'terms'    => 'web-site'
+            <div class="works-list">
+              <?php
+              $args = array(
+                'post_type' => 'works',
+                'posts_per_page' => 2,
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'works-cat',
+                    'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
+                    'terms'    => 'web-site'
+                  ),
                 ),
-              ),
-            );
-            $the_query = new WP_Query($args);
-            ?>
-            <!-- ===== 作品制作実績 ここから ===== -->
-            <?php if ($the_query->have_posts()) : ?>
-              <?php while ($the_query->have_posts()) : $the_query->the_post();
-                $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
-                <article class="works-card">
-                  <div class="works-card__works-image">
-                    <img class="works-card__image" src="<?php print $thumbnail; ?>" alt="">
-                  </div>
-                  <h2 class="works-card__title"><?php the_title(); ?></h2>
+              );
+              $the_query = new WP_Query($args);
+              ?>
+              <!-- ===== 作品制作実績 ここから ===== -->
+              <?php if ($the_query->have_posts()) : ?>
+                <?php while ($the_query->have_posts()) : $the_query->the_post();
+                  $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
+                  <article class="works-card">
+                    <a href="<?php the_permalink(); ?>" class="works-card__works-image">
+                      <img class="works-card__image" src="<?php print $thumbnail; ?>" alt="">
+                    </a>
+                    <h2 class="works-card__title"><?php the_title(); ?></h2>
 
-                  <div class="works-card__excerpt">
-                    <?php the_excerpt(); ?>
-                  </div>
-
-                  <ul class="works-card__management-list">
-                    <?php
-                    if ($terms = get_the_terms($post->ID, 'works-responsible-person')) {
-                      foreach ($terms as $term) {
-                        echo '<li class="works-card__management-item">' . $term->name . '</li>';
-                      }
-                    }
-                    ?>
-                  </ul>
-
-                  <div class="works-card__genre">
-                    <div class="works-card__category">
-                      <?php
-                      $terms = get_the_terms($post->ID, 'works-cat');
-                      foreach ($terms as $term) {
-                        if ($term->parent) {
-                          echo $term->name;
-                        }
-                      }
-                      ?>
+                    <div class="works-card__excerpt">
+                      <?php the_excerpt(); ?>
                     </div>
 
-                    <div class="works-card__industry">
+                    <ul class="works-card__management-list">
                       <?php
-                      if ($terms = get_the_terms($post->ID, 'works-tag')) {
+                      if ($terms = get_the_terms($post->ID, 'works-responsible-person')) {
                         foreach ($terms as $term) {
-                          echo esc_html($term->name);
+                          echo '<li class="works-card__management-item">' . $term->name . '</li>';
                         }
                       }
                       ?>
-                    </div>
-                  </div>
-                  <div class="works-card__detail-link">
-                    <a class="works-card__link" href="<?php the_permalink(); ?>">制作詳細はこちら</a>
-                  </div>
-                </article>
-              <?php endwhile; ?>
-            <?php endif;
-            wp_reset_postdata(); ?>
-            <!-- ===== 作品制作実績 ここまで ===== -->
+                    </ul>
 
-            <!-- ===== ページ遷移ボタン ===== -->
-            <!-- <div class="primary-button">
-              <a class="primary-button__link" href="/works-cat/web-site/">Webサイト 一覧
-                <span class="primary-button__arrow"></span></a>
-            </div> -->
+                    <div class="works-card__genre">
+                      <div class="works-card__category">
+                        <?php
+                        $terms = get_the_terms($post->ID, 'works-cat');
+                        foreach ($terms as $term) {
+                          if ($term->parent) {
+                            echo $term->name;
+                          }
+                        }
+                        ?>
+                      </div>
+
+                      <div class="works-card__industry">
+                        <?php
+                        if ($terms = get_the_terms($post->ID, 'works-tag')) {
+                          foreach ($terms as $term) {
+                            echo esc_html($term->name);
+                          }
+                        }
+                        ?>
+                      </div>
+                    </div>
+                    <div class="works-card__detail-link">
+                      <a class="works-card__link" href="<?php the_permalink(); ?>">制作詳細はこちら</a>
+                    </div>
+                  </article>
+                <?php endwhile; ?>
+              <?php endif;
+              wp_reset_postdata(); ?>
+              <!-- ===== 作品制作実績 ここまで ===== -->
+            </div>
           </div>
           <!-- ⬆︎ /////////////////// Webサイト制作 End /////////////////// ⬆︎ -->
 
           <!-- ⬇︎ /////////////////// UI UXデザイン Start /////////////////// ⬇︎ -->
           <div id="uiux-works" class="tab__area">
-            <?php
-            $args = array(
-              'post_type' => 'works',
-              'posts_per_page' => 2,
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'works-cat',
-                  'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
-                  'terms'    => 'ui-ux-design'
+            <div class="works-list">
+              <?php
+              $args = array(
+                'post_type' => 'works',
+                'posts_per_page' => 2,
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'works-cat',
+                    'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
+                    'terms'    => 'ui-ux-design'
+                  ),
                 ),
-              ),
-            );
-            $the_query = new WP_Query($args);
-            ?>
-            <!-- ===== 作品制作実績 ここから ===== -->
-            <?php if ($the_query->have_posts()) : ?>
-              <?php while ($the_query->have_posts()) : $the_query->the_post();
-                $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
-                <article class="works-card">
-                  <div class="works-card__works-image">
-                    <img class="works-card__image" src="<?php print $thumbnail; ?>" alt="">
-                  </div>
-                  <h2 class="works-card__title"><?php the_title(); ?></h2>
+              );
+              $the_query = new WP_Query($args);
+              ?>
+              <!-- ===== 作品制作実績 ここから ===== -->
+              <?php if ($the_query->have_posts()) : ?>
+                <?php while ($the_query->have_posts()) : $the_query->the_post();
+                  $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
+                  <article class="works-card">
+                    <a href="<?php the_permalink(); ?>" class="works-card__works-image">
+                      <img class="works-card__image" src="<?php print $thumbnail; ?>" alt="">
+                    </a>
+                    <h2 class="works-card__title"><?php the_title(); ?></h2>
 
-                  <div class="works-card__excerpt">
-                    <?php the_excerpt(); ?>
-                  </div>
-
-                  <ul class="works-card__management-list">
-                    <?php
-                    if ($terms = get_the_terms($post->ID, 'works-responsible-person')) {
-                      foreach ($terms as $term) {
-                        echo '<li class="works-card__management-item">' . $term->name . '</li>';
-                      }
-                    }
-                    ?>
-                  </ul>
-
-                  <div class="works-card__genre">
-                    <div class="works-card__category">
-                      <?php
-                      $terms = get_the_terms($post->ID, 'works-cat');
-                      foreach ($terms as $term) {
-                        if ($term->parent) {
-                          echo $term->name;
-                        }
-                      }
-                      ?>
+                    <div class="works-card__excerpt">
+                      <?php the_excerpt(); ?>
                     </div>
 
-                    <div class="works-card__industry">
+                    <ul class="works-card__management-list">
                       <?php
-                      if ($terms = get_the_terms($post->ID, 'works-tag')) {
+                      if ($terms = get_the_terms($post->ID, 'works-responsible-person')) {
                         foreach ($terms as $term) {
-                          echo esc_html($term->name);
+                          echo '<li class="works-card__management-item">' . $term->name . '</li>';
                         }
                       }
                       ?>
-                    </div>
-                  </div>
-                  <div class="works-card__detail-link">
-                    <a class="works-card__link" href="<?php the_permalink(); ?>">制作詳細はこちら</a>
-                  </div>
-                </article>
-              <?php endwhile; ?>
-            <?php endif;
-            wp_reset_postdata(); ?>
-            <!-- ===== 作品制作実績 ここまで ===== -->
+                    </ul>
 
-            <!-- ===== ページ遷移ボタン ===== -->
-            <!-- <div class="primary-button">
-              <a class="primary-button__link" href="/works-cat/ui-ux-design/">UI UXデザイン 一覧
-                <span class="primary-button__arrow"></span></a>
-            </div> -->
+                    <div class="works-card__genre">
+                      <div class="works-card__category">
+                        <?php
+                        $terms = get_the_terms($post->ID, 'works-cat');
+                        foreach ($terms as $term) {
+                          if ($term->parent) {
+                            echo $term->name;
+                          }
+                        }
+                        ?>
+                      </div>
+
+                      <div class="works-card__industry">
+                        <?php
+                        if ($terms = get_the_terms($post->ID, 'works-tag')) {
+                          foreach ($terms as $term) {
+                            echo esc_html($term->name);
+                          }
+                        }
+                        ?>
+                      </div>
+                    </div>
+                    <div class="works-card__detail-link">
+                      <a class="works-card__link" href="<?php the_permalink(); ?>">制作詳細はこちら</a>
+                    </div>
+                  </article>
+                <?php endwhile; ?>
+              <?php endif;
+              wp_reset_postdata(); ?>
+              <!-- ===== 作品制作実績 ここまで ===== -->
+            </div>
           </div>
           <!-- ⬆︎ /////////////////// UI UXデザイン End /////////////////// ⬆︎ -->
 
@@ -464,61 +455,63 @@
           <!-- ⬇︎ /////////////////// ハンドメイド Start /////////////////// ⬇︎ -->
           <div id="molding-works" class="tab__area">
             <!-- ===== 作品制作実績 ここから ===== -->
-            <?php
-            $args = array(
-              'post_type' => 'works',
-              'posts_per_page' => 2,
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'works-cat',
-                  'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
-                  'terms'    => 'handmade-works'
+            <div class="works-list">
+              <?php
+              $args = array(
+                'post_type' => 'works',
+                'posts_per_page' => 2,
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'works-cat',
+                    'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
+                    'terms'    => 'handmade-works'
+                  ),
                 ),
-              ),
-            );
-            $the_query = new WP_Query($args);
-            ?>
-            <!-- ===== 作品制作実績 ここから ===== -->
-            <?php if ($the_query->have_posts()) : ?>
-              <?php while ($the_query->have_posts()) : $the_query->the_post();
-                $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
-                <article class="works-card">
-                  <div class="works-card__works-image">
-                    <img class="works-card__image" src="<?php print $thumbnail; ?>" alt="">
-                  </div>
-                  <h2 class="works-card__title"><?php the_title(); ?></h2>
+              );
+              $the_query = new WP_Query($args);
+              ?>
+              <!-- ===== 作品制作実績 ここから ===== -->
+              <?php if ($the_query->have_posts()) : ?>
+                <?php while ($the_query->have_posts()) : $the_query->the_post();
+                  $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
+                  <article class="works-card">
+                    <a href="<?php the_permalink(); ?>" class="works-card__works-image">
+                      <img class="works-card__image" src="<?php print $thumbnail; ?>" alt="">
+                    </a>
+                    <h2 class="works-card__title"><?php the_title(); ?></h2>
 
-                  <div class="works-card__excerpt">
-                    <?php the_excerpt(); ?>
-                  </div>
-
-                  <div class="works-card__genre">
-                    <div class="works-card__category">
-                      <?php
-                      $terms = get_the_terms($post->ID, 'works-cat');
-                      foreach ($terms as $term) {
-                        if ($term->parent) {
-                          echo $term->name;
-                        }
-                      }
-                      ?>
+                    <div class="works-card__excerpt">
+                      <?php the_excerpt(); ?>
                     </div>
-                  </div>
 
-                  <div class="works-card__detail-link">
-                    <a class="works-card__link" href="<?php the_permalink(); ?>">制作詳細はこちら</a>
-                  </div>
-                </article>
-              <?php endwhile; ?>
-            <?php endif;
-            wp_reset_postdata(); ?>
-            <!-- ===== 作品制作実績 ここまで ===== -->
+                    <div class="works-card__genre">
+                      <div class="works-card__category">
+                        <?php
+                        $terms = get_the_terms($post->ID, 'works-cat');
+                        foreach ($terms as $term) {
+                          if ($term->parent) {
+                            echo $term->name;
+                          }
+                        }
+                        ?>
+                      </div>
+                    </div>
 
-            <!-- ===== ページ遷移ボタン ===== -->
-            <!-- <div class="primary-button">
+                    <div class="works-card__detail-link">
+                      <a class="works-card__link" href="<?php the_permalink(); ?>">制作詳細はこちら</a>
+                    </div>
+                  </article>
+                <?php endwhile; ?>
+              <?php endif;
+              wp_reset_postdata(); ?>
+              <!-- ===== 作品制作実績 ここまで ===== -->
+
+              <!-- ===== ページ遷移ボタン ===== -->
+              <!-- <div class="primary-button">
               <a class="primary-button__link" href="/works-cat/handmade-works/">ハンドメイド 一覧
                 <span class="primary-button__arrow"></span></a>
             </div> -->
+            </div>
           </div>
           <!-- ⬆︎ /////////////////// ハンドメイド End /////////////////// ⬆︎ -->
 

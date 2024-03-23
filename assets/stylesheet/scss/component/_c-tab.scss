@@ -159,7 +159,7 @@ ul.tab li.active a {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: fluid-size(14, 16);
+    font-size: fluid-size(12, 16);
     padding-bottom: 4px;
     color: $font-black;
     position: relative;
@@ -193,20 +193,7 @@ ul.tab li.active a {
 
   &__area.is-active {
     display: block; /*表示*/
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 16px 64px;
-
     @include animation($name: tabAnime, $duration: 2s, $fill-mode: forwards);
-
-    @include mq(tab) {
-      gap: 16px 16px;
-    }
-
-    @include mq(sp) {
-      gap: 40px 16px;
-    }
   }
   @keyframes tabAnime {
     from {

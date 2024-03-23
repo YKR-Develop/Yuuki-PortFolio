@@ -44,13 +44,13 @@
           <!-- ⬇︎ ############ 最新の記事一覧 Start ############ ⬇︎ -->
           <section class="contents__wrapper contents__wrapper--mb-none">
 
-            <div class="new-article swiper-container">
-              <div class="new-article__wrapper swiper-wrapper">
+            <div class="new-article">
+              <div class="new-article__wrapper">
 
                 <?php
                 $args = array(
                   'post_type' => 'post',
-                  'posts_per_page' => 4,
+                  'posts_per_page' => 3,
                   'orderby' => 'date'
                 );
                 $posts = get_posts($args);
@@ -71,25 +71,21 @@
                       <?php endif; ?>
                     </a>
 
-                    <!-- カテゴリー -->
-                    <div class="new-article__category-box">
-                      <div class="new-article__category">
-                        <?php
-                        $categories = get_the_category();
-                        foreach ($categories as $category) {
-                          // 親カテゴリーIDを取得
-                          $parent = $category->parent;
-                          // 親カテゴリーIDがない場合
-                          if (!$parent) {
-                            echo '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
-                            break;
-                          }
-                        }
-                        ?>
-                      </div>
-                    </div>
-
                     <!-- 記事タイトル / 投稿日時 -->
+                    <div class="new-article__category">
+                      <?php
+                      $categories = get_the_category();
+                      foreach ($categories as $category) {
+                        // 親カテゴリーIDを取得
+                        $parent = $category->parent;
+                        // 親カテゴリーIDがない場合
+                        if (!$parent) {
+                          echo '<a class="new-article__category-link" href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>';
+                          break;
+                        }
+                      }
+                      ?>
+                    </div>
                     <div class="new-article__label">
                       <div class="new-article__label-inner">
                         <a href="<?php the_permalink(); ?>" class="new-article__link">
@@ -142,157 +138,20 @@
 
           <!-- ⬇︎ ############ おすすめの記事 Start ############ ⬇︎ -->
           <div id="recommended-articles" class="tab__area">
-
-            <?php
-            $args = array(
-              'post_type' => 'post',
-              'posts_per_page' => 4,
-              'orderby' => 'date',
-              'tag_id' => '33'
-            );
-            $posts = get_posts($args);
-            foreach ($posts as $post) :
-              setup_postdata($post);
-              $custom_posts = get_posts($args);
-            ?>
-              <!-- ===== おすすめの記事 ブログカード ここから ===== -->
-              <div class="blog-card">
-                <!-- ブログサムネイル -->
-                <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
-                  <?php
-                  if (has_post_thumbnail()) :
-                    the_post_thumbnail();
-                  else :
-                  ?>
-                    <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
-                  <?php endif; ?>
-                </a>
-
-                <!-- ブログタイトル / カテゴリー / 投稿日 -->
-                <div class="blog-card__label">
-                  <h4 class="blog-card__title">
-                    <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
-                      <?php the_title(); ?>
-                    </a>
-                  </h4>
-
-                  <div class="blog-card__category-link">
-                    <?php
-                    $categories = get_the_category();
-                    foreach ($categories as $category) {
-                      $cat_name = $category->name;
-                      $cat_link = esc_url(get_category_link($category->term_id));
-                      if ($category->parent) {
-                        echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
-                      }
-                    }
-                    ?>
-                  </div>
-
-                  <div class="blog-card__date-box">
-                    <time class="blog-card__date">
-                      <?php the_time('Y.m.d'); ?>
-                    </time>
-                  </div>
-
-                </div>
-              </div>
-              <!-- ===== おすすめの記事 ブログカード ここまで ===== -->
-            <?php endforeach;
-            wp_reset_postdata(); ?>
-
-          </div>
-          <!-- ⬆︎ ############ おすすめの記事 End ############ ⬆︎ -->
-
-          <!-- ============================================================================== -->
-
-          <!-- ⬇︎ ############ 特集記事 Start ############ ⬇︎ -->
-          <div id="feature-articles" class="tab__area">
-            <?php
-            $args = array(
-              'post_type' => 'post',
-              'posts_per_page' => 4,
-              'orderby' => 'date',
-              'tag_id' => '32'
-            );
-            $posts = get_posts($args);
-            foreach ($posts as $post) :
-              setup_postdata($post);
-
-              $custom_posts = get_posts($args);
-
-            ?>
-              <!-- ===== 特集記事 ブログカード ここから ===== -->
-              <div class="blog-card">
-                <!-- ブログサムネイル -->
-                <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
-                  <?php
-                  if (has_post_thumbnail()) :
-                    the_post_thumbnail();
-                  else :
-                  ?>
-                    <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
-                  <?php endif; ?>
-                </a>
-
-                <!-- ブログタイトル / カテゴリー / 投稿日 -->
-                <div class="blog-card__label">
-                  <h4 class="blog-card__title">
-                    <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
-                      <?php the_title(); ?>
-                    </a>
-                  </h4>
-
-                  <div class="blog-card__category-link">
-                    <?php
-                    $categories = get_the_category();
-                    foreach ($categories as $category) {
-                      $cat_name = $category->name;
-                      $cat_link = esc_url(get_category_link($category->term_id));
-                      if ($category->parent) {
-                        echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
-                      }
-                    }
-                    ?>
-                  </div>
-
-                  <div class="blog-card__date-box">
-                    <time class="blog-card__date">
-                      <?php the_time('Y.m.d'); ?>
-                    </time>
-                  </div>
-                </div>
-              </div>
-              <!-- ===== 特集記事 ブログカード ここまで ===== -->
-            <?php endforeach;
-            wp_reset_postdata(); ?>
-            <!-- ===== ページ遷移ボタン ===== -->
-            <div class="primary-button">
-              <a class="primary-button__link" href="<?php echo esc_url(get_tag_link('32')); ?>">特集記事一覧<span class="primary-button__arrow"></span></a>
-            </div>
-          </div>
-          <!-- ⬆︎ ############ 特集記事 End ############ ⬆︎ -->
-
-          <!-- ============================================================================== -->
-
-          <!-- ⬇︎ ############ ランキング記事 Start ############ ⬇︎ -->
-          <div id="ranking-articles" class="tab__area">
-            <?php
-            $args = array(
-              'post_type' => 'post',
-              'post_status' => 'publish',
-              'posts_per_page' => 4,
-              'orderby' => 'meta_value_num',
-              'meta_key' => '_custom_meta_views',
-              'order' => 'DESC'
-            );
-
-            $the_query = new WP_Query($args);
-            if ($the_query->have_posts()) :
-              while ($the_query->have_posts()) : $the_query->the_post();
-            ?>
-
-                <!-- ===== 人気の記事 ブログカード ここから ===== -->
+            <div class="blog-wrapper">
+              <?php
+              $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 4,
+                'orderby' => 'date',
+                'tag_id' => '33'
+              );
+              $posts = get_posts($args);
+              foreach ($posts as $post) :
+                setup_postdata($post);
+                $custom_posts = get_posts($args);
+              ?>
+                <!-- ===== おすすめの記事 ブログカード ここから ===== -->
                 <div class="blog-card">
                   <!-- ブログサムネイル -->
                   <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
@@ -307,39 +166,184 @@
 
                   <!-- ブログタイトル / カテゴリー / 投稿日 -->
                   <div class="blog-card__label">
-                    <h4 class="blog-card__title">
-                      <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                      </a>
-                    </h4>
+                    <div class="blog-card__inner">
+                      <h4 class="blog-card__title">
+                        <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
+                          <?php the_title(); ?>
+                        </a>
+                      </h4>
 
-                    <div class="blog-card__category-link">
-                      <?php
-                      $categories = get_the_category();
-                      foreach ($categories as $category) {
-                        $cat_name = $category->name;
-                        $cat_link = esc_url(get_category_link($category->term_id));
-                        if ($category->parent) {
-                          echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                      <div class="blog-card__category-link">
+                        <?php
+                        $categories = get_the_category();
+                        foreach ($categories as $category) {
+                          $cat_name = $category->name;
+                          $cat_link = esc_url(get_category_link($category->term_id));
+                          if ($category->parent) {
+                            echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                          }
                         }
-                      }
-                      ?>
-                    </div>
+                        ?>
+                      </div>
 
-                    <div class="blog-card__date-box">
-                      <time class="blog-card__date">
-                        <?php the_time('Y.m.d'); ?>
-                      </time>
+                      <div class="blog-card__date-box">
+                        <time class="blog-card__date">
+                          <?php the_time('Y.m.d'); ?>
+                        </time>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <!-- ===== 人気の記事 ブログカード ここまで ===== -->
+                <!-- ===== おすすめの記事 ブログカード ここまで ===== -->
+              <?php endforeach;
+              wp_reset_postdata(); ?>
+            </div>
+          </div>
+          <!-- ⬆︎ ############ おすすめの記事 End ############ ⬆︎ -->
 
-            <?php endwhile;
-            endif;
-            wp_reset_postdata(); ?>
+          <!-- ============================================================================== -->
 
+          <!-- ⬇︎ ############ 特集記事 Start ############ ⬇︎ -->
+          <div id="feature-articles" class="tab__area">
+            <div class="blog-wrapper">
+              <?php
+              $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 4,
+                'orderby' => 'date',
+                'tag_id' => '32'
+              );
+              $posts = get_posts($args);
+              foreach ($posts as $post) :
+                setup_postdata($post);
 
+                $custom_posts = get_posts($args);
+
+              ?>
+                <!-- ===== 特集記事 ブログカード ここから ===== -->
+                <div class="blog-card">
+                  <!-- ブログサムネイル -->
+                  <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
+                    <?php
+                    if (has_post_thumbnail()) :
+                      the_post_thumbnail();
+                    else :
+                    ?>
+                      <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                    <?php endif; ?>
+                  </a>
+
+                  <!-- ブログタイトル / カテゴリー / 投稿日 -->
+                  <div class="blog-card__label">
+                    <div class="blog-card__inner">
+                      <h4 class="blog-card__title">
+                        <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
+                          <?php the_title(); ?>
+                        </a>
+                      </h4>
+
+                      <div class="blog-card__category-link">
+                        <?php
+                        $categories = get_the_category();
+                        foreach ($categories as $category) {
+                          $cat_name = $category->name;
+                          $cat_link = esc_url(get_category_link($category->term_id));
+                          if ($category->parent) {
+                            echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                          }
+                        }
+                        ?>
+                      </div>
+
+                      <div class="blog-card__date-box">
+                        <time class="blog-card__date">
+                          <?php the_time('Y.m.d'); ?>
+                        </time>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ===== 特集記事 ブログカード ここまで ===== -->
+              <?php endforeach;
+              wp_reset_postdata(); ?>
+              <!-- ===== ページ遷移ボタン ===== -->
+              <div class="primary-button">
+                <a class="primary-button__link" href="<?php echo esc_url(get_tag_link('32')); ?>">特集記事一覧<span class="primary-button__arrow"></span></a>
+              </div>
+            </div>
+          </div>
+          <!-- ⬆︎ ############ 特集記事 End ############ ⬆︎ -->
+
+          <!-- ============================================================================== -->
+
+          <!-- ⬇︎ ############ ランキング記事 Start ############ ⬇︎ -->
+          <div id="ranking-articles" class="tab__area">
+            <div class="blog-wrapper">
+              <?php
+              $args = array(
+                'post_type' => 'post',
+                'post_status' => 'publish',
+                'posts_per_page' => 4,
+                'orderby' => 'meta_value_num',
+                'meta_key' => '_custom_meta_views',
+                'order' => 'DESC'
+              );
+
+              $the_query = new WP_Query($args);
+              if ($the_query->have_posts()) :
+                while ($the_query->have_posts()) : $the_query->the_post();
+              ?>
+
+                  <!-- ===== 人気の記事 ブログカード ここから ===== -->
+                  <div class="blog-card">
+                    <!-- ブログサムネイル -->
+                    <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
+                      <?php
+                      if (has_post_thumbnail()) :
+                        the_post_thumbnail();
+                      else :
+                      ?>
+                        <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                      <?php endif; ?>
+                    </a>
+
+                    <!-- ブログタイトル / カテゴリー / 投稿日 -->
+                    <div class="blog-card__label">
+                      <div class="blog-card__inner">
+                        <h4 class="blog-card__title">
+                          <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
+                            <?php the_title(); ?>
+                          </a>
+                        </h4>
+
+                        <div class="blog-card__category-link">
+                          <?php
+                          $categories = get_the_category();
+                          foreach ($categories as $category) {
+                            $cat_name = $category->name;
+                            $cat_link = esc_url(get_category_link($category->term_id));
+                            if ($category->parent) {
+                              echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                            }
+                          }
+                          ?>
+                        </div>
+
+                        <div class="blog-card__date-box">
+                          <time class="blog-card__date">
+                            <?php the_time('Y.m.d'); ?>
+                          </time>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ===== 人気の記事 ブログカード ここまで ===== -->
+
+              <?php endwhile;
+              endif;
+              wp_reset_postdata(); ?>
+
+            </div>
           </div>
           <!-- ⬆︎ ############ ランキング記事 End ############ ⬆︎ -->
         </section>
@@ -410,7 +414,7 @@
                   $custom_posts = get_posts($args);
                 ?>
 
-                  <!-- ===== ハンドメイド ブログカード ここから ===== -->
+                  <!-- ===== Web制作・デザイン ブログカード ここから ===== -->
                   <div class="blog-card blog-card--category">
                     <!-- ブログサムネイル -->
                     <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
@@ -425,40 +429,42 @@
 
                     <!-- ブログタイトル / カテゴリー / 投稿日 -->
                     <div class="blog-card__label">
-                      <h4 class="blog-card__title">
-                        <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
-                          <?php the_title(); ?>
-                        </a>
-                      </h4>
+                      <div class="blog-card__inner">
+                        <h4 class="blog-card__title">
+                          <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
+                            <?php the_title(); ?>
+                          </a>
+                        </h4>
 
-                      <div class="blog-card__category-link">
-                        <?php
-                        $categories = get_the_category();
-                        foreach ($categories as $category) {
-                          $cat_name = $category->name;
-                          $cat_link = esc_url(get_category_link($category->term_id));
-                          if ($category->parent) {
-                            echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                        <div class="blog-card__category-link">
+                          <?php
+                          $categories = get_the_category();
+                          foreach ($categories as $category) {
+                            $cat_name = $category->name;
+                            $cat_link = esc_url(get_category_link($category->term_id));
+                            if ($category->parent) {
+                              echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                            }
                           }
-                        }
-                        ?>
-                      </div>
+                          ?>
+                        </div>
 
-                      <div class="blog-card__date-box">
-                        <time class="blog-card__date">
-                          <?php the_time('Y.m.d'); ?>
-                        </time>
+                        <div class="blog-card__date-box">
+                          <time class="blog-card__date">
+                            <?php the_time('Y.m.d'); ?>
+                          </time>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <!-- ===== ハンドメイド ブログカード ここまで ===== -->
+                  <!-- ===== Web制作・デザイン ブログカード ここまで ===== -->
                 <?php endforeach;
                 wp_reset_postdata(); ?>
               </div>
 
               <!-- ===== ページ遷移ボタン ===== -->
               <div class="primary-button">
-                <a class="primary-button__link" href="<?php echo esc_url(get_category_link('7')); ?>">Web制作・デザイン 記事一覧<span class="primary-button__arrow"></span></a>
+                <a class="primary-button__link" href="<?php echo esc_url(get_category_link('7')); ?>">Web制作・デザイン 一覧<span class="primary-button__arrow"></span></a>
               </div>
             </div>
             <!-- ===== Web制作・デザイン カテゴリ ENd ===== -->
@@ -525,29 +531,31 @@
 
                     <!-- ブログタイトル / カテゴリー / 投稿日 -->
                     <div class="blog-card__label">
-                      <h4 class="blog-card__title">
-                        <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
-                          <?php the_title(); ?>
-                        </a>
-                      </h4>
+                      <div class="blog-card__inner">
+                        <h4 class="blog-card__title">
+                          <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
+                            <?php the_title(); ?>
+                          </a>
+                        </h4>
 
-                      <div class="blog-card__category-link">
-                        <?php
-                        $categories = get_the_category();
-                        foreach ($categories as $category) {
-                          $cat_name = $category->name;
-                          $cat_link = esc_url(get_category_link($category->term_id));
-                          if ($category->parent) {
-                            echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                        <div class="blog-card__category-link">
+                          <?php
+                          $categories = get_the_category();
+                          foreach ($categories as $category) {
+                            $cat_name = $category->name;
+                            $cat_link = esc_url(get_category_link($category->term_id));
+                            if ($category->parent) {
+                              echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                            }
                           }
-                        }
-                        ?>
-                      </div>
+                          ?>
+                        </div>
 
-                      <div class="blog-card__date-box">
-                        <time class="blog-card__date">
-                          <?php the_time('Y.m.d'); ?>
-                        </time>
+                        <div class="blog-card__date-box">
+                          <time class="blog-card__date">
+                            <?php the_time('Y.m.d'); ?>
+                          </time>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -559,7 +567,7 @@
 
               <!-- ===== ページ遷移ボタン ===== -->
               <div class="primary-button">
-                <a class="primary-button__link" href="<?php echo esc_url(get_category_link('3')); ?>">ハンドメイド 記事一覧<span class="primary-button__arrow"></span></a>
+                <a class="primary-button__link" href="<?php echo esc_url(get_category_link('3')); ?>">ハンドメイド 一覧<span class="primary-button__arrow"></span></a>
               </div>
               <!-- ===== ハンドメイド カテゴリ ENd ===== -->
             </div>

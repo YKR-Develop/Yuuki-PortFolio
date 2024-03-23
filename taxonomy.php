@@ -62,9 +62,9 @@
                 <?php while (have_posts()) : the_post();
                   $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
                   <article class="works-card">
-                    <div class="works-card__works-image">
+                    <a href="<?php the_permalink(); ?>" class="works-card__works-image">
                       <img class="works-card__image" src="<?php print $thumbnail; ?>" alt="">
-                    </div>
+                    </a>
 
                     <h2 class="works-card__title"><?php the_title(); ?></h2>
 
@@ -128,9 +128,9 @@
                 <?php while (have_posts()) : the_post();
                   $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
                   <article class="works-card">
-                    <div class="works-card__works-image">
+                    <a href="<?php the_permalink(); ?>" class="works-card__works-image">
                       <img class="works-card__image" src="<?php print $thumbnail; ?>" alt="">
-                    </div>
+                    </a>
 
                     <h2 class="works-card__title"><?php the_title(); ?></h2>
 

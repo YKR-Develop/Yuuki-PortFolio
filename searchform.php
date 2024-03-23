@@ -9,7 +9,6 @@
 </form>
 <!-- ===== 検索フォーム End ====== -->
 
-
 <!-- ===== 検索フォーム_SP Start ====== -->
 <div class="search-open-btn is-sp"></div>
 <div class="search-wrap">
@@ -19,8 +18,10 @@
   </div>
   <div class="search-area">
     <form class="search-wrap__form" role="search" method="get" action="<?php echo home_url('/'); ?>">
-      <input class="search-wrap__input" type="text" value="" name="s" id="search-text" placeholder="search">
-      <input class="search-wrap__submit" type="submit" id="searchsubmit" value="">
+      <div class="search-wrap__inner">
+        <input class="search-wrap__input" type="text" value="" name="s" id="search-text" placeholder="search">
+        <input class="search-wrap__submit" type="submit" id="searchsubmit" value="">
+      </div>
     </form>
   </div>
 </div>

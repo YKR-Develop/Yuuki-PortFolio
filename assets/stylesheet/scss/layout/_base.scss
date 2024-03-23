@@ -25,6 +25,9 @@ body {
   font-family: $font-family-sans-serif;
   letter-spacing: 0.1em;
   color: $font-black;
+  @include mq(pc) {
+    min-width: 1280px;
+  }
 }
 
 img {
@@ -89,7 +92,7 @@ p {
   z-index: 1;
   background-color: $background-gray;
   &__article {
-    padding: 64px 0;
+    padding: 80px 0;
     
     &--white-bg {
       background-color: $background-white;
@@ -116,7 +119,7 @@ p {
     }
 
     @include mq(tab) {
-      padding: 48px 18px;
+      padding: 56px 18px;
       &:last-child {
         padding-bottom: 48px;
       }
@@ -151,14 +154,14 @@ p {
   &__wrapper {
     max-width: 1280px;
     margin: 0 auto;
-    margin-bottom: 64px;
+    margin-bottom: 80px;
 
     &:last-child {
       margin-bottom: 0;
     }
 
     @include mq(tab) {
-      margin-bottom: 48px;
+      margin-bottom: 64px;
     }
 
     &--about-genre {
@@ -167,6 +170,10 @@ p {
         margin-bottom: 32px;
       }
     }
+  }
+
+  & .primary-button {
+    margin-top: 40px;
   }
 }
 

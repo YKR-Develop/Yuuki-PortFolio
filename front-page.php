@@ -19,7 +19,7 @@
     <div class="contents__inner">
 
       <!-- ⬇︎ /////////////////// Top_Works 制作実績 Start /////////////////// ⬇︎ -->
-      <article class="contents__article" id="works-top">
+      <div class="contents__article" id="works-top">
         <section class="contents__article-inner">
           <!-- ===== コンテンツ見出し Heading ===== -->
           <h2 class="contents-heading">
@@ -54,10 +54,7 @@
               <div class="top-works__desc">
                 <div class="top-works__text-box">
                   <p class="top-works__text">
-                    デザインからコーディングで制作したHTMLサイトを始めPHPを用いたWordPressサイトやノーコードツールを利用したWebサイトなどを幅広く掲載しております。
-                  </p>
-                  <p class="top-works__text">
-                    詳細ページでは制作時に使用したペルソナやカスタマージャーニーマップなどの資料も閲覧できます。
+                    WFからデザイン・コーディングで制作したサイトを始め、PHPを用いてWordPressを構築したサイトを掲載しております。
                   </p>
                 </div>
 
@@ -81,12 +78,12 @@
                     <?php while ($the_query->have_posts()) : $the_query->the_post();
                       $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
                       <li class="top-works__mockup-item">
-                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
                         <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
                           <div class="top-works__mockup-thumb">
                             <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="">
                           </div>
                         </a>
+                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
                       </li>
                     <?php endwhile; ?>
                   <?php endif;
@@ -128,10 +125,7 @@
               <div class="top-works__desc">
                 <div class="top-works__text-box">
                   <p class="top-works__text">
-                    主にFigmaを使用して制作したアプリのUI UXデザインやゲームのUIデザインを掲載しております。
-                  </p>
-                  <p class="top-works__text">
-                    詳細ページでは実際にFigmaからデザインを確認することができるURLと制作時に使用した資料などもご覧いただけます。
+                    Figmaを使用し制作したアプリのUI UXデザインを掲載しております。<br>ペルソナやカスタマージャーニーなどを用いた実践的な観点を用いて制作しています。
                   </p>
                 </div>
 
@@ -155,12 +149,12 @@
                     <?php while ($the_query->have_posts()) : $the_query->the_post();
                       $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
                       <li class="top-works__mockup-item">
-                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
                         <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
                           <div class="top-works__mockup-thumb top-works__mockup-thumb">
                             <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="">
                           </div>
                         </a>
+                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
                       </li>
                     <?php endwhile; ?>
                   <?php endif;
@@ -202,10 +196,8 @@
               <div class="top-works__desc">
                 <div class="top-works__text-box">
                   <p class="top-works__text">
-                    私が趣味で制作しているハンドメイド作品を掲載しております。
-                  </p>
-                  <p class="top-works__text">
-                    アクセサリーを始め、コスプレで使用する衣装の制作や小道具の制作など幅広いジャンルを制作しております。
+                    私が個人的に制作した衣装や造形作品などを掲載しています。<br>
+                    製作へのこだわりや過程などを作品詳細やブログにまとめておりますので、ぜひご覧ください。
                   </p>
                 </div>
 
@@ -228,14 +220,14 @@
                   <?php if ($the_query->have_posts()) : ?>
                     <?php while ($the_query->have_posts()) : $the_query->the_post();
                       $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
-                      
+
                       <li class="top-works__mockup-item">
-                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
                         <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
                           <div class="top-works__mockup-thumb">
                             <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="">
                           </div>
                         </a>
+                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
                       </li>
                     <?php endwhile; ?>
                   <?php endif;
@@ -250,21 +242,21 @@
               </a>
             </div>
             <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
+
+            <!-- ===== ページ遷移ボタン ===== -->
+            <div class="primary-button">
+              <a class="primary-button__link" href="<?php echo home_url(); ?>/works">Works 詳細はこちら<span class="primary-button__arrow"></span></a>
+            </div>
           </section>
           <!-- ⬆︎ ############ ハンドメイド 各要素コンテンツ Start ############ ⬆︎ -->
-
-          <!-- ===== ページ遷移ボタン ===== -->
-          <div class="primary-button">
-            <a class="primary-button__link" href="<?php echo home_url(); ?>/works">Works 詳細はこちら<span class="primary-button__arrow"></span></a>
-          </div>
         </section>
-      </article>
+      </div>
       <!-- ⬆︎ /////////////////// Top_Works 制作実績 End /////////////////// ⬆︎ -->
 
       <!-- ================================================================================ -->
 
       <!-- ⬇︎ /////////////////// Top_About 当サイトについて Start /////////////////// ⬇︎ -->
-      <article class="contents__article contents__article--white-bg" id="about-top">
+      <div class="contents__article contents__article--white-bg" id="about-top">
         <!-- ===== コンテンツ見出し Heading ===== -->
         <section class="contents__article-inner">
           <h2 class="contents-heading">
@@ -278,20 +270,20 @@
           <!-- ===== コンテンツ見出し Heading ===== -->
 
           <!-- ⬇︎ ############ About 各要素コンテンツ Start ############ ⬇︎ -->
-          <section class="top-about">
+          <div class="top-about">
             <!-- ===== About 説明 Text ===== -->
             <div class="top-about__desc">
               <p class="top-about__text">
                 当サイトを閲覧してくださりありがとうございます。
               </p>
               <p class="top-about__text">
-                こちらのポートフォリオサイト兼ブログサイトでは、<br>Webサイト / UI UXデザイン / ハンドメイドなどの作品掲載をしているポートフォリオと、web制作やハンドメイド制作などの「モノづくり」に関する情報をブログを通して発信しております。
+                こちらのポートフォリオ兼ブログサイトでは、<br>制作したWebサイト / UI UXデザイン / ハンドメイド作品の掲載と、「モノづくり」を中心とした情報をブログにて発信しています。
               </p>
               <p class="top-about__text">
-                小さな頃から時間を忘れるほど好きだった「モノづくり」を活かせる仕事がないかと考えていたときに、「Webデザイン」という仕事に出会いました。
+                小さな頃から時間を忘れるほど好きだった何かを作ることとそこに対するこだわりを活かす仕事を考えていたときに、「Webデザイン」という仕事に出会いました。
               </p>
               <p class="top-about__text">
-                時間を忘れてWeb制作の勉強に夢中になり清掃員から転職して、現在は都内のシステム会社のWeb制作部門で勤務しております。
+                時間を忘れるほどサイト制作の勉強に夢中になり清掃員から転職し、2年ほど都内のシステム会社で勤務した後、現在は転職活動をしております。
               </p>
             </div>
 
@@ -299,7 +291,7 @@
             <div class="top-about__profile-img">
               <img class="top-about__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/img/img_top_profile-img.png" alt="プロフィール写真">
             </div>
-          </section>
+          </div>
 
           <!-- ===== ページ遷移ボタン ===== -->
           <div class="primary-button">
@@ -308,13 +300,13 @@
 
           <!-- ⬆︎ ############ About 各要素コンテンツ Start ############ ⬆︎ -->
         </section>
-      </article>
-      <!-- ⬆︎ /////////////////// Top_About Yukuro CreteFolioについて End /////////////////// ⬆︎ -->
+      </div>
+      <!-- ⬆︎ /////////////////// Top_About Yuuki PortFolio について End /////////////////// ⬆︎ -->
 
       <!-- ================================================================================ -->
 
       <!-- ⬇︎ /////////////////// Top_Blog ブログ Start /////////////////// ⬇︎ -->
-      <article class="contents__article" id="blog-top">
+      <div class="contents__article" id="blog-top">
         <section class="contents__article-inner">
           <!-- ===== コンテンツ見出し Heading ===== -->
           <h2 class="contents-heading">
@@ -329,7 +321,7 @@
 
           <!-- ===== 説明 Description ===== -->
           <p class="contents__desc">
-            Webサイト制作やデザインに関するアウトプット投稿を始め、趣味でやっておりますハンドメイドや衣装・造形製作に関する記事などモノづくりの情報を幅広く発信しております。
+            Webサイト / デザインに関するアウトプットの投稿をはじめ、ハンドメイドや衣装・造形製作関連などの情報を幅広く発信しています。
           </p>
 
           <!-- ⬇︎ ############ 最新の記事一覧 各要素コンテンツ Start ############ ⬇︎ -->
@@ -362,66 +354,70 @@
 
             <!-- ⬇︎ ############ Web制作・デザイン Start ############ ⬇︎ -->
             <div id="web-design_articles" class="tab__area">
-              <?php
-              $args = array(
-                'post_type' => 'post',
-                'posts_per_page' => 4,
-                'orderby' => 'date',
-                'category' => '7'
-              );
-              $posts = get_posts($args);
-              foreach ($posts as $post) :
-                setup_postdata($post);
 
-                $custom_posts = get_posts($args);
+              <div class="blog-wrapper">
+                <?php
+                $args = array(
+                  'post_type' => 'post',
+                  'posts_per_page' => 4,
+                  'orderby' => 'date',
+                  'category' => '7'
+                );
+                $posts = get_posts($args);
+                foreach ($posts as $post) :
+                  setup_postdata($post);
 
-              ?>
-                <!-- ===== Web制作・デザイン ブログカード ここから ===== -->
-                <div class="blog-card">
-                  <!-- ブログサムネイル -->
-                  <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
-                    <?php
-                    if (has_post_thumbnail()) :
-                      the_post_thumbnail();
-                    else :
-                    ?>
-                      <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
-                    <?php endif; ?>
-                  </a>
+                  $custom_posts = get_posts($args);
 
-                  <!-- ブログタイトル / カテゴリー / 投稿日 -->
-                  <div class="blog-card__label">
-                    <h4 class="blog-card__title">
-                      <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                      </a>
-                    </h4>
-
-                    <div class="blog-card__category-link">
+                ?>
+                  <!-- ===== Web制作・デザイン ブログカード ここから ===== -->
+                  <div class="blog-card">
+                    <!-- ブログサムネイル -->
+                    <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
                       <?php
-                      $categories = get_the_category();
-                      foreach ($categories as $category) {
-                        $cat_name = $category->name;
-                        $cat_link = esc_url(get_category_link($category->term_id));
-                        if ($category->parent) {
-                          echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
-                        }
-                      }
+                      if (has_post_thumbnail()) :
+                        the_post_thumbnail();
+                      else :
                       ?>
-                    </div>
+                        <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                      <?php endif; ?>
+                    </a>
+
+                    <!-- ブログタイトル / カテゴリー / 投稿日 -->
+                    <div class="blog-card__label">
+                      <div class="blog-card__inner">
+                        <h4 class="blog-card__title">
+                          <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
+                            <?php the_title(); ?>
+                          </a>
+                        </h4>
+
+                        <div class="blog-card__category-link">
+                          <?php
+                          $categories = get_the_category();
+                          foreach ($categories as $category) {
+                            $cat_name = $category->name;
+                            $cat_link = esc_url(get_category_link($category->term_id));
+                            if ($category->parent) {
+                              echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                            }
+                          }
+                          ?>
+                        </div>
 
 
-                    <div class="blog-card__date-box">
-                      <time class="blog-card__date">
-                        <?php the_time('Y.m.d'); ?>
-                      </time>
+                        <div class="blog-card__date-box">
+                          <time class="blog-card__date">
+                            <?php the_time('Y.m.d'); ?>
+                          </time>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <!-- ===== Web制作・デザイン ブログカード ここまで ===== -->
-              <?php endforeach;
-              wp_reset_postdata(); ?>
-
+                  <!-- ===== Web制作・デザイン ブログカード ここまで ===== -->
+                <?php endforeach;
+                wp_reset_postdata(); ?>
+              </div>
             </div>
             <!-- ⬆︎ ############ Web制作・デザイン End ############ ⬆︎ -->
 
@@ -429,64 +425,70 @@
 
             <!-- ⬇︎ ############ ハンドメイド Start ############ ⬇︎ -->
             <div id="handmade_articles" class="tab__area">
-              <?php
-              $args = array(
-                'post_type' => 'post',
-                'posts_per_page' => 4,
-                'orderby' => 'date',
-                'category' => '3',
-                'orderby' => 'date',
-                'order' => 'DESC'
-              );
-              $posts = get_posts($args);
-              foreach ($posts as $post) :
-                setup_postdata($post);
+              <div class="blog-wrapper">
+                <?php
+                $args = array(
+                  'post_type' => 'post',
+                  'posts_per_page' => 4,
+                  'orderby' => 'date',
+                  'category' => '3',
+                  'orderby' => 'date',
+                  'order' => 'DESC'
+                );
+                $posts = get_posts($args);
+                foreach ($posts as $post) :
+                  setup_postdata($post);
 
-                $custom_posts = get_posts($args);
-              ?>
+                  $custom_posts = get_posts($args);
+                ?>
 
-                <!-- ===== ハンドメイド ブログカード ここから ===== -->
-                <div class="blog-card">
-                  <!-- ブログサムネイル -->
-                  <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
-                    <?php
-                    if (has_post_thumbnail()) :
-                      the_post_thumbnail();
-                    else :
-                    ?>
-                      <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
-                    <?php endif; ?>
-                  </a>
-
-                  <!-- ブログタイトル / カテゴリー / 投稿日 -->
-                  <div class="blog-card__label">
-                    <h4 class="blog-card__title">
-                      <a class="blog-card__title-link" href="/blog/article_sample.html">
-                        <?php the_title(); ?>
-                      </a>
-                    </h4>
-
-                    <div class="blog-card__category-link">
+                  <!-- ===== ハンドメイド ブログカード ここから ===== -->
+                  <div class="blog-card">
+                    <!-- ブログサムネイル -->
+                    <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
                       <?php
-                      $categories = get_the_category();
-                      foreach ($categories as $category) {
-                        $cat_name = $category->name;
-                        $cat_link = esc_url(get_category_link($category->term_id));
-                        if ($category->parent) {
-                          echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
-                        }
-                      }
+                      if (has_post_thumbnail()) :
+                        the_post_thumbnail();
+                      else :
                       ?>
-                    </div>
+                        <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                      <?php endif; ?>
+                    </a>
 
-                    <time class="blog-card__date">
-                      <?php the_time('Y.m.d'); ?>
-                    </time>
+                    <!-- ブログタイトル / カテゴリー / 投稿日 -->
+                    <div class="blog-card__label">
+                      <div class="blog-card__inner">
+                        <h4 class="blog-card__title">
+                          <a class="blog-card__title-link" href="/blog/article_sample.html">
+                            <?php the_title(); ?>
+                          </a>
+                        </h4>
+
+                        <div class="blog-card__category-link">
+                          <?php
+                          $categories = get_the_category();
+                          foreach ($categories as $category) {
+                            $cat_name = $category->name;
+                            $cat_link = esc_url(get_category_link($category->term_id));
+                            if ($category->parent) {
+                              echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
+                            }
+                          }
+                          ?>
+                        </div>
+
+                        <div class="blog-card__date-box">
+                          <time class="blog-card__date">
+                            <?php the_time('Y.m.d'); ?>
+                          </time>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <!-- ===== ハンドメイド ブログカード ここまで ===== -->
-              <?php endforeach;
-              wp_reset_postdata(); ?>
+                  <!-- ===== ハンドメイド ブログカード ここまで ===== -->
+                <?php endforeach;
+                wp_reset_postdata(); ?>
+              </div>
             </div>
             <!-- ⬆︎ ############ ハンドメイド End ############ ⬆︎ -->
           </div>
@@ -560,7 +562,6 @@
               </ul>
             </div>
             <!-- ===== ハンドメイド カテゴリ ENd ===== -->
-
           </div>
 
           <!-- ⬆︎ ############ カテゴリー一覧 各要素コンテンツ End ############ ⬆︎ -->
@@ -569,172 +570,46 @@
           <div class="primary-button">
             <a class="primary-button__link" href="<?php echo home_url(); ?>/blog">Blog 一覧はこちら<span class="primary-button__arrow"></span></a>
           </div>
-    </div>Ï
-    <!-- ⬆︎ ############ Blog 各要素コンテンツ Start ############ ⬆︎ -->
-    </section>
-    </article>
-    <!-- ⬆︎ /////////////////// Top_Blog ブログ End /////////////////// ⬆︎ -->
-
-    <!-- ================================================================================ -->
-
-    <!-- ⬇︎ /////////////////// Top_News お知らせ Start /////////////////// ⬇︎ -->
-    <article class="contents__article contents__article--white-bg" id="news-top">
-      <section class="contents__article-inner">
-        <!-- ===== コンテンツ見出し Heading ===== -->
-        <h2 class="contents-heading">
-          <span class="contents-heading__main">
-            News
-          </span>
-          <span class="contents-heading__sub">
-            お知らせ
-          </span>
-
-          <div class="contents-heading__side-link is-pc">
-            <a class="contents-heading__link" href="<?php echo home_url(); ?>/news">News お知らせ一覧はこちら</a>
-          </div>
-        </h2>
-        <!-- ===== コンテンツ見出し Heading ===== -->
-
-        <!-- ===== News お知らせ一覧 News-list ===== -->
-        <ul class="news-list">
-          <?php
-          $top_news_n = get_post_meta(63, 'top-news-number', true); //　固定ページ「トップページ」のカスタムフィールドの値を設定（63は固定ページのID）
-          $args_news = array(
-            'post_type' => array('news'), // カスタム投稿タイプの指定
-            'numberposts' => 4 // 表示件数指定
-          );
-          $myposts_news = get_posts($args_news);
-
-          foreach ($myposts_news as $post) :
-          ?>
-            <li class="news-list__item">
-              <time class="news-list__date">
-                <span><?php echo date("Y", strtotime($post->post_date)); ?></span><br>
-                <span class="news-list__date news-list__date--lg"><?php echo date("m.d", strtotime($post->post_date)); ?></span>
-              </time>
-              <p class="news-list__tag">
-                <?php echo get_the_excerpt(); ?>
-              </p>
-              <a class="news-list__text-link" href="<?php the_permalink(); ?>"><span class="title"><?php the_title(); ?></span></a>
-            </li>
-          <?php endforeach; ?>
-          <?php wp_reset_postdata(); ?>
-        </ul>
-        <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
-        <div class="page-link-sp is-sp">
-          <a class="page-link-sp__link" href="<?php echo home_url(); ?>/news">
-            News お知らせ一覧はこちら
-          </a>
-        </div>
-
+      </div>
+      <!-- ⬆︎ ############ Blog 各要素コンテンツ Start ############ ⬆︎ -->
       </section>
-    </article>
-    <!-- ⬆︎ /////////////////// Top_News お知らせ End /////////////////// ⬆︎ -->
+      </article>
+      <!-- ⬆︎ /////////////////// Top_Blog ブログ End /////////////////// ⬆︎ -->
 
-    <!-- ================================================================================ -->
+      <!-- ================================================================================ -->
 
-    <!-- ⬇︎ /////////////////// Contact お問い合わせ Start /////////////////// ⬇︎ -->
-    <article class="contents__article" id="contact">
-      <section class="contents__article-inner">
-        <!-- ===== コンテンツ見出し Heading ===== -->
-        <h2 class="contents-heading">
-          <span class="contents-heading__main">
-            Contact
-          </span>
-          <span class="contents-heading__sub">
-            お問い合わせ
-          </span>
-        </h2>
-        <!-- ===== コンテンツ見出し Heading ===== -->
-        <!-- ===== 説明 Description ===== -->
-        <p class="contents__desc">
-          下記入力フォームよりお問い合わせをお願い致します。<br>
-          案件等に関しては、「企業」をご選択頂き、お問い合わせ項目の「案件のご依頼・相談」を選択の上、内容のご入力をお願い致します。
-        </p>
+      <!-- ⬇︎ /////////////////// Top_News お知らせ Start /////////////////// ⬇︎ -->
 
-        <!-- ===== お問い合わせフォーム form-box ===== -->
-        <!-- <div class="form-box">
+      <!-- ⬆︎ /////////////////// Top_News お知らせ End /////////////////// ⬆︎ -->
 
-            
-            <div class="form-box__item">
-              <label class="form-box__label" for="name">お名前
-                <span class="form-box__required">必須</span>
-              </label>
-              <input class="form-box__form required" type="text" id="name" name="name" placeholder="例) 山田太郎" required autocomplete="name">
-            </div>
+      <!-- ================================================================================ -->
 
-           
-            <div class="form-box__item">
-              <label class="form-box__label" for="email">メールアドレス
-                <span class="form-box__required">必須</span>
-              </label>
-              <input class="form-box__form is-email required" type="text" id="email" name="email" placeholder="例) test@example.co.jp" required autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-              <div class="is-error-email"></div>
-            </div>
+      <!-- ⬇︎ /////////////////// Contact お問い合わせ Start /////////////////// ⬇︎ -->
+      <div class="contents__article contents__article--white-bg" id="contact">
+        <section class="contents__article-inner">
+          <!-- ===== コンテンツ見出し Heading ===== -->
+          <h2 class="contents-heading">
+            <span class="contents-heading__main">
+              Contact
+            </span>
+            <span class="contents-heading__sub">
+              お問い合わせ
+            </span>
+          </h2>
+          <!-- ===== コンテンツ見出し Heading ===== -->
+          <!-- ===== 説明 Description ===== -->
+          <p class="contents__desc">
+            下記入力フォームよりお問い合わせをお願い致します。<br>
+            案件等に関しては、「企業」をご選択頂き、お問い合わせ項目の「案件のご依頼・相談」を選択の上、内容のご入力をお願い致します。
+          </p>
 
-            
-            <div class="form-box__item">
+          <!-- ===== お問い合わせフォーム form-box ===== -->
+          <?php echo do_shortcode('[contact-form-7 id="756"  html_class="form-box" title="Yukuro CreataFolio お問い合わせフォーム"]'); ?>
+          <!-- ===== お問い合わせフォーム form-box ===== -->
+      </div>
+      <!-- ⬆︎ /////////////////// Contact お問い合わせ End /////////////////// ⬆︎ -->
 
-              <p class="form-box__label" for="request">個人 / 企業
-                <span class="form-box__required">必須</span>
-              </p>
-              <label class="form-box__radio-box">
-                <input class="form-box__radio is-request" type="radio" id="request" name="radio" value="個人" required checked>
-                <span class="form-box__radio form-box__radio--text">個人</span>
-              </label>
-              <label class="form-box__radio-box">
-                <input class="form-box__radio is-request" type="radio" id="request" name="radio" value="企業">
-                <span class="form-box__radio form-box__radio--text">企業</span>
-              </label>
-              <div class="form-box__error-text" id="error-textbox"></div>
-            </div>
-
-            
-            <div class="form-box__item">
-              <label class="form-box__label" for="contents">お問い合わせ項目
-                <span class="form-box__required">必須</span>
-              </label>
-              <select class="form-box__form form-box__form--select is-contents" name="contents" id="contents">
-                <option class="form-box__form form-box__form--select" required value="選択して下さい">選択して下さい</option>
-                <option class="form-box__form form-box__form--select" required value="案件のご依頼・ご相談">・案件のご依頼・ご相談</option>
-                <option class="form-box__form form-box__form--select" required value="その他お問い合わせ">・その他お問い合わせ</option>
-              </select>
-              <div class="form-box__error-text" id="error-textbox"></div>
-            </div>
-
-       
-            <div class="form-box__item">
-              <label class="form-box__label" for="textarea">お問い合わせ内容
-                <span class="form-box__required">必須</span>
-              </label>
-              <textarea class="form-box__form form-box__form--textarea required" name="textarea" id="textarea" placeholder="例) お問い合わせ内容を入力して下さい。"></textarea>
-              <div class="form-box__error-text" id="error-textbox"></div>
-            </div>
-
-            
-            <div class="form-box__item form-box__item--check">
-              <label class="form-box__pribacypolicy">
-                <input class="form-box__check required" type="checkbox" id="agree" required>
-                <span class="form-box__checkmark"></span>
-                <a class="form-box__pribacy-link" href="privacypolicy.html">プライバシーポリシーに同意する</a>
-                <div class="form-box__error-text" id="error-textbox"></div>
-              </label>
-            </div>
-
-            <div class="form-box__item form-box__item--button">
-              <input class="form-box__button" id="submit-button" type="submit" name="form-button" value="入力内容を確認する" disabled>
-            </div>
-          </div> -->
-        <!-- ===== お問い合わせフォーム form-box ===== -->
-      </section>
-
-      <!-- ===== お問い合わせフォーム form-box ===== -->
-      <?php echo do_shortcode('[contact-form-7 id="756"  html_class="form-box" title="Yukuro CreataFolio お問い合わせフォーム"]'); ?>
-      <!-- ===== お問い合わせフォーム form-box ===== -->
-    </article>
-    <!-- ⬆︎ /////////////////// Contact お問い合わせ End /////////////////// ⬆︎ -->
-
+    </div>
   </div>
-</div>
 </div>
 <?php get_footer(); ?>

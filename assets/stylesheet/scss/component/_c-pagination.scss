@@ -34,6 +34,10 @@
       color: $font-white;
       background-color: $background-black;
     }
+
+    @include mq(sp) {
+      padding: 16px;
+    }
   }
 
   & .current {

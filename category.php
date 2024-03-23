@@ -52,26 +52,26 @@
           <div class="category-nav">
             
             <?php
-            wp_nav_menu(array(
-              'menu' => 'web-design_menu',
-              'theme_location' => 'category-nav',
-              'menu_class' => 'category-nav__list',
-              'container' => false,
-              'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
-            ));
+                wp_nav_menu(array(
+                  'menu' => 'web-design_menu',
+                  'theme_location' => 'category-nav',
+                  'menu_class' => 'category-nav__list',
+                  'container' => false,
+                  'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
+                ));
             ?>
           </div>
         <?php else : ?>
           <div class="category-nav">
             
             <?php
-            wp_nav_menu(array(
-              'menu' => 'handmade_menu',
-              'theme_location' => 'category-nav',
-              'menu_class' => 'category-nav__list',
-              'container' => false,
-              'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
-            ));
+                wp_nav_menu(array(
+                  'menu' => 'handmade_menu',
+                  'theme_location' => 'category-nav',
+                  'menu_class' => 'category-nav__list',
+                  'container' => false,
+                  'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
+                ));
             ?>
           </div>
         <?php endif; ?> -->
@@ -94,28 +94,30 @@
 
 
                 <div class="blog-card__label">
-                  <h4 class="blog-card__title">
-                    <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
-                      <?php the_title(); ?>
-                    </a>
-                  </h4>
+                  <div class="blog-card__inner">
+                    <h4 class="blog-card__title">
+                      <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
+                        <?php the_title(); ?>
+                      </a>
+                    </h4>
 
-                  <div class="blog-card__category-link">
-                    <?php
-                    $categories = get_the_category();  // カテゴリ情報を配列で取得
-                    foreach ($categories as $category) :
-                      $parent = $category->parent; // 親カテゴリーIDを取得
-                      if ($parent) {
-                        echo '<a class="c-meta__cat c-meta__cat--sub" href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>';
-                      }
-                    endforeach;
-                    ?>
-                  </div>
+                    <div class="blog-card__category-link">
+                      <?php
+                      $categories = get_the_category();  // カテゴリ情報を配列で取得
+                      foreach ($categories as $category) :
+                        $parent = $category->parent; // 親カテゴリーIDを取得
+                        if ($parent) {
+                          echo '<a class="c-meta__cat c-meta__cat--sub" href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>';
+                        }
+                      endforeach;
+                      ?>
+                    </div>
 
-                  <div class="blog-card__date-box">
-                    <time class="blog-card__date">
-                      <?php the_time('Y.m.d'); ?>
-                    </time>
+                    <div class="blog-card__date-box">
+                      <time class="blog-card__date">
+                        <?php the_time('Y.m.d'); ?>
+                      </time>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -129,10 +131,10 @@
           <?php endif; ?>
         </div>
 
-          <?php
-          set_query_var('paging_query', $wp_query);
-          get_template_part('templates/pagination');
-          ?>
+        <?php
+        set_query_var('paging_query', $wp_query);
+        get_template_part('templates/pagination');
+        ?>
         <!-- ⬇︎ ############ Web制作・開発の記事一覧 Start ############ ⬇︎ -->
       </article>
 

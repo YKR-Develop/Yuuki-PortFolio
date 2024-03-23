@@ -14,28 +14,42 @@
  テキスト入力フォームの指定
 -------------------------------------------------- */
 .form-box {
-  max-width: 441px;
+  max-width: 440px;
   margin: 40px auto 0 auto;
+  display: flex;
+  gap: 48px;
+  flex-direction: column;
+  justify-content: center;
   color: $font-black;
   @include mq(sp) {
     width: 100%;
   }
 
+  input,
+  textarea,
+  select {
+    outline:none;
+  }
+
   &__item {
-    margin-bottom: 64px;
-
-    @include mq(sp) {
-      margin-bottom: 32px;
-    }
-
-    &:nth-child(5) {
-      margin-bottom: 48px;
-    }
-
     &--button {
-      text-align: center;
+      width: 280px;
       margin: 0 auto 0 auto;
+
+      & p {
+        position: relative;
+
+        & .wpcf7-spinner {
+          position: absolute;
+          top: 25%;
+          right: 0;
+        }
+      }
     }
+  }
+
+  & .wpcf7-not-valid {
+    border-bottom: 1px solid $c_note;
   }
 
   /* --------------------------------------------------
@@ -51,8 +65,7 @@
     margin-left: 16px;
     font-size: fluid-size(12, 14);
     padding: 2px;
-    border: 1px solid #ff3131;
-    color: #ff3131;
+    color: $c_note;
   }
 
   /* --------------------------------------------------

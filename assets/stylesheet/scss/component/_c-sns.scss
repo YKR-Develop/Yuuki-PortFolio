@@ -52,15 +52,15 @@ $pocket-bg: #f03e51;
       content: "";
       height: 1px;
       flex-grow: 1;
-      background-color: $border-black;
-      margin-left: 16px;
+      background-color: $border-base;
+      margin-left: 32px;
     }
     &::before {
       content: "";
       height: 1px;
       flex-grow: 1;
-      background-color: $border-black;
-      margin-right: 16px;
+      background-color: $border-base;
+      margin-right: 32px;
     }
   }
 

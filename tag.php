@@ -55,29 +55,30 @@
                   <?php endif; ?>
                 </a>
 
-
                 <div class="blog-card__label">
-                  <h4 class="blog-card__title">
-                    <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
-                      <?php the_title(); ?>
-                    </a>
-                  </h4>
+                  <div class="blog-card__inner">
+                    <h4 class="blog-card__title">
+                      <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
+                        <?php the_title(); ?>
+                      </a>
+                    </h4>
 
-                  <div class="blog-card__category-link">
-                    <?php
-                    $categories = get_the_category();  // カテゴリ情報を配列で取得
-                    foreach ($categories as $category) :
-                      $parent = $category->parent; // 親カテゴリーIDを取得
-                      if ($parent) {
-                        echo '<a class="c-meta__cat c-meta__cat--sub" href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>';
-                      }
-                    endforeach;
-                    ?>
+                    <div class="blog-card__category-link">
+                      <?php
+                      $categories = get_the_category();  // カテゴリ情報を配列で取得
+                      foreach ($categories as $category) :
+                        $parent = $category->parent; // 親カテゴリーIDを取得
+                        if ($parent) {
+                          echo '<a class="c-meta__cat c-meta__cat--sub" href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>';
+                        }
+                      endforeach;
+                      ?>
 
+                    </div>
+                    <time class="blog-card__date">
+                      <?php the_time('Y.m.d'); ?>
+                    </time>
                   </div>
-                  <time class="blog-card__date">
-                    <?php the_time('Y.m.d'); ?>
-                  </time>
                 </div>
               </div>
             <?php endwhile; ?>
