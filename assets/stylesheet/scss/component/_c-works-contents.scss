@@ -234,6 +234,7 @@
 
     @include mq(sp) {
       flex-direction: column;
+      gap: 16px;
     }
   }
 

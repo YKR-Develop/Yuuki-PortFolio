@@ -37,10 +37,8 @@ $pinterest-bg: #e7001a;
 $pocket-bg: #f03e51;
 
 .sns-share {
-  max-width: 768px;
-  margin: 64px auto;
-
-
+  margin-bottom: 48px;
+  
   &__heading {
     font-size: fluid-size(16, 20);
     margin-bottom: 24px;

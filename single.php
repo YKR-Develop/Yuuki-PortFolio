@@ -15,8 +15,8 @@
   <div class="contents">
     <div class="contents__inner">
 
-     <!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
-     <div class="pkz">
+      <!-- ⬇︎ /////////////////// パンくずリスト Start /////////////////// ⬇︎ -->
+      <div class="pkz">
         <div id="breadcrumbs" class="pkz__inner pkz__inner--blog" typeof="BreadcrumbList" vocab="https://schema.org/">
           <?php if (function_exists('bcn_display')) {
             bcn_display();
@@ -82,22 +82,26 @@
           endif; ?>
         </section>
 
-        <!-- ⬇︎ ############ SNSシェアボタン Start ############ ⬇︎ -->
-        <?php get_template_part('article-parts/sns-share'); ?>
-        <!-- ⬆︎ ############ SNSシェアボタン End ############ ⬆︎ -->
-
-
-        <!-- ⬇︎ ############ 前後記事ボタン Start ############ ⬇︎ -->
-        <?php get_template_part('article-parts/prev_next'); ?>
-        <!-- ⬆︎ ############ 前後記事ボタン End ############ ⬆︎ -->
-
-
-        <!-- ⬇︎ ############ 関連記事一覧 Start ############ ⬇︎ -->
-        <?php get_template_part('article-parts/related-article_list'); ?>
-        <!-- ⬆︎ ############ 関連記事一覧 End ############ ⬆︎ -->
-
       </article>
       <!-- ⬆︎ /////////////////// 投稿本文 End /////////////////// ⬆︎ -->
+
+      <div class="article-nav">
+        <div class="article-nav__inner">
+          <!-- ⬇︎ ############ SNSシェアボタン Start ############ ⬇︎ -->
+          <?php get_template_part('article-parts/sns-share'); ?>
+          <!-- ⬆︎ ############ SNSシェアボタン End ############ ⬆︎ -->
+
+
+          <!-- ⬇︎ ############ 前後記事ボタン Start ############ ⬇︎ -->
+          <?php get_template_part('article-parts/prev_next'); ?>
+          <!-- ⬆︎ ############ 前後記事ボタン End ############ ⬆︎ -->
+
+
+          <!-- ⬇︎ ############ 関連記事一覧 Start ############ ⬇︎ -->
+          <?php get_template_part('article-parts/related-article_list'); ?>
+          <!-- ⬆︎ ############ 関連記事一覧 End ############ ⬆︎ -->
+        </div>
+      </div>
 
 
       <!-- ⬇︎ ############ アフィリエイト広告エリア Start ############ ⬇︎ -->

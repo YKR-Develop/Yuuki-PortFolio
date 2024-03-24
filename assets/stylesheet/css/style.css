@@ -3438,6 +3438,26 @@ template {
 /* ⬇︎ //////////// 変数読み込み //////////// */
 /* ⬆︎ //////////// 変数読み込み //////////// */
 /* --------------------------------------------------
+ single.php SNSシェア / 関連記事一覧
+-------------------------------------------------- */
+.article-nav {
+  background-color: #fafafa;
+  padding: 64px 0;
+}
+@media screen and (max-width: 1024px) {
+  .article-nav {
+    padding: 48px 18px;
+  }
+  .article-nav:last-child {
+    padding-bottom: 48px;
+  }
+}
+.article-nav__inner {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------
  Blog-card 共通ブログカードの指定
 -------------------------------------------------- */
 .blog-card {
@@ -5122,8 +5142,7 @@ ul.tab li.active a {
  SNSシェアボタンの指定
 -------------------------------------------------- */
 .sns-share {
-  max-width: 768px;
-  margin: 64px auto;
+  margin-bottom: 48px;
 }
 .sns-share__heading {
   font-size: clamp(1.6rem, 1.4666666667rem + 0.4166666667vw, 2rem);
@@ -5419,6 +5438,7 @@ ul.tab li.active a {
 @media screen and (max-width: 767px) {
   .works-contents .wp-block-columns {
     flex-direction: column;
+    gap: 16px;
   }
 }
 .works-contents .wp-block-button {
@@ -6105,7 +6125,7 @@ p:last-child {
   background-color: #f4f4f4;
 }
 .contents__article {
-  padding: 80px 0;
+  padding: 64px 0;
 }
 .contents__article--white-bg {
   background-color: #fafafa;
@@ -6133,7 +6153,7 @@ p:last-child {
 }
 @media screen and (max-width: 1024px) {
   .contents__article {
-    padding: 56px 18px;
+    padding: 48px 18px;
   }
   .contents__article:last-child {
     padding-bottom: 48px;
@@ -6173,7 +6193,7 @@ p:last-child {
 .contents__wrapper {
   max-width: 1280px;
   margin: 0 auto;
-  margin-bottom: 80px;
+  margin-bottom: 72px;
 }
 .contents__wrapper:last-child {
   margin-bottom: 0;

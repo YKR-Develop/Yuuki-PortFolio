@@ -11,6 +11,25 @@
 /* ⬆︎ //////////// 変数読み込み //////////// */
 
 /* --------------------------------------------------
+ single.php SNSシェア / 関連記事一覧
+-------------------------------------------------- */
+.article-nav {
+  background-color: $background-white;
+  padding: 64px 0;
+
+  @include mq(tab) {
+    padding: 48px 18px;
+    &:last-child {
+      padding-bottom: 48px;
+    }
+  }
+  &__inner {
+    max-width: $single-width;
+    margin: 0 auto;
+  }
+}
+
+/* --------------------------------------------------
  Blog-card 共通ブログカードの指定
 -------------------------------------------------- */
 .blog-card {
