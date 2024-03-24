@@ -257,6 +257,7 @@ Version: 1.0
   font-size: clamp(1.6rem, 1.6rem + 0vw, 1.6rem);
   font-weight: 600;
   margin-top: 16px;
+  font-family: "Klee One", cursive;
 }
 .top-works__mockup-item {
   width: 50%;
@@ -911,6 +912,7 @@ Version: 1.0
 .works-category__label {
   text-align: center;
   font-weight: 400;
+  font-family: "Klee One", cursive;
 }
 .works-category__label--lg {
   display: block;
@@ -1035,11 +1037,13 @@ Version: 1.0
 }
 .works-card__title {
   font-size: clamp(1.6rem, 1.5333333333rem + 0.2083333333vw, 1.8rem);
-  text-align: left;
+  text-align: center;
   flex: 1;
   height: 100%;
   min-height: 0%;
   margin-bottom: 16px;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
 }
 @media screen and (max-width: 767px) {
   .works-card__title {
@@ -1173,9 +1177,10 @@ Version: 1.0
   padding-bottom: 16px;
 }
 .works-label__title {
-  font-size: clamp(1.8rem, 1.6rem + 0.625vw, 2.4rem);
+  font-size: clamp(1.8rem, 1.6666666667rem + 0.4166666667vw, 2.2rem);
   text-align: center;
   margin-bottom: 16px;
+  font-family: "Klee One", cursive;
 }
 .works-label__parent-category > a {
   display: inline-block;
@@ -1304,6 +1309,7 @@ Version: 1.0
   display: flex;
   align-items: center;
   border-bottom: none;
+  font-family: "Klee One", cursive;
 }
 .related-article__heading::after {
   content: "";
@@ -1595,6 +1601,7 @@ Version: 1.0
   font-size: clamp(1.8rem, 1.6rem + 0.625vw, 2.4rem);
   margin-bottom: 24px;
   line-height: 1.5;
+  font-family: "Klee One", cursive;
 }
 .blog-heading__genre {
   display: flex;
@@ -3685,6 +3692,7 @@ template {
   font-size: clamp(1.6rem, 1.4666666667rem + 0.4166666667vw, 2rem);
   font-weight: 300;
   color: #fafafa;
+  font-family: "Klee One", cursive;
 }
 .blog-category__image {
   width: 100%;
@@ -5118,11 +5126,12 @@ ul.tab li.active a {
   margin: 64px auto;
 }
 .sns-share__heading {
-  font-size: clamp(1.6rem, 1.5333333333rem + 0.2083333333vw, 1.8rem);
+  font-size: clamp(1.6rem, 1.4666666667rem + 0.4166666667vw, 2rem);
   margin-bottom: 24px;
   font-weight: 600;
   display: flex;
   align-items: center;
+  font-family: "Klee One", cursive;
 }
 .sns-share__heading::after {
   content: "";
@@ -5234,12 +5243,13 @@ ul.tab li.active a {
   -------------------------------------------------- */
 }
 .works-contents h2 {
-  font-size: clamp(1.8rem, 1.6rem + 0.625vw, 2.4rem);
+  font-size: clamp(1.8rem, 1.6666666667rem + 0.4166666667vw, 2.2rem);
   padding: 12px;
   background-color: #fafafa;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   box-shadow: 5px 5px 6px rgba(65, 65, 65, 0.2);
   margin-top: 56px;
+  font-family: "Noto Sans", YuGothic, "Yu Gothic", "ヒラギノ角ゴシック", "Hiragino Sans", "Arial", sans-serif;
 }
 @media screen and (max-width: 767px) {
   .works-contents h2 {
@@ -5249,18 +5259,18 @@ ul.tab li.active a {
 .works-contents h3 {
   padding: 0 0 6px 12px;
   border-bottom: 1.5px solid #cecece;
-  margin: 32px 0;
+  margin: 48px 0 16px 0;
   font-size: clamp(1.6rem, 1.4666666667rem + 0.4166666667vw, 2rem);
 }
 .works-contents h4 {
   font-size: clamp(1.6rem, 1.5333333333rem + 0.2083333333vw, 1.8rem);
   border-left: 6px solid #cecece;
   padding-left: 8px;
-  margin: 24px 0;
+  margin: 32px 0 16px 0;
 }
 .works-contents h5 {
   font-size: clamp(1.4rem, 1.3333333333rem + 0.2083333333vw, 1.6rem);
-  margin: 16px 0;
+  margin: 24px 0 8px 0;
 }
 .works-contents blockquote {
   border-left: 1.5px solid #cecece;
@@ -5278,7 +5288,8 @@ ul.tab li.active a {
 }
 .works-contents p {
   font-size: clamp(1.4rem, 1.3333333333rem + 0.2083333333vw, 1.6rem);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  line-height: 1.5;
 }
 .works-contents .wp-block-spacer {
   height: 48px !important;
@@ -5287,7 +5298,6 @@ ul.tab li.active a {
 .works-contents a {
   display: inline-block;
   color: #555;
-  padding-bottom: 2px;
   border-bottom: 1px solid #707070;
   transition: 0.3s;
   font-weight: 600;
@@ -5517,30 +5527,27 @@ ul.tab li.active a {
   width: 100%;
 }
 .blog-contents h2 {
-  font-size: clamp(1.8rem, 1.6rem + 0.625vw, 2.4rem);
+  font-size: clamp(1.8rem, 1.6666666667rem + 0.4166666667vw, 2.2rem);
   padding: 12px;
   background-color: #fafafa;
-  margin-bottom: 32px;
+  margin: 48px 0 24px 0;
   box-shadow: 5px 5px 6px rgba(65, 65, 65, 0.2);
-}
-.blog-contents h2:nth-child(n+2) {
-  margin-top: 48px;
 }
 .blog-contents h3 {
   padding: 0 0 6px 12px;
   border-bottom: 1.5px solid #cecece;
-  margin: 32px 0;
+  margin: 40px 0 16px 0;
   font-size: clamp(1.8rem, 1.7333333333rem + 0.2083333333vw, 2rem);
 }
 .blog-contents h4 {
   font-size: clamp(1.6rem, 1.5333333333rem + 0.2083333333vw, 1.8rem);
   border-left: 6px solid #cecece;
   padding-left: 8px;
-  margin: 24px 0;
+  margin: 32px 0 16px 0;
 }
 .blog-contents h5 {
   font-size: clamp(1.6rem, 1.6rem + 0vw, 1.6rem);
-  margin: 16px 0;
+  margin: 24px 0 8px 0;
 }
 .blog-contents blockquote {
   border-left: 1.5px solid #cecece;
@@ -5558,7 +5565,8 @@ ul.tab li.active a {
 }
 .blog-contents p {
   font-size: clamp(1.4rem, 1.3333333333rem + 0.2083333333vw, 1.6rem);
-  margin-bottom: 12px;
+  line-height: 1.5;
+  margin-bottom: 8px;
 }
 .blog-contents .wp-block-spacer {
   height: 48px !important;
@@ -5567,7 +5575,6 @@ ul.tab li.active a {
 .blog-contents a {
   display: inline-block;
   color: #555;
-  padding-bottom: 2px;
   border-bottom: 1px solid #707070;
   transition: 0.3s;
   font-weight: 600;
@@ -6153,7 +6160,7 @@ p:last-child {
   max-width: 976px;
   margin: 0 auto;
   font-size: clamp(1.4rem, 1.3333333333rem + 0.2083333333vw, 1.6rem);
-  margin: 0 auto 64px auto;
+  margin: 0 auto 40px auto;
 }
 @media screen and (max-width: 767px) {
   .contents__desc {

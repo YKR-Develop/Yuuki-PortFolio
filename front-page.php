@@ -54,7 +54,7 @@
               <div class="top-works__desc">
                 <div class="top-works__text-box">
                   <p class="top-works__text">
-                    WFからデザイン・コーディングで制作したサイトを始め、PHPを用いてWordPressを構築したサイトを掲載しております。
+                    WFからデザイン・コーディングで制作したサイトを始め、PHPを用いてWordPressを構築したサイトを掲載しております。<br>詳細にはプロジェクトの概要やデザインの意図などをまとめております。
                   </p>
                 </div>
 
@@ -125,7 +125,7 @@
               <div class="top-works__desc">
                 <div class="top-works__text-box">
                   <p class="top-works__text">
-                    Figmaを使用し制作したアプリのUI UXデザインを掲載しております。<br>ペルソナやカスタマージャーニーなどを用いた実践的な観点を用いて制作しています。
+                    Figmaを使用し制作したアプリのUI UXデザインを掲載しております。<br>ペルソナやカスタマージャーニーなどを用いた実践的な観点で制作するように心がけています。
                   </p>
                 </div>
 
@@ -197,7 +197,7 @@
                 <div class="top-works__text-box">
                   <p class="top-works__text">
                     私が個人的に制作した衣装や造形作品などを掲載しています。<br>
-                    製作へのこだわりや過程などを作品詳細やブログにまとめておりますので、ぜひご覧ください。
+                    モノづくりに対するこだわりや過程などを作品詳細やブログにまとめておりますので、ぜひご覧ください。
                   </p>
                 </div>
 

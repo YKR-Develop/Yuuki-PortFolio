@@ -15,12 +15,13 @@
  各種見出し
 -------------------------------------------------- */
   h2 {
-    font-size: fluid-size(18, 24);
+    font-size: fluid-size(18, 22);
     padding: 12px;
     background-color: $background-white;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     box-shadow: $shadow;
     margin-top: 56px;
+    font-family: $font-family-sans-serif;
 
     @include mq(sp) {
       margin-top: 48px;
@@ -30,7 +31,7 @@
   h3 {
     padding: 0 0 6px 12px;
     border-bottom: 1.5px solid $border-base;
-    margin: 32px 0;
+    margin: 48px 0 16px 0;
     font-size: fluid-size(16, 20);
   }
 
@@ -38,12 +39,12 @@
     font-size: fluid-size(16, 18);
     border-left: 6px solid $border-base;
     padding-left: 8px;
-    margin: 24px 0;
+    margin: 32px 0 16px 0;
   }
 
   h5 {
     font-size: fluid-size(14, 16);
-    margin: 16px 0;
+    margin: 24px 0 8px 0;
   }
 
   /* --------------------------------------------------
@@ -69,7 +70,8 @@
 
   & p {
     font-size: fluid-size(14, 16);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+    line-height: 1.5;
   }
 
   & .wp-block-spacer {
@@ -80,11 +82,9 @@
   & a {
     display: inline-block;
     color: $font-black;
-    padding-bottom: 2px;
     border-bottom: 1px solid $border-black;
     transition: 0.3s;
     font-weight: 600;
-
     &::after {
       content: "⇀";
       padding-left: 8px;
