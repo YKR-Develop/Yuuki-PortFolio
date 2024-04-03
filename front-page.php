@@ -33,22 +33,16 @@
           <!-- ===== コンテンツ見出し Heading ===== -->
 
           <!-- ⬇︎ ############ Webサイト制作 各要素コンテンツ Start ############ ⬇︎ -->
-          <section class="contents__wrapper">
+          <section class="contents__wrapper top-works">
             <!-- ===== 各要素タイトル Title / link ===== -->
             <div class="contents-title">
               <h3 class="contents-title__title">Webサイト</h3>
-              <!-- リンクあり -->
-              <div class="contents-title__page-link is-pc">
-                <a class="contents-title__link" href="<?php echo get_category_link(55); ?>">
-                  Webサイト 制作実績はこちら
-                </a>
-              </div>
             </div>
             <!-- ===== 各要素タイトル Title / link ===== -->
 
-            <div class="top-works">
+            <div class="top-works__contents">
               <div class="top-works__thumb">
-                <img class="top-works__image" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/04/img_top-works-webthumb.jpg" alt="Webサイト制作">
+                <img class="top-works__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/04/img_top-works-webthumb.jpg" alt="Webサイト制作">
               </div>
 
               <div class="top-works__desc">
@@ -80,7 +74,7 @@
                       <li class="top-works__mockup-item">
                         <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
                           <div class="top-works__mockup-thumb">
-                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="">
+                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="<?php the_title() ?>">
                           </div>
                         </a>
                         <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
@@ -91,35 +85,27 @@
                 </ul>
               </div>
             </div>
-            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
-            <div class="page-link-sp is-sp">
-              <a class="page-link-sp__link" href="<?php echo get_category_link(55); ?>">
-                Webサイト 制作実績はこちら
-              </a>
+
+            <div class="primary-button">
+              <a class="primary-button__link" href="<?php echo get_category_link(55); ?>">Webサイト 実績はこちら<span class="primary-button__arrow"></span></a>
             </div>
-            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
+
           </section>
           <!-- ⬆︎ ############ Webサイト制作 各要素コンテンツ Start ############ ⬆︎ -->
 
 
           <!-- ⬇︎ ############ UI UXデザイン 各要素コンテンツ Start ############ ⬇︎ -->
-          <section class="contents__wrapper">
+          <section class="contents__wrapper top-works">
             <!-- ===== 各要素タイトル Title / link ===== -->
             <div class="contents-title">
               <h3 class="contents-title__title">UI UXデザイン</h3>
-              <!-- リンクあり -->
-              <div class="contents-title__page-link is-pc">
-                <a class="contents-title__link" href="<?php echo get_category_link(56); ?>">
-                  UI UXデザイン 制作実績はこちら
-                </a>
-              </div>
             </div>
             <!-- ===== 各要素タイトル Title / link ===== -->
 
 
-            <div class="top-works top-works--odd">
+            <div class="top-works__contents top-works__contents--odd">
               <div class="top-works__thumb top-works__thumb--odd">
-                <img class="top-works__image" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/04/img_top-works-uiuxthumb.jpg" alt="UIUXデザイン">
+                <img class="top-works__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/04/img_top-works-uiuxthumb.jpg" alt="UIUXデザイン">
               </div>
 
               <div class="top-works__desc">
@@ -151,7 +137,7 @@
                       <li class="top-works__mockup-item">
                         <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
                           <div class="top-works__mockup-thumb top-works__mockup-thumb">
-                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="">
+                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="<?php the_title() ?>">
                           </div>
                         </a>
                         <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
@@ -163,34 +149,25 @@
               </div>
             </div>
 
-            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
-            <div class="page-link-sp is-sp">
-              <a class="page-link-sp__link" href="<?php echo get_category_link(56); ?>">
-                UI UXデザイン制作 制作実績はこちら
-              </a>
+            <div class="primary-button">
+              <a class="primary-button__link" href="<?php echo get_category_link(56); ?>">UI UXデザイン 実績はこちら<span class="primary-button__arrow"></span></a>
             </div>
-            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
+
           </section>
           <!-- ⬆︎ ############ UI UXデザイン 各要素コンテンツ Start ############ ⬆︎ -->
 
 
           <!-- ⬇︎ ############ ハンドメイド 各要素コンテンツ Start ############ ⬇︎ -->
-          <section class="contents__wrapper">
+          <section class="contents__wrapper top-works">
             <!-- ===== 各要素タイトル Title / link ===== -->
             <div class="contents-title contents-title--works">
               <h3 class="contents-title__title">ハンドメイド</h3>
-              <!-- リンクあり -->
-              <div class="contents-title__page-link is-pc">
-                <a class="contents-title__link" href="<?php echo get_category_link(61); ?>">
-                  ハンドメイド 制作実績はこちら
-                </a>
-              </div>
             </div>
             <!-- ===== 各要素タイトル Title / link ===== -->
 
-            <div class="top-works top-works">
+            <div class="top-works__contents">
               <div class="top-works__thumb top-works__thumb">
-                <img class="top-works__image" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/04/img_top-works-handmadethumb.jpg" alt="ハンドメイド">
+                <img class="top-works__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/04/img_top-works-handmadethumb.jpg" alt="ハンドメイド">
               </div>
 
               <div class="top-works__desc">
@@ -224,7 +201,7 @@
                       <li class="top-works__mockup-item">
                         <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
                           <div class="top-works__mockup-thumb">
-                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="">
+                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="<?php the_title() ?>">
                           </div>
                         </a>
                         <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
@@ -235,19 +212,12 @@
                 </ul>
               </div>
             </div>
-            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
-            <div class="page-link-sp is-sp">
-              <a class="page-link-sp__link" href="<?php echo get_category_link(61); ?>">
-                ハンドメイド 制作実績はこちら
-              </a>
-            </div>
-            <!-- ********  ※ スマホ〜タブレット限定 リンク ******** -->
 
-            <!-- ===== ページ遷移ボタン ===== -->
             <div class="primary-button">
-              <a class="primary-button__link" href="<?php echo home_url(); ?>/works">Works 詳細はこちら<span class="primary-button__arrow"></span></a>
+              <a class="primary-button__link" href="<?php echo get_category_link(61); ?>">ハンドメイド作品はこちら<span class="primary-button__arrow"></span></a>
             </div>
           </section>
+          
           <!-- ⬆︎ ############ ハンドメイド 各要素コンテンツ Start ############ ⬆︎ -->
         </section>
       </div>
@@ -379,7 +349,7 @@
                         the_post_thumbnail();
                       else :
                       ?>
-                        <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                        <img class="blog-card__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                       <?php endif; ?>
                     </a>
 
@@ -451,7 +421,7 @@
                         the_post_thumbnail();
                       else :
                       ?>
-                        <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                        <img class="blog-card__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                       <?php endif; ?>
                     </a>
 
@@ -459,7 +429,7 @@
                     <div class="blog-card__label">
                       <div class="blog-card__inner">
                         <h4 class="blog-card__title">
-                          <a class="blog-card__title-link" href="/blog/article_sample.html">
+                          <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
                             <?php the_title(); ?>
                           </a>
                         </h4>
@@ -502,11 +472,11 @@
           <!-- ===== 各要素タイトル Title / link ===== -->
 
           <div class="blog-category blog-category--top">
-            <!-- ===== Web制作/開発・デザイン カテゴリ Start ===== -->
+            <!-- ===== Web制作・デザイン カテゴリ Start ===== -->
             <div class="blog-category__item blog-category__item--top">
               <a href="<?php echo home_url(); ?>/web-design" class="blog-category__thumb-link">
-                <h4 class="blog-category__title">Web制作/開発・デザイン</h4>
-                <img class="blog-category__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog_img/img_blog-category_programing-visual.jpg" alt="Web制作/開発・デザイン">
+                <h4 class="blog-category__title">Web制作・デザイン</h4>
+                <img class="blog-category__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog_img/img_blog-category_programing-visual.jpg" alt="Web制作・デザイン">
               </a>
 
               <ul class="blog-category__category-list blog-category__category-list--top">

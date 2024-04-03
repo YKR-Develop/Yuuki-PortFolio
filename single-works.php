@@ -50,15 +50,15 @@
                   ?>
                 </div>
 
-                <div class="works-card__industry">
+                <ul class="works-card__industry">
                   <?php
                   if ($terms = get_the_terms($post->ID, 'works-tag')) {
                     foreach ($terms as $term) {
-                      echo esc_html($term->name);
+                      echo '<li class="works-card__industry-item">'.esc_html($term->name).'</li>';
                     }
                   }
                   ?>
-                </div>
+                </ul>
               </div>
             </div>
 

@@ -91,8 +91,6 @@
                     <img class="blog-card__image" src="http://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                   <?php endif; ?>
                 </a>
-
-
                 <div class="blog-card__label">
                   <div class="blog-card__inner">
                     <h4 class="blog-card__title">

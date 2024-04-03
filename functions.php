@@ -84,6 +84,17 @@ function example_shortcode($atts, $content = null)
 }
 add_shortcode('example', 'example_shortcode');
 
+/* --------------------------------------------------
+  SVGファイルの有効化
+  ------------------------------------------------- */
+function add_file_types_to_uploads($file_types){
+  $new_filetypes = array();
+  $new_filetypes['svg'] = 'image/svg+xml';
+  $file_types = array_merge($file_types, $new_filetypes );
+  return $file_types;
+  }
+  add_action('upload_mimes', 'add_file_types_to_uploads');
+
 
 /* --------------------------------------------------
   画像挿入時の不要アトリビュート削除
@@ -576,3 +587,65 @@ add_filter('manage_edit-post_sortable_columns', 'sortable_column_custom_meta_vie
     }
     add_filter('request', 'adjust_category_paged');
     
+/* --------------------------------------------------
+  記事投稿 埋め込み
+  ------------------------------------------------- */
+// 記事IDを指定して抜粋文を取得
+function ltl_get_the_excerpt($post_id){
+  global $post;
+  $post_bu = $post;
+  $post = get_post($post_id);
+  setup_postdata($post_id);
+  $output = get_the_excerpt();
+  $post = $post_bu;
+  return $output;
+}
+
+//ショートコード
+function nlink_scode($atts) {
+  extract(shortcode_atts(array(
+    'url'=>"",
+    'title'=>"",
+    'excerpt'=>""
+  ),$atts));
+
+  $id = url_to_postid($url);//URLから投稿IDを取得
+
+  $no_image = 'noimageに指定したい画像があればここにパス';//アイキャッチ画像がない場合の画像を指定
+
+  //タイトルを取得
+  if(empty($title)){
+    $title = esc_html(get_the_title($id));
+  }
+  //抜粋文を取得
+  if(empty($excerpt)){
+    $excerpt = esc_html(ltl_get_the_excerpt($id));
+  }
+
+  //アイキャッチ画像を取得
+  if(has_post_thumbnail($id)) {
+    $img = wp_get_attachment_image_src(get_post_thumbnail_id($id),'medium');
+    $img_tag = "<img src='" . $img[0] . "' alt='{$title}'/>";
+  }else{
+    $img_tag ='<img src="'.$no_image.'" alt="" width="'.$img_width.'" height="'.$img_height.'" />';
+  }
+
+  $nlink .=' 
+  <div class="blog-link">
+  <a href="'. $url .'">
+  <div class="blog-link__label">関連記事</div>
+  <div class="blog-link__inner">
+  <div class="blog-link__thumbnail">'. $img_tag .'</div>
+  <div class="blog-link__content">
+  <div class="blog-link__title">'. $title .' </div>
+  <div class="blog-link__excerpt">'. $excerpt .'</div>
+  </div>
+  </div>
+  <div class="clear"></div>
+  </a>
+  </div>';
+
+  return $nlink;
+}
+
+add_shortcode("nlink", "nlink_scode");

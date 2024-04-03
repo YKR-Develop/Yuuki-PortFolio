@@ -248,17 +248,17 @@
                       </div>
 
                       <div class="works-card__industry">
-                        <?php
+                      <?php
                         if ($terms = get_the_terms($post->ID, 'works-tag')) {
                           foreach ($terms as $term) {
-                            echo esc_html($term->name);
+                            echo '<li class="works-card__industry-item">' . esc_html($term->name) . '</li>';
                           }
                         }
                         ?>
                       </div>
                     </div>
                     <div class="works-card__detail-link">
-                      <a class="works-card__link" href="<?php the_permalink(); ?>">制作詳細はこちら</a>
+                      <a class="secondary-button" href="<?php the_permalink(); ?>"><?php the_title(); ?><span class="secondary-button__works">制作詳細はこちら</span></a>
                     </div>
                   </article>
                 <?php endwhile; ?>
@@ -322,18 +322,18 @@
                         ?>
                       </div>
 
-                      <div class="works-card__industry">
-                        <?php
+                      <ul class="works-card__industry">
+                      <?php
                         if ($terms = get_the_terms($post->ID, 'works-tag')) {
                           foreach ($terms as $term) {
-                            echo esc_html($term->name);
+                            echo '<li class="works-card__industry-item">' . esc_html($term->name) . '</li>';
                           }
                         }
                         ?>
-                      </div>
+                      </ul>
                     </div>
                     <div class="works-card__detail-link">
-                      <a class="works-card__link" href="<?php the_permalink(); ?>">制作詳細はこちら</a>
+                      <a class="secondary-button" href="<?php the_permalink(); ?>"><?php the_title(); ?><span class="secondary-button__works">制作詳細はこちら</span></a>
                     </div>
                   </article>
                 <?php endwhile; ?>
@@ -498,7 +498,7 @@
                     </div>
 
                     <div class="works-card__detail-link">
-                      <a class="works-card__link" href="<?php the_permalink(); ?>">制作詳細はこちら</a>
+                      <a class="secondary-button" href="<?php the_permalink(); ?>"><?php the_title(); ?><span class="secondary-button__works">制作詳細はこちら</span></a>
                     </div>
                   </article>
                 <?php endwhile; ?>

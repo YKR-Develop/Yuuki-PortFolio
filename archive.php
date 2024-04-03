@@ -67,7 +67,7 @@
                         the_post_thumbnail();
                       else :
                       ?>
-                        <img class="new-article__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                        <img class="new-article__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                       <?php endif; ?>
                     </a>
 
@@ -160,7 +160,7 @@
                       the_post_thumbnail();
                     else :
                     ?>
-                      <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                      <img class="blog-card__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                     <?php endif; ?>
                   </a>
 
@@ -229,7 +229,7 @@
                       the_post_thumbnail();
                     else :
                     ?>
-                      <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                      <img class="blog-card__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                     <?php endif; ?>
                   </a>
 
@@ -303,7 +303,7 @@
                         the_post_thumbnail();
                       else :
                       ?>
-                        <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                        <img class="blog-card__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                       <?php endif; ?>
                     </a>
 
@@ -423,7 +423,7 @@
                         the_post_thumbnail();
                       else :
                       ?>
-                        <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                        <img class="blog-card__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                       <?php endif; ?>
                     </a>
 
@@ -525,7 +525,7 @@
                         the_post_thumbnail();
                       else :
                       ?>
-                        <img class="blog-card__image" src="<?php echo get_template_directory_uri(); ?>/img/dammy_png" alt="">
+                        <img class="blog-card__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
                       <?php endif; ?>
                     </a>
 

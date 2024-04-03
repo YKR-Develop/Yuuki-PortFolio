@@ -14,26 +14,27 @@
  Top-Works トップページ Works 制作実績 指定 
 -------------------------------------------------- */
 .top-works {
-  display: flex;
-  justify-content: space-between;
-  &:last-child {
-    margin-bottom: 0;
-  }
-  &--odd {
+  &__contents {
+    display: flex;
     justify-content: space-between;
-    flex-direction: row-reverse;
-  }
-
-  @include mq(tab) {
-    margin-bottom: 24px;
-  }
-
-  @include mq(sp) {
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin: 32px auto 0 auto;
-    padding-top: 0;
- 
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &--odd {
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+  
+    @include mq(tab) {
+      margin-bottom: 24px;
+    }
+  
+    @include mq(sp) {
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin: 32px auto 0 auto;
+      padding-top: 0;
+    }  
   }
 
   &__thumb {
@@ -132,9 +133,6 @@
     @include mq(sp) {
       width: 100%;
       border-right: none;
-      &:last-child {
-        margin-bottom: 32px;
-      }
     }
   }
 
@@ -145,6 +143,7 @@
   }
 
   &__mockup-image {
+    width: 100%;
     transition: 0.5s;
     &:hover {
       transform: scale(1.05);
@@ -230,6 +229,7 @@
 
     @include mq(tab) {
       width: 80%;
+      margin: 0 auto;
     }
 
   }

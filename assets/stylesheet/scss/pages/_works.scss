@@ -7,12 +7,14 @@
 @use "../config/variables" as *;
 @use "../config/function" as *;
 @use "../config/mq" as *;
+
 /* //////////// 変数読み込み //////////// */
 .works-greeting {
   &__box {
     @include centerWidth;
   }
 }
+
 /* --------------------------------------------------
   works-category カテゴリーリストの指定 works_top.html
 -------------------------------------------------- */
@@ -20,6 +22,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 64px;
+
   @include mq(tab) {
     gap: 32px;
   }
@@ -37,8 +40,8 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-    
-    @include mq(tab){
+
+    @include mq(tab) {
       height: 100%;
     }
   }
@@ -46,6 +49,7 @@
   &__image {
     width: 100%;
     transition: 0.5s;
+
     &:hover {
       transform: scale(1.1);
     }
@@ -63,11 +67,13 @@
     text-align: center;
     font-weight: 400;
     font-family: $font-heading;
+
     &--lg {
       display: block;
       font-size: fluid-size(20, 24);
       margin-bottom: 8px;
     }
+
     &--sm {
       display: block;
       font-size: fluid-size(14, 18);
@@ -94,6 +100,7 @@
   &__button-area {
     display: flex;
     margin-bottom: 48px;
+
     @include mq(sp) {
       flex-wrap: wrap;
     }
@@ -101,6 +108,7 @@
 
   &__button-item {
     margin-right: 80px;
+
     &:last-child {
       margin-right: 0;
     }
@@ -116,6 +124,7 @@
     font-weight: 600;
     font-size: 1.6em;
     margin-bottom: 16px;
+
     @include mq(sp) {
       width: 100%;
       margin-bottom: 8px;
@@ -131,6 +140,7 @@
   flex-wrap: wrap;
   box-sizing: border-box;
   gap: 64px 64px;
+
   @include mq(tab) {
     flex-wrap: wrap;
     gap: 48px 48px;
@@ -167,7 +177,7 @@
     width: 95%;
     margin-bottom: 24px;
     transition: 0.5s;
-    
+
     &:hover {
       transform: scale(1.05);
     }
@@ -186,6 +196,7 @@
     margin-bottom: 16px;
     font-family: $font-heading;
     font-weight: 600;
+
     @include mq(sp) {
       margin-bottom: 16px;
     }
@@ -195,9 +206,9 @@
     flex: 1;
     height: 100%;
     margin-bottom: 24px;
-    
 
-    & > p {
+
+    &>p {
       font-size: 1.4rem;
       overflow: hidden;
       display: -webkit-box;
@@ -214,6 +225,7 @@
     align-items: center;
     font-size: 1.4rem;
     margin-bottom: 24px;
+
     @include mq(sp) {
       margin-bottom: 16px;
     }
@@ -222,6 +234,7 @@
   &__management-item {
     display: block;
     position: relative;
+
     &:not(:first-child)::before {
       content: "|";
       padding: 0 8px;
@@ -234,7 +247,10 @@
     align-items: center;
     margin-bottom: 24px;
     font-size: 1.4rem;
+    flex-wrap: wrap;
+
     @include mq(sp) {
+      gap: 8px;
       margin-bottom: 16px;
     }
   }
@@ -244,6 +260,7 @@
     padding: 8px 16px;
     border: 1px solid $border-base;
     margin-right: 24px;
+
     @include mq(tab) {
       padding: 8px 6px;
     }
@@ -253,6 +270,13 @@
     font-size: 1.4rem;
     position: relative;
     padding-left: 24px;
+    display: flex;
+
+    @include mq(sp) {
+      flex-wrap: wrap;
+      gap: 8px 0;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -262,46 +286,60 @@
       height: 1px;
       background-color: $border-black;
     }
+
+    & li {
+      font-size: fluid-size(14, 14);
+      position: relative;
+
+      &:not(:first-child)::before {
+        content: "|";
+        padding: 0 8px;
+        color: $border-base;
+
+        @include mq(sp) {
+          padding: 0 4px;
+        }
+      }
+    }
   }
 
   &__detail-link {
     text-align: center;
-    flex: 1;
-    height: 100%;
-    min-height: 0%;
-  }
 
-  &__link {
-    display: inline-block;
-    border-bottom: 1px solid $border-base;
-    font-size: 1.6rem;
-    color: $font-black;
-    position: relative;
-    padding: 0 24px 4px 0;
-    &::before {
-      @include stickArrow;
-    }
-    &::after {
-      @include hoverBorder;
-      bottom: -4px;
-    }
-    &:hover::after {
-      transform: scale(1, 1);
+    & .secondary-button {
+      width: 320px;
+      padding: 8px 0;
+      height: auto;
+      margin: 0 auto;
+      line-height: 1.5;
+      box-shadow: $shadow;
+      font-size: fluid-size(14, 14);
+
+      @include mq(sp) {
+        width: 100%;
+      }
+
+      &__works {
+        display: block;
+      }
     }
   }
 }
+
 /* --------------------------------------------------
   single-works 作品ページ
 -------------------------------------------------- */
 .works-eyecatch {
   margin-bottom: 24px;
-  & > img {
+
+  &>img {
     width: 100%;
   }
 }
 
 .works-label {
   padding-bottom: 16px;
+
   &__title {
     font-size: fluid-size(18, 22);
     text-align: center;
@@ -310,7 +348,7 @@
   }
 
   &__parent-category {
-    & > a {
+    &>a {
       display: inline-block;
       font-size: fluid-size(12, 14);
       position: relative;
@@ -379,6 +417,7 @@
     margin-bottom: 0;
     width: 15%;
     color: $font-gray;
+
     @include mq(sp) {
       width: 100%;
       font-weight: 600;
@@ -389,6 +428,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+
     @include mq(sp) {
       width: 100%;
     }
@@ -419,6 +459,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 16px;
+
     @include mq(sp) {
       width: 100%;
       flex-direction: column;
@@ -446,6 +487,7 @@
       background-color: $border-base;
       margin-left: 32px;
     }
+
     &::before {
       content: "";
       height: 1px;
@@ -458,6 +500,7 @@
   &__item {
     width: calc(100% / 2 - 10px / 2 * 2);
     flex-direction: column;
+
     @include mq(tab) {
       width: 100%;
     }
@@ -467,7 +510,7 @@
     position: relative;
     overflow: hidden;
 
-    & > .wp-element-caption {
+    &>.wp-element-caption {
       box-sizing: border-box;
       position: absolute;
       bottom: 0;
@@ -488,6 +531,7 @@
   img {
     width: 100%;
     transition: 0.7s;
+
     &:hover {
       transform: scale(1.2);
     }
@@ -499,6 +543,7 @@
 -------------------------------------------------- */
 .works-desc {
   @include centerWidth;
+
   &__text {
     font-size: fluid-size(14, 16);
     margin-bottom: 1rem;
