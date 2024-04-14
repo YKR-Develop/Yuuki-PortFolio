@@ -387,6 +387,11 @@
   &__category-desc {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    
+    @include mq(sp) {
+      gap: 8px;
+    }
   }
 }
 

@@ -299,8 +299,10 @@
     flex-grow: 1;
     gap: 16px 0;
     margin-bottom: 32px;
+    height: 96px;
 
     @include mq(tab) {
+      height: auto;
       margin-bottom: 32px;
     }
 

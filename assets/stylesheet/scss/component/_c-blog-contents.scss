@@ -118,7 +118,7 @@
   & a {
     display: inline-block;
     color: $font-link;
-    border-bottom: 1px solid $font-link;
+    text-decoration: underline;
     transition: 0.3s;
     font-weight: 600;
     padding: 0 4px;
@@ -146,17 +146,21 @@
     }
   }
 
-  & .liquid-speech-balloon-wrap {
-    margin-bottom: 2em;
+  & .wp-block-liquid-speech-balloon {
+    margin: 24px 0;
+  }
 
+  & .liquid-speech-balloon-text {
     & p {
+      line-height: 1.5;
+
       &:last-child {
         margin-bottom: 0;
       }
-    }
 
-    @include mq(sp) {
-      margin-bottom: 24px;
+      &:first-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -192,7 +196,6 @@
     & a {
       color: $font-link;
       padding-bottom: 2px;
-      border-bottom: 1px solid $font-link;
       transition: 0.3s;
 
       &:hover {
@@ -219,7 +222,6 @@
           }
         }
       }
-
     }
 
   }
@@ -241,6 +243,7 @@
       list-style-type: square;
       font-size: fluid-size(14, 16);
       margin-bottom: 12px;
+      line-height: 1.5;
 
       &:last-child {
         margin-bottom: 0;
@@ -281,6 +284,7 @@
 
     & li {
       margin-bottom: 12px;
+      line-height: 1.5;
 
       &:last-child {
         margin-bottom: 0;
@@ -301,7 +305,7 @@
   }
 
   /* --------------------------------------------------
- 画像
+ 画像 / ビデオ
 -------------------------------------------------- */
   & img {
     margin-bottom: 32px;
@@ -349,6 +353,7 @@
 
   & .wp-block-columns {
     display: flex;
+    align-items: flex-start;
     margin: 32px 0;
     gap: 32px;
 
@@ -368,7 +373,22 @@
     }
 
     @include mq(sp) {
+      align-items: center;
       flex-direction: column;
+    }
+  }
+
+  & .wp-block-video {
+    margin: 32px auto;
+
+    & video {
+      width: 100%;
+    }
+
+    & .wp-element-caption {
+      text-align: center;
+      font-size: fluid-size(14, 14);
+      margin-top: 4px;
     }
   }
 
@@ -396,6 +416,7 @@
       position: relative;
       z-index: 1;
       transition: 0.3s;
+      text-decoration: none;
 
       @include mq(sp) {
         z-index: 0;
@@ -443,102 +464,21 @@
     }
   }
 
-  /* --------------------------------------------------
-記事の埋め込み
+   /* --------------------------------------------------
+ コード
 -------------------------------------------------- */
-  & .blog-link {
-    display: block;
-    background-color: $background-white;
-    border: 1px solid $border-base;
-    max-width: 100%;
-    margin: 32px 0;
-    box-shadow: $shadow;
-    -webkit-transition: 0.3s ease-in-out;
-    -moz-transition: 0.3s ease-in-out;
-    -o-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out;
+  & .wp-block-code {
+    margin-bottom: 32px;
+    background-color: $background-black;
+    color: $font-white;
+    padding: 16px 16px 16px 16px;
+    font-size: fluid-size(14, 16);
+    line-height: 1.8;
+    position: relative;
 
-    &__label {
-      position: relative;
-
-      &::before {
-        font-family: FontAwesome;
-        position: absolute;
-        padding: 6px 12px;
-        content: "\f02e  関連記事";
-        background-color: $background-black;
-        color: $font-white;
-        font-size: fluid-size(14, 14);
-        z-index: 1;
-        font-weight: 300;
-      }
-    }
-
-
-    & a {
-      padding: 0;
-      border-bottom: none;
-    }
-
-    &:hover {
-      cursor: pointer;
-      opacity: 0.9;
-    }
-
-    &__inner {
-      display: flex;
-      padding: 0 12px 12px;
-      gap: 16px;
-
-      @include mq(sp) {
-        flex-wrap: wrap;
-      }
-    }
-
-    &__thumbnail {
-      width: 60%;
-
-      @include mq(sp) {
-        width: 100%;
-      }
-
-      & img {
-        margin-bottom: 0;
-
-        @include mq(sp) {
-          width: 100%;
-        }
-      }
-    }
-
-    &__content {
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-    &__title {
-      font-size: fluid-size(14, 16);
-      margin-bottom: 12px;
-      font-weight: bold;
-      line-height: 1.4;
-      color: $font-link;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    &__excerpt {
-      font-size: fluid-size(12, 14);
-      font-weight: 300;
-      color: $font-black;
-      margin: 0 10px 5px 0;
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 4;
+    @include mq(sp) {
       overflow: hidden;
-      text-overflow: ellipsis;
+      overflow-x: auto;
     }
   }
 }
