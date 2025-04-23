@@ -248,6 +248,10 @@
   /* --------------------------------------------------
  画像 / 動画
 -------------------------------------------------- */
+  & img {
+    margin-bottom: 32px;
+  }
+
   & img.alignright {
     display: block;
     margin: 0 0 0 auto;
@@ -263,11 +267,24 @@
     margin: 0 auto;
   }
 
-
-  & .wp-element-caption {
-    margin-top: 8px;
+  /* 画像中央寄せ */
+  .wp-block-image {
     text-align: center;
-    font-size: fluid-size(14, 14);
+  }
+
+  .wp-block-image {
+    margin: 32px auto;
+
+    & img {
+      margin-bottom: 0;
+    }
+
+    & .wp-element-caption {
+      margin-top: 0;
+      text-align: center;
+      font-size: fluid-size(14, 14);
+      padding: 12px 8px;
+    }
   }
 
   & .wp-block-columns {

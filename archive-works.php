@@ -40,7 +40,7 @@
         <!-- ===== 挨拶本文 ===== -->
         <div class="works-greeting__box">
           <p class="works-greeting__text">
-            今までに制作したWebサイト / UIUXデザイン / ハンドメイド作品 など幅広い作品を掲載しております。
+            今までに制作したWebサイト / UIUXデザイン作品を掲載しております。
           </p>
           <p class="works-greeting__text">
             制作詳細ページでは当該サイトのURLを始め、制作過程で作成した資料やデザインの一部など制作にあたって実施した内容を掲載しております。
@@ -122,7 +122,7 @@
           </a> -->
 
           <!-- ##### ハンドメイド  ##### -->
-          <a class="works-category__item" href="<?php echo get_term_link('handmade-works', 'works-cat'); ?>">
+          <!-- <a class="works-category__item" href="<?php echo get_term_link('handmade-works', 'works-cat'); ?>">
             <div class="works-category__thumb">
               <img class="works-category__image" src="/wp-content/uploads/2023/03/img_category-thumb_moldingdress.jpg" alt="ハンドメイド">
             </div>
@@ -132,7 +132,7 @@
                 <span class="works-category__label works-category__label--sm">ハンドメイド</span>
               </h3>
             </div>
-          </a>
+          </a> -->
         </section>
       </div>
     </article>
@@ -184,12 +184,12 @@
                   Illustrator
                 </a>
               </li> -->
-              <li class="tab__item tab__item--about">
+              <!-- <li class="tab__item tab__item--about">
                 <a class="tab__link" href="#molding-works">
                   <img class="tab__icon" src="/wp-content/uploads/2023/04/ico_works-molding.svg" alt="ハンドメイド">
                   ハンドメイド
                 </a>
-              </li>
+              </li> -->
             </ul>
           </nav>
           <!-- タブナビゲーション ここまで ***************** -->
@@ -453,66 +453,7 @@
           <!-- ⬆︎ /////////////////// Illustrator End /////////////////// ⬆︎ -->
 
           <!-- ⬇︎ /////////////////// ハンドメイド Start /////////////////// ⬇︎ -->
-          <div id="molding-works" class="tab__area">
-            <!-- ===== 作品制作実績 ここから ===== -->
-            <div class="works-list">
-              <?php
-              $args = array(
-                'post_type' => 'works',
-                'posts_per_page' => 2,
-                'tax_query' => array(
-                  array(
-                    'taxonomy' => 'works-cat',
-                    'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
-                    'terms'    => 'handmade-works'
-                  ),
-                ),
-              );
-              $the_query = new WP_Query($args);
-              ?>
-              <!-- ===== 作品制作実績 ここから ===== -->
-              <?php if ($the_query->have_posts()) : ?>
-                <?php while ($the_query->have_posts()) : $the_query->the_post();
-                  $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
-                  <article class="works-card">
-                    <a href="<?php the_permalink(); ?>" class="works-card__works-image">
-                      <img class="works-card__image" src="<?php print $thumbnail; ?>" alt="">
-                    </a>
-                    <h2 class="works-card__title"><?php the_title(); ?></h2>
-
-                    <div class="works-card__excerpt">
-                      <?php the_excerpt(); ?>
-                    </div>
-
-                    <div class="works-card__genre">
-                      <div class="works-card__category">
-                        <?php
-                        $terms = get_the_terms($post->ID, 'works-cat');
-                        foreach ($terms as $term) {
-                          if ($term->parent) {
-                            echo $term->name;
-                          }
-                        }
-                        ?>
-                      </div>
-                    </div>
-
-                    <div class="works-card__detail-link">
-                      <a class="secondary-button" href="<?php the_permalink(); ?>"><?php the_title(); ?><span class="secondary-button__works">制作詳細はこちら</span></a>
-                    </div>
-                  </article>
-                <?php endwhile; ?>
-              <?php endif;
-              wp_reset_postdata(); ?>
-              <!-- ===== 作品制作実績 ここまで ===== -->
-
-              <!-- ===== ページ遷移ボタン ===== -->
-              <!-- <div class="primary-button">
-              <a class="primary-button__link" href="/works-cat/handmade-works/">ハンドメイド 一覧
-                <span class="primary-button__arrow"></span></a>
-            </div> -->
-            </div>
-          </div>
+          
           <!-- ⬆︎ /////////////////// ハンドメイド End /////////////////// ⬆︎ -->
 
           </section>

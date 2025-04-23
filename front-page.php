@@ -155,70 +155,7 @@
 
           </section>
           <!-- ⬆︎ ############ UI UXデザイン 各要素コンテンツ Start ############ ⬆︎ -->
-
-
-          <!-- ⬇︎ ############ ハンドメイド 各要素コンテンツ Start ############ ⬇︎ -->
-          <section class="contents__wrapper top-works">
-            <!-- ===== 各要素タイトル Title / link ===== -->
-            <div class="contents-title contents-title--works">
-              <h3 class="contents-title__title">ハンドメイド</h3>
-            </div>
-            <!-- ===== 各要素タイトル Title / link ===== -->
-
-            <div class="top-works__contents">
-              <div class="top-works__thumb top-works__thumb">
-                <img class="top-works__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/04/img_top-works-handmadethumb.jpg" alt="ハンドメイド">
-              </div>
-
-              <div class="top-works__desc">
-                <div class="top-works__text-box">
-                  <p class="top-works__text">
-                    私が個人的に制作した衣装や造形作品などを掲載しています。<br>
-                    モノづくりに対するこだわりや過程などを作品詳細やブログにまとめておりますので、ぜひご覧ください。
-                  </p>
-                </div>
-
-                <?php
-                $args = array(
-                  'post_type' => 'works',
-                  'posts_per_page' => 2,
-                  'tax_query' => array(
-                    array(
-                      'taxonomy' => 'works-cat',
-                      'field'    => 'slug', //term_id、name、slug、term_taxonomy_idで指定可
-                      'terms'    => 'handmade-works'
-                    ),
-                  ),
-                );
-                $the_query = new WP_Query($args);
-                ?>
-
-                <ul class="top-works__mockup-list">
-                  <?php if ($the_query->have_posts()) : ?>
-                    <?php while ($the_query->have_posts()) : $the_query->the_post();
-                      $thumbnail = (has_post_thumbnail()) ? get_the_post_thumbnail_url(get_the_ID(), 'large') : 'https://placehold.jp/500x250.png'; ?>
-
-                      <li class="top-works__mockup-item">
-                        <a class="top-works__mockup-link" href="<?php the_permalink() ?>">
-                          <div class="top-works__mockup-thumb">
-                            <img class="top-works__mockup-image" src="<?php print $thumbnail; ?>" alt="<?php the_title() ?>">
-                          </div>
-                        </a>
-                        <h4 class="top-works__mockup-label"><?php the_title() ?></h4>
-                      </li>
-                    <?php endwhile; ?>
-                  <?php endif;
-                  wp_reset_postdata(); ?>
-                </ul>
-              </div>
-            </div>
-
-            <div class="primary-button">
-              <a class="primary-button__link" href="<?php echo get_category_link(61); ?>">ハンドメイド作品はこちら<span class="primary-button__arrow"></span></a>
-            </div>
-          </section>
-          
-          <!-- ⬆︎ ############ ハンドメイド 各要素コンテンツ Start ############ ⬆︎ -->
+           
         </section>
       </div>
       <!-- ⬆︎ /////////////////// Top_Works 制作実績 End /////////////////// ⬆︎ -->
@@ -247,13 +184,13 @@
                 当サイトを閲覧してくださりありがとうございます。
               </p>
               <p class="top-about__text">
-                こちらのポートフォリオ兼ブログサイトでは、<br>制作したWebサイト / UI UXデザイン / ハンドメイド作品の掲載と、「モノづくり」を中心とした情報をブログにて発信しています。
+                こちらのポートフォリオ兼ブログサイトでは、<br>制作したWebサイト / UI UXデザインを掲載しております。
               </p>
               <p class="top-about__text">
-                小さな頃から時間を忘れるほど好きだった何かを作ることとそこに対するこだわりを活かす仕事を考えていたときに、「Webデザイン」という仕事に出会いました。
+                小さな頃から時間を忘れるほど好きだったモノづくりを仕事にしたいと思ったとき「Webデザイン」という仕事に出会いました。
               </p>
               <p class="top-about__text">
-                時間を忘れるほどサイト制作の勉強に夢中になり清掃員から転職し、2年ほど都内のシステム会社で勤務した後、現在は転職活動をしております。
+                時間を忘れるほどサイト制作の勉強に夢中になり清掃員から転職し、2年ほど都内のシステム会社でWebデザイナーのアシスタントとして勤務し、現在は自社メディアを主軸にマーケティング支援を行っている企業で、デザインやライティングに従事しております。
               </p>
             </div>
 
@@ -290,9 +227,9 @@
           <!-- ===== コンテンツ見出し Heading ===== -->
 
           <!-- ===== 説明 Description ===== -->
-          <p class="contents__desc">
+          <!-- <p class="contents__desc">
             Webサイト / デザインに関するアウトプットの投稿をはじめ、ハンドメイドや衣装・造形製作関連などの情報を幅広く発信しています。
-          </p>
+          </p> -->
 
           <!-- ⬇︎ ############ 最新の記事一覧 各要素コンテンツ Start ############ ⬇︎ -->
           <!-- ===== 各要素タイトル Title / link ===== -->
@@ -305,7 +242,7 @@
           <!-- ⬆︎ ############ 最新の記事一覧 各要素コンテンツ End ############ ⬆︎ -->
           <div class="contents__wrapper">
             <!-- タブナビゲーション ここから ***************** -->
-            <nav class="tab ">
+            <!-- <nav class="tab ">
               <ul class="tab__list tab__list--top-blog">
                 <li class="tab__item tab__item--two-tab">
                   <a class="tab__link" href="#web-design_articles">
@@ -320,7 +257,7 @@
                   </a>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
 
             <!-- ⬇︎ ############ Web制作・デザイン Start ############ ⬇︎ -->
             <div id="web-design_articles" class="tab__area">
@@ -394,72 +331,7 @@
             <!-- ============================================================================== -->
 
             <!-- ⬇︎ ############ ハンドメイド Start ############ ⬇︎ -->
-            <div id="handmade_articles" class="tab__area">
-              <div class="blog-wrapper">
-                <?php
-                $args = array(
-                  'post_type' => 'post',
-                  'posts_per_page' => 4,
-                  'orderby' => 'date',
-                  'category' => '3',
-                  'orderby' => 'date',
-                  'order' => 'DESC'
-                );
-                $posts = get_posts($args);
-                foreach ($posts as $post) :
-                  setup_postdata($post);
-
-                  $custom_posts = get_posts($args);
-                ?>
-
-                  <!-- ===== ハンドメイド ブログカード ここから ===== -->
-                  <div class="blog-card">
-                    <!-- ブログサムネイル -->
-                    <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
-                      <?php
-                      if (has_post_thumbnail()) :
-                        the_post_thumbnail();
-                      else :
-                      ?>
-                        <img class="blog-card__image" src="https://ykr2024-portfolio.com/wp-content/uploads/2023/03/img_sample-img.jpg" alt="">
-                      <?php endif; ?>
-                    </a>
-
-                    <!-- ブログタイトル / カテゴリー / 投稿日 -->
-                    <div class="blog-card__label">
-                      <div class="blog-card__inner">
-                        <h4 class="blog-card__title">
-                          <a class="blog-card__title-link" href="<?php the_permalink(); ?>">
-                            <?php the_title(); ?>
-                          </a>
-                        </h4>
-
-                        <div class="blog-card__category-link">
-                          <?php
-                          $categories = get_the_category();
-                          foreach ($categories as $category) {
-                            $cat_name = $category->name;
-                            $cat_link = esc_url(get_category_link($category->term_id));
-                            if ($category->parent) {
-                              echo sprintf("<a href='%s'>%s</a> ", $cat_link, $cat_name);
-                            }
-                          }
-                          ?>
-                        </div>
-
-                        <div class="blog-card__date-box">
-                          <time class="blog-card__date">
-                            <?php the_time('Y.m.d'); ?>
-                          </time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- ===== ハンドメイド ブログカード ここまで ===== -->
-                <?php endforeach;
-                wp_reset_postdata(); ?>
-              </div>
-            </div>
+            
             <!-- ⬆︎ ############ ハンドメイド End ############ ⬆︎ -->
           </div>
           <!-- ============================================================================== -->
@@ -504,7 +376,7 @@
             <!-- ===== Web制作/開発・デザイン カテゴリ ENd ===== -->
 
             <!-- ===== ハンドメイド カテゴリ Start ===== -->
-            <div class="blog-category__item blog-category__item--top">
+            <!-- <div class="blog-category__item blog-category__item--top">
               <a href="<?php echo home_url(); ?>/handmade" class="blog-category__thumb-link">
                 <h4 class="blog-category__title">ハンドメイド</h4>
                 <img class="blog-category__image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/blog_img/img_blog-category_molding-visual.jpg" alt="ハンドメイド">
@@ -530,7 +402,7 @@
                   </li>
                 <?php endforeach; ?>
               </ul>
-            </div>
+            </div> -->
             <!-- ===== ハンドメイド カテゴリ ENd ===== -->
           </div>
 

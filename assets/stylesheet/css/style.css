@@ -2577,7 +2577,7 @@ template {
   }
 }
 .category-nav__item {
-  width: 33.3333333333%;
+  width: 50%;
   text-align: center;
   border: 1px solid #cecece;
   transition: 0.3s;
@@ -3680,12 +3680,12 @@ template {
 -------------------------------------------------- */
 .blog-category {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   gap: 0 64px;
 }
 @media screen and (max-width: 1024px) {
   .blog-category {
-    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 .blog-category--top {
@@ -5274,6 +5274,7 @@ ul.tab li.active a {
   /* --------------------------------------------------
    画像 / 動画
   -------------------------------------------------- */
+  /* 画像中央寄せ */
   /* --------------------------------------------------
   ボタン
   -------------------------------------------------- */
@@ -5470,6 +5471,9 @@ ul.tab li.active a {
   box-shadow: none;
   margin: 0;
 }
+.works-contents img {
+  margin-bottom: 32px;
+}
 .works-contents img.alignright {
   display: block;
   margin: 0 0 0 auto;
@@ -5482,10 +5486,20 @@ ul.tab li.active a {
   display: block;
   margin: 0 auto;
 }
-.works-contents .wp-element-caption {
-  margin-top: 8px;
+.works-contents .wp-block-image {
+  text-align: center;
+}
+.works-contents .wp-block-image {
+  margin: 32px auto;
+}
+.works-contents .wp-block-image img {
+  margin-bottom: 0;
+}
+.works-contents .wp-block-image .wp-element-caption {
+  margin-top: 0;
   text-align: center;
   font-size: clamp(1.4rem, 1.4rem + 0vw, 1.4rem);
+  padding: 12px 8px;
 }
 .works-contents .wp-block-columns {
   margin-bottom: 32px;

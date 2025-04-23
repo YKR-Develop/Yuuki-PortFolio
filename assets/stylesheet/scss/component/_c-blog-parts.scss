@@ -236,11 +236,11 @@
 -------------------------------------------------- */
 .blog-category {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   gap: 0 64px;
 
   @include mq(tab) {
-    flex-wrap: wrap;
+    justify-content: center;
   }
 
   &--top {

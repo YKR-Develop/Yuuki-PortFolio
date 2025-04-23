@@ -529,7 +529,7 @@ function nlink_scode($atts)
   }
   $nlink .= ' 
   <div class="blog-internal">
-  <a href="' . $url . '">
+  <a href="' . $url . '" target="_blank">
   <div class="blog-internal__label">関連記事</div>
   <div class="blog-internal__inner">
   <div class="blog-internal__thumbnail">' . $img_tag . '</div>
